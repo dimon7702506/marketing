@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 23 2017 г., 20:46
+-- Время создания: Окт 28 2017 г., 09:57
 -- Версия сервера: 5.5.57
 -- Версия PHP: 7.1.7
 
@@ -73,9 +73,12 @@ CREATE TABLE `marketing` (
 --
 
 CREATE TABLE `oborot` (
-  `oborot_id` int(6) NOT NULL,
-  `type` int(1) NOT NULL,
-  `kol` float NOT NULL,
+  `id` int(6) NOT NULL,
+  `tov_id` int(6) NOT NULL,
+  `saldo_kol` float NOT NULL,
+  `apteka_id` int(3) NOT NULL,
+  `prihod_kol` float NOT NULL,
+  `rashod_kol` float NOT NULL,
   `price` float NOT NULL,
   `sum` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -111,22 +114,6 @@ INSERT INTO `tax` (`tax_id`, `name`, `percent`) VALUES
 (1, 'НДС 20%', 20),
 (2, 'НДС 0%', 0),
 (3, 'НДС 7%', 7);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `teksaldo`
---
-
-CREATE TABLE `teksaldo` (
-  `id` int(6) NOT NULL,
-  `tov_id` int(6) NOT NULL,
-  `apteka_id` int(3) NOT NULL,
-  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `kol` float NOT NULL,
-  `price` float NOT NULL,
-  `sum` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -169,7 +156,8 @@ ALTER TABLE `marketing`
 -- Индексы таблицы `oborot`
 --
 ALTER TABLE `oborot`
-  ADD UNIQUE KEY `oborot_id` (`oborot_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `oborot_id` (`id`);
 
 --
 -- Индексы таблицы `produser`
@@ -183,12 +171,6 @@ ALTER TABLE `produser`
 ALTER TABLE `tax`
   ADD PRIMARY KEY (`tax_id`),
   ADD UNIQUE KEY `tax_id` (`tax_id`);
-
---
--- Индексы таблицы `teksaldo`
---
-ALTER TABLE `teksaldo`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `user`
@@ -205,11 +187,6 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `catmc`
 --
 ALTER TABLE `catmc`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `teksaldo`
---
-ALTER TABLE `teksaldo`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `user`

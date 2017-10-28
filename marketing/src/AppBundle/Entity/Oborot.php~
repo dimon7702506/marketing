@@ -1,0 +1,75 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Oborot
+ *
+ * @ORM\Table(name="oborot", uniqueConstraints={@ORM\UniqueConstraint(name="oborot_id", columns={"id"})})
+ * @ORM\Entity
+ */
+class Oborot
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tov_id", type="integer", nullable=false)
+     */
+    private $tovId;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="saldo_kol", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $saldoKol;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="apteka_id", type="integer", nullable=false)
+     */
+    private $aptekaId;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prihod_kol", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $prihodKol;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rashod_kol", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $rashodKol;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $price;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="sum", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $sum;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+
