@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Вход в систему</title>
+    <link rel="icon" href="./img/passat_ic.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <form class="form-signin" action="index.php" method="post">
+        <h2 class="form-signin-heading">Вход в систему</h2>
+        <label for="inputLogin" class="sr-only">Login</label>
+        <input type="text" id="inputLogin" name="inputLogin" class="form-control" placeholder="Login" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
+        <?php if (isset($errors['incorrect'])): ?>
+            <p class="errors"><?= $errors['incorrect'] ?></p>
+        <?php endif; ?>
+        <?php if (isset($errors['bad_login'])): ?>
+        <p class="errors"><?= $errors['bad_login'] ?></p>
+        <?php endif; ?>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Запомнить меня
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_login">Войти</button>
+    </form>
+
+</div> <!-- /container -->
+</body>
+</html>
