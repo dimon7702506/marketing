@@ -3,9 +3,9 @@
 session_start();
 
 require_once "./function.php";
+require_once "autoload.php";
 
 if (!is_user_logged_in()) {
-    //показать форму ввода логин-пароль
     $errors = [];
 
     if (isset($_POST['submit_login'])) {
@@ -13,21 +13,12 @@ if (!is_user_logged_in()) {
         $password = $_POST['inputPassword'] ?? $errors['incorrect'] = 'Incorrect password';
 
         if (empty($errors)) {
+            $valid = new Validation($login, $password);
 
-            $account = validation($login, $password);
-            $user_id = 0;
-            $user_name = '';
-
-            foreach ($account as $key =>$val) {
-                $user_id = (int) $val['id'];
-                $user_name = $val['name'];
-            }
-
-            if ($user_id > 0) {
-                log_in($user_id, $login, $user_name);
+            if ($valid->user_id > 0) {
+                log_in($valid->user_id, $login, $valid->user_name);
                 header('location: index.php');
             }else{
-                echo "fgfdgdfgd";
                 $errors['bad_login'] = 'Wrong password or user name!!!';
             }
         }
