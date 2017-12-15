@@ -39,6 +39,7 @@ class DB
     {
         $stmt = self::instance()->prepare($sql);
         $stmt->execute($args);
+        //var_dump($stmt->debugDumpParams());
         return $stmt;
     }
 }
