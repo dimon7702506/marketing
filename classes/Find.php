@@ -14,19 +14,30 @@ class Find
     public function search($text_search, $field_search, $fields)
     {
         if ($fields == 'all') {
-            $sql = "SELECT * FROM names";
-        }else {
-            $sql = "SELECT id, name, producer FROM names";
+            $sql = "SELECT * FROM names LEFT JOIN marketing ON marketing_id = m_id";
+        }elseif ($fields == 'marketings') {
+            $sql = "SELECT m_name FROM marketing";
+        }else{
+            $sql = "SELECT id, name, producer, m_name FROM names LEFT JOIN marketing ON marketing_id = m_id";
+            $sql1 = "SELECT id, name, producer, m_name FROM names";
         }
-
-        $arg = [];
 
         if ($field_search == 'Наименование') {
             $sql .= " WHERE name LIKE CONCAT('%', :str, '%')";
-            $arg = ["str"=>$text_search];
         }elseif ($field_search == 'Производитель') {
             $sql .= " WHERE producer LIKE CONCAT('%', :str, '%')";
+        }elseif ($field_search == 'Код товара') {
+            $sql .= " WHERE id LIKE :str";
+        }elseif ($field_search == 'Код мориона') {
+            $sql .= " WHERE morion_id LIKE :str)";
+        }elseif ($field_search == 'Маркетинг') {
+            $sql = $sql1 . " INNER JOIN marketing ON marketing_id=m_id WHERE m_name LIKE CONCAT('%', :str, '%')";
+        }
+        //ROM `names` INNER JOIN `marketing` ON names.marketing_id=marketing.id WHERE marketing.name LIKE '%Битт%'
+        if (isset($fields)) {
             $arg = ["str" => $text_search];
+        }else{
+            $arg = [];
         }
 
         $stmt = DB::run($sql, $arg);

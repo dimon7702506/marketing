@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/marketing.css" rel="stylesheet">
+</head>
+<body>
+<form class="container">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Наименование</label>
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?>"
+                   maxlength="100" name="new_name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Производитель</label>
+            <input type="text" class="form-control" id="inputPassword4" value="<?php echo $producer; ?>"
+                   maxlength="100" name="new_producer">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $nom_id; ?>" name="nom_id" disabled>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код мориона</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $morion_id; ?>"
+                   maxlength="11" name="new_morion_id">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Штрихкод</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $barcode; ?>"
+                   maxlength="13" name="new_barcode">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">ТНВЭД</label>
+            <input type="text" class="form-control" id="inputZip" value="<?php echo $tnved; ?>"
+                   maxlength="13" name="new_tnved">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputState">Маркетинг</label>
+            <select id="inputState" class="form-control">
+                <option selected><?php echo $mark; ?></option>
+                <?php foreach ($marks as $mar): ?>
+                <?php echo '<option>'."$mar[m_name]".'</option>'; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Маркетинг 2</label>
+            <select id="inputState" class="form-control">
+                <option selected><?php echo $mark; ?></option>
+                <?php foreach ($marks as $mar): ?>
+                <?php echo '<option>'."$mar[m_name]".'</option>'; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+</body>
+</html>
