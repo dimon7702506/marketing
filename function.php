@@ -31,7 +31,7 @@ function export_names_base_to_file()
 {
     $text_search = '';
     $field_search = '';
-    $find = new Find($text_search,$field_search, 'all');
+    $find = new Search($text_search,$field_search, 'all');
     $names = $find->result_data;
 
     $file = fopen("./out/names.csv", 'w+');
