@@ -106,7 +106,7 @@ if (isset($_POST['save'])){
                     'tnved'=>$tnved,
                     'nac'=>$nac,
                     'tax'=>$tax,
-                    //'marketing'=>$marketing,
+                    'marketing'=>$marketing,
                     'gran_price'=>(float) $gran_price,
                     'sum_com'=>(float) $sum_com,
                     //'MNN_id'=>$MNN_id,
