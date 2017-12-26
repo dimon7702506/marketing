@@ -13,7 +13,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Наименование</label>
-            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?>"
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?> "
                    maxlength="100" name="name" required>
         </div>
         <div class="form-group col-md-6">
@@ -48,7 +48,7 @@
             <select id="inputState" class="form-control" name="marketing">
                 <option selected><?php echo $mark; ?></option>
                 <?php foreach ($marks as $mar): ?>
-                <?php echo '<option>'.$mar[m_name].'</option>'; ?>
+                <?php echo "<option>$mar[m_name]</option>"; ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -57,7 +57,7 @@
             <select id="inputState" class="form-control" name="mnn">
                 <option selected><?php echo $mnn; ?></option>
                 <?php foreach ($mnns as $mn): ?>
-                <?php echo "<option . value=$mn[MNN_id]>$mn[MNN_name]".'</option>'; ?>
+                <?php echo "<option>$mn[MNN_name]".'</option>'; ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -75,12 +75,12 @@
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Граничная цена</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $gran_price; ?>"
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $gran_price; ?>"
                    min=0 max=9999.99 name="gran_price">
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Сумма компенсации</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
                    min=0 max=9999.99 name="sum_com">
         </div>
     </div>

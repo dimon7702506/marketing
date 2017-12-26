@@ -18,9 +18,9 @@ class Search
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
         }elseif ($fields == 'marketings') {
-            $sql = "SELECT m_id, m_name FROM marketing";
+            $sql = "SELECT m_id, m_name FROM marketing ORDER BY m_name";
         }elseif ($fields == 'mnn') {
-            $sql = "SELECT MNN_id, MNN_name FROM MNN";
+            $sql = "SELECT MNN_id, MNN_name FROM MNN ORDER BY MNN_name";
         }else{
             $sql = "SELECT id, name, producer, m_name, MNN_name FROM names
                       LEFT JOIN marketing ON marketing_id = m_id
@@ -29,7 +29,7 @@ class Search
         }
 
         if ($field_search == 'Наименование') {
-            $sql .= " WHERE name LIKE CONCAT('%', :str, '%')";
+            $sql .= " WHERE name LIKE CONCAT('%', :str, '%') ORDER BY name";
         }elseif ($field_search == 'Производитель') {
             $sql .= " WHERE producer LIKE CONCAT('%', :str, '%')";
         }elseif ($field_search == 'Код товара') {

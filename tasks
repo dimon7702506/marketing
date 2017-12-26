@@ -4,7 +4,3 @@
 вывод вверху имени пользователя на каждой странице
 пагинация
 при записи элемента возвращаться на таблицу выборки
-
-SELECT names.name FROM `names` INNER JOIN `marketing` ON names.marketing_id=marketing.id WHERE marketing.id = 6
-SELECT names.name FROM `names` INNER JOIN `marketing` ON names.marketing_id=marketing.id WHERE marketing.name LIKE '%Битт%'
-SELECT names.name, marketing.name FROM names LEFT JOIN marketing ON names.marketing_id = marketing.id WHERE names.name LIKE '%Афлуб%'

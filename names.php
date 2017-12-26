@@ -14,4 +14,8 @@ if (isset($_POST['submit_search'])) {
     $count = count($nomens);
 }
 
+if (isset($_POST['submit_new'])) {
+    header("location: ./element.php?id=0");
+}
+
 require_once "./names.html";

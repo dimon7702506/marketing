@@ -4,6 +4,13 @@ require_once "./function.php";
 require_once "autoload.php";
 
 $errors = '';
+$name = '';
+$producer = '';
+$tnved = '';
+$mark = '';
+$mnn = '';
+$name_torg = '';
+$form_prod = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -99,23 +106,29 @@ if (isset($_POST['save'])){
 
     if (empty($errors)){
         $element = ['id'=>$id,
-                    'morion_id'=>$morion_id,
+                    'morion_id'=>(int) $morion_id,
                     'name'=>$name,
                     'producer'=>$producer,
                     'barcode'=>$barcode,
                     'tnved'=>$tnved,
-                    'nac'=>$nac,
-                    'tax'=>$tax,
+                    'nac'=>(int) $nac,
+                    'tax'=>(int) $tax,
                     'marketing'=>$marketing,
                     'gran_price'=>(float) $gran_price,
                     'sum_com'=>(float) $sum_com,
-                    //'MNN_id'=>$MNN_id,
+                    'mnn'=>$mnn,
                     'form_prod'=>$form_prod,
                     'name_torg'=>$name_torg];
-        $method = 'update';
-        //var_dump($element);
+
+        if ($id == 0) {
+            $method = 'new';
+            //var_dump($element);
+        }else {
+            $method = 'update';
+        }
+
         $save = new SaveToDB($element, $method);
-        //header('location: ./names.php');
+        header("location: ./element.php?id=$id");
     }
 }
 
