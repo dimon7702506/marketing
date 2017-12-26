@@ -89,7 +89,7 @@ if (isset($_POST['save'])){
     $errors .= $check->error;
 
     $check = new CheckField('marketing', $_POST['marketing']);
-    $mark_id = $check->value;
+    $marketing = $check->value;
     $errors .= $check->error;
     //var_dump($mark_id);
 
@@ -106,13 +106,15 @@ if (isset($_POST['save'])){
                     'tnved'=>$tnved,
                     'nac'=>$nac,
                     'tax'=>$tax,
-                    //'marketing_id'=>$marketing_id,
-                    'gran_price'=>$gran_price,
-                    'sum_com'=>$sum_com,
+                    //'marketing'=>$marketing,
+                    'gran_price'=>(float) $gran_price,
+                    'sum_com'=>(float) $sum_com,
                     //'MNN_id'=>$MNN_id,
                     'form_prod'=>$form_prod,
                     'name_torg'=>$name_torg];
         $method = 'update';
+        //var_dump($element);
+        $save = new SaveToDB($element, $method);
         //header('location: ./names.php');
     }
 }
