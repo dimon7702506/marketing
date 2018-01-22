@@ -27,11 +27,12 @@ function log_out()
     $_SESSION['user_id'] = null;
 }
 
-function export_names_base_to_file()
+function export_names_base_to_file($fields)
 {
     $text_search = '';
     $field_search = '';
-    $find = new Search($text_search,$field_search, 'all');
+    $id_to_update = '';
+    $find = new SearchFromNames($text_search, $field_search, $fields);
     $names = $find->result_data;
 
     $file = fopen("./out/names.csv", 'w+');
@@ -54,4 +55,6 @@ function export_names_base_to_file()
     header('Pragma: public');
     header('Content-Length: ' . filesize($download_file));
     readfile($download_file);
+
+    $save = new SaveToDB('', 'update_modify');
 }

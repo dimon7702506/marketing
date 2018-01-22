@@ -16,13 +16,13 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $field_search = "Код товара";
     $field = 'all';
-    $find = new Search($id, $field_search, $field);
+    $find = new SearchFromNames($id, $field_search, $field);
     $noms = $find->result_data;
 
     //var_dump($noms);
     foreach ($noms as $nom){
-        $name = $nom['name'];
-        $producer = $nom['producer'];
+        $name = rtrim($nom['name']);
+        $producer = str_replace('"',' ',$nom['producer']);
         $nom_id = $nom['id'];
         $morion_id = $nom['morion_id'];
         $barcode = $nom['barcode'];
@@ -37,11 +37,11 @@ if (isset($_GET['id'])) {
         $form_prod = $nom['form_prod'];
     }
 
-    $marketings = new Search('','', 'marketings');
+    $marketings = new SearchFromNames('','', 'marketings');
     $marks = $marketings->result_data;
     //var_dump($marks);
 
-    $mnn_list = new Search('','', 'mnn');
+    $mnn_list = new SearchFromNames('','', 'mnn');
     $mnns = $mnn_list->result_data;
     //var_dump($mnns);
 }
@@ -130,6 +130,16 @@ if (isset($_POST['save'])){
         $save = new SaveToDB($element, $method);
         header("location: ./element.php?id=$id");
     }
+}
+
+if (isset($_POST['close'])) {
+    var_dump($_COOKIE['text_search']);
+    if (isset($_COOKIE['text_search']) && (isset($_COOKIE['field_search']))){
+        $str_search = './names.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
+    }else{
+        $str_search = './names.php';
+    }
+    header("location: $str_search");
 }
 
 require_once "./element.html";

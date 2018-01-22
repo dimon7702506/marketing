@@ -14,12 +14,12 @@
         <div class="form-group col-md-6">
             <label for="inputEmail4">Наименование</label>
             <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?> "
-                   maxlength="100" name="name" required>
+                   maxlength="200" name="name" required>
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">Производитель</label>
             <input type="text" class="form-control" id="inputPassword4" value="<?php echo $producer; ?>"
-                   maxlength="100" name="producer" required>
+                   maxlength="200" name="producer" required>
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Код</label>
@@ -47,6 +47,7 @@
             <label for="inputState">Маркетинг</label>
             <select id="inputState" class="form-control" name="marketing">
                 <option selected><?php echo $mark; ?></option>
+                <option></option>
                 <?php foreach ($marks as $mar): ?>
                 <?php echo "<option>$mar[m_name]</option>"; ?>
                 <?php endforeach; ?>
@@ -56,6 +57,7 @@
             <label for="inputState">МНН</label>
             <select id="inputState" class="form-control" name="mnn">
                 <option selected><?php echo $mnn; ?></option>
+                <option></option>
                 <?php foreach ($mnns as $mn): ?>
                 <?php echo "<option>$mn[MNN_name]".'</option>'; ?>
                 <?php endforeach; ?>
@@ -98,6 +100,7 @@
     </div>
     <p class="errors"><?php echo $errors ?></p>
     <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+    <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
 </form>
 
 </body>

@@ -19,9 +19,10 @@ class CheckField
             $this->value = htmlentities($val);
 
             if ($field == 'name' || $field == 'producer') {
-                if(strlen($val) < 1 || strlen($val) > 100){
+                if(strlen($val) < 1 || strlen($val) > 200){
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
+                //echo strlen($val). "<BR>";
             }elseif ($field == 'barcode' || $field == 'tnved') {
                 if(strlen($val) > 13){
                     $this->error = 'Incorrect length of field: ' . $field;

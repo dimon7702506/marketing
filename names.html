@@ -30,12 +30,12 @@
         </div>
     </nav>
 
-    <form class="form-inline" style="padding-top: 10px" action="names.php" method="post">
+    <form class="form-inline" style="padding-top: 10px" action="names.php" method="get">
         <div class="form-group mx-sm-3">
             <label for="formGroupExampleInput" class="sr-only">Password</label>
 
             <input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск" style="width: 600px;"
-                value="<?=isset($_POST['search']) ? $_POST['search'] : ''?>">
+                value="<?=isset($_GET['search']) ? $_GET['search'] : ''?>">
         </div>
         <div class="form-group mx-sm-3">
             <label for="inputState" style="padding-right: 10px;">Поле поиска:</label>
@@ -74,7 +74,7 @@
                         <td><?php echo $nomen['MNN_name']; ?></td>
                         <td><?php echo $nomen['m_name']; ?></td>
                         <?php $id = (int) $nomen['id']; ?>
-                        <td><?php echo "<a href=\"./element.php?id=$id\">изменить</a>"; ?></td>
+                        <td><?php echo "<a href=\"./element.php?id=$id&\">изменить</a>"; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

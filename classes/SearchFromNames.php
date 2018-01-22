@@ -2,7 +2,7 @@
 
 /* Поиск записей в таблице names*/
 
-class Search
+class SearchFromNames
 {
     public $result_data;
 
@@ -17,6 +17,11 @@ class Search
             $sql = "SELECT * FROM names 
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
+        }elseif ($fields == 'updates') {
+            $sql = "SELECT * FROM names 
+                      LEFT JOIN marketing ON marketing_id = m_id
+                      LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
+                     WHERE modify = 1";
         }elseif ($fields == 'marketings') {
             $sql = "SELECT m_id, m_name FROM marketing ORDER BY m_name";
         }elseif ($fields == 'mnn') {
