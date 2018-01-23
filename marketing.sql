@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Янв 22 2018 г., 22:04
--- Версия сервера: 5.7.20-0ubuntu0.17.10.1
+-- Время создания: Янв 24 2018 г., 00:02
+-- Версия сервера: 5.7.21-0ubuntu0.17.10.1
 -- Версия PHP: 7.1.11-0ubuntu0.17.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,53 +28,55 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `marketing` (
   `m_id` int(3) NOT NULL,
-  `m_name` varchar(100) NOT NULL
+  `m_name` varchar(100) NOT NULL,
+  `persent` int(3) DEFAULT NULL,
+  `summ` decimal(10,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `marketing`
 --
 
-INSERT INTO `marketing` (`m_id`, `m_name`) VALUES
-(1, 'Алпенфарма'),
-(2, 'Ананта'),
-(3, 'Артериум'),
-(4, 'Артериум ОТС'),
-(5, 'Астрафарм'),
-(6, 'Бионорика'),
-(7, 'Биттнер'),
-(8, 'Борщаговка'),
-(9, 'Ботаника'),
-(11, 'Виво'),
-(10, 'Виола'),
-(12, 'Глаксо'),
-(13, 'Дарница'),
-(14, 'Дельта'),
-(15, 'Джонсонс'),
-(16, 'Житомир'),
-(17, 'Здоровье'),
-(18, 'Интерхим'),
-(19, 'КВЗ'),
-(20, 'Ключи здоровья'),
-(22, 'Красная звезда промо'),
-(21, 'Красная звезда стандарт'),
-(23, 'Лектравы'),
-(24, 'Лубны'),
-(25, 'Мега'),
-(26, 'Мовихелз'),
-(27, 'Немец гомеоп союз'),
-(28, 'Нижфарм'),
-(29, 'Никомед '),
-(30, 'Парамед'),
-(31, 'Реддис'),
-(32, 'Реккит Бенкизер'),
-(33, 'Сандоз ОТС'),
-(34, 'Сандоз РХ'),
-(35, 'Сперко'),
-(36, 'Тева'),
-(37, 'Фармаско'),
-(39, 'Фармина'),
-(38, 'Фитофарм');
+INSERT INTO `marketing` (`m_id`, `m_name`, `persent`, `summ`) VALUES
+(1, 'Алпенфарма', 0, '0'),
+(2, 'Ананта', NULL, NULL),
+(3, 'Артериум', NULL, NULL),
+(4, 'Артериум ОТС', NULL, NULL),
+(5, 'Астрафарм', NULL, NULL),
+(6, 'Бионорика', NULL, NULL),
+(7, 'Биттнер', NULL, NULL),
+(8, 'Борщаговка', NULL, NULL),
+(9, 'Ботаника', NULL, NULL),
+(10, 'Виола', NULL, NULL),
+(11, 'Виво', NULL, NULL),
+(12, 'Глаксо', NULL, NULL),
+(13, 'Дарница', NULL, NULL),
+(14, 'Дельта', NULL, NULL),
+(15, 'Джонсонс', NULL, NULL),
+(16, 'Житомир', NULL, NULL),
+(17, 'Здоровье', NULL, NULL),
+(18, 'Интерхим', NULL, NULL),
+(19, 'КВЗ', NULL, NULL),
+(20, 'Ключи здоровья', NULL, NULL),
+(21, 'Красная звезда стандарт', NULL, NULL),
+(22, 'Красная звезда промо', NULL, NULL),
+(23, 'Лектравы', NULL, NULL),
+(24, 'Лубны', NULL, NULL),
+(25, 'Мега', NULL, NULL),
+(26, 'Мовихелз', NULL, NULL),
+(27, 'Немец гомеоп союз', NULL, NULL),
+(28, 'Нижфарм', NULL, NULL),
+(29, 'Никомед ', NULL, NULL),
+(30, 'Парамед', NULL, NULL),
+(31, 'Реддис', NULL, NULL),
+(32, 'Реккит Бенкизер', NULL, NULL),
+(33, 'Сандоз ОТС', NULL, NULL),
+(34, 'Сандоз РХ', NULL, NULL),
+(35, 'Сперко', NULL, NULL),
+(36, 'Тева', NULL, NULL),
+(37, 'Фармаско', NULL, NULL),
+(38, 'Фитофарм', NULL, NULL),
+(39, 'Фармина', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -124,8 +126,8 @@ INSERT INTO `MNN` (`MNN_id`, `MNN_name`) VALUES
 CREATE TABLE `names` (
   `id` int(6) NOT NULL,
   `morion_id` int(11) DEFAULT NULL,
-  `name` varchar(200) NOT NULL,
-  `producer` varchar(200) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `producer` varchar(100) NOT NULL,
   `barcode` varchar(13) DEFAULT NULL,
   `tnved` varchar(13) DEFAULT NULL,
   `nac` int(2) DEFAULT '0',
@@ -10233,7 +10235,9 @@ INSERT INTO `names` (`id`, `morion_id`, `name`, `producer`, `barcode`, `tnved`, 
 (10047, 80810, 'Янтарная к-та табл.0.25г N40 (10х4)', 'ТОВ\"Еліт-Фарм\",Україна', '4820060420749', '2106 90 98 90', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (10048, 80811, 'Янтарная к-та табл.0.25г N80 (10х8)', 'ТОВ\"Еліт-Фарм\",Україна', '4820060420756', '2106 90 98 90', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (10049, 164127, 'Ярина плюс табл.п/о N28 (21+7)', 'Байер Фарма АГ, Німеччина/Байєр Ваймар ГмбХ і Ко. КГ, Німеччина', '', '3006 60 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
-(10050, 35678, 'Ярина табл.п/о N21 (21х1)', 'Байер Фарма АГ, Німеччина/Байєр Ваймар ГмбХ і Ко. КГ, Німеччина', '4029668050352', '3006 60 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19');
+(10050, 35678, 'Ярина табл.п/о N21 (21х1)', 'Байер Фарма АГ, Німеччина/Байєр Ваймар ГмбХ і Ко. КГ, Німеччина', '4029668050352', '3006 60 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
+(10051, 0, ' test', 'gfhfhfg', '', '', 0, 7, NULL, '0', '0', NULL, '', '', 1, '2018-01-23 20:39:15'),
+(10052, 0, ' test 14 ', 'hgfhfg', '', '', 0, 7, NULL, '0', '0', NULL, '', '', 1, '2018-01-23 21:44:25');
 
 -- --------------------------------------------------------
 
@@ -10254,7 +10258,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `login`, `password`, `last_visit`) VALUES
-(1, 'Dmitriy', 'dimon', 'Ebuprofen', '2018-01-17 10:59:44'),
+(1, 'Dmitriy', 'dimon', 'Ebuprofen', '2018-01-23 19:23:43'),
 (2, 'Сыромятникова В.В.', 'valentina', 'Ebuprofen', '2017-12-26 17:39:31');
 
 --
@@ -10303,7 +10307,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `marketing`
 --
 ALTER TABLE `marketing`
-  MODIFY `m_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `m_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT для таблицы `MNN`
 --
@@ -10313,7 +10317,7 @@ ALTER TABLE `MNN`
 -- AUTO_INCREMENT для таблицы `names`
 --
 ALTER TABLE `names`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10051;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10053;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
