@@ -1,5 +1,5 @@
 <?php
-/* Проверка поля перед выполнинием запроса */
+/* Проверка поля перед выполнинием SQL запроса */
 
 class CheckField
 {
@@ -19,7 +19,7 @@ class CheckField
             $this->value = htmlentities($val);
 
             if ($field == 'name' || $field == 'producer') {
-                if(strlen($val) < 1 || strlen($val) > 200){
+                if(strlen($val) < 1 || strlen($val) > 100){
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
                 //echo strlen($val). "<BR>";
@@ -49,6 +49,10 @@ class CheckField
                 }
             }elseif ($field == 'morion_id') {
                 if ($val < 0 || $val > 99999999999) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'persent'){
+                if ($val < 0 || $val > 100) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
             }

@@ -128,6 +128,10 @@ if (isset($_POST['save'])){
         }
 
         $save = new SaveToDB($element, $method);
+
+        if ($method == 'new') {
+            $id = $save->result;
+        }
         header("location: ./element.php?id=$id");
     }
 }

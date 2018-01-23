@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Маркетинг</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/marketing.css" rel="stylesheet">
+</head>
+<p>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="mark-img-bord">
+                <img class="mark-img" src="./img/passat_ic.png">
+            </div>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <a class="navbar-brand" href="./menu.html">Главная</a>
+                <a class="navbar-brand" href="./catal.html" style="color: #28a745">Справочники</a>
+                <a class="navbar-brand" href="./ost.html">Остатки аптек</a>
+                <a class="navbar-brand" href="./analitika.html">Аналитика</a>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
+            </form>
+        </div>
+    </nav>
+
+    <form class="form-inline" style="padding-top: 10px" action="marketings.php" method="get">
+        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
+    </form>
+
+    <?php if(isset($marketings)): ?>
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Маркетинг</th>
+                    <th scope="col">Процент</th>
+                    <th scope="col">Сумма</th>
+                    <th scope="col">Модификация</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($marketings as $marketing) : ?>
+                    <tr>
+                        <td><?php echo $marketing['m_id']; ?></td>
+                        <td><?php echo $marketing['m_name']; ?></td>
+                        <td><?php echo $marketing['persent']; ?></td>
+                        <td><?php echo $marketing['summ']; ?></td>
+                        <?php $id = (int) $marketing['m_id']; ?>
+                        <td><?php echo "<a href=\"./element_marketing.php?id=$id&\">изменить</a>"; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endif; ?>
+</body>
+</html>

@@ -58,3 +58,31 @@ function export_names_base_to_file($fields)
 
     $save = new SaveToDB('', 'update_modify');
 }
+
+function export_marketings_base_to_file()
+{
+    $text_search = '';
+    $find = new ShowMarketings($text_search);
+    $marketings = $find->result_data;
+
+    $file = fopen("./out/marketings.csv", 'w+');
+
+    foreach ($marketings as $marketing) {
+        fputcsv($file, $marketing);
+    }
+    fclose($file);
+
+    $download_file = "./out/marketings.csv";
+    if (ob_get_level()) {
+        ob_end_clean();
+    }
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename=' . basename($download_file));
+    header('Content-Transfer-Encoding: binary');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($download_file));
+    readfile($download_file);
+}

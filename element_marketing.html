@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/signin.css" rel="stylesheet">
+</head>
+<body>
+<form class="container" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Наименование</label>
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?> "
+                   maxlength="30" name="name" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $id; ?>" name="id"
+                   disabled required>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Процент</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $persent; ?>"
+                   maxlength="3" name="persent">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Сумма</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $summ; ?>"
+                   maxlength="13" name="summ">
+        </div>
+    </div>
+    <p class="errors"><?php echo $errors ?></p>
+    <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+    <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
+</form>
+
+</body>
+</html>

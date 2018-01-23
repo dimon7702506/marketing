@@ -38,8 +38,10 @@ class SaveToDB
         }
 
         $stmt = DB::run($sql, $args);
-        $data = $stmt->rowCount();
-        $this->result = $data;
-        //var_dump($data);
+        $sql_id = "SELECT LAST_INSERT_ID();";
+        $stmt1 = DB::run($sql_id, $args);
+        $data = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+        $d = $data[0];
+        $this->result = (int) $d['LAST_INSERT_ID()'];
     }
 }
