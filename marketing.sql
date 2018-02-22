@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Янв 24 2018 г., 00:02
+-- Время создания: Фев 22 2018 г., 13:10
 -- Версия сервера: 5.7.21-0ubuntu0.17.10.1
 -- Версия PHP: 7.1.11-0ubuntu0.17.10.1
 
@@ -38,7 +38,7 @@ CREATE TABLE `marketing` (
 --
 
 INSERT INTO `marketing` (`m_id`, `m_name`, `persent`, `summ`) VALUES
-(1, 'Алпенфарма', 0, '0'),
+(1, 'Алпенфарма ', 0, '0'),
 (2, 'Ананта', NULL, NULL),
 (3, 'Артериум', NULL, NULL),
 (4, 'Артериум ОТС', NULL, NULL),
@@ -630,7 +630,7 @@ INSERT INTO `names` (`id`, `morion_id`, `name`, `producer`, `barcode`, `tnved`, 
 (480, 85715, 'Амприл табл. 10мг N30 (10х3)', 'KPKA, д.д., Ново место, Словенія', '3838989528119', '3004 90 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (481, 85699, 'Амприл табл. 2.5мг N30 (10х3)', 'KPKA, д.д., Ново место, Словенія', '3838989528096', '3004 90 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (482, 85707, 'Амприл табл. 5мг N30 (10х3)', 'KPKA, д.д., Ново место, Словенія', '3838989528102', '3004 90 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
-(483, 91314, 'Анальгин амп. 50% 1мл N10 ', 'ТОВ&quot;Фармацевтична компанiя &quot;Здоров я&quot;, м. Харків, Україна', '4820135584383', '3004 90 00 00', 0, 7, NULL, '0', '0', NULL, '', '', 0, '2018-01-22 20:01:19'),
+(483, 91314, 'Анальгин амп. 50% 1мл N10   ', 'ТОВ&quot;Фармацевтична компанiя &quot;Здоров я&quot;, м. Харків', '4820135584383', '3004 90 00 00', 0, 7, NULL, '0', '0', NULL, '', '', 0, '2018-01-23 22:07:00'),
 (484, 189545, 'Анальгин амп. 50% 2мл N10', 'АТ\"Лекхім-Харків\", Україна', '4820014492426', '3004 90 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (485, 13422, 'Анальгин амп. 50% 2мл N10', 'ТОВ\"Фармацевтична  компанiя \"Здоров я\", м. Харків,  Україна ', '4820135584376', '3004 90 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (486, 225996, 'Анальгин амп. 50% 2мл N10', 'ТОВ\"Харківське ФП\"Здоров я народу\",м. Харків, Україна', '4820117741483', '3004 90 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
@@ -10235,9 +10235,7 @@ INSERT INTO `names` (`id`, `morion_id`, `name`, `producer`, `barcode`, `tnved`, 
 (10047, 80810, 'Янтарная к-та табл.0.25г N40 (10х4)', 'ТОВ\"Еліт-Фарм\",Україна', '4820060420749', '2106 90 98 90', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (10048, 80811, 'Янтарная к-та табл.0.25г N80 (10х8)', 'ТОВ\"Еліт-Фарм\",Україна', '4820060420756', '2106 90 98 90', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
 (10049, 164127, 'Ярина плюс табл.п/о N28 (21+7)', 'Байер Фарма АГ, Німеччина/Байєр Ваймар ГмбХ і Ко. КГ, Німеччина', '', '3006 60 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
-(10050, 35678, 'Ярина табл.п/о N21 (21х1)', 'Байер Фарма АГ, Німеччина/Байєр Ваймар ГмбХ і Ко. КГ, Німеччина', '4029668050352', '3006 60 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19'),
-(10051, 0, ' test', 'gfhfhfg', '', '', 0, 7, NULL, '0', '0', NULL, '', '', 1, '2018-01-23 20:39:15'),
-(10052, 0, ' test 14 ', 'hgfhfg', '', '', 0, 7, NULL, '0', '0', NULL, '', '', 1, '2018-01-23 21:44:25');
+(10050, 35678, 'Ярина табл.п/о N21 (21х1)', 'Байер Фарма АГ, Німеччина/Байєр Ваймар ГмбХ і Ко. КГ, Німеччина', '4029668050352', '3006 60 00 00', 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-01-22 20:01:19');
 
 -- --------------------------------------------------------
 
@@ -10250,16 +10248,22 @@ CREATE TABLE `user` (
   `name` varchar(20) NOT NULL,
   `login` varchar(20) NOT NULL,
   `password` varchar(256) NOT NULL,
-  `last_visit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `last_visit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `email` varchar(128) NOT NULL,
+  `full_name` varchar(512) NOT NULL,
+  `status` int(11) NOT NULL,
+  `date_created` datetime DEFAULT NULL,
+  `pwd_reset_token` varchar(32) DEFAULT NULL,
+  `pwd_reset_token_creation_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `login`, `password`, `last_visit`) VALUES
-(1, 'Dmitriy', 'dimon', 'Ebuprofen', '2018-01-23 19:23:43'),
-(2, 'Сыромятникова В.В.', 'valentina', 'Ebuprofen', '2017-12-26 17:39:31');
+INSERT INTO `user` (`id`, `name`, `login`, `password`, `last_visit`, `email`, `full_name`, `status`, `date_created`, `pwd_reset_token`, `pwd_reset_token_creation_date`) VALUES
+(1, 'Dmitriy', 'dimon', 'Ebuprofen', '2018-02-22 10:56:31', '', '', 0, NULL, NULL, NULL),
+(2, 'Сыромятникова В.В.', 'valentina', 'Ebuprofen', '2017-12-26 17:39:31', '', '', 0, NULL, NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -10307,7 +10311,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `marketing`
 --
 ALTER TABLE `marketing`
-  MODIFY `m_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `m_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT для таблицы `MNN`
 --
@@ -10317,7 +10321,7 @@ ALTER TABLE `MNN`
 -- AUTO_INCREMENT для таблицы `names`
 --
 ALTER TABLE `names`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10053;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10051;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
