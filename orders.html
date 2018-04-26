@@ -2,11 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Маркетинг</title>
+    <title>Формирование ордеров</title>
     <link rel="icon" href="./img/passat_ic.png">
-    <link href="./css/marketing.css" rel="stylesheet">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="./css/marketing.css" rel="stylesheet">
 </head>
 <p>
 
@@ -20,8 +19,8 @@
             </div>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <a class="navbar-brand" href="./menu.html">Главная</a>
-                <a class="navbar-brand" href="./catal.html" style="color: #28a745">Справочники</a>
+                <a class="navbar-brand" href="./menu_apteka.html">Главная</a>
+                <a class="navbar-brand" href="./catal_buh.html" style="color: #28a745">Бухгалтерия</a>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
                 <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
@@ -29,7 +28,7 @@
         </div>
     </nav>
 
-    <form class="form-inline" style="padding-top: 10px" action="names.php" method="get">
+    <form class="form-inline" style="padding-top: 10px" action="orders.php" method="get">
         <div class="form-group mx-sm-3">
             <label for="formGroupExampleInput" class="sr-only">Password</label>
 
@@ -48,12 +47,12 @@
             </select>
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
-        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
+        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="new_order" value="new">Создать новый</button>
     </form>
 
     <?php if(isset($nomens)): ?>
         <div>
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>

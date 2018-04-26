@@ -35,7 +35,7 @@ class CheckField
                 if($val != 0 && $val != 7 && $val != 20) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
-            }elseif ($field == 'gran_price' || $field == 'sum_com') {
+            }elseif ($field == 'gran_price' || $field == 'sum_com' || $field == 'doza') {
                 if ($val < 0 || $val > 9999.99) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }

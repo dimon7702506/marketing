@@ -3,8 +3,8 @@
 /* Работа с БД */
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'marketing');
-define('DB_USER', 'db_admin');
+define('DB_NAME', 'analytics');
+define('DB_USER', 'db_marketing');
 define('DB_PASS', '7702506');
 define('DB_CHAR', 'utf8');
 

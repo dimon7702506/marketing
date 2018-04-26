@@ -6,40 +6,21 @@
     <link rel="icon" href="./img/passat_ic.png">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/marketing.css" rel="stylesheet">
-    <link href="./css/signin.css" rel="stylesheet">
 </head>
 <body>
 <form class="container" method="post">
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEmail4">Наименование</label>
-            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?> "
-                   maxlength="100" name="name" required>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4">Производитель</label>
-            <input type="text" class="form-control" id="inputPassword4" value="<?php echo $producer; ?>"
-                   maxlength="100" name="producer" required>
+        <div class="form-group col-md-2">
+            <label for="inputState" style="padding-right: 10px;">Тип ордера:</label>
+            <select id="inputState" class="form-control" name="field_search">
+                <option selected>Приходный</option>
+                <option>Расходный</option>
+            </select>
         </div>
         <div class="form-group col-md-2">
-            <label for="inputZip">Код</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $nom_id; ?>" name="nom_id"
-                   disabled required>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Код мориона</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $morion_id; ?>"
-                   maxlength="11" name="morion_id">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Штрихкод</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $barcode; ?>"
-                   maxlength="13" name="barcode">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">ТНВЭД</label>
-            <input type="text" class="form-control" id="inputZip" value="<?php echo $tnved; ?>"
-                   maxlength="13" name="tnved">
+            <label for="inputZip">Дата</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
+                   min=0 max=25 name="nac">
         </div>
     </div>
     <div class="form-row">

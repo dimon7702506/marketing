@@ -1,34 +1,27 @@
 <?php
 
-require_once "./function.php";
 require_once "autoload.php";
 
+session_start();
+
 $errors = '';
-$name = '';
-$producer = '';
-$tnved = '';
-$mark = '';
-$mnn = '';
-$name_torg = '';
-$form_prod = '';
-$doza = '';
-$nom_id = '';
-$morion_id = '';
-$barcode = '';
-$nac = '';
-$tax = '';
-$gran_price = '';
-$sum_com = '';
+$firm_name = '';
+$firm_okpo = '';
+$last_receipt_oreder_number = '';
+$last_expense_order_number = '';
+$last_cashiers_report_number = '';
+
+$requisite = new Requisites($_SESSION['apteka_id']);
+$req = $requisite->result_data;
+
+//var_dump($req);
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $field_search = "Код товара";
-    $field = 'all';
-    $find = new SearchFromNames($id, $field_search, $field);
-    $noms = $find->result_data;
+    //$find = new SearchFromOrders($id);
+    //$order = $find->result_data;
 
-    //var_dump($noms);
-    foreach ($noms as $nom){
+  /*  foreach ($noms as $nom){
         $name = trim($nom['name']);
         $producer = str_replace('"',' ',$nom['producer']);
         $nom_id = $nom['id'];
@@ -44,15 +37,7 @@ if (isset($_GET['id'])) {
         $name_torg = $nom['name_torg'];
         $form_prod = $nom['form_prod'];
         $doza = $nom['doza'];
-    }
-
-    $marketings = new SearchFromNames('','', 'marketings');
-    $marks = $marketings->result_data;
-    //var_dump($marks);
-
-    $mnn_list = new SearchFromNames('','', 'mnn');
-    $mnns = $mnn_list->result_data;
-    //var_dump($mnns);
+    }*/
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
@@ -119,20 +104,20 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 
     if (empty($errors)){
         $element = ['id'=>$id,
-                    'morion_id'=>(int) $morion_id,
-                    'name'=>trim($name),
-                    'producer'=>trim($producer),
-                    'barcode'=>$barcode,
-                    'tnved'=>$tnved,
-                    'nac'=>(int) $nac,
-                    'tax'=>(int) $tax,
-                    'marketing'=>$marketing,
-                    'gran_price'=>(float) $gran_price,
-                    'sum_com'=>(float) $sum_com,
-                    'mnn'=>$mnn,
-                    'form_prod'=>$form_prod,
-                    'doza'=>(float) $doza,
-                    'name_torg'=>$name_torg];
+            'morion_id'=>(int) $morion_id,
+            'name'=>trim($name),
+            'producer'=>trim($producer),
+            'barcode'=>$barcode,
+            'tnved'=>$tnved,
+            'nac'=>(int) $nac,
+            'tax'=>(int) $tax,
+            'marketing'=>$marketing,
+            'gran_price'=>(float) $gran_price,
+            'sum_com'=>(float) $sum_com,
+            'mnn'=>$mnn,
+            'form_prod'=>$form_prod,
+            'doza'=>(float) $doza,
+            'name_torg'=>$name_torg];
 
         if ($id == 0) {
             $method = 'new';
@@ -157,7 +142,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 }
 
 if (isset($_POST['close'])) {
-    //var_dump($_COOKIE['text_search']);
     if (isset($_COOKIE['text_search']) && (isset($_COOKIE['field_search']))){
         $str_search = './names.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
     }else{
@@ -166,4 +150,4 @@ if (isset($_POST['close'])) {
     header("location: $str_search");
 }
 
-require_once "./element.html";
+require_once "./order.html";

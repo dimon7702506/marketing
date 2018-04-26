@@ -22,3 +22,8 @@ body {
     white-space: nowrap;
     margin-bottom: 0px;
 }
+
+.table tbody tr:hover {
+    background: #f3bd48; /* Цвет фона при наведении */
+    color: #fff; /* Цвет текста при наведении */
+}

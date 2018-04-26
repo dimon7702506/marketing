@@ -16,7 +16,7 @@ if (!is_user_logged_in()) {
             $valid = new Validation($login, $password);
 
             if ($valid->user_id > 0) {
-                log_in($valid->user_id, $login, $valid->user_name);
+                log_in($valid->user_id, $login, $valid->user_name, $valid->user_role_id, $valid->apteka_id);
                 header('location: index.php');
             }else{
                 $errors['bad_login'] = 'Wrong password or user name!!!';
@@ -30,5 +30,6 @@ if (!is_user_logged_in()) {
         log_out();
         header('location: ./index.php');
     }
-    include "./menu.html";
+    //include "./menu.html";
+    include "./menu.php";
 }

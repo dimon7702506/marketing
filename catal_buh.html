@@ -18,10 +18,10 @@
             </div>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <a class="navbar-brand" href="./menu.html">Главная</a>
+                <a class="navbar-brand" href="./menu_apteka.html">Главная</a>
+                <a class="navbar-brand" href="./catal_buh.html" style="color: #28a745">Бухгалтерия</a>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
-                <h6 class="mark-text1"><?=get_user_name() ?></h6>
                 <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
             </form>
         </div>
@@ -29,14 +29,11 @@
     <div>
         <ul class="mr-auto mt-2 mt-lg-0">
             <li class="active">
-                <a class="navbar-brand" href="./export_base.php">Выгрузка базы наименований</a>
+                <a class="navbar-brand" href="./orders.php">Формирование ордеров</a>
             </li>
-            <li class="active">
-                <a class="navbar-brand" href="./export_updates_names.php">Выгрузка изменений базы наименований</a>
-            </li>
-            <li class="active">
-                <a class="navbar-brand" href="./export_marketings.php">Выгрузка маркетингов</a>
-            </li>
+<!--            <li class="active">
+                <a class="navbar-brand" href="./marketings.php">Маркетинговые договора</a>
+            </li>-->
         </ul>
     </div>
 </body>

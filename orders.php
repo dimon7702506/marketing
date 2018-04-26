@@ -3,7 +3,7 @@
 require_once "./function.php";
 require_once "autoload.php";
 
-if (isset($_GET['submit_search'])) {
+/*if (isset($_GET['submit_search'])) {
     $text_search = $_GET['search'];
     $field_search = $_GET['field_search'];
     $field = '';
@@ -14,10 +14,10 @@ if (isset($_GET['submit_search'])) {
     $count = count($nomens);
     setcookie("text_search", $text_search);
     setcookie("field_search", $field_search);
+}*/
+
+if (isset($_GET['new_order'])) {
+    header("location: ./order.php?id=0");
 }
 
-if (isset($_GET['submit_new'])) {
-    header("location: ./element.php?id=0");
-}
-
-require_once "./names.html";
+require_once "./orders.html";

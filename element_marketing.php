@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
 
     //var_dump($marketings);
     foreach ($marketings as $marketing){
-        $name = rtrim($marketing['m_name']);
+        $name = trim($marketing['m_name']);
         $id = $marketing['m_id'];
         $persent = $marketing['persent'];
         $summ = $marketing['summ'];
@@ -39,7 +39,7 @@ if (isset($_POST['save'])){
 
     if (empty($errors)){
         $element = ['id'=>$id,
-                    'name'=>$name,
+                    'name'=>trim($name),
                     'persent'=>(int) $persent,
                     'summ'=>(float) $summ
                     ];
