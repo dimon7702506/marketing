@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Формирование ордеров</title>
     <link rel="icon" href="./img/passat_ic.png">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
 </head>
 <p>
 
@@ -30,49 +30,38 @@
 
     <form class="form-inline" style="padding-top: 10px" action="orders.php" method="get">
         <div class="form-group mx-sm-3">
-            <label for="formGroupExampleInput" class="sr-only">Password</label>
-
-            <input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск" style="width: 600px;"
-                value="<?=isset($_GET['search']) ? $_GET['search'] : ''?>">
-        </div>
-        <div class="form-group mx-sm-3">
-            <label for="inputState" style="padding-right: 10px;">Поле поиска:</label>
-            <select id="inputState" class="form-control" name="field_search">
-                <option selected>Наименование</option>
-                <option>Производитель</option>
-                <option>Код товара</option>
-                <option>Код мориона</option>
-                <option>Маркетинг</option>
-                <option>МНН</option>
-            </select>
+            <label for="start_date" style="padding-right: 10px;">Период:</label>
+            <input type="date" class="form-control" id="start_date" name="start_date">
+            <label for="end_date" style="padding-right: 10px; padding-left: 10px">-</label>
+            <input type="date" class="form-control" id="end_date" name="end_date">
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="new_order" value="new">Создать новый</button>
     </form>
 
-    <?php if(isset($nomens)): ?>
+    <?php if(isset($orders)): ?>
         <div>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Наименование</th>
-                    <th scope="col">Производитель</th>
-                    <th scope="col">МНН</th>
-                    <th scope="col">Маркетинг</th>
+                    <th scope="col">Печать</th>
+                    <th scope="col">Тип</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Номер</th>
+                    <th scope="col">Сумма</th>
                     <th scope="col">Модификация</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($nomens as $nomen) : ?>
+                <?php foreach($orders as $order) : ?>
                     <tr>
-                        <td><?php echo $nomen['id']; ?></td>
-                        <td><?php echo $nomen['name']; ?></td>
-                        <td><?php echo $nomen['producer']; ?></td>
-                        <td><?php echo $nomen['MNN_name']; ?></td>
-                        <td><?php echo $nomen['m_name']; ?></td>
-                        <?php $id = (int) $nomen['id']; ?>
-                        <td><?php echo "<a href=\"./element.php?id=$id&\">изменить</a>"; ?></td>
+                        <td></td>
+                        <td><?php echo $order['order_type']; ?></td>
+                        <td><?php echo $order['date']; ?></td>
+                        <td><?php echo $order['num']; ?></td>
+                        <td><?php echo $order['sum']; ?></td>
+                        <?php $id = (int) $order['id']; ?>
+                        <td><?php echo "<a href=\"./order.php?id=$id&\">изменить</a>"; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

@@ -3,18 +3,21 @@
 require_once "./function.php";
 require_once "autoload.php";
 
-/*if (isset($_GET['submit_search'])) {
-    $text_search = $_GET['search'];
-    $field_search = $_GET['field_search'];
-    $field = '';
+session_start();
 
-    $find = new SearchFromNames($text_search, $field_search, $field);
+if (isset($_GET['submit_search'])) {
+    $start_date = $_GET['start_date'];
+    $end_date = $_GET['end_date'];
+    $apteka_id = $_SESSION['apteka_id'];
+    var_dump($apteka_id);
+
+    $find = new SearchOrders($start_date, $end_date);
     //var_dump($find->result_data);
-    $nomens = $find->result_data;
-    $count = count($nomens);
-    setcookie("text_search", $text_search);
-    setcookie("field_search", $field_search);
-}*/
+    $orders = $find->result_data;
+    $count = count($orders);
+    setcookie("start_date", $start_date);
+    setcookie("end_date", $end_date);
+}
 
 if (isset($_GET['new_order'])) {
     header("location: ./order.php?id=0");
