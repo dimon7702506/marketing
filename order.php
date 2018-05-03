@@ -5,16 +5,24 @@ require_once "autoload.php";
 session_start();
 
 $errors = '';
+$order = '';
+if (empty($date_doc)){
+    $date_doc = date("m.d.y");
+
+}
 $firm_name = '';
+$sum = 0;
+$num = 1;
 $firm_okpo = '';
-$last_receipt_oreder_number = '';
-$last_expense_order_number = '';
-$last_cashiers_report_number = '';
+$last_receipt_oreder_number = 0;
+$last_expense_order_number = 0;
+$last_cashiers_report_number = 0;
 
 $requisite = new Requisites($_SESSION['apteka_id']);
 $req = $requisite->result_data;
+var_dump($req);
 
-//var_dump($req);
+$head = $req[0]['firma'] . ', ' . $req[0]['apteka'];
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -38,101 +46,43 @@ if (isset($_GET['id'])) {
         $form_prod = $nom['form_prod'];
         $doza = $nom['doza'];
     }*/
+    $orders_type = new ShowOrdersType();
+    $order_type = $orders_type->result_data;
+    //var_dump($order_type);
+
 }
 
-if (isset($_POST['save']) || isset($_POST['copy'])){
+if (isset($_POST['save'])){
 
-    $check = new CheckField('name', $_POST['name']);
-    $name = $check->value;
+    $check = new CheckField('date_doc', $_POST['date_doc']);
+    $date_doc = $check->value;
     $errors .= $check->error;
 
-    $check = new CheckField('producer', $_POST['producer']);
-    $producer = $check->value;
+    $check = new CheckField('sum', $_POST['sum']);
+    $sum = $check->value;
     $errors .= $check->error;
 
-    $check = new CheckField('barcode', $_POST['barcode']);
-    $barcode = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('tnved', $_POST['tnved']);
-    $tnved = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('id', $id);
-    $errors .= $check->error;
-
-    $check = new CheckField('nac', $_POST['nac']);
-    $nac = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('tax', $_POST['tax']);
-    $tax = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('gran_price', $_POST['gran_price']);
-    $gran_price = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('sum_com', $_POST['sum_com']);
-    $sum_com = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('name_torg', $_POST['name_torg']);
-    $name_torg = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('form_prod', $_POST['form_prod']);
-    $form_prod = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('doza', $_POST['doza']);
-    $doza = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('morion_id', $_POST['morion_id']);
-    $morion_id = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('marketing', $_POST['marketing']);
-    $marketing = $check->value;
+    $check = new CheckField('order_type', $_POST['order_type']);
+    $order_type = $check->value;
     $errors .= $check->error;
     //var_dump($mark_id);
 
-    $check = new CheckField('mnn', $_POST['mnn']);
-    $mnn = $check->value;
-    $errors .= $check->error;
-
     if (empty($errors)){
         $element = ['id'=>$id,
-            'morion_id'=>(int) $morion_id,
-            'name'=>trim($name),
-            'producer'=>trim($producer),
-            'barcode'=>$barcode,
-            'tnved'=>$tnved,
-            'nac'=>(int) $nac,
-            'tax'=>(int) $tax,
-            'marketing'=>$marketing,
-            'gran_price'=>(float) $gran_price,
-            'sum_com'=>(float) $sum_com,
-            'mnn'=>$mnn,
-            'form_prod'=>$form_prod,
-            'doza'=>(float) $doza,
-            'name_torg'=>$name_torg];
+            'date'=>$date_doc,
+            'order_type'=>$order_type,
+            'apteka_id'=>$_SESSION['apteka_id'],
+            'num'=>$_SESSION['apteka_id'],
+            'sum'=>(float) $sum];
 
         if ($id == 0) {
             $method = 'new';
-            //var_dump($element);
+            var_dump($element);
         }else {
             $method = 'update';
         }
 
-        if (isset($_POST['copy'])){
-            $element['id'] = 0;
-            $method = 'new';
-        }
-
-
-        $save = new SaveToDB($element, $method);
+        $save = new SaveToDBOrders($element, $method);
 
         if ($method == 'new') {
             $id = $save->result;

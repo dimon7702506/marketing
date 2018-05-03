@@ -13,7 +13,7 @@ class ShowOrdersType
 
     public function search()
     {
-        $sql = "SELECT * FROM ordes_type ORDER BY name";
+        $sql = "SELECT * FROM orders_type ORDER BY name";
         $arg = [];
 
         $stmt = DB::run($sql, $arg);

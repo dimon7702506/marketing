@@ -10,83 +10,32 @@
 <body>
 <form class="container" method="post">
     <div class="form-row">
-        <div class="form-group col-md-2">
+        <h1><?php echo $head;?></h1>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
             <label for="inputState" style="padding-right: 10px;">Тип ордера:</label>
-            <select id="inputState" class="form-control" name="field_search">
-                <option selected>Приходный</option>
-                <option>Расходный</option>
+            <select id="inputState" class="form-control" name="order_type">
+                <option selected><?php echo $order; ?></option>
+                <?php foreach ($order_type as $ord): ?>
+                <?php echo "<option>$ord[name]</option>"; ?>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Дата</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
-                   min=0 max=25 name="nac">
+            <input type="date" class="form-control" id="inputZip" required value="<?php echo $date_doc; ?>"
+                   min=0 max=25 name="date_doc">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Сумма</label>
+            <input type="number" step="any" class="form-control" id="inputZip" required value="<?php echo $sum; ?>"
+                   min=0 max=9999.99 name="sum">
         </div>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="inputState">Маркетинг</label>
-            <select id="inputState" class="form-control" name="marketing">
-                <option selected><?php echo $mark; ?></option>
-                <option></option>
-                <?php foreach ($marks as $mar): ?>
-                <?php echo "<option>$mar[m_name]</option>"; ?>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">МНН</label>
-            <select id="inputState" class="form-control" name="mnn">
-                <option selected><?php echo $mnn; ?></option>
-                <option></option>
-                <?php foreach ($mnns as $mn): ?>
-                <?php echo "<option>$mn[MNN_name]".'</option>'; ?>
-                <?php endforeach; ?>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-2">
-            <label for="inputZip">Ограничение наценки</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
-                   min=0 max=25 name="nac">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">НДС</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $tax; ?>"
-                   min=0 max=20 name="tax">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Граничная цена</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $gran_price; ?>"
-                   min=0 max=9999.99 name="gran_price">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Сумма компенсации</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
-                   min=0 max=9999.99 name="sum_com">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputZip">Торговое название</label>
-            <input type="text" class="form-control" id="inputZip" value="<?php echo $name_torg; ?>"
-                   maxlength="100" name="name_torg">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Форма выпуска</label>
-            <input type="text" class="form-control" id="inputZip" value="<?php echo $form_prod; ?>"
-                   maxlength="20" name="form_prod">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Дозировка</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $doza; ?>"
-                   maxlength="10" name="doza">
-        </div>
-    </div>
-    <p class="errors"><?php echo $errors ?></p>
+   <p class="errors"><?php echo $errors ?></p>
     <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
-    <button type="submit" class="btn btn-primary" name="copy" style="margin-left: 15px">Копировать</button>
+    <button type="submit" class="btn btn-primary" name="print" style="margin-left: 15px">Печать</button>
     <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
 </form>
 
