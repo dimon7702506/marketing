@@ -4,52 +4,34 @@ require_once "autoload.php";
 
 session_start();
 
+$apteka_id = $_SESSION['apteka_id'];
 $errors = '';
-$order = '';
-if (empty($date_doc)){
-    $date_doc = date("m.d.y");
-
-}
+$order_t = '';
+$date_doc = date("Y-m-d");
 $firm_name = '';
 $sum = 0;
-$num = 1;
-$firm_okpo = '';
-$last_receipt_oreder_number = 0;
-$last_expense_order_number = 0;
-$last_cashiers_report_number = 0;
 
-$requisite = new Requisites($_SESSION['apteka_id']);
+$requisite = new Requisites($apteka_id);
 $req = $requisite->result_data;
-var_dump($req);
+//var_dump($req);
 
 $head = $req[0]['firma'] . ', ' . $req[0]['apteka'];
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    //$find = new SearchFromOrders($id);
-    //$order = $find->result_data;
+    $find = new SearchOrder($id);
+    $orders = $find->result_data;
+    //var_dump($orders);
 
-  /*  foreach ($noms as $nom){
-        $name = trim($nom['name']);
-        $producer = str_replace('"',' ',$nom['producer']);
-        $nom_id = $nom['id'];
-        $morion_id = $nom['morion_id'];
-        $barcode = $nom['barcode'];
-        $tnved = $nom['tnved'];
-        $mark = $nom['m_name'];
-        $mnn = $nom['MNN_name'];
-        $nac = $nom['nac'];
-        $tax = $nom['tax'];
-        $gran_price = $nom['gran_price'];
-        $sum_com = $nom['sum_com'];
-        $name_torg = $nom['name_torg'];
-        $form_prod = $nom['form_prod'];
-        $doza = $nom['doza'];
-    }*/
+    foreach ($orders as $nom){
+        $order_t = $nom['order_type'];
+        $date_doc = $nom['date'];
+        $sum = $nom['sum'];
+        $num = $nom['num'];
+     }
+
     $orders_type = new ShowOrdersType();
     $order_type = $orders_type->result_data;
-    //var_dump($order_type);
-
 }
 
 if (isset($_POST['save'])){
@@ -65,19 +47,24 @@ if (isset($_POST['save'])){
     $check = new CheckField('order_type', $_POST['order_type']);
     $order_type = $check->value;
     $errors .= $check->error;
-    //var_dump($mark_id);
 
     if (empty($errors)){
+
+        $max_number = new SearchMaxOrdersNumber($apteka_id, $order_type);
+        $max_num = $max_number->result_data;
+
+        $num = ((int) $max_num[0]['mn']) + 1;
+
         $element = ['id'=>$id,
             'date'=>$date_doc,
             'order_type'=>$order_type,
-            'apteka_id'=>$_SESSION['apteka_id'],
-            'num'=>$_SESSION['apteka_id'],
+            'apteka_id'=>$apteka_id,
+            'num'=>$num,
             'sum'=>(float) $sum];
 
         if ($id == 0) {
             $method = 'new';
-            var_dump($element);
+            //var_dump($element);
         }else {
             $method = 'update';
         }
@@ -87,15 +74,15 @@ if (isset($_POST['save'])){
         if ($method == 'new') {
             $id = $save->result;
         }
-        header("location: ./element.php?id=$id");
+        header("location: ./order.php?id=$id");
     }
 }
 
 if (isset($_POST['close'])) {
-    if (isset($_COOKIE['text_search']) && (isset($_COOKIE['field_search']))){
-        $str_search = './names.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
+    if (isset($_COOKIE['start_date']) && (isset($_COOKIE['end_date']))){
+        $str_search = './orders.php?start_date='. $_COOKIE['start_date'] . '&end_date=' . $_COOKIE['end_date'] . '&submit_search=search';
     }else{
-        $str_search = './names.php';
+        $str_search = './orders.php';
     }
     header("location: $str_search");
 }

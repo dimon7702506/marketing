@@ -6,18 +6,22 @@ class SearchOrders
 {
     public $result_data;
 
-    public function __construct($start_date, $end_date)
+    public function __construct($start_date, $end_date, $apteka_id)
     {
-        $this->search($start_date, $end_date);
+        $this->search($start_date, $end_date, $apteka_id);
     }
 
-    public function search($start_date, $end_date)
+    public function search($start_date, $end_date, $apteka_id)
     {
-        //SELECT orders_type.name, type_id FROM orders LEFT JOIN orders_type ON type_id = orders_type.id
         $sql = "SELECT orders.id as id, orders_type.name as order_type, date, num, sum FROM orders
-                  LEFT JOIN orders_type ON type_id = orders_type.id";
+                  LEFT JOIN orders_type ON type_id = orders_type.id 
+                  WHERE apteka_id = :apteka_id 
+                    and date >= :start_date 
+                    and date <= :end_date";
 
-        $arg = ["str" => $start_date];
+        $arg = ["apteka_id" => $apteka_id,
+                "start_date" => $start_date,
+                "end_date" => $end_date];
 
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

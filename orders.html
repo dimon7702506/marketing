@@ -31,9 +31,9 @@
     <form class="form-inline" style="padding-top: 10px" action="orders.php" method="get">
         <div class="form-group mx-sm-3">
             <label for="start_date" style="padding-right: 10px;">Период:</label>
-            <input type="date" class="form-control" id="start_date" name="start_date">
+            <input type="date" class="form-control" id="start_date" name="start_date" value="<?php echo $start_date;?>">
             <label for="end_date" style="padding-right: 10px; padding-left: 10px">-</label>
-            <input type="date" class="form-control" id="end_date" name="end_date">
+            <input type="date" class="form-control" id="end_date" name="end_date" value="<?php echo $end_date;?>">
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="new_order" value="new">Создать новый</button>

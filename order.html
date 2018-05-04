@@ -16,21 +16,20 @@
         <div class="form-group col-md-4">
             <label for="inputState" style="padding-right: 10px;">Тип ордера:</label>
             <select id="inputState" class="form-control" name="order_type">
-                <option selected><?php echo $order; ?></option>
+                <option selected><?php echo $order_t; ?></option>
                 <?php foreach ($order_type as $ord): ?>
                 <?php echo "<option>$ord[name]</option>"; ?>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="form-group col-md-2">
-            <label for="inputZip">Дата</label>
-            <input type="date" class="form-control" id="inputZip" required value="<?php echo $date_doc; ?>"
-                   min=0 max=25 name="date_doc">
+            <label for="date">Дата</label>
+            <input type="date" class="form-control" id="date" required name="date_doc" value="<?php echo $date_doc; ?>">
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Сумма</label>
             <input type="number" step="any" class="form-control" id="inputZip" required value="<?php echo $sum; ?>"
-                   min=0 max=9999.99 name="sum">
+                   min=0 max=99999.99 name="sum">
         </div>
     </div>
    <p class="errors"><?php echo $errors ?></p>
