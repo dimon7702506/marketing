@@ -17,7 +17,8 @@ class SearchOrders
                   LEFT JOIN orders_type ON type_id = orders_type.id 
                   WHERE apteka_id = :apteka_id 
                     and date >= :start_date 
-                    and date <= :end_date";
+                    and date <= :end_date 
+                  ORDER BY date, num ASC";
 
         $arg = ["apteka_id" => $apteka_id,
                 "start_date" => $start_date,
