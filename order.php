@@ -87,4 +87,7 @@ if (isset($_POST['close'])) {
     header("location: $str_search");
 }
 
+/*if (isset($_POST['print'])) {
+    include "google.com";
+}*/
 require_once "./order.html";

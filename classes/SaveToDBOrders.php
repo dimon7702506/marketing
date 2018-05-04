@@ -14,13 +14,6 @@ class SaveToDBOrders
     {
         $sql_orders_type = "SELECT id FROM orders_type WHERE name = :order_type";
 
-/*        $element = ['id'=>$id,
-            'date'=>$date_doc,
-            'order_type'=>$order_type,
-            'apteka_id'=>$apteka_id,
-            'num'=>$num,
-            'sum'=>(float) $sum];*/
-
         if ($method == 'update') {
             $sql = "UPDATE orders
                     SET type_id = ($sql_orders_type), apteka_id = :apteka_id, num = :num, sum = :sum, date = :date
@@ -38,7 +31,6 @@ class SaveToDBOrders
             }
         }
 
-        var_dump(DB::run($sql, $args));
         $stmt = DB::run($sql, $args);
         $sql_id = "SELECT LAST_INSERT_ID();";
         $stmt1 = DB::run($sql_id, $args);
