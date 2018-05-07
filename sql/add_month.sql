@@ -1,0 +1,12 @@
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("січень","січня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("лютий","лютого");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("березень","березня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("квітень","квітня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("травень","травня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("червень","червня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("липень","липня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("серпень","серпня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("вересень","вересня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("жовтень","жовтня");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("листопад","листопада");
+INSERT into month (name_ukr, name_ukr_ot) VALUES ("грудень","грудня");

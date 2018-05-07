@@ -87,7 +87,8 @@ if (isset($_POST['close'])) {
     header("location: $str_search");
 }
 
-/*if (isset($_POST['print'])) {
-    include "google.com";
-}*/
+if (isset($_POST['print'])) {
+    $str = './print.php?okpo='.$req[0]['okpo'].'&firm='.$req[0]['firma'].'&num='.$num.'&date='.$date_doc;
+    header("location: $str");
+}
 require_once "./order.html";
