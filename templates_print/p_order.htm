@@ -398,12 +398,10 @@ div.Section1
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
  style='mso-cellspacing:0cm;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
-  <td colspan=7 style='border:none;border-top:inset 1.0pt;mso-border-top-alt:
-  inset windowtext .75pt;padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=7 style='border:none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td colspan=2 style='border:none;border-top:inset 1.0pt;mso-border-top-alt:
-  inset windowtext .75pt;padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 style='border:none'>
   <p class=MsoNormal><span style='font-size:10pt'>Додаток 2</span> </p>
   </td>
  </tr>
@@ -428,7 +426,7 @@ div.Section1
  </tr>
  <tr style='mso-yfti-irow:3'>
   <td colspan=9 style='border:none;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
+        <p class=MsoNormal align=center style='text-align:center'><b><span
   style='font-size:13pt'>Типова форма N КО-1</span></b> </p>
   </td>
  </tr>
@@ -443,7 +441,7 @@ div.Section1
   padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td colspan=5 style="border-bottom: none">
+  <td colspan=5 style="border-bottom: none; border-left: none; border-right: none">
       <p class=MsoNormal>
           <span style='font-size:10pt'>Ідентифікаційний код в Єдиному державному реєстрі підприємств та організацій України</span>
       </p>
@@ -461,7 +459,7 @@ div.Section1
           </span>
       </p>
   </td>
-  <td colspan=2 valign=bottom style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 valign=bottom style='border-left: none;border-bottom: none;border-right: none'>
     <p class=MsoNormal align=center style='text-align:center'>
         <span style='font-size:10pt'><?php echo $firm; ?></span>
     </p>
@@ -473,34 +471,32 @@ div.Section1
              <span style='font-size:10pt'><?php echo $okpo ?></span>
          </p>
      </td>
-  <td colspan=2 valign=top style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>&nbsp;(найменування
-  підприємства/установи/організації)</span> </p>
+  <td colspan=2 valign=top style='border-left: none; border-right: none; border-bottom: none'>
+    <p class=MsoNormal align=center style='text-align:center'>
+        <span style='font-size:8pt'>(найменування підприємства/установи/організації)</span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:7'>
-  <td colspan=5 style='border:inset 1.0pt;border-bottom:outset 1.0pt;
-  mso-border-alt:inset windowtext .75pt;mso-border-bottom-alt:outset windowtext .75pt;
-  padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=5 style='border-left: none; border-right: none'>
     <p class=MsoNormal align=center style='text-align:center'>
         <span style='font-size:10pt'><?php echo $firm; ?></span>
     </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Квитанція</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:8'>
   <td colspan=5 valign=top style='border:none;padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(найменування підприємства/установи/організації)</span>
+  style='font-size:8pt'>(найменування підприємства/установи/організації)</span>
   </p>
   </td>
-  <td colspan=2>
+  <td colspan=2 style="border: none">
     <p class=MsoNormal>
         <span style='font-size:10pt'>до прибуткового касового ордера N <?php echo $num;?></span>
     </p>
@@ -510,7 +506,7 @@ div.Section1
   <td colspan=5 style='border:none;padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>від <?php echo $date_pr ?> року</span> </p>
   </td>
  </tr>
@@ -519,7 +515,7 @@ div.Section1
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>Прибутковий касовий ордер N <?php echo $num;?></span> </p>
   </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Прийнято від</span> </p>
   </td>
  </tr>
@@ -528,271 +524,286 @@ div.Section1
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>від <?php echo $date_pr ?> року</span> </p>
   </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Мешалкіна Т. О.</span> </p>
+  <td colspan=2 style="border: none; border-bottom: outset 1px">
+    <p class=MsoNormal>
+        <span style='font-size:10pt'><?php echo $fio ?></span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:12'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none; border-bottom: none; border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>N з/п</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>Кореспондуючий рахунок, субрахунок</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>Код аналітичного рахунку</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>Сума цифрами</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>Код цільового призначення</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>Примітки</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Підстава</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Торгова виручка</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:13'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none; border-bottom: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>1</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>2</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-top: none; border-bottom: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>3</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>4</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-top: none; border-bottom: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>5</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>6</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td style='border: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none; border-right: none; border-bottom: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:14'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>1</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none; border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='font-size:10pt'>702.1</span> </p>
   </td>
   <td style='padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=right style='text-align:right'><span
-  style='font-size:10pt'>4869.23</span> </p>
+  <td style="border-left: none; border-right: none">
+   <p class=MsoNormal align=right style='text-align:right'>
+    <span style='font-size:10pt'><?php echo $sum ?></span>
+   </p>
   </td>
   <td style='padding:.75pt .75pt .75pt .75pt'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none; border-right: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Сума</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10.0pt'>Чотири тисячі вісімсот
-  шістдесят дев'ять гривень 23 копійки</span> </p>
+  <td style='border: none'>
+    <p class=MsoNormal style="word-wrap:break-word">
+        <span style='font-size:10.0pt'><?php echo $sum_text ?></span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:15'>
-  <td colspan=6 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=6 style='border: none'>
+    <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td style='border: none'>
+    <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <td valign=top style='border-left: none; border-bottom: none; border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(словами)</span> </p>
+  style='font-size:8pt'>(словами)</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:16'>
-  <td style='border-top:none;border-left:outset 1.0pt;border-bottom:inset 1.0pt;
+  <td style='border-top:none;border-left:outset 1.0pt;border-bottom:none;
   border-right:none;mso-border-left-alt:outset windowtext .75pt;mso-border-bottom-alt:
   inset windowtext .75pt;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Прийнято від</span> </p>
+    <p class=MsoNormal><span style='font-size:10pt'>Прийнято від</span> </p>
   </td>
   <td colspan=5 style='border:none;border-bottom:outset 1.0pt;mso-border-bottom-alt:
-  outset windowtext .75pt;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Мешалкіна Т. О.</span> </p>
+   outset windowtext .75pt'>
+   <p class=MsoNormal>
+    <span style='font-size:10pt'><?php echo $fio ?></span>
+   </p>
   </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:17'>
-  <td style='border-top:inset 1.0pt;border-left:outset 1.0pt;border-bottom:
-  none;border-right:none;mso-border-top-alt:inset windowtext .75pt;mso-border-left-alt:
+  <td style='border-top:none;border-left:outset 1.0pt;border-bottom:none;border-right:none;
+  mso-border-top-alt:inset windowtext .75pt;mso-border-left-alt:
   outset windowtext .75pt;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Підстава</span> </p>
+    <p class=MsoNormal><span style='font-size:10pt'>Підстава</span> </p>
   </td>
-  <td colspan=5 style='border:none;padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=5 style='border:none;border-bottom: outset 1.0pt'>
   <p class=MsoNormal><span style='font-size:10pt'>Торгова виручка</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none;border-right: none;border-bottom: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border-left: none; border-right: none; border-bottom: none'>
   <p class=MsoNormal><span style='font-size:10pt'>М.П.</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:18'>
-  <td colspan=6 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=6 style='border-left: none; border-top: none; border-right: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Головний</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:19'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Сума</span> </p>
   </td>
-  <td colspan=5 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Чотири тисячі вісімсот
-  шістдесят дев'ять гривень 23 копійки</span> </p>
+  <td colspan=5 style='border: none'>
+    <p class=MsoNormal>
+        <span style='font-size:10pt'><?php echo $sum_text; ?></span>
+    </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>бухгалтер</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:20'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td style='border: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=5 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=5 valign=top style='border-left: none; border-bottom: none;border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(словами)</span> </p>
+  style='font-size:8pt'>(словами)</span> </p>
   </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=right style='text-align:right'><span
-  style='font-size:10pt'>Мешалкіна Т. О.</span> </p>
+  <td colspan=2 style='border: none'>
+    <p class=MsoNormal align=right style='text-align:right'>
+        <span style='font-size:10pt'><?php echo $fio; ?></span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:21'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Додатки:</span> </p>
+  <td style='border: none'>
+    <p class=MsoNormal>
+        <span style='font-size:10pt'>Додатки:</span>
+    </p>
   </td>
-  <td colspan=5 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=5 style='border: none'>
+    <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=2 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 valign=top style='border-left: none; border-right: none; border-bottom: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(підпис, прізвище, ініціали)</span> </p>
+  style='font-size:8pt'>(підпис, прізвище, ініціали)</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:22'>
-  <td colspan=6 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>Аптека №1 (Рыбалко)</span> </p>
+  <td colspan=6 style='border: none'>
+    <p class=MsoNormal>
+        <span style='font-size:10pt'><?php echo $apteka ?></span>
+    </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Касир</span> </p>
   </td>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:23'>
-  <td colspan=6 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=6 style='border-left: none; border-right: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=right style='text-align:right'><span
-  style='font-size:10pt'>Мешалкіна Т. О.</span> </p>
+  <td colspan=2 style='border: none'>
+    <p class=MsoNormal align=right style='text-align:right'>
+        <span style='font-size:10pt'><?php echo $fio ?></span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:24'>
-  <td colspan=6 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=6 style='border: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=2 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <td colspan=2 valign=top style='border-left: none;border-bottom: none; border-right: none'>
   <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(підпис, прізвище, ініціали)</span> </p>
+  style='font-size:8pt'>(підпис, прізвище, ініціали)</span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:25'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Головний</span> </p>
   </td>
-  <td colspan=5 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=5 style='border: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=2 rowspan=5 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td colspan=2 rowspan=5 style='border: none'>
+    <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:26'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>бухгалтер</span> </p>
+  <td style='border: none'>
+    <p class=MsoNormal><span style='font-size:10pt'>бухгалтер</span> </p>
   </td>
-  <td colspan=5 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=right style='text-align:right'><span
-  style='font-size:10pt'>Мешалкіна Т. О.</span> </p>
+  <td colspan=5 style='border: none'>
+    <p class=MsoNormal align=right style='text-align:right'>
+        <span style='font-size:10pt'><?php echo $fio ?></span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:27'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td style='border: none'>
+  <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=5 valign=top style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(підпис, прізвище, ініціали)</span> </p>
+  <td colspan=5 valign=top style='border-left: none; border-bottom: none; border-right: none'>
+    <p class=MsoNormal align=center style='text-align:center'>
+        <span style='font-size:8pt'>(підпис, прізвище, ініціали)</span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:28'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <td style='border: none'>
   <p class=MsoNormal><span style='font-size:10pt'>Одержав касир</span> </p>
   </td>
-  <td colspan=5 style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=right style='text-align:right'><span
-  style='font-size:10pt'>Мешалкіна Т. О.</span> </p>
+  <td colspan=5 style='border: none'>
+    <p class=MsoNormal align=right style='text-align:right'>
+        <span style='font-size:10pt'><?php echo $fio ?></span>
+    </p>
   </td>
  </tr>
  <tr style='mso-yfti-irow:29;mso-yfti-lastrow:yes'>
-  <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='font-size:10pt'>&nbsp;</span> </p>
+  <td style='border: none'>
+    <p class=MsoNormal><span style='font-size:10pt'></span> </p>
   </td>
-  <td colspan=5 valign=top style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:10.0pt'>(підпис, прізвище, ініціали)</span> </p>
+  <td colspan=5 valign=top style='border-left: none; border-bottom: none; border-right: none'>
+  <p class=MsoNormal align=center style='text-align:center'><span style='font-size:8pt'>(підпис, прізвище, ініціали)</span> </p>
   </td>
  </tr>
 </table>

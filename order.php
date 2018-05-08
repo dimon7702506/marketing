@@ -88,7 +88,8 @@ if (isset($_POST['close'])) {
 }
 
 if (isset($_POST['print'])) {
-    $str = './print.php?okpo='.$req[0]['okpo'].'&firm='.$req[0]['firma'].'&num='.$num.'&date='.$date_doc;
+    $str = './print.php?okpo='.$req[0]['okpo'].'&firm='.$req[0]['firma'].'&num='.$num.'&date='.$date_doc.'&sum='.$sum.
+        '&fio='.$req[0]['zav'].'&apteka='.$req[0]['apteka'].'&order_type='.$order_t;
     header("location: $str");
 }
 require_once "./order.html";
