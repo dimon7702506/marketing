@@ -13,12 +13,11 @@ class SearchMaxOrdersNumber
 
     public function search($apteka_id, $order_type)
     {
-        /*$sql = "SELECT orders.id as id, orders_type.name as order_type, date, num, sum FROM orders
-                  LEFT JOIN orders_type ON type_id = orders_type.id 
-                  WHERE orders.id = :id";*/
+
         $sql = "SELECT max(num) as mn FROM orders 
                   LEFT JOIN orders_type ON type_id = orders_type.id 
-                  WHERE apteka_id = :apteka_id AND orders_type.name = :order_type";
+                  WHERE apteka_id = :apteka_id AND orders_type.type = 
+                    (SELECT orders_type.type FROM orders_type WHERE name = :order_type)";
         $arg = ["apteka_id" => $apteka_id,
                 "order_type" => $order_type];
 

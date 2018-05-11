@@ -26,4 +26,9 @@ if (isset($_GET['new_order'])) {
     header("location: ./order.php?id=0");
 }
 
+if (isset($_GET['cash_report'])) {
+    $str = "./print_cash_report.php?start_date=" . $start_date . "&end_date=" . $end_date . "&apteka_id=" . $apteka_id;
+    header("location: $str");
+}
+
 require_once "./orders.html";

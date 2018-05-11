@@ -37,6 +37,7 @@
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="new_order" value="new">Создать новый</button>
+        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="cash_report" value="cash_report">Отчет кассира</button>
     </form>
 
     <?php if(isset($orders)): ?>
@@ -44,7 +45,6 @@
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">Печать</th>
                     <th scope="col">Тип</th>
                     <th scope="col">Дата</th>
                     <th scope="col">Номер</th>
@@ -55,7 +55,6 @@
                 <tbody>
                 <?php foreach($orders as $order) : ?>
                     <tr>
-                        <td></td>
                         <td><?php echo $order['order_type']; ?></td>
                         <td><?php echo $order['date']; ?></td>
                         <td><?php echo $order['num']; ?></td>

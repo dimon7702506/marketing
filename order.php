@@ -55,19 +55,23 @@ if (isset($_POST['save'])){
 
         $num = ((int) $max_num[0]['mn']) + 1;
 
-        $element = ['id'=>$id,
-            'date'=>$date_doc,
-            'order_type'=>$order_type,
-            'apteka_id'=>$apteka_id,
-            'num'=>$num,
-            'sum'=>(float) $sum];
-
         if ($id == 0) {
             $method = 'new';
-            //var_dump($element);
+            $element = ['id'=>$id,
+                'date'=>$date_doc,
+                'order_type'=>$order_type,
+                'apteka_id'=>$apteka_id,
+                'num'=>$num,
+                'sum'=>(float) $sum];
         }else {
+            $element = ['id'=>$id,
+                'date'=>$date_doc,
+                'order_type'=>$order_type,
+                'apteka_id'=>$apteka_id,
+                'sum'=>(float) $sum];
             $method = 'update';
         }
+        //var_dump($element);
 
         $save = new SaveToDBOrders($element, $method);
 
@@ -89,7 +93,7 @@ if (isset($_POST['close'])) {
 
 if (isset($_POST['print'])) {
     $str = './print.php?okpo='.$req[0]['okpo'].'&firm='.$req[0]['firma'].'&num='.$num.'&date='.$date_doc.'&sum='.$sum.
-        '&fio='.$req[0]['zav'].'&apteka='.$req[0]['apteka'].'&order_type='.$order_t;
+        '&apteka='.$req[0]['apteka'].'&order_type='.$order_t.'&zav_id='.$req[0]['zav_id'];
     header("location: $str");
 }
 require_once "./order.html";

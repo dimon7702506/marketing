@@ -11,9 +11,10 @@ class Requisites
 
     public function search($apteka_id)
     {
-        $sql = "SELECT okpo, firm.name as firma, last_cashiers_report_number,apteka.name as apteka, zav
+        $sql = "SELECT okpo, firm.name as firma, last_cashiers_report_number,apteka.name as apteka, people.fio as zav, zav_id
                 FROM apteka
                 LEFT JOIN firm ON firm.id = firm_id
+                LEFT JOIN people ON people.id = zav_id
                 WHERE apteka.id = :apteka";
 
         $arg = ["apteka" => $apteka_id];

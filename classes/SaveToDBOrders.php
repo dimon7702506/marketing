@@ -16,7 +16,7 @@ class SaveToDBOrders
 
         if ($method == 'update') {
             $sql = "UPDATE orders
-                    SET type_id = ($sql_orders_type), apteka_id = :apteka_id, num = :num, sum = :sum, date = :date
+                    SET type_id = ($sql_orders_type), apteka_id = :apteka_id, sum = :sum, date = :date
                     WHERE  id = :id";
             $args = $element;
         }elseif ($method == 'new') {

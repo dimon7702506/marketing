@@ -3,14 +3,22 @@
 require_once "autoload.php";
 require_once "function.php";
 
-$order_type = $_GET['order_type'];
-$okpo = $_GET['okpo'];
+$start_date = $_GET['start_date'];
+$end_date = $_GET['end_date'];
+/*$okpo = $_GET['okpo'];
 $firm = $_GET['firm'];
 $num = $_GET['num'];
 $date = $_GET['date'];
 $sum = $_GET['sum'];
-$zav_id = $_GET['zav_id'];
-$apteka = $_GET['apteka'];
+$zav_id = $_GET['zav_id'];*/
+$apteka_id = $_GET['apteka_id'];
+
+$requisite = new Requisites($apteka_id);
+$req = $requisite->result_data;
+
+$okpo = $req[0]['okpo'];
+$firm = $req[0]['firm'];
+
 
 $sum_text = ucfirst(num2text_ua($sum));
 
