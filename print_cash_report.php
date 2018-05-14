@@ -1,50 +1,128 @@
 <?php
 
 require_once "autoload.php";
-require_once "function.php";
+require_once "num2text.php";
 
-$start_date = $_GET['start_date'];
 $end_date = $_GET['end_date'];
-/*$okpo = $_GET['okpo'];
-$firm = $_GET['firm'];
-$num = $_GET['num'];
-$date = $_GET['date'];
-$sum = $_GET['sum'];
-$zav_id = $_GET['zav_id'];*/
 $apteka_id = $_GET['apteka_id'];
+$cash_report_type = $_GET['cash_report_type'];
+
+if($cash_report_type == 1) {
+    $report_name = 'Звiт касира';
+}else{
+    $report_name = 'Вкладний аркуш касира';
+}
 
 $requisite = new Requisites($apteka_id);
 $req = $requisite->result_data;
+//var_dump($req);
 
-$okpo = $req[0]['okpo'];
-$firm = $req[0]['firm'];
-
-
-$sum_text = ucfirst(num2text_ua($sum));
+$zav_id = $req[0]['zav_id'];
 
 $people = new GetPeopleById($zav_id);
 $zav = $people->result_data;
-//var_dump($zav);
 $fio = $zav[0]['FIO'];
 
-$date_full = new FullDateName($date);
+$date_full = new FullDateName($end_date);
 $date_pr = $date_full->result_data;
 
-$date_short = date('d.m.Y', strtotime($date));
+$get_orders = new SearchOrders($end_date, $end_date, $apteka_id);
+$orders = $get_orders->result_data;
+//var_dump($orders);
 
-if ($order_type == 'Приходный ордер') {
-    require_once './templates_print/p_order.htm';
-}elseif($order_type == 'Расходный ордер БАНК'){
-    $extradite = 'здана готiвка в банк';
-    $base = 'зарахування грошових коштiв на поточний рахунок банку';
-    $got = '';
-    $pasport = '';
-    require_once './templates_print/r_order.html';
-}elseif($order_type == 'Расходный ордер ОФИС'){
-    $extradite = $fio;
-    $base = 'здана готівка в центральну касу';
-    $got = $sum_text;
-    $pasport = 'паспортом громадянина України - серія ' . $zav[0]['passport_seria'] . ' №' . $zav[0]['passport_num'] .
-        ' від ' . date('d.m.Y',strtotime($zav[0]['pasport_get_date'])) . ' ' . $zav[0]['passport_get'];
-    require_once './templates_print/r_order.html';
+$max_num = null;
+$last_cash_report_number = (int) $req[0]['last_cash_report_number'];
+
+if(!empty($orders)) {
+    $max_num = (int)max(array_column($orders, 'last_cash_report_number'));
 }
+if ($max_num == null) {
+    $max_num = $last_cash_report_number;
+    $max_num ++;
+}
+//var_dump($max_num);
+
+$method = 'update_last_cash_report_nuber';
+$rows = [];
+$result_p = 0;
+$result_r = 0;
+$count_p = 0;
+$count_r = 0;
+
+foreach ($orders as $order) {
+    $element = ['id'  => $order['id'],
+                'num' => $max_num];
+
+    $sum_pr = null;
+    $sum_r = null;
+    if($order['order_type'] == 'Приходный ордер'){
+        $sum_pr = $order['sum'];
+        $num_r = '702.1';
+    }else{
+        $sum_r = $order['sum'];
+        $num_r = '333.1';
+    }
+
+    $row = ['num' => $order['num'],
+            'fio' => $fio,
+            'num_r' => $num_r,
+            'sum_pr' => $sum_pr,
+            'sum_r' => $sum_r];
+    if ($sum_pr){
+        $count_p++;
+    }
+    if ($sum_r){
+        $count_r++;
+    }
+    $result_p += $sum_pr;
+    $result_r += $sum_r;
+
+    array_push($rows, $row);
+
+    $save = new SaveToDBOrders($element, $method);
+}
+//var_dump($rows);
+
+if ($last_cash_report_number < $max_num) {
+    $apteka_to_update = ['id' => $apteka_id,
+                        'num' => $max_num];
+    $save = new SaveToDBApteka($apteka_to_update, $method);
+}
+
+$temp_date = date("Y-m-d", strtotime("$end_date -1 day"));
+
+$saldo = new CashSaldo();
+
+$saldo_chek = $saldo->chekSetSaldo($apteka_id);
+//var_dump($saldo_chek);
+if($saldo_chek[0]['count'] == 0){
+    $saldo->setSaldo($apteka_id, $temp_date, 0, 'new', 0);
+}
+
+$saldo_start = $saldo->getSaldo($apteka_id, $temp_date);
+//var_dump($saldo_start);
+while(empty($saldo_start)){
+    $temp_date = date("Y-m-d", strtotime("$temp_date -1 day"));
+    $saldo_start = $saldo->getSaldo($apteka_id, $temp_date);
+}
+
+$saldo_start = $saldo_start[0]['saldo'];
+$result_p = number_format($result_p,2,'.','');
+$result_r = number_format($result_r,2,'.','');
+$saldo_end = $saldo_start + $result_p - $result_r;
+$count_p_str = num2text_ua($count_p);
+$count_r_str = num2text_ua($count_r);
+
+$saldo = new CashSaldo();
+$saldo_tec = $saldo->getSaldo($apteka_id, $end_date);
+//var_dump($saldo_tec);
+if (empty($saldo_tec)){
+    $method = 'new';
+    $id = 0;
+}else{
+    $method = 'update';
+    $id = $saldo_tec[0]['id'];
+}
+$saldo->setSaldo($apteka_id, $end_date, $saldo_end, $method, $id);
+
+require_once './templates_print/cash_report.htm';

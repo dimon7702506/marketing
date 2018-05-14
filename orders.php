@@ -7,12 +7,11 @@ session_start();
 
 $start_date = date("Y-m-01");
 $end_date = date("Y-m-d");
+$apteka_id = $_SESSION['apteka_id'];
 
 if (isset($_GET['submit_search'])) {
     $start_date = $_GET['start_date'];
     $end_date = $_GET['end_date'];
-    $apteka_id = $_SESSION['apteka_id'];
-    //var_dump($apteka_id);
 
     $find = new SearchOrders($start_date, $end_date, $apteka_id);
     //var_dump($find->result_data);
@@ -27,7 +26,14 @@ if (isset($_GET['new_order'])) {
 }
 
 if (isset($_GET['cash_report'])) {
-    $str = "./print_cash_report.php?start_date=" . $start_date . "&end_date=" . $end_date . "&apteka_id=" . $apteka_id;
+    $end_date = $_GET['end_date'];
+    $str = "./print_cash_report.php?end_date=" . $end_date . "&apteka_id=" . $apteka_id . "&cash_report_type=1";
+    header("location: $str");
+}
+
+if (isset($_GET['cash_report1'])) {
+    $end_date = $_GET['end_date'];
+    $str = "./print_cash_report.php?end_date=" . $end_date . "&apteka_id=" . $apteka_id . "&cash_report_type=2";
     header("location: $str");
 }
 

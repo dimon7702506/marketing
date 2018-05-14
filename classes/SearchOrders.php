@@ -13,7 +13,8 @@ class SearchOrders
 
     public function search($start_date, $end_date, $apteka_id)
     {
-        $sql = "SELECT orders.id as id, orders_type.name as order_type, date, num, sum FROM orders
+        $sql = "SELECT orders.id as id, orders_type.name as order_type, date, num, sum, last_cash_report_number
+                  FROM orders
                   LEFT JOIN orders_type ON type_id = orders_type.id 
                   WHERE apteka_id = :apteka_id 
                     and date >= :start_date 

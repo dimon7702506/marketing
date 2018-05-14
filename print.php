@@ -12,7 +12,7 @@ $sum = $_GET['sum'];
 $zav_id = $_GET['zav_id'];
 $apteka = $_GET['apteka'];
 
-$sum_text = ucfirst(num2text_ua($sum));
+$sum_text = ucfirst(sum2text_ua($sum));
 
 $people = new GetPeopleById($zav_id);
 $zav = $people->result_data;

@@ -1,0 +1,394 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+      xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta name=ProgId content=Word.Document>
+    <meta name=Generator content="Microsoft Word 12">
+    <meta name=Originator content="Microsoft Word 12">
+    <link rel=File-List href="cash_report.files/filelist.xml">
+    <link rel=themeData href="cash_report.files/themedata.thmx">
+    <link rel=colorSchemeMapping href="cash_report.files/colorschememapping.xml">
+
+    <style>
+        <!--
+        /* Font Definitions */
+        @font-face
+        {font-family:"Cambria Math";
+            panose-1:0 0 0 0 0 0 0 0 0 0;
+            mso-font-charset:1;
+            mso-generic-font-family:roman;
+            mso-font-format:other;
+            mso-font-pitch:variable;
+            mso-font-signature:0 0 0 0 0 0;}
+        /* Style Definitions */
+        p.MsoNormal, li.MsoNormal, div.MsoNormal
+        {mso-style-unhide:no;
+            mso-style-qformat:yes;
+            mso-style-parent:"";
+            margin:0cm;
+            margin-bottom:.0001pt;
+            mso-pagination:widow-orphan;
+            font-size:12.0pt;
+            font-family:"Times New Roman","serif";
+            mso-fareast-font-family:"Times New Roman";}
+        .MsoChpDefault
+        {mso-style-type:export-only;
+            mso-default-props:yes;
+            font-size:10.0pt;
+            mso-ansi-font-size:10.0pt;
+            mso-bidi-font-size:10.0pt;}
+        @page Section1
+        {size:595.3pt 841.9pt;
+            margin:2.0cm 42.5pt 2.0cm 3.0cm;
+            mso-header-margin:35.4pt;
+            mso-footer-margin:35.4pt;
+            mso-paper-source:0;}
+        div.Section1
+        {page:Section1;}
+        -->
+    </style>
+ </head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+    <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+           style='mso-cellspacing:0cm;mso-yfti-tbllook:1184'>
+        <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+            <td colspan=5 style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'>
+                    <span style='font-size:13.5pt'>
+                        <?php echo $report_name?>
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:1'>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal>
+                    <span style='font-size:13.5pt'>
+                        <?php echo 'Касса за '. $date_pr . ' року'?>
+                    </span>
+                </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'>
+                    <span style='font-size:13.5pt'>
+                        <?php echo 'Аркуш ' . $max_num?>
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:2'>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:3'>
+            <td valign=top style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>Номер документа</span> </p>
+            </td>
+            <td valign=top style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>Вiд кого отримано чи кому видано</span> </p>
+            </td>
+            <td valign=top style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>Номер кореспондуючого рахунку, субрахунку</span> </p>
+            </td>
+            <td valign=top style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>Надходження</span> </p>
+            </td>
+            <td valign=top style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>Видаток</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:4'>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>1</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>2</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>3</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>4</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>5</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:5'>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td colspan=2 style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>Залишок на початок дня</span>
+                </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'>
+                    <span style='font-size:13.5pt'>
+                        <?php echo $saldo_start?>
+                    </span>
+                </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>X</span> </p>
+            </td>
+        </tr>
+
+        <?php foreach($rows as $row) :?>
+            <tr style='mso-yfti-irow:6'>
+                <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+      padding:.75pt .75pt .75pt .75pt'>
+                    <p class=MsoNormal align=center style='text-align:center'>
+                        <span style='font-size:13.5pt'>
+                            <?php echo $row['num']?>
+                        </span>
+                    </p>
+                </td>
+                <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+      padding:.75pt .75pt .75pt .75pt'>
+                    <p class=MsoNormal>
+                        <span style='font-size:13.5pt'>
+                            <?php echo $row['fio']?>
+                        </span>
+                    </p>
+                </td>
+                <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+      padding:.75pt .75pt .75pt .75pt'>
+                    <p class=MsoNormal align=center style='text-align:center'>
+                        <span style='font-size:13.5pt'>
+                            <?php echo $row['num_r']?>
+                        </span>
+                    </p>
+                </td>
+                <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+      padding:.75pt .75pt .75pt .75pt'>
+                    <p class=MsoNormal align=center style='text-align:right'>
+                        <span style='font-size:13.5pt'>
+                            <?php echo $row['sum_pr']?>
+                        </span>
+                    </p>
+                </td>
+                <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+          padding:.75pt .75pt .75pt .75pt'>
+                    <p class=MsoNormal align=center style='text-align:right'>
+                            <span style='font-size:13.5pt'>
+                                <?php echo $row['sum_r']?>
+                            </span>
+                    </p>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+
+      <tr style='mso-yfti-irow:9'>
+            <td colspan=3 style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>Разом за день</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'>
+                    <span style='font-size:13.5pt'>
+                        <?php echo $result_p ?>
+                    </span>
+                </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'>
+                    <span style='font-size:13.5pt'>
+                        <?php echo $result_r ?>
+                    </span>
+                </p>
+            </td>
+      </tr>
+        <tr style='mso-yfti-irow:10'>
+            <td colspan=3 style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>Залишок на кiнець дня,</span>
+                </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'>
+                    <span style='font-size:13.5pt'>
+                        <?php echo $saldo_end ?>
+                    </span>
+                </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>X</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:11'>
+            <td colspan=3 style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>у тому числi на зарплату</span>
+                </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'><span
+                        style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>X</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:12'>
+            <td colspan=3 style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>Касир</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=right style='text-align:right'><span
+                        style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:13.5pt'>Х</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:13'>
+            <td colspan=3 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:10.0pt'>(пiдпис)</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:14'>
+            <td colspan=3 style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>Залишок у касовiй книзi перевiрив i</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:15'>
+            <td colspan=3 style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal>
+                    <span style='font-size:13.5pt'>
+                        <?php echo "документи в кiлькостi $count_p_str прибуткових та $count_r_str видаткових одержав"?>
+                    </span>
+                </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:17'>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>Касир</span> </p>
+            </td>
+            <td style='border:none;border-bottom:solid windowtext 1.0pt;mso-border-bottom-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td colspan=3 style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:18;mso-yfti-lastrow:yes'>
+            <td colspan=3 valign=top style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal align=center style='text-align:center'><span
+                        style='font-size:10.0pt'>(пiдпис)</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+            <td style='padding:.75pt .75pt .75pt .75pt'>
+                <p class=MsoNormal><span style='font-size:13.5pt'>&nbsp;</span> </p>
+            </td>
+        </tr>
+    </table>
+
+    <p class=MsoNormal><span style='font-size:36.0pt;font-family:"Arial","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

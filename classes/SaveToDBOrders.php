@@ -5,12 +5,12 @@ class SaveToDBOrders
 {
     public $result;
 
-    function __construct($element, $method)
+    public function __construct($element, $method)
     {
         $this->save($element, $method);
     }
 
-    function save($element, $method)
+    private function save($element, $method)
     {
         $sql_orders_type = "SELECT id FROM orders_type WHERE name = :order_type";
 
@@ -18,6 +18,9 @@ class SaveToDBOrders
             $sql = "UPDATE orders
                     SET type_id = ($sql_orders_type), apteka_id = :apteka_id, sum = :sum, date = :date
                     WHERE  id = :id";
+            $args = $element;
+        }elseif ($method == 'update_last_cash_report_nuber'){
+            $sql = "UPDATE orders SET last_cash_report_number =:num WHERE  id = :id";
             $args = $element;
         }elseif ($method == 'new') {
             $sql = "INSERT INTO orders (type_id,  apteka_id,  num,  sum,  date)
