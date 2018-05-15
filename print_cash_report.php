@@ -110,8 +110,17 @@ $saldo_start = $saldo_start[0]['saldo'];
 $result_p = number_format($result_p,2,'.','');
 $result_r = number_format($result_r,2,'.','');
 $saldo_end = $saldo_start + $result_p - $result_r;
-$count_p_str = num2text_ua($count_p);
-$count_r_str = num2text_ua($count_r);
+
+if($count_p == 0){
+    $count_p_str = 'ноль';
+}else {
+    $count_p_str = num2text_ua($count_p);
+}
+if($count_r == 0){
+    $count_r_str = 'ноль';
+}else {
+    $count_r_str = num2text_ua($count_r);
+}
 
 $saldo = new CashSaldo();
 $saldo_tec = $saldo->getSaldo($apteka_id, $end_date);

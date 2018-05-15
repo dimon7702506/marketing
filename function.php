@@ -4,6 +4,10 @@ require_once "./autoload.php";
 
 function is_user_logged_in()
 {
+    if(empty($_SESSION['user_id'])){
+        log_out();
+        header('location: ./login.html');
+    }
     return !empty($_SESSION['user_id']);
 }
 
@@ -15,7 +19,6 @@ function log_in(int $id, string $login, string $user_name, int $user_role_id, $a
     $_SESSION['login'] = $login;
     $_SESSION['name'] = $user_name;
     $_SESSION['apteka_id'] = (int) $apteka_id;
-
 }
 
 function get_user_name()

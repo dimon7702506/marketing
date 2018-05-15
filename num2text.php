@@ -1,5 +1,4 @@
 <?php
-
 function num2text_ua($num) {
     $num = trim(preg_replace('~s+~s', '', $num)); // отсекаем пробелы
     if (preg_match("/, /", $num)) {
@@ -25,7 +24,6 @@ function num2text_ua($num) {
                 $i++;
                 if ($i == 3 || $i == 4) { // миллионы и миллиарды мужского рода, а больше миллирда вам все равно не заплатят
                     if ($temp_var == '000') {
-
                         $temp_res[] = '';
                     } else {
                         $temp_res[] = implode(" ", Triada($temp_var, 1)) . GetNum($i, $temp_var);
@@ -47,7 +45,6 @@ function num2text_ua($num) {
         return trim($res);
     }
 }
-
 function Triada($amount, $case = null) {
     global $_1_2, $_1_19, $des, $hang; // объявляем массив переменных
     $count = strlen($amount);
@@ -88,7 +85,6 @@ function Triada($amount, $case = null) {
     } # foreach
     return $triada1;
 }
-
 function Currency($amount) {
     global $namecurr; // объявляем масиив переменных
     $last2 = substr($amount, -2); // последние 2 цифры
@@ -105,7 +101,6 @@ function Currency($amount) {
     } // все остальные 2, 3, 4
     return ' ' . $curr;
 }
-
 function GetNum($level, $amount) {
     global $nametho, $namemil, $namemrd; // объявляем массив переменных
     if ($level == 1) {
@@ -134,10 +129,8 @@ function GetNum($level, $amount) {
         return ' ' . $res_num;
     } # if
 }
-
 $_1_2[1] = "один";
 $_1_2[2] = "два";
-
 $_1_19[1] = "один";
 $_1_19[2] = "два";
 $_1_19[3] = "три";
@@ -148,7 +141,6 @@ $_1_19[7] = "сім";
 $_1_19[8] = "вісім";
 $_1_19[9] = "дев'ять";
 $_1_19[10] = "десять";
-
 $_1_19[11] = "одинадцять";
 $_1_19[12] = "дванадцять";
 $_1_19[13] = "тринадцять";
@@ -158,7 +150,6 @@ $_1_19[16] = "шістнадцять";
 $_1_19[17] = "сімнадцять";
 $_1_19[18] = "вісімнадцять";
 $_1_19[19] = "дев'ятнадцять";
-
 $des[2] = "двадцять";
 $des[3] = "тридцять";
 $des[4] = "сорок";
@@ -167,7 +158,6 @@ $des[6] = "шістдесят";
 $des[7] = "сімдесят";
 $des[8] = "вісімдесят";
 $des[9] = "дев'яносто";
-
 $hang[1] = "сто";
 $hang[2] = "двісті";
 $hang[3] = "триста";
@@ -177,20 +167,15 @@ $hang[6] = "шістсот";
 $hang[7] = "сімсот";
 $hang[8] = "вісімсот";
 $hang[9] = "дев'ятьсот";
-
 $namecurr[1] = ""; // 1
 $namecurr[2] = ""; // 2, 3, 4
 $namecurr[3] = ""; // >4
-
 $nametho[1] = "тисяча"; // 1
 $nametho[2] = "тисячі"; // 2, 3, 4
 $nametho[3] = "тисяч"; // >4
-
 $namemil[1] = "мільйон"; // 1
 $namemil[2] = "мільйона"; // 2, 3, 4
 $namemil[3] = "мільйонів"; // >4
-
 $namemrd[1] = "мільярд"; // 1
 $namemrd[2] = "мільярда"; // 2, 3, 4
 $namemrd[3] = "мільярдів"; // >4
-//=====================================

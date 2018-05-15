@@ -4,6 +4,7 @@ require_once "./function.php";
 require_once "autoload.php";
 
 session_start();
+is_user_logged_in();
 
 $start_date = date("Y-m-01");
 $end_date = date("Y-m-d");
