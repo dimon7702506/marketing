@@ -29,12 +29,17 @@ $date_pr = $date_full->result_data;
 $get_orders = new SearchOrders($end_date, $end_date, $apteka_id);
 $orders = $get_orders->result_data;
 //var_dump($orders);
+if (empty($orders)){
+    exit("За данный период нет ордеров!!!");
+}
 
 $max_num = null;
+//var_dump($max_num);
 $last_cash_report_number = (int) $req[0]['last_cash_report_number'];
 
 if(!empty($orders)) {
     $max_num = (int)max(array_column($orders, 'last_cash_report_number'));
+    //var_dump($max_num);
 }
 if ($max_num == null) {
     $max_num = $last_cash_report_number;
