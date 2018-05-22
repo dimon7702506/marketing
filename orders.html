@@ -44,6 +44,7 @@
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Тип</th>
                     <th scope="col">Дата</th>
                     <th scope="col">Номер</th>
@@ -54,6 +55,7 @@
                 <tbody>
                 <?php foreach($orders as $order) : ?>
                     <tr>
+                        <td><?php echo $order['id']; ?></td>
                         <td><?php echo $order['order_type']; ?></td>
                         <td><?php echo $order['date']; ?></td>
                         <td><?php echo $order['num']; ?></td>

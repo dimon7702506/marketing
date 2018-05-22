@@ -161,6 +161,9 @@ function sum2text_ua($num) {
         if (!isset($num_arr[1]) || $num_arr[1] == '') {
             $num_arr[1] = '00';
         }
+        if (strlen($num_arr[1]) == 1){
+            $num_arr[1] .= '0';
+        }
         return $res . ', ' . $num_arr[1] . ' коп.';
     } # if
 }
@@ -211,7 +214,7 @@ function Currency($amount) {
     $last2 = substr($amount, -2); // последние 2 цифры
     $last1 = substr($amount, -1); // последняя 1 цифра
     $last3 = substr($amount, -3); //последние 3 цифры
-    if ((strlen($amount) != 1 && substr($last2, 0, 1) == 1) || $last1 >= 5 || $last3 == '000') {
+    if ((strlen($amount) != 1 && substr($last2, 0, 1) == 1) || $last1 >= 5 || $last3 == '000' || $last2 == '00') {
         $curr = $namecurr[3];
     } // от 10 до 19
     else if ($last1 == 1) {
