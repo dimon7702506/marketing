@@ -15,7 +15,7 @@ class Validation
 
     private function valid($login, $password)
     {
-        $sql = "SELECT id, name, role_id, apteka_id FROM users WHERE login = :login AND password = :password";
+        $sql = "SELECT id, full_name as name, role_id, apteka_id FROM users WHERE email = :login AND password = :password";
         $arg = ["login" => $login, "password" => $password];
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
