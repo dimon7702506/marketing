@@ -17,7 +17,7 @@ $sum_text = ucfirst(sum2text_ua($sum));
 $people = new GetPeopleById($zav_id);
 $zav = $people->result_data;
 //var_dump($zav);
-$fio = $zav[0]['FIO'];
+$fio = $zav[0]['full_name'];
 
 $date_full = new FullDateName($date);
 $date_pr = $date_full->result_data;

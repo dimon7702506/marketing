@@ -21,7 +21,7 @@ $zav_id = $req[0]['zav_id'];
 
 $people = new GetPeopleById($zav_id);
 $zav = $people->result_data;
-$fio = $zav[0]['FIO'];
+$fio = $zav[0]['full_name'];
 
 $date_full = new FullDateName($end_date);
 $date_pr = $date_full->result_data;

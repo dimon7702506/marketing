@@ -19,7 +19,7 @@ class SearchOrders
                   WHERE apteka_id = :apteka_id 
                     and date >= :start_date 
                     and date <= :end_date 
-                  ORDER BY date, num ASC";
+                  ORDER BY date, id ASC";
 
         $arg = ["apteka_id" => $apteka_id,
                 "start_date" => $start_date,
