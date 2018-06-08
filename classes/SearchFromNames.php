@@ -42,12 +42,12 @@ class SearchFromNames
         }elseif ($field_search == 'Код мориона') {
             $sql .= " WHERE morion_id LIKE :str";
         }elseif ($field_search == 'Маркетинг') {
-            $sql = $sql1 . " INNER JOIN marketing ON marketing_id=m_id
-                             INNER JOIN MNN ON names.MNN_id = MNN.MNN_id
+            $sql = $sql1 . " LEFT JOIN marketing ON marketing_id = m_id
+                             LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
                              WHERE m_name LIKE CONCAT('%', :str, '%')";
         }elseif ($field_search == 'МНН') {
-            $sql = $sql1 . " INNER JOIN MNN ON names.MNN_id = MNN.MNN_id
-                             INNER JOIN marketing ON marketing_id=m_id 
+            $sql = $sql1 . " LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
+                             LEFT JOIN marketing ON marketing_id=m_id 
                              WHERE MNN_name LIKE CONCAT('%', :str, '%')";
         }
 

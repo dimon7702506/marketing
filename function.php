@@ -42,6 +42,8 @@ function export_names_base_to_file($fields)
     $field_search = '';
     $find = new SearchFromNames($text_search, $field_search, $fields);
     $names = $find->result_data;
+    //var_dump($names);
+
     array_walk($names, 'encode_names_CSV');
 
     $file = fopen("./out/names.csv", 'w+');
@@ -114,6 +116,12 @@ function encode_names_CSV(&$value){
 
     $temp = $value['name_torg'];
     $value['name_torg'] = iconv("UTF-8", "Windows-1251", $temp);
+
+    $temp = $value['m_name'];
+    $value['m_name'] = iconv("UTF-8", "Windows-1251", $temp);
+
+    $temp = $value['MNN_name'];
+    $value['MNN_name'] = iconv("UTF-8", "Windows-1251", $temp);
 }
 
 // ================Сумма прописью
