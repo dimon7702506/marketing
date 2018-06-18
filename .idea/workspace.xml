@@ -35,7 +35,7 @@
       <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="2091">
               <caret line="123" column="20" lean-forward="false" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
               <folding />
             </state>
@@ -45,7 +45,7 @@
       <file leaf-file-name="SearchFromNames.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="765">
               <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
               <folding>
                 <marker date="1528454135451" expanded="true" signature="360:510" ph="SELECT * FRO... names" />
@@ -62,9 +62,27 @@
       <file leaf-file-name="menu_apteka.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/menu_apteka.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="427">
+              <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CashSaldo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/CashSaldo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+              <folding>
+                <marker date="1526308552955" expanded="true" signature="157:241" ph="SELECT max(n... orders" />
+                <marker date="1526308552955" expanded="true" signature="157:246" ph="SELECT * FRO... cash_saldo" />
+                <marker date="1526308552955" expanded="true" signature="606:686" ph="INSERT INTO cash_saldo... " />
+                <marker date="1526308552955" expanded="true" signature="606:709" ph="INSERT INTO cash_saldo... " />
+                <marker date="1526308552955" expanded="true" signature="886:935" ph="UPDATE cash_... " />
+                <marker date="1526308552955" expanded="true" signature="1133:1202" ph="SELECT count... " />
+                <marker date="1526308552955" expanded="true" signature="1179:1202" ph="INSERT INTO cash_saldo... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,8 +90,8 @@
       <file leaf-file-name="catal_buh.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catal_buh.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="41" />
+            <state relative-caret-position="510">
+              <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -200,7 +218,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1366" />
     <option name="height" value="742" />
   </component>
@@ -278,7 +296,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,7 +318,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -421,18 +439,21 @@
       <workItem from="1528359869506" duration="1706000" />
       <workItem from="1528448873250" duration="17000" />
       <workItem from="1528451890371" duration="2846000" />
-      <workItem from="1528879369418" duration="729000" />
+      <workItem from="1528879369418" duration="1161000" />
+      <workItem from="1528887632925" duration="500000" />
+      <workItem from="1528891257886" duration="10000" />
+      <workItem from="1529310362433" duration="633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348981000" />
+    <option name="totallyTimeSpent" value="350556000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-1" width="1370" height="745" extended-state="7" />
+    <frame x="-2" y="-1" width="1370" height="745" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34441087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -768,22 +789,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/CashNumber.php" />
-    <entry file="file://$PROJECT_DIR$/classes/CashSaldo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-          <folding>
-            <marker date="1526308552955" expanded="true" signature="157:241" ph="SELECT max(n... orders" />
-            <marker date="1526308552955" expanded="true" signature="157:246" ph="SELECT * FRO... cash_saldo" />
-            <marker date="1526308552955" expanded="true" signature="606:686" ph="INSERT INTO cash_saldo... " />
-            <marker date="1526308552955" expanded="true" signature="606:709" ph="INSERT INTO cash_saldo... " />
-            <marker date="1526308552955" expanded="true" signature="886:935" ph="UPDATE cash_... " />
-            <marker date="1526308552955" expanded="true" signature="1133:1202" ph="SELECT count... " />
-            <marker date="1526308552955" expanded="true" signature="1179:1202" ph="INSERT INTO cash_saldo... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/orders.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -876,7 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -884,7 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,7 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -900,13 +902,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="2091">
           <caret line="123" column="20" lean-forward="false" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
           <folding />
         </state>
@@ -916,13 +917,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="765">
           <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
           <folding>
             <marker date="1528454135451" expanded="true" signature="360:510" ph="SELECT * FRO... names" />
@@ -939,22 +939,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catal_buh.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="41" />
+        <state relative-caret-position="510">
+          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/CashSaldo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding>
+            <marker date="1526308552955" expanded="true" signature="157:241" ph="SELECT max(n... orders" />
+            <marker date="1526308552955" expanded="true" signature="157:246" ph="SELECT * FRO... cash_saldo" />
+            <marker date="1526308552955" expanded="true" signature="606:686" ph="INSERT INTO cash_saldo... " />
+            <marker date="1526308552955" expanded="true" signature="606:709" ph="INSERT INTO cash_saldo... " />
+            <marker date="1526308552955" expanded="true" signature="886:935" ph="UPDATE cash_... " />
+            <marker date="1526308552955" expanded="true" signature="1133:1202" ph="SELECT count... " />
+            <marker date="1526308552955" expanded="true" signature="1179:1202" ph="INSERT INTO cash_saldo... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/menu_apteka.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state relative-caret-position="427">
+          <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
           <folding />
         </state>
       </provider>
