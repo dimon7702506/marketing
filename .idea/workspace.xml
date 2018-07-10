@@ -9,18 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/SMTP.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/send.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/marketings.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/names.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin.html" afterPath="$PROJECT_DIR$/admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/export_base.php" afterPath="$PROJECT_DIR$/export_base.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/export_marketings.php" afterPath="$PROJECT_DIR$/export_marketings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/export_updates_names.php" afterPath="$PROJECT_DIR$/export_updates_names.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/function.php" afterPath="$PROJECT_DIR$/function.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu_apteka.html" afterPath="$PROJECT_DIR$/menu_apteka.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tasks" afterPath="$PROJECT_DIR$/tasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/send.php" afterPath="$PROJECT_DIR$/send.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -95,11 +84,11 @@
       <file leaf-file-name="send.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/send.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+            <state relative-caret-position="238">
+              <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
               <folding>
-                <marker date="1531244134987" expanded="true" signature="779:789" ph="..." />
-                <marker date="1531244134987" expanded="true" signature="839:900" ph="..." />
+                <marker date="1531246824771" expanded="true" signature="792:802" ph="..." />
+                <marker date="1531246824771" expanded="true" signature="851:912" ph="..." />
               </folding>
             </state>
           </provider>
@@ -468,12 +457,12 @@
       <workItem from="1529310362433" duration="633000" />
       <workItem from="1530782721322" duration="7072000" />
       <workItem from="1531159930592" duration="5200000" />
-      <workItem from="1531237465880" duration="5145000" />
+      <workItem from="1531237465880" duration="6392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367973000" />
+    <option name="totallyTimeSpent" value="369220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="6" />
@@ -1038,11 +1027,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/send.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+        <state relative-caret-position="238">
+          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           <folding>
-            <marker date="1531244134987" expanded="true" signature="779:789" ph="..." />
-            <marker date="1531244134987" expanded="true" signature="839:900" ph="..." />
+            <marker date="1531246824771" expanded="true" signature="792:802" ph="..." />
+            <marker date="1531246824771" expanded="true" signature="851:912" ph="..." />
           </folding>
         </state>
       </provider>
