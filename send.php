@@ -3,12 +3,12 @@
 // Настройки
 $mail = new PHPMailer;
 $mail->isSMTP();
-$mail->Host = 'mx1.mirohost.net';
+$mail->Host = '172.16.1.6';
 $mail->SMTPAuth = true;
 $mail->Username = 'admin@falbi.kh.ua';
 $mail->Password = 'Ebuprofen';
 //$mail->SMTPSecure = ‘ssl’;
-$mail->Port = 587;
+$mail->Port = 251;
 $mail->setFrom('admin@falbi.kh.ua');
 //$mail->addAddress('dimon@falbi.kh.ua');
 $mail->addAddress("synhro@falbi.kh.ua");
