@@ -49,10 +49,15 @@ function export_names_base_to_file($fields)
     $file = fopen("./out/names.csv", 'w+');
 
     foreach ($names as $name) {
-        fputcsv($file, $name);
+        array_push($name, "");
+        fputcsv($file, $name, ";");
     }
     fclose($file);
+    $save = new SaveToDB('', 'update_modify');
+}
 
+function download_names_base()
+{
     $download_file = "./out/names.csv";
     if (ob_get_level()) {
         ob_end_clean();
@@ -66,8 +71,6 @@ function export_names_base_to_file($fields)
     header('Pragma: public');
     header('Content-Length: ' . filesize($download_file));
     readfile($download_file);
-
-    $save = new SaveToDB('', 'update_modify');
 }
 
 function export_marketings_base_to_file()
@@ -79,10 +82,14 @@ function export_marketings_base_to_file()
 
     $file = fopen("./out/marketings.csv", 'w+');
     foreach ($marketings as $marketing) {
+        array_push($marketing, "");
         fputcsv($file, $marketing, ";");
     }
     fclose($file);
+}
 
+function download_marketings_base()
+{
     $download_file = "./out/marketings.csv";
     if (ob_get_level()) {
         ob_end_clean();
