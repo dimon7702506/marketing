@@ -50,7 +50,7 @@ function export_names_base_to_file($fields)
 
     foreach ($names as $name) {
         array_push($name, "");
-        fputcsv($file, $name, ";");
+        fputcsv($file, $name, "|");
     }
     fclose($file);
     $save = new SaveToDB('', 'update_modify');
@@ -83,7 +83,7 @@ function export_marketings_base_to_file()
     $file = fopen("./out/marketings.csv", 'w+');
     foreach ($marketings as $marketing) {
         array_push($marketing, "");
-        fputcsv($file, $marketing, ";");
+        fputcsv($file, $marketing, "|");
     }
     fclose($file);
 }
