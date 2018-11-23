@@ -4,4 +4,4 @@ require_once "function.php";
 require_once "autoload.php";
 
 export_names_base_to_file('all');
-download_base('names');
+download_names_base();

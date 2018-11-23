@@ -19,7 +19,7 @@ class SMTP
      *
      * @var int
      */
-    const DEFAULT_PORT = 25;
+    const DEFAULT_PORT = 587;
     /**
      * The maximum line length allowed by RFC 2822 section 2.1.1.
      *

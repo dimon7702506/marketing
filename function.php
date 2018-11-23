@@ -45,42 +45,20 @@ function export_names_base_to_file($fields)
     //var_dump($names);
 
     array_walk($names, 'encode_names_CSV');
+
     $file = fopen("./out/names.csv", 'w+');
+
+    foreach ($names as $name) {
+        array_push($name, "");
+        fputcsv($file, $name, "|");
+    }
+    fclose($file);
     $save = new SaveToDB('', 'update_modify');
-
-    foreach ($names as $name) {
-        array_push($name, "");
-        fputcsv($file, $name, "|");
-    }
-    fclose($file);
 }
 
-function export_mnn_to_file()
+function download_names_base()
 {
-    $text_search = '';
-    $find = new ShowMNN($text_search);
-    $names = $find->result_data;
-    //var_dump($names);
-
-    array_walk($names, 'encode_mnn_CSV');
-    $file = fopen("./out/mnn.csv", 'w+');
-
-    foreach ($names as $name) {
-        array_push($name, "");
-        fputcsv($file, $name, "|");
-    }
-    fclose($file);
-}
-
-function download_base($type)
-{
-    if ($type == 'names') {
-        $download_file = "./out/names.csv";
-    }elseif ($type == 'marketings'){
-        $download_file = "./out/marketings.csv";
-    }elseif ($type == 'marketings') {
-        $download_file = "./out/marketings.csv";
-    }
+    $download_file = "./out/names.csv";
     if (ob_get_level()) {
         ob_end_clean();
     }
@@ -110,14 +88,26 @@ function export_marketings_base_to_file()
     fclose($file);
 }
 
+function download_marketings_base()
+{
+    $download_file = "./out/marketings.csv";
+    if (ob_get_level()) {
+        ob_end_clean();
+    }
+    header('Content-Description: File Transfer');
+    header('Content-Type: text/csv; charset=windows-1251');
+    header('Content-Disposition: attachment; filename=' . basename($download_file));
+    header('Content-Transfer-Encoding: binary');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($download_file));
+    readfile($download_file);
+}
+
 function encode_marketing_CSV(&$value){
     $temp = $value['m_name'];
     $value['m_name'] = iconv("UTF-8", "Windows-1251", $temp);
-}
-
-function encode_mnn_CSV(&$value){
-    $temp = $value['MNN_name'];
-    $value['MNN_name'] = iconv("UTF-8", "Windows-1251", $temp);
 }
 
 function encode_names_CSV(&$value){
