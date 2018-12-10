@@ -44,15 +44,20 @@ class CheckField
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
             }elseif ($field == 'form_prod') {
-                if (strlen($val) > 20) {
+                if (strlen($val) > 68) {
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
+                //var_dump(($val));
             }elseif ($field == 'morion_id') {
                 if ($val < 0 || $val > 99999999999) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
             }elseif ($field == 'persent'){
                 if ($val < 0 || $val > 100) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'amount_in_a_package') {
+                if ($val < 0 || $val > 999) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
             }

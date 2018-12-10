@@ -63,6 +63,18 @@
                 <?php endforeach; ?>
             </select>
         </div>
+        <div class="form-group col-md-4">
+            <label for="inputZip">Форма выпуска</label>
+            <!--<input type="text" class="form-control" id="inputZip" value="<?php echo $form_prod; ?>"-->
+            <!--maxlength="20" name="form_prod">-->
+            <select id="inputState" class="form-control" name="form_prod">
+                <option selected><?php echo $form_prod; ?></option>
+                <option></option>
+                <?php foreach ($form_prods as $form_pro): ?>
+                <?php echo "<option>$form_pro[name]".'</option>'; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-2">
@@ -85,22 +97,22 @@
             <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
                    min=0 max=9999.99 name="sum_com">
         </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Дозировка</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $doza; ?>"
+                   maxlength="10" name="doza">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Количество в упаковке</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $amount_in_a_package; ?>"
+                   maxlength="10" name="amount_in_a_package">
+        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputZip">Торговое название</label>
             <input type="text" class="form-control" id="inputZip" value="<?php echo $name_torg; ?>"
                    maxlength="100" name="name_torg">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Форма выпуска</label>
-            <input type="text" class="form-control" id="inputZip" value="<?php echo $form_prod; ?>"
-                   maxlength="20" name="form_prod">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Дозировка</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $doza; ?>"
-                   maxlength="10" name="doza">
         </div>
     </div>
     <p class="errors"><?php echo $errors ?></p>

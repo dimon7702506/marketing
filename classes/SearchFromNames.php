@@ -26,6 +26,8 @@ class SearchFromNames
             $sql = "SELECT m_id, m_name FROM marketing ORDER BY m_name";
         }elseif ($fields == 'mnn') {
             $sql = "SELECT MNN_id, MNN_name FROM MNN ORDER BY MNN_name";
+        }elseif ($fields == 'form_prod') {
+            $sql = "SELECT id, name FROM names_form_prod ORDER BY name";
         }else{
             $sql = "SELECT id, name, producer, m_name, MNN_name FROM names
                       LEFT JOIN marketing ON marketing_id = m_id
