@@ -19,6 +19,7 @@ $nac = '';
 $tax = '';
 $gran_price = '';
 $sum_com = '';
+$amount_in_a_packege = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -42,8 +43,9 @@ if (isset($_GET['id'])) {
         $gran_price = $nom['gran_price'];
         $sum_com = $nom['sum_com'];
         $name_torg = $nom['name_torg'];
-        $form_prod = $nom['form_prod'];
+        $form_prod = trim($nom['form_prod']);
         $doza = $nom['doza'];
+        $amount_in_a_package = $nom['amount_in_a_package'];
     }
 
     $marketings = new SearchFromNames('','', 'marketings');
@@ -53,6 +55,9 @@ if (isset($_GET['id'])) {
     $mnn_list = new SearchFromNames('','', 'mnn');
     $mnns = $mnn_list->result_data;
     //var_dump($mnns);
+
+    $form_prod_list = new SearchFromNames('','','form_prod');
+    $form_prods = $form_prod_list->result_data;
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
@@ -104,6 +109,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $doza = $check->value;
     $errors .= $check->error;
 
+    $check = new CheckField('amount_in_a_package', $_POST['amount_in_a_package']);
+    $amount_in_a_package = $check->value;
+    $errors .= $check->error;
+
     $check = new CheckField('morion_id', $_POST['morion_id']);
     $morion_id = $check->value;
     $errors .= $check->error;
@@ -132,7 +141,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'mnn'=>$mnn,
                     'form_prod'=>$form_prod,
                     'doza'=>(float) $doza,
-                    'name_torg'=>$name_torg];
+                    'name_torg'=>$name_torg,
+                    'amount_in_a_package'=>(int) $amount_in_a_package];
 
         if ($id == 0) {
             $method = 'new';
