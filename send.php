@@ -19,7 +19,7 @@ $mail->SMTPOptions = array(
 $mail->Port = 587;
 $mail->setFrom('admin@falbi.kh.ua');
 //$mail->addAddress('dimon@falbi.kh.ua');
-$mail->addAddress("synhro@falbi.kh.ua");
+//$mail->addAddress("synhro@falbi.kh.ua");
 $mail->addAddress("synhro@passat.kh.ua");
 // Прикрепление файлов
 $mail->addAttachment('/var/www/marketing.com/out/names.csv', 'names.csv');

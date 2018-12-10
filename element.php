@@ -19,7 +19,7 @@ $nac = '';
 $tax = '';
 $gran_price = '';
 $sum_com = '';
-$amount_in_a_packege = '';
+$amount_in_a_package = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -155,7 +155,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
             $element['id'] = 0;
             $method = 'new';
         }
-
 
         $save = new SaveToDB($element, $method);
 
