@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/signin.css" rel="stylesheet">
+</head>
+<body>
+<form class="container" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $id; ?>" name="$mnns_id"
+                   disabled required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">МНН</label>
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $mnn; ?> "
+                   maxlength="100" name="mnn" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Заболевание</label>
+            <select id="inputState" class="form-control" name="sickness">
+                <option selected><?php echo $sickness; ?></option>
+                <option></option>
+                <?php foreach ($sickness_l as $sickn): ?>
+                <?php var_dump($sickness_l)?>
+                <?php echo "<option>$sickn[sickness_name]</option>"; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+    </div>
+
+
+    <p class="errors"><?php echo $errors ?></p>
+    <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+    <button type="submit" class="btn btn-primary" name="copy" style="margin-left: 15px">Копировать</button>
+    <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
+</form>
+
+</body>
+</html>

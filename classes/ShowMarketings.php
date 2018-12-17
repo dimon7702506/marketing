@@ -6,12 +6,12 @@ class ShowMarketings
 {
     public $result_data;
 
-    public function __construct($text_search)
+    public function __construct($text_search, $field_search)
     {
-        $this->search($text_search);
+        $this->search($text_search, $field_search);
     }
 
-    public function search($text_search)
+    public function search($text_search, $field_search)
     {
         if (strlen($text_search) > 0){
             $sql = "SELECT * FROM marketing WHERE m_id = :str";
