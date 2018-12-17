@@ -29,16 +29,16 @@ class SearchFromNames
         }elseif ($fields == 'form_prod') {
             $sql = "SELECT id, name FROM names_form_prod ORDER BY name";
         }else{
-            $sql = "SELECT id, name, producer, m_name, MNN_name FROM names
+            $sql = "SELECT id, name, producer, m_name, MNN_name, tax FROM names
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
-            $sql1 = "SELECT id, name, producer, m_name, MNN_name FROM names";
+            $sql1 = "SELECT id, name, producer, m_name, MNN_name, tax FROM names";
         }
 
         if ($field_search == 'Наименование') {
             $sql .= " WHERE name LIKE CONCAT('%', :str, '%') ORDER BY name";
         }elseif ($field_search == 'Производитель') {
-            $sql .= " WHERE producer LIKE CONCAT('%', :str, '%')";
+            $sql .= " WHERE producer LIKE CONCAT('%', :str, '%') ORDER BY name";
         }elseif ($field_search == 'Код товара') {
             $sql .= " WHERE id LIKE :str";
         }elseif ($field_search == 'Код мориона') {
@@ -46,12 +46,13 @@ class SearchFromNames
         }elseif ($field_search == 'Маркетинг') {
             $sql = $sql1 . " LEFT JOIN marketing ON marketing_id = m_id
                              LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
-                             WHERE m_name LIKE CONCAT('%', :str, '%')";
+                             WHERE m_name LIKE CONCAT('%', :str, '%') ORDER BY name";
         }elseif ($field_search == 'МНН') {
             $sql = $sql1 . " LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
                              LEFT JOIN marketing ON marketing_id=m_id 
-                             WHERE MNN_name LIKE CONCAT('%', :str, '%')";
+                             WHERE MNN_name LIKE CONCAT('%', :str, '%') ORDER BY name";
         }
+        //$sql = $sql . "ORDER BY name";
 
         $arg = ["str" => $text_search];
 
