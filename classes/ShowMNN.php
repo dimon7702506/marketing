@@ -19,6 +19,8 @@ class ShowMNN
                 $sql .= " WHERE MNN_name LIKE CONCAT('%', :str, '%') ORDER BY MNN_name";
             }elseif ($field_search == 'ID'){
                 $sql .= " WHERE MNN_id = :str";
+            }elseif ($field_search == 'Заболевание') {
+                $sql .= " WHERE sickness_name LIKE CONCAT('%', :str, '%') ORDER BY MNN_name";
             }
             $arg = ["str" => $text_search];
         }else {

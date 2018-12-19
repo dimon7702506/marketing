@@ -9,18 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/SaveToDBMNN.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/ShowSickness.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mnn.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mnn.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore.save" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catal.html" afterPath="$PROJECT_DIR$/catal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SearchFromNames.php" afterPath="$PROJECT_DIR$/classes/SearchFromNames.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ShowMNN.php" afterPath="$PROJECT_DIR$/classes/ShowMNN.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ShowMarketings.php" afterPath="$PROJECT_DIR$/classes/ShowMarketings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketings.html" afterPath="$PROJECT_DIR$/marketings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/names.html" afterPath="$PROJECT_DIR$/names.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,25 +32,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="element_mnn.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/element_mnn.php">
+      <file leaf-file-name="mnn.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mnn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaveToDBMNN.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/SaveToDBMNN.php">
+      <file leaf-file-name="ShowMNN.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/ShowMNN.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            <state relative-caret-position="391">
+              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
-                <marker date="1545070369777" expanded="true" signature="253:317" ph="SELECT sickn... sickness" />
-                <marker date="1545070369777" expanded="true" signature="382:443" ph="UPDATE MNN S... " />
-                <marker date="1545070369777" expanded="true" signature="629:739" ph="INSERT INTO MNN... " />
+                <marker date="1545229145192" expanded="true" signature="363:471" ph="SELECT MNN_i... MNN" />
+                <marker date="1545229145192" expanded="true" signature="989:1026" ph="SELECT * FRO... MNN" />
+                <marker date="1545229145192" expanded="true" signature="1122:1157" ph="SELECT * FRO... MNN" />
               </folding>
             </state>
           </provider>
@@ -173,10 +163,10 @@
         <option value="$PROJECT_DIR$/mnn.html" />
         <option value="$PROJECT_DIR$/classes/ShowSickness.php" />
         <option value="$PROJECT_DIR$/classes/ShowMarketings.php" />
-        <option value="$PROJECT_DIR$/classes/ShowMNN.php" />
         <option value="$PROJECT_DIR$/element_mnn.html" />
         <option value="$PROJECT_DIR$/classes/SaveToDBMNN.php" />
         <option value="$PROJECT_DIR$/element_mnn.php" />
+        <option value="$PROJECT_DIR$/classes/ShowMNN.php" />
       </list>
     </option>
   </component>
@@ -271,6 +261,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,7 +283,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -434,18 +424,18 @@
       <workItem from="1544516656788" duration="2377000" />
       <workItem from="1544779254702" duration="11205000" />
       <workItem from="1544800465032" duration="2657000" />
-      <workItem from="1545069047738" duration="1993000" />
+      <workItem from="1545069047738" duration="2177000" />
+      <workItem from="1545228507783" duration="1224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="404273000" />
+    <option name="totallyTimeSpent" value="405681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1370" height="745" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30589125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31042296" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -735,14 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mnn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mnn.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
@@ -788,18 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/ShowMNN.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <marker date="1544801441014" expanded="true" signature="363:471" ph="SELECT MNN_i... MNN" />
-            <marker date="1544801441014" expanded="true" signature="840:877" ph="SELECT * FRO... MNN" />
-            <marker date="1544801441014" expanded="true" signature="973:1008" ph="SELECT * FRO... MNN" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/element.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -812,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
           <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="106" column="81" lean-forward="false" selection-start-line="106" selection-start-column="81" selection-end-line="106" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,6 +818,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/element_mnn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/classes/SaveToDBMNN.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -862,11 +838,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/element_mnn.php">
+    <entry file="file://$PROJECT_DIR$/mnn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="255">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/ShowMNN.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <marker date="1545229145192" expanded="true" signature="363:471" ph="SELECT MNN_i... MNN" />
+            <marker date="1545229145192" expanded="true" signature="989:1026" ph="SELECT * FRO... MNN" />
+            <marker date="1545229145192" expanded="true" signature="1122:1157" ph="SELECT * FRO... MNN" />
+          </folding>
         </state>
       </provider>
     </entry>
