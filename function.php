@@ -76,7 +76,7 @@ function download_names_base()
 function export_marketings_base_to_file()
 {
     $text_search = '';
-    $find = new ShowMarketings($text_search);
+    $find = new ShowMarketings($text_search,'');
     $marketings = $find->result_data;
     array_walk($marketings, 'encode_marketing_CSV');
 
