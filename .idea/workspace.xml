@@ -9,8 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ShowMNN.php" afterPath="$PROJECT_DIR$/classes/ShowMNN.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/element.html" afterPath="$PROJECT_DIR$/element.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/element.php" afterPath="$PROJECT_DIR$/element.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,26 +32,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mnn.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mnn.php">
+      <file leaf-file-name="element.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/element.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+            <state relative-caret-position="379">
+              <caret line="121" column="12" lean-forward="false" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowMNN.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/classes/ShowMNN.php">
+      <file leaf-file-name="SearchFromNames.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="169">
+              <caret line="18" column="66" lean-forward="true" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
               <folding>
-                <marker date="1545229145192" expanded="true" signature="363:471" ph="SELECT MNN_i... MNN" />
-                <marker date="1545229145192" expanded="true" signature="989:1026" ph="SELECT * FRO... MNN" />
-                <marker date="1545229145192" expanded="true" signature="1122:1157" ph="SELECT * FRO... MNN" />
+                <marker date="1544780820526" expanded="true" signature="360:510" ph="SELECT * FRO... names" />
+                <marker date="1544780820526" expanded="true" signature="574:762" ph="SELECT * FRO... names" />
+                <marker date="1544780820526" expanded="true" signature="829:879" ph="SELECT m_id,... marketing" />
+                <marker date="1544780820526" expanded="true" signature="939:989" ph="SELECT MNN_i... MNN" />
+                <marker date="1544780820526" expanded="true" signature="1055:1105" ph="SELECT id, n... names_form_prod" />
+                <marker date="1544780820526" expanded="true" signature="1143:1332" ph="SELECT id, n... names" />
+                <marker date="1544780820526" expanded="true" signature="1356:1415" ph="SELECT id, n... names" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/element.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="72" column="28" lean-forward="false" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,8 +166,6 @@
         <option value="$PROJECT_DIR$/classes/SaveToDB.php" />
         <option value="$PROJECT_DIR$/classes/CheckField.php" />
         <option value="$PROJECT_DIR$/send.php" />
-        <option value="$PROJECT_DIR$/element.html" />
-        <option value="$PROJECT_DIR$/element.php" />
         <option value="$PROJECT_DIR$/marketings.html" />
         <option value="$PROJECT_DIR$/names.php" />
         <option value="$PROJECT_DIR$/names.html" />
@@ -167,6 +179,8 @@
         <option value="$PROJECT_DIR$/classes/SaveToDBMNN.php" />
         <option value="$PROJECT_DIR$/element_mnn.php" />
         <option value="$PROJECT_DIR$/classes/ShowMNN.php" />
+        <option value="$PROJECT_DIR$/element.php" />
+        <option value="$PROJECT_DIR$/element.html" />
       </list>
     </option>
   </component>
@@ -260,8 +274,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -426,16 +440,17 @@
       <workItem from="1544800465032" duration="2657000" />
       <workItem from="1545069047738" duration="2177000" />
       <workItem from="1545228507783" duration="1224000" />
+      <workItem from="1545301130484" duration="2897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="405681000" />
+    <option name="totallyTimeSpent" value="408578000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1370" height="745" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="742" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31042296" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31495467" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -732,22 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <marker date="1544780820526" expanded="true" signature="360:510" ph="SELECT * FRO... names" />
-            <marker date="1544780820526" expanded="true" signature="574:762" ph="SELECT * FRO... names" />
-            <marker date="1544780820526" expanded="true" signature="829:879" ph="SELECT m_id,... marketing" />
-            <marker date="1544780820526" expanded="true" signature="939:989" ph="SELECT MNN_i... MNN" />
-            <marker date="1544780820526" expanded="true" signature="1055:1105" ph="SELECT id, n... names_form_prod" />
-            <marker date="1544780820526" expanded="true" signature="1143:1332" ph="SELECT id, n... names" />
-            <marker date="1544780820526" expanded="true" signature="1356:1415" ph="SELECT id, n... names" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/ShowSickness.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -770,25 +769,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/element.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/element_mnn.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
           <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="106" column="81" lean-forward="false" selection-start-line="106" selection-start-column="81" selection-end-line="106" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -838,14 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mnn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/ShowMNN.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -855,6 +831,46 @@
             <marker date="1545229145192" expanded="true" signature="989:1026" ph="SELECT * FRO... MNN" />
             <marker date="1545229145192" expanded="true" signature="1122:1157" ph="SELECT * FRO... MNN" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mnn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="18" column="66" lean-forward="true" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+          <folding>
+            <marker date="1544780820526" expanded="true" signature="360:510" ph="SELECT * FRO... names" />
+            <marker date="1544780820526" expanded="true" signature="574:762" ph="SELECT * FRO... names" />
+            <marker date="1544780820526" expanded="true" signature="829:879" ph="SELECT m_id,... marketing" />
+            <marker date="1544780820526" expanded="true" signature="939:989" ph="SELECT MNN_i... MNN" />
+            <marker date="1544780820526" expanded="true" signature="1055:1105" ph="SELECT id, n... names_form_prod" />
+            <marker date="1544780820526" expanded="true" signature="1143:1332" ph="SELECT id, n... names" />
+            <marker date="1544780820526" expanded="true" signature="1356:1415" ph="SELECT id, n... names" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="72" column="28" lean-forward="false" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="121" column="12" lean-forward="false" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

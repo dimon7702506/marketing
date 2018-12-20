@@ -20,6 +20,8 @@ $tax = '';
 $gran_price = '';
 $sum_com = '';
 $amount_in_a_package = '';
+$project_dl = '';
+
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -46,6 +48,8 @@ if (isset($_GET['id'])) {
         $form_prod = trim($nom['form_prod']);
         $doza = $nom['doza'];
         $amount_in_a_package = $nom['amount_in_a_package'];
+        $project_dl = $nom['project_dl'];
+        var_dump($project_dl);
     }
 
     $marketings = new SearchFromNames('','', 'marketings');
@@ -142,7 +146,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'form_prod'=>$form_prod,
                     'doza'=>(float) $doza,
                     'name_torg'=>$name_torg,
-                    'amount_in_a_package'=>(int) $amount_in_a_package];
+                    'amount_in_a_package'=>(int) $amount_in_a_package,
+                    'project_dl'=>(int) $project_dl];
 
         if ($id == 0) {
             $method = 'new';
