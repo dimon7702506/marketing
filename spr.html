@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <form class="form-inline" style="padding-top: 10px" action="names.php" method="get">
+    <form class="form-inline" style="padding-top: 10px" action="spr.php" method="get">
         <div class="form-group mx-sm-3">
             <label for="formGroupExampleInput" class="sr-only">Password</label>
 
@@ -38,44 +38,32 @@
         <div class="form-group mx-sm-3">
             <label for="inputState" style="padding-right: 10px;">Поле поиска:</label>
             <select id="inputState" class="form-control" name="field_search">
-                <option selected>Наименование</option>
-                <option>Производитель</option>
-                <option>Код товара</option>
-                <option>Код мориона</option>
-                <option>Маркетинг</option>
-                <option>МНН</option>
-                <option>Доступні Ліки</option>
+                <option selected>МНН</option>
+                <option>Заболевание</option>
             </select>
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
     </form>
 
-    <?php if(isset($nomens)): ?>
+    <?php if(isset($res)): ?>
         <div>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Наименование</th>
-                    <th scope="col">Производитель</th>
-                    <th scope="col">МНН</th>
-                    <th scope="col">Маркетинг</th>
-                    <th scope="col">НДС</th>
-                    <th scope="col">Модификация</th>
+                    <?php foreach($cols as $col){ ?>
+                        <th scope="col"><?php echo var_dump($col['id']); ?></th>
+                    <?php }?>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($nomens as $nomen) : ?>
+                <?php foreach($res as $r) : ?>
                     <tr>
-                        <td><?php echo $nomen['id']; ?></td>
-                        <td><?php echo $nomen['name']; ?></td>
-                        <td><?php echo $nomen['producer']; ?></td>
-                        <td><?php echo $nomen['MNN_name']; ?></td>
-                        <td><?php echo $nomen['m_name']; ?></td>
-                        <td><?php echo $nomen['tax']; ?></td>
-                        <?php $id = (int) $nomen['id']; ?>
-                        <td><?php echo "<a href=\"./element.php?id=$id&\">изменить</a>"; ?></td>
+                        <td><?php echo $r['MNN_id']; ?></td>
+                        <td><?php echo $r['MNN_name']; ?></td>
+                        <td><?php echo $r['sickness_name']; ?></td>
+                        <?php $id = (int) $mnn['MNN_id']; ?>
+                        <td><?php echo "<a href=\"./element_mnn.php?id=$id&\">изменить</a>"; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

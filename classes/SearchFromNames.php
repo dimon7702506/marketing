@@ -51,6 +51,8 @@ class SearchFromNames
             $sql = $sql1 . " LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
                              LEFT JOIN marketing ON marketing_id=m_id 
                              WHERE MNN_name LIKE CONCAT('%', :str, '%') ORDER BY name";
+        }elseif ($field_search == "Доступні Ліки"){
+            $sql .= " WHERE project_dl = 1 ORDER BY name";
         }
         //$sql = $sql . "ORDER BY name";
 
