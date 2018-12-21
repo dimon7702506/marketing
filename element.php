@@ -21,6 +21,7 @@ $gran_price = '';
 $sum_com = '';
 $amount_in_a_package = '';
 $project_dl = '';
+$checked = '';
 
 
 if (isset($_GET['id'])) {
