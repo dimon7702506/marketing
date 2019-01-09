@@ -16,7 +16,8 @@ class SearchFromNames
         if ($fields == 'all') {
             $sql = "SELECT * FROM names 
                       LEFT JOIN marketing ON marketing_id = m_id
-                      LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
+                      LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
+                      LEFT JOIN sickness ON MNN.sickness_id = sickness.sickness_id";
         }elseif ($fields == 'updates') {
             $sql = "SELECT * FROM names 
                       LEFT JOIN marketing ON marketing_id = m_id
