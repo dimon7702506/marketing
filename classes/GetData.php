@@ -16,8 +16,8 @@ class GetData
         //var_dump($sp_type);
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
-            $fields_query = 'name';
-            $order_by = 'name';
+            $fields_query = 'id, name, firm_id';
+            $order_by = 'firm_id, name';
 
         }
 

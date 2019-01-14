@@ -7,11 +7,12 @@ $errors = '';
 $name = '';
 $persent = '';
 $summ = '';
+$field_search = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $find = new ShowMarketings($id);
+    $find = new ShowMarketings($id, $field_search);
     $marketings = $find->result_data;
 
     //var_dump($marketings);

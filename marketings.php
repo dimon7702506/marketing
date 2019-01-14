@@ -4,7 +4,8 @@ require_once "./function.php";
 require_once "autoload.php";
 
 $text_search = '';
-$find = new ShowMarketings($text_search);
+$field_search = '';
+$find = new ShowMarketings($text_search, $field_search);
 $marketings = $find->result_data;
 //var_dump($marketings);
 

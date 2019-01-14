@@ -52,17 +52,17 @@
                 <thead>
                 <tr>
                     <?php foreach($cols as $col){ ?>
-                        <th scope="col"><?php echo var_dump($col['id']); ?></th>
+                        <th scope="col"><?php echo $col; ?></th>
                     <?php }?>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($res as $r) : ?>
                     <tr>
-                        <td><?php echo $r['MNN_id']; ?></td>
-                        <td><?php echo $r['MNN_name']; ?></td>
-                        <td><?php echo $r['sickness_name']; ?></td>
-                        <?php $id = (int) $mnn['MNN_id']; ?>
+                        <td><?php echo $r['id']; ?></td>
+                        <td><?php echo $r['name']; ?></td>
+                        <td><?php echo $r['firm_id']; ?></td>
+                        <?php $id = (int) $r['id']; ?>
                         <td><?php echo "<a href=\"./element_mnn.php?id=$id&\">изменить</a>"; ?></td>
                     </tr>
                 <?php endforeach; ?>

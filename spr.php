@@ -15,12 +15,14 @@ if (isset($_GET['submit_search'])) {
     $field_search = $_GET['field_search'];
     $sp_type = $_COOKIE['sp_type'];
     if ($sp_type == 'podr'){
-        $cols = ['id'=>'id',
-                 'name'=>'Наименование'];
+        $cols = ['id'=>'ID',
+                 'name'=>'Наименование',
+                 'firm_id'=>'Фирма',
+                 'modif'=>'Модификация'];
     }
-    foreach ($cols as $col){
-        var_dump($cols);
-    }
+//    foreach ($cols as $col){
+//        var_dump($col);
+//    }
     $find = new GetData($sp_type, $text_search, $field_search, $field);
     //var_dump($find->result_data);
     $res = $find->result_data;
