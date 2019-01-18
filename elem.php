@@ -41,13 +41,11 @@ if (isset($_GET['id'])) {
         if ($sp_type = 'podr') {
             $name = trim($result['apteka_name']);
             $firma = trim($result['firm_name']);
-            $html_elem = "<div class=form-row>
-                            <div class=form-group col-md-6>
-                                <label for=inputEmail4>Наименование</label>
-                                <input type=text class=form-control id=inputEmail4 value=$name
-                                maxlength=50 name=$name required>
-                            </div>
-                        </div>";
+            $html_elem = "<div class=\"form-group col-md-6\">
+                            <label for=\"inputEmail4\">Наименование</label>
+                            <input type=\"text\" class=\"form-control\" id=\"inputEmail4\" value=\"$name\"
+                                name=\"$name\" required>
+                          </div>";
             //var_dump($name);
         }
 //        $nom_id = $nom['id'];

@@ -19,22 +19,21 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                             'sickness'=>'Заболевание'],
                    'names'=>['name'=>'Наименование',
                              'prod'=>'Производитель',
-                             'id'=>'Код товара']
+                             'id'=>'Код товара'],
+                   'people'=>['full_name'=>'ФИО',
+                              'tel'=>'Телефон']
                   ];
 //var_dump($select_options);
 $html_select_options = '';
-if ($sp_type == 'podr'){
-    $i = 0;
-    foreach ($select_options['podr'] as $select_option) {
-        //var_dump($select_option);
-        $i++;
-        if ($i == 1) {
-            $html_select_options = "<option selected>$select_option</option>";
-        }else{
-            $html_select_options .= "<option>$select_option</option>";
-        }
+
+$i = 0;
+foreach ($select_options[$sp_type] as $select_option) {
+    $i++;
+    if ($i == 1) {
+        $html_select_options = "<option selected>$select_option</option>";
+    }else{
+        $html_select_options .= "<option>$select_option</option>";
     }
-    //var_dump($html_select_options);
 }
 
 if (isset($_GET['submit_search'])) {
@@ -42,12 +41,17 @@ if (isset($_GET['submit_search'])) {
     $text_search = $_GET['search'];
     $field_search = $_GET['field_search'];
     $sp_type = $_COOKIE['sp_type'];
+
+    $cols = ['id'=>'ID'];
     if ($sp_type == 'podr'){
-        $cols = ['id'=>'ID',
-                 'apteka.name'=>'Наименование',
-                 'firm.name'=>'Фирма',
-                 'modif'=>'Модификация'];
+        $cols += ['apteka.name'=>'Наименование',
+                  'firm.name'=>'Фирма'];
+    }elseif($sp_type == 'people'){
+        $cols = ['full_name'=>'ФИО',
+                 'tel'=>'Телефон'];
     }
+    $cols += ['modif'=>'Модификация'];
+
     $find = new GetData($sp_type, $text_search, $field_search);
     //var_dump($find->result_data);
     $res = $find->result_data;
