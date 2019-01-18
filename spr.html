@@ -38,8 +38,7 @@
         <div class="form-group mx-sm-3">
             <label for="inputState" style="padding-right: 10px;">Поле поиска:</label>
             <select id="inputState" class="form-control" name="field_search">
-                <option selected>МНН</option>
-                <option>Заболевание</option>
+                <?php echo $html_select_options ?>
             </select>
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
@@ -57,15 +56,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($res as $r) : ?>
-                    <tr>
-                        <td><?php echo $r['id']; ?></td>
-                        <td><?php echo $r['name']; ?></td>
-                        <td><?php echo $r['firm_id']; ?></td>
-                        <?php $id = (int) $r['id']; ?>
-                        <td><?php echo "<a href=\"./element_mnn.php?id=$id&\">изменить</a>"; ?></td>
-                    </tr>
-                <?php endforeach; ?>
+                    <?php echo $result_tab; ?>
                 </tbody>
             </table>
         </div>

@@ -6,45 +6,46 @@ class GetData
 {
     public $result_data;
 
-    public function __construct($sp_type, $text_search, $field_search, $fields)
+    public function __construct($sp_type, $text_search, $field_search)
     {
-        $this->search($sp_type, $text_search, $field_search, $fields);
+        $this->search($sp_type, $text_search, $field_search);
     }
 
-    public function search($sp_type, $text_search, $field_search, $fields)
+    public function search($sp_type, $text_search, $field_search)
     {
         //var_dump($sp_type);
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
-            $fields_query = 'id, name, firm_id';
-            $order_by = 'firm_id, name';
-
+            $fields_query = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
+            $join_table = ' firm';
+            $join = " LEFT JOIN $join_table ON firm_id = firm.id";
+            $order_by = 'firm.name, apteka.name';
+            if ($field_search == 'Наименование'){
+                $field_search = 'apteka.name';
+            }elseif ($field_search == 'Фирма'){
+                $field_search = 'firm.name';
+            }elseif ($field_search == 'ID'){
+                $field_search = 'apteka.id';
+                $order_by = '';
+            }
         }
 
-        $sql = "SELECT $fields_query FROM $table_name ORDER BY $order_by";
-
-/*        if (strlen($field_search) > 0){
-            $sql = "SELECT MNN_id, MNN_name, sickness_name FROM MNN LEFT JOIN sickness ON MNN.sickness_id = sickness.sickness_id";
-            if ($field_search == 'МНН') {
-                $sql .= " WHERE MNN_name LIKE CONCAT('%', :str, '%') ORDER BY MNN_name";
-            }elseif ($field_search == 'ID'){
-                $sql .= " WHERE MNN_id = :str";
-            }elseif ($field_search == 'Заболевание') {
-                $sql .= " WHERE sickness_name LIKE CONCAT('%', :str, '%') ORDER BY MNN_name";
+        $sql = "SELECT $fields_query FROM $table_name $join ";
+        if (strlen($field_search) > 0){
+            if ($field_search == 'ID'){
+                $sql .= "WHERE $field_search = :str)";
+            }else {
+                $sql .= "WHERE $field_search LIKE CONCAT('%', :str, '%')";
             }
             $arg = ["str" => $text_search];
-        }else {
-            if (strlen($text_search) > 0) {
-                $sql = "SELECT * FROM MNN WHERE mnn_id = :str";
-                $arg = ["str" => $text_search];
-            } else {
-                $sql = "SELECT * FROM MNN ORDER BY mnn_name";
-                $arg = [];
-            }
-        }*/
-
-        //var_dump($sql);
+        }else{
+            $arg = [];
+        }
         $arg = ["str" => $text_search];
+        if (strlen($order_by) > 0){
+            $sql .= "ORDER BY $order_by";
+        }
+        //var_dump($sql);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->result_data = $data;

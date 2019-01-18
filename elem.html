@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/signin.css" rel="stylesheet">
+</head>
+<body>
+<form class="container" method="post">
+    <div class="form-row">
+        <?php echo $html_elem;?>
+    </div>
+    <p class="errors"><?php echo $errors ?></p>
+    <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+    <button type="submit" class="btn btn-primary" name="copy" style="margin-left: 15px">Копировать</button>
+    <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
+</form>
+
+</body>
+</html>

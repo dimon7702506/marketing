@@ -3,10 +3,38 @@
 require_once "./function.php";
 require_once "autoload.php";
 
+$sp_type = '';
 if (isset($_GET['sp_type'])){
     $sp_type = $_GET['sp_type'];
     setcookie('sp_type', $sp_type);
-    //var_dump($sp_type);
+}else{
+    $sp_type = $_COOKIE['sp_type'];
+}
+
+//var_dump($sp_type);
+
+$select_options = ['podr'=>['apteka_name'=>'Наименование',
+                            'firm_name'=>'Фирма'],
+                   'MNN'=>['MNN'=>'MNN',
+                            'sickness'=>'Заболевание'],
+                   'names'=>['name'=>'Наименование',
+                             'prod'=>'Производитель',
+                             'id'=>'Код товара']
+                  ];
+//var_dump($select_options);
+$html_select_options = '';
+if ($sp_type == 'podr'){
+    $i = 0;
+    foreach ($select_options['podr'] as $select_option) {
+        //var_dump($select_option);
+        $i++;
+        if ($i == 1) {
+            $html_select_options = "<option selected>$select_option</option>";
+        }else{
+            $html_select_options .= "<option>$select_option</option>";
+        }
+    }
+    //var_dump($html_select_options);
 }
 
 if (isset($_GET['submit_search'])) {
@@ -16,23 +44,35 @@ if (isset($_GET['submit_search'])) {
     $sp_type = $_COOKIE['sp_type'];
     if ($sp_type == 'podr'){
         $cols = ['id'=>'ID',
-                 'name'=>'Наименование',
-                 'firm_id'=>'Фирма',
+                 'apteka.name'=>'Наименование',
+                 'firm.name'=>'Фирма',
                  'modif'=>'Модификация'];
     }
-//    foreach ($cols as $col){
-//        var_dump($col);
-//    }
-    $find = new GetData($sp_type, $text_search, $field_search, $field);
+    $find = new GetData($sp_type, $text_search, $field_search);
     //var_dump($find->result_data);
     $res = $find->result_data;
+
+    $result_tab = '';
+    foreach($res as $r){
+        $result_tab .= '<tr>';
+            $result_tab .= '<td>' . $r['id'] . '</td>';
+            $result_tab .= '<td>' . $r['apteka_name'] . '</td>';
+            $result_tab .= '<td>' . $r['firm_name'] . '</td>';
+            $id = (int) $r['id'];
+            $result_tab .= '<td>' . "<a href=/elem.php?id=$id&sp_type=podr>изменить</a></td>";
+        $result_tab .= '</tr>';
+    }
+
+
     $count = count($res);
     setcookie("text_search", $text_search);
     setcookie("field_search", $field_search);
+    setcookie('sp_type', $sp_type);
+    //var_dump($sp_type);
 }
 
 if (isset($_GET['submit_new'])) {
-    header("location: ./element_mnn.php?id=0");
+    header("location: ./elem.php?id=0");
 }
 
 require_once "./spr.html";
