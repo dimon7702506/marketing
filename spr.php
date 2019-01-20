@@ -41,32 +41,40 @@ if (isset($_GET['submit_search'])) {
     $text_search = $_GET['search'];
     $field_search = $_GET['field_search'];
     $sp_type = $_COOKIE['sp_type'];
+    $query_type = 'list';
 
     $cols = ['id'=>'ID'];
     if ($sp_type == 'podr'){
         $cols += ['apteka.name'=>'Наименование',
                   'firm.name'=>'Фирма'];
     }elseif($sp_type == 'people'){
-        $cols = ['full_name'=>'ФИО',
+        $cols += ['full_name'=>'ФИО',
                  'tel'=>'Телефон'];
     }
     $cols += ['modif'=>'Модификация'];
+    //var_dump($cols);
 
-    $find = new GetData($sp_type, $text_search, $field_search);
+    $find = new GetData($sp_type, $text_search, $field_search, $query_type);
     //var_dump($find->result_data);
     $res = $find->result_data;
 
     $result_tab = '';
+    $id = 0;
+
     foreach($res as $r){
+        //var_dump(array_keys($r));
+        $keys = array_keys($r);
         $result_tab .= '<tr>';
-            $result_tab .= '<td>' . $r['id'] . '</td>';
-            $result_tab .= '<td>' . $r['apteka_name'] . '</td>';
-            $result_tab .= '<td>' . $r['firm_name'] . '</td>';
-            $id = (int) $r['id'];
-            $result_tab .= '<td>' . "<a href=/elem.php?id=$id&sp_type=podr>изменить</a></td>";
+            foreach ($keys as $value) {
+                if ($value == 'id'){
+                    $id = (int) $r[$value];
+                }
+                $result_tab .= '<td>' . $r[$value] . '</td>';
+            }
+
+            $result_tab .= '<td>' . "<a href=/elem.php?id=$id&sp_type=$sp_type>изменить</a></td>";
         $result_tab .= '</tr>';
     }
-
 
     $count = count($res);
     setcookie("text_search", $text_search);

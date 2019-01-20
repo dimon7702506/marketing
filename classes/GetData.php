@@ -6,17 +6,18 @@ class GetData
 {
     public $result_data;
 
-    public function __construct($sp_type, $text_search, $field_search)
+    public function __construct($sp_type, $text_search, $field_search, $query_type)
     {
-        $this->search($sp_type, $text_search, $field_search);
+        $this->search($sp_type, $text_search, $field_search, $query_type);
     }
 
-    public function search($sp_type, $text_search, $field_search)
+    public function search($sp_type, $text_search, $field_search, $query_type)
     {
         //var_dump($sp_type);
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
-            $fields_query = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
+            $fields_query_list = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
+            $fields_query_elem = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
             $join_table = ' firm';
             $join = " LEFT JOIN $join_table ON firm_id = firm.id";
             $order_by = 'firm.name, apteka.name';
@@ -28,6 +29,27 @@ class GetData
                 $field_search = 'apteka.id';
                 $order_by = '';
             }
+        }elseif ($sp_type == 'people'){
+            $table_name = 'people';
+            $fields_query_list = 'id, full_name, tel';
+            $fields_query_elem = '*';
+            $join_table = '';
+            $join = "";
+            $order_by = 'full_name';
+            if ($field_search == 'ФИО'){
+                $field_search = 'full_name';
+            }elseif ($field_search == 'Телефон'){
+                $field_search = 'tel';
+            }elseif ($field_search == 'ID'){
+                $field_search = 'id';
+                $order_by = '';
+            }
+        }
+
+        if ($query_type == 'list'){
+            $fields_query = $fields_query_list;
+        }elseif ($query_type == 'elem'){
+            $fields_query = $fields_query_elem;
         }
 
         $sql = "SELECT $fields_query FROM $table_name $join ";

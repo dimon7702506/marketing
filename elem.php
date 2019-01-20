@@ -3,7 +3,10 @@
 require_once "./function.php";
 require_once "autoload.php";
 
+$html_elem = '';
 $errors = '';
+$fio = '';
+
 $name = '';
 $producer = '';
 $tnved = '';
@@ -33,12 +36,14 @@ if (isset($_GET['sp_type'])){
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $field_search = "ID";
-    $find = new GetData($sp_type,$id, $field_search);
+    $query_type = 'elem';
+
+    $find = new GetData($sp_type,$id, $field_search, $query_type);
     $results = $find->result_data;
 
     //var_dump($results);
     foreach ($results as $result){
-        if ($sp_type = 'podr') {
+        if ($sp_type == 'podr') {
             $name = trim($result['apteka_name']);
             $firma = trim($result['firm_name']);
             $html_elem = "<div class=\"form-group col-md-6\">
@@ -47,113 +52,47 @@ if (isset($_GET['id'])) {
                                 name=\"$name\" required>
                           </div>";
             //var_dump($name);
+        }elseif ($sp_type == 'people'){
+            $fio = trim($result['full_name']);
+            $tel = $result['tel'];
+            $birthday = $result['birthday'];
+            $dismissed = $result['dismissed'];
+
+            if($dismissed == 1){
+                $errors = 'Уволен!!!';
+            }
+            
+            $html_elem .= "<div class=\"form-group col-md-6\">
+                            <label for=\"inputEmail4\">ФИО</label>
+                            <input type=\"text\" class=\"form-control\" id=\"inputEmail4\" value=\"$fio\"
+                                name=\"$fio\" required>
+                          </div>";
+            $html_elem .= "<div class=\"form-group col-md-2\">
+                            <label for=\"inputEmail1\">Телефон</label>
+                            <input type=\"number\" class=\"form-control\" id=\"inputEmail1\" value=\"$tel\"
+                                name=\"$tel\" maxlength='10'>
+                          </div>";
+            $html_elem .= "<div class=\"form-group col-md-2\">
+                            <label for=\"inputEmail1\">Дата рождения</label>
+                            <input type=\"date\" class=\"form-control\" id=\"inputEmail1\" value=\"$birthday\"
+                                name=\"$birthday\">
+                          </div>";
         }
-//        $nom_id = $nom['id'];
-//        $morion_id = $nom['morion_id'];
-//        $barcode = $nom['barcode'];
-//        $tnved = $nom['tnved'];
-//        $mark = $nom['m_name'];
-//        $mnn = $nom['MNN_name'];
-//        $nac = $nom['nac'];
-//        $tax = $nom['tax'];
-//        $gran_price = $nom['gran_price'];
-//        $sum_com = $nom['sum_com'];
-//        $name_torg = $nom['name_torg'];
-//        $form_prod = trim($nom['form_prod']);
-//        $doza = $nom['doza'];
-//        $amount_in_a_package = $nom['amount_in_a_package'];
-//        $project_dl = (int) $nom['project_dl'];
-//        if ($project_dl == 1) {
-//            $checked = 'checked';
-//        }
-//        //var_dump($project_dl);
     }
-
-    $marketings = new SearchFromNames('','', 'marketings');
-    $marks = $marketings->result_data;
-    //var_dump($marks);
-
-    $mnn_list = new SearchFromNames('','', 'mnn');
-    $mnns = $mnn_list->result_data;
-    //var_dump($mnns);
-
-    $form_prod_list = new SearchFromNames('','','form_prod');
-    $form_prods = $form_prod_list->result_data;
 }
 
-if (isset($_POST['save']) || isset($_POST['copy'])){
+if (isset($_POST['save']) || isset($_POST['copy'])) {
 
-    $check = new CheckField('name', $_POST['name']);
-    $name = $check->value;
-    $errors .= $check->error;
+    if ($sp_type == 'podr') {
 
-    $check = new CheckField('producer', $_POST['producer']);
-    $producer = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('barcode', $_POST['barcode']);
-    $barcode = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('tnved', $_POST['tnved']);
-    $tnved = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('id', $id);
-    $errors .= $check->error;
-
-    $check = new CheckField('nac', $_POST['nac']);
-    $nac = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('tax', $_POST['tax']);
-    $tax = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('gran_price', $_POST['gran_price']);
-    $gran_price = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('sum_com', $_POST['sum_com']);
-    $sum_com = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('name_torg', $_POST['name_torg']);
-    $name_torg = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('form_prod', $_POST['form_prod']);
-    $form_prod = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('doza', $_POST['doza']);
-    $doza = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('amount_in_a_package', $_POST['amount_in_a_package']);
-    $amount_in_a_package = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('morion_id', $_POST['morion_id']);
-    $morion_id = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('marketing', $_POST['marketing']);
-    $marketing = $check->value;
-    $errors .= $check->error;
-    //var_dump($mark_id);
-
-    $check = new CheckField('mnn', $_POST['mnn']);
-    $mnn = $check->value;
-    $errors .= $check->error;
-
-    if ($_POST['project_dl'] == 'on'){
-        $project_dl = 1;
-    }else{
-        $project_dl = 0;
+    } elseif ($sp_type == 'people'){
+        $check = new CheckFields('ФИО', 'text',0,0,100, $_POST['fio']);
+        $fio = $check->value;
+        $errors .= $check->error;
     }
+    var_dump($fio);
 
-    //var_dump($project_dl);
+
 
     if (empty($errors)){
         $element = ['id'=>$id,

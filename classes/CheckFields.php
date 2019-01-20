@@ -1,0 +1,73 @@
+<?php
+/* Проверка поля перед записью в БД
+   вместо  CheckField*/
+
+class CheckFields
+{
+    public $value;
+    public $error;
+
+    function __construct($field_name, $type, $min, $max, $length, $val)
+    {
+        $this->check($field_name, $type, $min, $max, $length, $val);
+    }
+
+
+    function check($field_name, $type, $min, $max, $length, $val)
+    {
+        if(!isset($val)){
+            $this->error = 'Incorrect ' . $field_name;
+        }else{
+            $this->value = htmlentities($val);
+
+            if($type == 'text'){
+                if(strlen($val) < 1 || strlen($val) > $length){
+                    $this->error = 'Не корректная длина поля: ' . $field_name;
+                }
+            }
+   /*         if ($field == 'name' || $field == 'producer' || $field == 'order_type' || $field == 'date_doc'){
+                if(strlen($val) < 1 || strlen($val) > 100){
+                    $this->error = 'Incorrect length of field: ' . $field;
+                }
+                //echo strlen($val). "<BR>";
+            }elseif ($field == 'barcode' || $field == 'tnved') {
+                if(strlen($val) > 13){
+                    $this->error = 'Incorrect length of field: ' . $field;
+                }
+            }elseif ($field == 'nac') {
+                if($val < 0 || $val > 25) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'tax') {
+                if($val != 0 && $val != 7 && $val != 20) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'gran_price' || $field == 'sum_com' || $field == 'doza' || $field == 'sum'){
+                if ($val < 0 || $val > 99999.99) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'name_torg') {
+                if (strlen($val) > 100) {
+                    $this->error = 'Incorrect length of field: ' . $field;
+                }
+            }elseif ($field == 'form_prod') {
+                if (strlen($val) > 68) {
+                    $this->error = 'Incorrect length of field: ' . $field;
+                }
+                //var_dump(($val));
+            }elseif ($field == 'morion_id') {
+                if ($val < 0 || $val > 99999999999) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'persent'){
+                if ($val < 0 || $val > 100) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }elseif ($field == 'amount_in_a_package') {
+                if ($val < 0 || $val > 999) {
+                    $this->error = 'Incorrect value of field: ' . $field;
+                }
+            }
+     */   }
+    }
+}
