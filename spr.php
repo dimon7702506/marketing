@@ -80,11 +80,10 @@ if (isset($_GET['submit_search'])) {
     setcookie("text_search", $text_search);
     setcookie("field_search", $field_search);
     setcookie('sp_type', $sp_type);
-    //var_dump($sp_type);
 }
 
 if (isset($_GET['submit_new'])) {
-    header("location: ./elem.php?id=0");
+    header("location: ./elem.php?id=0&sp_type=$sp_type");
 }
 
 require_once "./spr.html";

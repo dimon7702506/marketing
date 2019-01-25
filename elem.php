@@ -6,31 +6,11 @@ require_once "autoload.php";
 $html_elem = '';
 $errors = '';
 $fio = '';
-
-$name = '';
-$producer = '';
-$tnved = '';
-$mark = '';
-$mnn = '';
-$name_torg = '';
-$form_prod = '';
-$doza = '';
-$nom_id = '';
-$morion_id = '';
-$barcode = '';
-$nac = '';
-$tax = '';
-$gran_price = '';
-$sum_com = '';
-$amount_in_a_package = '';
-$project_dl = '';
-$checked = '';
-
 $sp_type = '';
+
 if (isset($_GET['sp_type'])){
     $sp_type = $_GET['sp_type'];
 }
-
 //var_dump($sp_type);
 
 if (isset($_GET['id'])) {
@@ -42,6 +22,46 @@ if (isset($_GET['id'])) {
     $results = $find->result_data;
 
     //var_dump($results);
+
+    if ($sp_type == 'podr') {
+
+    }elseif ($sp_type == 'people') {
+        $fields = ['full_name' => ['field_name' => 'ФИО',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 100,
+                                    'str_num' => 1,
+                                    'col' => 6,
+                                    'required' => 'required'],
+                    'tel' => ['field_name' => 'Телефон',
+                                'type' => 'number',
+                                'min' => 0,
+                                'max' => 999999999,
+                                'length' => 10,
+                                'str_num' => 1,
+                                'col' => 2,
+                                'required' => ''],
+                    'birthday' => ['field_name' => 'Дата рождения',
+                                    'type' => 'date',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 0,
+                                    'str_num' => 1,
+                                    'col' => 2,
+                                    'required' => 'required'],
+                    ];
+    }
+
+    if (empty($results)){
+        $res = [];
+        foreach ($fields as $key=>$val){
+            $res += [$key => ''];
+
+        }
+        array_push($results, $res);
+    }
+
     foreach ($results as $result){
         if ($sp_type == 'podr') {
             $name = trim($result['apteka_name']);
@@ -51,67 +71,59 @@ if (isset($_GET['id'])) {
                             <input type=\"text\" class=\"form-control\" id=\"inputEmail4\" value=\"$name\"
                                 name=\"$name\" required>
                           </div>";
-            //var_dump($name);
         }elseif ($sp_type == 'people'){
             $fio = trim($result['full_name']);
             $tel = $result['tel'];
             $birthday = $result['birthday'];
+            if (!array_key_exists('dismissed', $result)) {
+                $result += ['dismissed' => 0];
+            }
             $dismissed = $result['dismissed'];
 
             if($dismissed == 1){
                 $errors = 'Уволен!!!';
             }
-            
-            $html_elem .= "<div class=\"form-group col-md-6\">
-                            <label for=\"inputEmail4\">ФИО</label>
-                            <input type=\"text\" class=\"form-control\" id=\"inputEmail4\" value=\"$fio\"
-                                name=\"$fio\" required>
-                          </div>";
-            $html_elem .= "<div class=\"form-group col-md-2\">
-                            <label for=\"inputEmail1\">Телефон</label>
-                            <input type=\"number\" class=\"form-control\" id=\"inputEmail1\" value=\"$tel\"
-                                name=\"$tel\" maxlength='10'>
-                          </div>";
-            $html_elem .= "<div class=\"form-group col-md-2\">
-                            <label for=\"inputEmail1\">Дата рождения</label>
-                            <input type=\"date\" class=\"form-control\" id=\"inputEmail1\" value=\"$birthday\"
-                                name=\"$birthday\">
-                          </div>";
+            //var_dump($results);
+        }
+
+        //var_dump($fields);
+        foreach ($fields as $key => $f) {
+            //var_dump($key);
+            $html_elem .= '<div class="form-group col-md-' . $f['col'] . '">
+                                <label for="inputEmail4">' . $f['field_name'] . '</label>
+                                <input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="'.$result[$key].'"
+                                name="'.$key.'" ' . $f['required'].'>
+                            </div>';
+            var_dump($html_elem);
         }
     }
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])) {
 
+    $element = [];
+
     if ($sp_type == 'podr') {
 
     } elseif ($sp_type == 'people'){
-        $check = new CheckFields('ФИО', 'text',0,0,100, $_POST['fio']);
-        $fio = $check->value;
-        $errors .= $check->error;
+        //var_dump($fields);
+        foreach ($fields as $key => $f) {
+            //var_dump($f);
+            $check = new CheckFields($f['field_name'], $f['type'], $f['min'], $f['max'], $f['length'], $_POST[$key]);
+            $val = $check->value;
+            if ($f['type'] == 'number'){
+                $val = (int) $val;
+            }elseif ($f['type'] == 'text'){
+                $val = trim($val);
+            }
+            $element += [$key=>$val];
+            $errors .= $check->error;
+        }
     }
-    var_dump($fio);
-
-
+    $element += ['id' => $id];
+    //var_dump($element);
 
     if (empty($errors)){
-        $element = ['id'=>$id,
-                    'morion_id'=>(int) $morion_id,
-                    'name'=>trim($name),
-                    'producer'=>trim($producer),
-                    'barcode'=>$barcode,
-                    'tnved'=>$tnved,
-                    'nac'=>(int) $nac,
-                    'tax'=>(int) $tax,
-                    'marketing'=>$marketing,
-                    'gran_price'=>(float) $gran_price,
-                    'sum_com'=>(float) $sum_com,
-                    'mnn'=>$mnn,
-                    'form_prod'=>$form_prod,
-                    'doza'=>(float) $doza,
-                    'name_torg'=>$name_torg,
-                    'amount_in_a_package'=>(int) $amount_in_a_package,
-                    'project_dl'=>$project_dl];
 
         if ($id == 0) {
             $method = 'new';
@@ -126,21 +138,21 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             $method = 'new';
         }
 
-        $save = new SaveToDB($element, $method);
+        $save = new SetData($sp_type, $element, $method);
 
         if ($method == 'new') {
             $id = $save->result;
         }
-        header("location: ./elem.php?id=$id");
+        header("location: ./elem.php?id=$id&sp_type=$sp_type");
     }
 }
 
 if (isset($_POST['close'])) {
     //var_dump($_COOKIE['text_search']);
     if (isset($_COOKIE['text_search']) && (isset($_COOKIE['field_search']))){
-        $str_search = './names.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
+        $str_search = './spr.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
     }else{
-        $str_search = './names.php';
+        $str_search = './spr.php';
     }
     header("location: $str_search");
 }
