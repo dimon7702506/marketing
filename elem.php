@@ -24,6 +24,134 @@ if (isset($_GET['id'])) {
     //var_dump($results);
 
     if ($sp_type == 'podr') {
+        $fields = ['apteka_name' => ['field_name' => 'Аптека',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 50,
+                                    'str_num' => 1,
+                                    'col' => 4,
+                                    'required' => 'required',
+                                    'form_type'=>'input'],
+                    'firm_name' => ['field_name' => 'Фирма',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 50,
+                                    'str_num' => 1,
+                                    'col' => 4,
+                                    'required' => 'required',
+                                    'form_type'=>'select'],
+                    'zav_name' => ['field_name' => 'Заведующая',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 100,
+                                    'str_num' => 3,
+                                    'col' => 4,
+                                    'required' => 'required',
+                                    'form_type'=>'select'],
+                    'apteka_adres' => ['field_name' => 'Адрес',
+                                'type' => 'text',
+                                'min' => 0,
+                                'max' => 0,
+                                'length' => 200,
+                                'str_num' => 1,
+                                'col' => 6,
+                                'required' => 'required',
+                                'form_type'=>'input'],
+                    'tel' => ['field_name' => 'Телефон',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 13,
+                            'str_num' => 1,
+                            'col' => 2,
+                            'required' => 'required',
+                            'form_type'=>'input'],
+                    'email' => ['field_name' => 'Email',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 2,
+                            'col' => 4,
+                            'required' => 'required',
+                            'form_type'=>'input'],
+
+                    'db_server' => ['field_name' => 'DB server',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 15,
+                            'str_num' => 3,
+                            'col' => 2,
+                            'required' => 'required',
+                            'form_type'=>'input'],
+                    'db_name' => ['field_name' => 'DB name',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 15,
+                            'str_num' => 3,
+                            'col' => 2,
+                            'required' => '',
+                            'form_type'=>'input'],
+                    'db_user' => ['field_name' => 'DB user',
+                                'type' => 'text',
+                                'min' => 0,
+                                'max' => 0,
+                                'length' => 20,
+                                'str_num' => 3,
+                                'col' => 2,
+                                'required' => '',
+                                'form_type'=>'input'],
+                    'db_password' => ['field_name' => 'DB password',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 20,
+                                    'str_num' => 3,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'form_type'=>'input'],
+                    'SQL_version' => ['field_name' => 'SQL',
+                                    'type' => 'number',
+                                    'min' => 2005,
+                                    'max' => 2020,
+                                    'length' => 0,
+                                    'str_num' => 3,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'form_type'=>'input'],
+                    'TM_version' => ['field_name' => 'TM version',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 4,
+                                    'str_num' => 3,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'form_type'=>'input'],
+                    'google_login' => ['field_name' => 'Google login',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 50,
+                                    'str_num' => 3,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'form_type'=>'input'],
+                    'google_password' => ['field_name' => 'Google password',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 50,
+                                    'str_num' => 3,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'form_type'=>'input'],
+                ];
 
     }elseif ($sp_type == 'people') {
         $fields = ['full_name' => ['field_name' => 'ФИО',
@@ -33,15 +161,17 @@ if (isset($_GET['id'])) {
                                     'length' => 100,
                                     'str_num' => 1,
                                     'col' => 6,
-                                    'required' => 'required'],
+                                    'required' => 'required',
+                                    'form_type'=>'input'],
                     'tel' => ['field_name' => 'Телефон',
-                                'type' => 'number',
-                                'min' => 0,
-                                'max' => 999999999,
-                                'length' => 10,
-                                'str_num' => 1,
-                                'col' => 2,
-                                'required' => ''],
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 999999999,
+                                    'length' => 13,
+                                    'str_num' => 1,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'form_type'=>'input'],
                     'birthday' => ['field_name' => 'Дата рождения',
                                     'type' => 'date',
                                     'min' => 0,
@@ -49,7 +179,8 @@ if (isset($_GET['id'])) {
                                     'length' => 0,
                                     'str_num' => 1,
                                     'col' => 2,
-                                    'required' => 'required'],
+                                    'required' => 'required',
+                                    'form_type'=>'input'],
                     ];
     }
 
@@ -64,13 +195,9 @@ if (isset($_GET['id'])) {
 
     foreach ($results as $result){
         if ($sp_type == 'podr') {
-            $name = trim($result['apteka_name']);
-            $firma = trim($result['firm_name']);
-            $html_elem = "<div class=\"form-group col-md-6\">
-                            <label for=\"inputEmail4\">Наименование</label>
-                            <input type=\"text\" class=\"form-control\" id=\"inputEmail4\" value=\"$name\"
-                                name=\"$name\" required>
-                          </div>";
+            $apteka = trim($result['apteka_name']);
+            $firm = $result['firm_name'];
+            $zav = $result['zav_name'];
         }elseif ($sp_type == 'people'){
             $fio = trim($result['full_name']);
             $tel = $result['tel'];
@@ -83,18 +210,40 @@ if (isset($_GET['id'])) {
             if($dismissed == 1){
                 $errors = 'Уволен!!!';
             }
-            //var_dump($results);
         }
+        //var_dump($results);
 
         //var_dump($fields);
         foreach ($fields as $key => $f) {
-            //var_dump($key);
+            var_dump($key);
             $html_elem .= '<div class="form-group col-md-' . $f['col'] . '">
-                                <label for="inputEmail4">' . $f['field_name'] . '</label>
-                                <input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="'.$result[$key].'"
-                                name="'.$key.'" ' . $f['required'].'>
-                            </div>';
-            var_dump($html_elem);
+                                <label for="inputEmail4">' . $f['field_name'] . '</label>';
+            if ($f['form_type'] == 'input') {
+                $html_elem .= '<input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
+                                name="' . $key . '" ' . $f['required'] . '>';
+            }elseif ($f['form_type'] == 'select'){
+                $html_elem .= '<select id="inputState" class="form-control" name="' . $key . '">
+                                <option selected>';
+                if($key == 'firm_name') {
+                    $html_elem .= $firm;
+                    $sp_type_list = 'firm';
+                }elseif ($key == 'zav_name'){
+                    $html_elem .= $zav;
+                    $sp_type_list = 'people';
+                }
+                $html_elem .= '</option>
+                                <option></option>';
+
+                $find_list = new GetData($sp_type_list,'','', 'list');
+                $lists = $find_list->result_data;
+                //var_dump($lists);
+                foreach ($lists as $list) {
+                    $html_elem .= "<option>$list[name]</option>";
+                }
+                $html_elem .= '</select>';
+            }
+            $html_elem .='</div>';
+            //var_dump($html_elem);
         }
     }
 }

@@ -17,9 +17,13 @@ class GetData
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
             $fields_query_list = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
-            $fields_query_elem = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
-            $join_table = ' firm';
-            $join = " LEFT JOIN $join_table ON firm_id = firm.id";
+            $fields_query_elem = 'apteka.name as apteka_name, firm.name as firm_name, apteka.adres as apteka_adres,
+                apteka.tel as tel, email, people.full_name as zav_name';
+            $join_table1 = ' firm';
+            $join1 = " LEFT JOIN $join_table1 ON firm_id = firm.id";
+            $join_table2 = ' people';
+            $join2 = " LEFT JOIN $join_table2 ON zav_id = people.id";
+            $join = $join1 . $join2;
             $order_by = 'firm.name, apteka.name';
             if ($field_search == 'Наименование'){
                 $field_search = 'apteka.name';
@@ -31,7 +35,7 @@ class GetData
             }
         }elseif ($sp_type == 'people'){
             $table_name = 'people';
-            $fields_query_list = 'id, full_name, tel';
+            $fields_query_list = 'id, full_name as name, tel';
             $fields_query_elem = '*';
             $join_table = '';
             $join = "";
@@ -44,6 +48,14 @@ class GetData
                 $field_search = 'id';
                 $order_by = '';
             }
+        }elseif ($sp_type == 'firm'){
+            $table_name = 'firm';
+            $fields_query_list = 'name';
+            $fields_query_elem = '*';
+            $join_table = '';
+            $join = "";
+            $order_by = 'name';
+            $field_search = '';
         }
 
         if ($query_type == 'list'){
@@ -52,9 +64,11 @@ class GetData
             $fields_query = $fields_query_elem;
         }
 
+        //var_dump($field_search);
+
         $sql = "SELECT $fields_query FROM $table_name $join ";
         if (strlen($field_search) > 0){
-            if ($field_search == 'id'){
+            if (stripos($field_search, 'id')){
                 $sql .= "WHERE $field_search = :str";
             }else {
                 $sql .= "WHERE $field_search LIKE CONCAT('%', :str, '%')";
