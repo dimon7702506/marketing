@@ -15,15 +15,13 @@ class CheckFields
 
     function check($field_name, $type, $min, $max, $length, $val)
     {
-        //var_dump($val);
-
         if(!isset($val)){
             $this->error = 'Incorrect ' . $field_name;
         }else{
             $this->value = htmlentities($val);
 
             if($type == 'text'){
-                if(strlen($val) < 1 || strlen($val) > $length){
+                if(strlen($val) < 0 || strlen($val) > $length){
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
             }elseif ($type == 'number'){

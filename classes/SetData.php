@@ -15,7 +15,8 @@ class SetData
     {
         //var_dump($sp_type);
         if ($sp_type == 'podr'){
-
+            $table_name = 'apteka';
+            $id_name = 'id';
         }elseif ($sp_type == 'people'){
             $table_name = 'people';
             $id_name = 'id';
@@ -38,7 +39,6 @@ class SetData
                     $sql_update .= ",";
                 }
             }
-            //var_dump($sql_update);
             $sql_end = " WHERE $id_name = :id";
             $args = $element;
         }elseif ($method == 'new') {
@@ -75,7 +75,9 @@ class SetData
         }
 
         $sql = $sql_update . $sql_end;
-        //var_dump($sql);
+
+        var_dump($sql);
+
         //var_dump($args);
         $sql_id = "SELECT LAST_INSERT_ID();";
         $stmt = DB::run($sql, $args);

@@ -17,13 +17,15 @@ class GetData
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
             $fields_query_list = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
-            $fields_query_elem = 'apteka.name as apteka_name, firm.name as firm_name, apteka.adres as apteka_adres,
-                apteka.tel as tel, email, people.full_name as zav_name';
+            $fields_query_elem = 'apteka.name as name, firm.name as firm_name, apteka.adres as adres,
+                apteka.tel as tel, email, people.full_name as zav_name, db_server, db_name, db_user, db_password,
+                SQL_version, TM_version, google_login, google_password';
             $join_table1 = ' firm';
             $join1 = " LEFT JOIN $join_table1 ON firm_id = firm.id";
             $join_table2 = ' people';
             $join2 = " LEFT JOIN $join_table2 ON zav_id = people.id";
             $join = $join1 . $join2;
+            $fields_query_id = 'id';
             $order_by = 'firm.name, apteka.name';
             if ($field_search == 'Наименование'){
                 $field_search = 'apteka.name';
@@ -37,6 +39,7 @@ class GetData
             $table_name = 'people';
             $fields_query_list = 'id, full_name as name, tel';
             $fields_query_elem = '*';
+            $fields_query_id = 'id';
             $join_table = '';
             $join = "";
             $order_by = 'full_name';
@@ -52,16 +55,19 @@ class GetData
             $table_name = 'firm';
             $fields_query_list = 'name';
             $fields_query_elem = '*';
+            $fields_query_id = 'id';
             $join_table = '';
             $join = "";
             $order_by = 'name';
-            $field_search = '';
+            //$field_search = '';
         }
 
         if ($query_type == 'list'){
             $fields_query = $fields_query_list;
         }elseif ($query_type == 'elem'){
             $fields_query = $fields_query_elem;
+        }elseif ($query_type == 'id'){
+            $fields_query = $fields_query_id;
         }
 
         //var_dump($field_search);

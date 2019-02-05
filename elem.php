@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     //var_dump($results);
 
     if ($sp_type == 'podr') {
-        $fields = ['apteka_name' => ['field_name' => 'Аптека',
+        $fields = ['name' => ['field_name' => 'Аптека',
                                     'type' => 'text',
                                     'min' => 0,
                                     'max' => 0,
@@ -32,6 +32,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 1,
                                     'col' => 4,
                                     'required' => 'required',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     'firm_name' => ['field_name' => 'Фирма',
                                     'type' => 'text',
@@ -41,7 +42,9 @@ if (isset($_GET['id'])) {
                                     'str_num' => 1,
                                     'col' => 4,
                                     'required' => 'required',
-                                    'form_type'=>'select'],
+                                    'form_type' => 'select',
+                                    'related_table' => 'firm',
+                                    'key' => 'firm_id'],
                     'zav_name' => ['field_name' => 'Заведующая',
                                     'type' => 'text',
                                     'min' => 0,
@@ -50,8 +53,9 @@ if (isset($_GET['id'])) {
                                     'str_num' => 3,
                                     'col' => 4,
                                     'required' => 'required',
+                                    'related_table' => 'people',
                                     'form_type'=>'select'],
-                    'apteka_adres' => ['field_name' => 'Адрес',
+                    'adres' => ['field_name' => 'Адрес',
                                 'type' => 'text',
                                 'min' => 0,
                                 'max' => 0,
@@ -59,6 +63,7 @@ if (isset($_GET['id'])) {
                                 'str_num' => 1,
                                 'col' => 6,
                                 'required' => 'required',
+                                'related_table' => '',
                                 'form_type'=>'input'],
                     'tel' => ['field_name' => 'Телефон',
                             'type' => 'text',
@@ -68,6 +73,7 @@ if (isset($_GET['id'])) {
                             'str_num' => 1,
                             'col' => 2,
                             'required' => 'required',
+                            'related_table' => '',
                             'form_type'=>'input'],
                     'email' => ['field_name' => 'Email',
                             'type' => 'text',
@@ -77,8 +83,8 @@ if (isset($_GET['id'])) {
                             'str_num' => 2,
                             'col' => 4,
                             'required' => 'required',
+                            'related_table' => '',
                             'form_type'=>'input'],
-
                     'db_server' => ['field_name' => 'DB server',
                             'type' => 'text',
                             'min' => 0,
@@ -87,6 +93,7 @@ if (isset($_GET['id'])) {
                             'str_num' => 3,
                             'col' => 2,
                             'required' => 'required',
+                            'related_table' => '',
                             'form_type'=>'input'],
                     'db_name' => ['field_name' => 'DB name',
                             'type' => 'text',
@@ -96,6 +103,7 @@ if (isset($_GET['id'])) {
                             'str_num' => 3,
                             'col' => 2,
                             'required' => '',
+                            'related_table' => '',
                             'form_type'=>'input'],
                     'db_user' => ['field_name' => 'DB user',
                                 'type' => 'text',
@@ -105,6 +113,7 @@ if (isset($_GET['id'])) {
                                 'str_num' => 3,
                                 'col' => 2,
                                 'required' => '',
+                                'related_table' => '',
                                 'form_type'=>'input'],
                     'db_password' => ['field_name' => 'DB password',
                                     'type' => 'text',
@@ -114,6 +123,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 3,
                                     'col' => 2,
                                     'required' => '',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     'SQL_version' => ['field_name' => 'SQL',
                                     'type' => 'number',
@@ -123,6 +133,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 3,
                                     'col' => 2,
                                     'required' => '',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     'TM_version' => ['field_name' => 'TM version',
                                     'type' => 'text',
@@ -132,7 +143,8 @@ if (isset($_GET['id'])) {
                                     'str_num' => 3,
                                     'col' => 2,
                                     'required' => '',
-                                    'form_type'=>'input'],
+                                    'form_type'=>'input',
+                                    'related_table' => ''],
                     'google_login' => ['field_name' => 'Google login',
                                     'type' => 'text',
                                     'min' => 0,
@@ -141,6 +153,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 3,
                                     'col' => 2,
                                     'required' => '',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     'google_password' => ['field_name' => 'Google password',
                                     'type' => 'text',
@@ -150,6 +163,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 3,
                                     'col' => 2,
                                     'required' => '',
+                                    'related_table' => 'firm',
                                     'form_type'=>'input'],
                 ];
 
@@ -162,6 +176,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 1,
                                     'col' => 6,
                                     'required' => 'required',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     'tel' => ['field_name' => 'Телефон',
                                     'type' => 'text',
@@ -171,6 +186,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 1,
                                     'col' => 2,
                                     'required' => '',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     'birthday' => ['field_name' => 'Дата рождения',
                                     'type' => 'date',
@@ -180,6 +196,7 @@ if (isset($_GET['id'])) {
                                     'str_num' => 1,
                                     'col' => 2,
                                     'required' => 'required',
+                                    'related_table' => '',
                                     'form_type'=>'input'],
                     ];
     }
@@ -195,7 +212,7 @@ if (isset($_GET['id'])) {
 
     foreach ($results as $result){
         if ($sp_type == 'podr') {
-            $apteka = trim($result['apteka_name']);
+            $apteka = trim($result['name']);
             $firm = $result['firm_name'];
             $zav = $result['zav_name'];
         }elseif ($sp_type == 'people'){
@@ -213,9 +230,8 @@ if (isset($_GET['id'])) {
         }
         //var_dump($results);
 
-        //var_dump($fields);
         foreach ($fields as $key => $f) {
-            var_dump($key);
+            //var_dump($key);
             $html_elem .= '<div class="form-group col-md-' . $f['col'] . '">
                                 <label for="inputEmail4">' . $f['field_name'] . '</label>';
             if ($f['form_type'] == 'input') {
@@ -251,26 +267,49 @@ if (isset($_GET['id'])) {
 if (isset($_POST['save']) || isset($_POST['copy'])) {
 
     $element = [];
+    $del_arg = [];
 
-    if ($sp_type == 'podr') {
+    //if ($sp_type == 'podr') {
 
-    } elseif ($sp_type == 'people'){
+    //} elseif ($sp_type == 'people'){
         //var_dump($fields);
         foreach ($fields as $key => $f) {
             //var_dump($f);
-            $check = new CheckFields($f['field_name'], $f['type'], $f['min'], $f['max'], $f['length'], $_POST[$key]);
+            $check = new CheckFields($f['field_name'], $f['type'], $f['min'], $f['max'], $f['length'],
+                $_POST[$key], $f['required']);
             $val = $check->value;
             if ($f['type'] == 'number'){
                 $val = (int) $val;
             }elseif ($f['type'] == 'text'){
                 $val = trim($val);
             }
+
             $element += [$key=>$val];
+
+            if($f['related_table'] == 'firm'){
+                $find_id = new GetData('firm', $element['firm_name'],'firm.name', 'id');
+                $related_id = $find_id->result_data;
+                $element += ['firm_id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'firm_name');
+            }
+            if($f['related_table'] == 'people'){
+                $find_id = new GetData('people', $element['zav_name'],'full_name', 'id');
+                $related_id = $find_id->result_data;
+                $element += ['zav_id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'zav_name');
+            }
+
             $errors .= $check->error;
         }
-    }
+    //}
     $element += ['id' => $id];
-    //var_dump($element);
+
+    foreach ($element as $key=>$value){
+        if (!in_array($key, $del_arg)){
+            $args[$key] = $value;
+        }
+    }
+    $element1 = $args;
 
     if (empty($errors)){
 
@@ -287,7 +326,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             $method = 'new';
         }
 
-        $save = new SetData($sp_type, $element, $method);
+        $save = new SetData($sp_type, $element1, $method);
 
         if ($method == 'new') {
             $id = $save->result;
