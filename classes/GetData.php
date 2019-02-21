@@ -74,7 +74,7 @@ class GetData
 
         $sql = "SELECT $fields_query FROM $table_name $join ";
         if (strlen($field_search) > 0){
-            if (stripos($field_search, 'id')){
+            if (strpos($field_search, 'id') !== false){
                 $sql .= "WHERE $field_search = :str";
             }else {
                 $sql .= "WHERE $field_search LIKE CONCAT('%', :str, '%')";
