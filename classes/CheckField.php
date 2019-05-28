@@ -35,11 +35,12 @@ class CheckField
                 if($val != 0 && $val != 7 && $val != 20) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
-            }elseif ($field == 'gran_price' || $field == 'sum_com' || $field == 'doza' || $field == 'sum'){
+            }elseif ($field == 'gran_price' || $field == 'sum_com' || $field == 'doza' || $field == 'sum' ||
+                    $field == 'internet_price'){
                 if ($val < 0 || $val > 99999.99) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
-            }elseif ($field == 'name_torg') {
+            }elseif ($field == 'name_torg' || $field == 'project_dl') {
                 if (strlen($val) > 100) {
                     $this->error = 'Incorrect length of field: ' . $field;
                 }

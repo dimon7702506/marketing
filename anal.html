@@ -18,15 +18,20 @@
             </div>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <a class="navbar-brand" href="./catal.html">Справочники</a>
-                <a class="navbar-brand" href="./admin.html">Администрирование</a>
-                <a class="navbar-brand" href="./anal.html">Аналитика</a>
+                <a class="navbar-brand" href="./menu.html">Главная</a>
+                <a class="navbar-brand" href="./anal.html" style="color: #28a745">Аналитика</a>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
-                <h6 class="mark-text1"><?=get_user_name() ?></h6>
                 <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
             </form>
         </div>
     </nav>
+    <div>
+        <ul class="mr-auto mt-2 mt-lg-0">
+            <li class="active">
+                <a class="navbar-brand" href="./names.php">Остатки</a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>

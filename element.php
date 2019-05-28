@@ -22,7 +22,9 @@ $sum_com = '';
 $amount_in_a_package = '';
 $project_dl = '';
 $checked = '';
-
+$internet_price = '';
+$internet_sales = '';
+$internet_sales_checked = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -52,6 +54,11 @@ if (isset($_GET['id'])) {
         $project_dl = (int) $nom['project_dl'];
         if ($project_dl == 1) {
             $checked = 'checked';
+        }
+        $internet_price = $nom['internet_price'];
+        $internet_sales = (int) $nom['internet_sales'];
+        if ($internet_sales == 1) {
+            $internet_sales_checked = 'checked';
         }
         //var_dump($project_dl);
     }
@@ -140,6 +147,20 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $project_dl = 0;
     }
 
+    $check = new CheckField('internet_price', $_POST['internet_price']);
+    $internet_price = $check->value;
+    $errors .= $check->error;
+
+/*    $check = new CheckField('internet_sales', $_POST['$internet_sales_checked']);
+    $internet_sales = $check->value;
+    $errors .= $check->error;*/
+
+    if ($_POST['internet_sales'] == 'on'){
+        $internet_sales = 1;
+    }else{
+        $internet_sales = 0;
+    }
+
     //var_dump($project_dl);
 
     if (empty($errors)){
@@ -159,7 +180,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'doza'=>(float) $doza,
                     'name_torg'=>$name_torg,
                     'amount_in_a_package'=>(int) $amount_in_a_package,
-                    'project_dl'=>$project_dl];
+                    'project_dl'=>$project_dl,
+                    'internet_sales'=>$internet_sales,
+                    'internet_price'=>$internet_price
+                    ];
 
         if ($id == 0) {
             $method = 'new';
