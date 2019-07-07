@@ -27,7 +27,7 @@ foreach ($results as $result){
     $read_file = new ReadFile($id, $file_in);
     $file = $read_file ->out;
     //var_dump($result);
-    var_dump($file);
+    // var_dump($file);
     if (!count($file)) {
         continue;
     }
