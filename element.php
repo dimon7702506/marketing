@@ -22,7 +22,7 @@ $sum_com = '';
 $amount_in_a_package = '';
 $project_dl = '';
 $checked = '';
-$internet_price = '';
+$internet_price = 0;
 $internet_sales = '';
 $internet_sales_checked = '';
 
@@ -182,7 +182,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'amount_in_a_package'=>(int) $amount_in_a_package,
                     'project_dl'=>$project_dl,
                     'internet_sales'=>$internet_sales,
-                    'internet_price'=>$internet_price
+                    'internet_price'=>(int) $internet_price
                     ];
 
         if ($id == 0) {

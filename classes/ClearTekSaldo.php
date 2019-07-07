@@ -2,7 +2,7 @@
 
 /* Сохранение записей в DB*/
 
-class SetData
+class ClearTekSaldo
 {
     public $result_data;
 
