@@ -27,7 +27,7 @@ foreach ($results as $result){
     $read_file = new ReadFile($id, $file_in);
     $file = $read_file ->out;
     //var_dump($result);
-    //var_dump($file);
+    var_dump($file);
     if (!count($file)) {
         continue;
     }
@@ -45,7 +45,7 @@ foreach ($results as $result){
             $Offer->setAttribute("Code", $f[8]);
             $Offer->setAttribute("Name", mb_convert_encoding($f[5], "utf-8", "windows-1251"));
             $Offer->setAttribute("Producer", mb_convert_encoding($f[6], "utf-8", "windows-1251"));
-            $Offer->setAttribute("Tax", $f[4]);
+            $Offer->setAttribute("Tax", $f[7]);
             $Offer->setAttribute("Price", $f[9]);
             $Offer->setAttribute("PriceReserve", $f[9]);
             $Offer->setAttribute("Quantity", $f[1]);
