@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
                     'tabletki_id' => ['field_name' => 'Код tabletki.ua',
                                     'type' => 'number',
                                     'min' => 0,
-                                    'max' => 9999,
+                                    'max' => 99999,
                                     'length' => 0,
                                     'str_num' => 3,
                                     'col' => 2,

@@ -22,12 +22,10 @@ foreach ($results as $result){
     $file_in = $result['saldo_path'];
     $tabletki_id = $result['tabletki_id'];
     $file_out = 'Rest_'.$tabletki_id.'_'.date("Ymd").date("His");
-    //var_dump($file_out);
 
     $read_file = new ReadFile($id, $file_in);
     $file = $read_file ->out;
-    //var_dump($result);
-    // var_dump($file);
+    //var_dump($file);
     if (!count($file)) {
         continue;
     }
@@ -35,12 +33,16 @@ foreach ($results as $result){
     $dom = new DomDocument('1.0', 'UTF-8');
     $Offers = $dom->appendChild($dom->createElement('Offers'));
 
+    $temp = array_unique(array_column($file, '8'));
+    $unique_arr = array_intersect_key($file, $temp);
+    $file = $unique_arr;
+
     foreach ($file as $f){
         //var_dump($f[4]);
         if(!array_key_exists(8, $f)){
             continue;
         }
-        if ($f[8] !== 'NULL' && $f[9] > 0) {
+        if ($f[8] !== 'NULL' && $f[9] > 20) {
             $Offer = $Offers->appendChild($dom->createElement('Offer'));
             $Offer->setAttribute("Code", $f[8]);
             $Offer->setAttribute("Name", mb_convert_encoding($f[5], "utf-8", "windows-1251"));
@@ -74,13 +76,17 @@ foreach ($results as $result){
     $file = 'out/'.$file_out_zip;
     $remote_file = $file_out_zip;
 
-    $ftp_server = 'zvh9.mirohost.net';
-    $ftp_user_name = 'falbi';
-    $ftp_user_pass = 'Ebuprofen';
+    $ftp_server = 'ftp.tabletki.ua';
+    $ftp_user_name = '1149';
+    $ftp_user_pass = 'c93541cb373b';
+
+ /*   $ftp_server = '172.16.1.5';
+    $ftp_user_name = 'apteka';
+    $ftp_user_pass = '976179';*/
 
     $conn_id = ftp_connect($ftp_server);
     $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
-    if (ftp_put($conn_id, $remote_file, $file, FTP_ASCII)) {
+    if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
     } else {
         echo "Не удалось загрузить $file на сервер\n";
     }
