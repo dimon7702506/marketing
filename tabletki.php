@@ -85,20 +85,20 @@ foreach ($results as $result){
     $file_out_xml = $file_out . '.xml';
     $file_out_zip = $file_out . '.zip';
 
-    $dom->save('out/'.$file_out_xml);
+    $dom->save('/var/www/marketing.com/out/'.$file_out_xml);
 
     $zip = new ZipArchive();
-    $filename = 'out/'.$file_out_zip;
+    $filename = '/var/www/marketing.com/out/'.$file_out_zip;
 
     if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
         exit("Невозможно открыть <$filename>\n");
         echo "<br>";
     }
 
-    $zip->addFile('out/'.$file_out_xml,$file_out_xml);
+    $zip->addFile('/var/www/marketing.com/out/'.$file_out_xml,$file_out_xml);
     $zip->close();
 
-    $file = 'out/'.$file_out_zip;
+    $file = '/var/www/marketing.com/out/'.$file_out_zip;
     $remote_file = $file_out_zip;
 
     if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
