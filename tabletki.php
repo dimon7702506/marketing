@@ -13,6 +13,18 @@ $find = new GetData($sp_type,$id, $field_search, $query_type);
 $results = $find->result_data;
 
 //var_dump($results);
+/*
+$ftp_server = '172.16.1.5';
+$ftp_user_name = 'apteka';
+$ftp_user_pass = '976179';
+*/
+
+$ftp_server = 'ftp.tabletki.ua';
+$ftp_user_name = '1149';
+$ftp_user_pass = 'c93541cb373b';
+
+$conn_id = ftp_connect($ftp_server);
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
 
 foreach ($results as $result){
     if ((!$result['tabletki_id']) || (!$result['saldo_path'])) {
@@ -43,10 +55,15 @@ foreach ($results as $result){
             continue;
         }
         if ($f[8] !== 'NULL' && $f[9] > 20) {
+
+            $name = mb_convert_encoding($f[5], "utf-8", "windows-1251");
+            $name = str_replace('?','i', $name);
+            $producer = mb_convert_encoding($f[6], "utf-8", "windows-1251");
+
             $Offer = $Offers->appendChild($dom->createElement('Offer'));
             $Offer->setAttribute("Code", $f[8]);
-            $Offer->setAttribute("Name", mb_convert_encoding($f[5], "utf-8", "windows-1251"));
-            $Offer->setAttribute("Producer", mb_convert_encoding($f[6], "utf-8", "windows-1251"));
+            $Offer->setAttribute("Name", $name);
+            $Offer->setAttribute("Producer", $producer);
             $Offer->setAttribute("Tax", $f[7]);
             $Offer->setAttribute("Price", $f[9]);
             $Offer->setAttribute("PriceReserve", $f[9]);
@@ -76,19 +93,10 @@ foreach ($results as $result){
     $file = 'out/'.$file_out_zip;
     $remote_file = $file_out_zip;
 
-    $ftp_server = 'ftp.tabletki.ua';
-    $ftp_user_name = '1149';
-    $ftp_user_pass = 'c93541cb373b';
-
- /*   $ftp_server = '172.16.1.5';
-    $ftp_user_name = 'apteka';
-    $ftp_user_pass = '976179';*/
-
-    $conn_id = ftp_connect($ftp_server);
-    $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
     if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
     } else {
         echo "Не удалось загрузить $file на сервер\n";
     }
-    ftp_close($conn_id);
 }
+
+ftp_close($conn_id);
