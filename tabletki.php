@@ -25,9 +25,13 @@ $ftp_user_pass = 'c93541cb373b';
 
 $conn_id = ftp_connect($ftp_server);
 echo "$conn_id\n";
+echo "<br>";
 
 $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
 echo "$login_result\n";
+echo "<br>";
+
+ftp_pasv($conn_id, true);
 
 foreach ($results as $result){
     if ((!$result['tabletki_id']) || (!$result['saldo_path'])) {
@@ -88,6 +92,7 @@ foreach ($results as $result){
 
     if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
         exit("Невозможно открыть <$filename>\n");
+        echo "<br>";
     }
 
     $zip->addFile('out/'.$file_out_xml,$file_out_xml);
@@ -98,8 +103,10 @@ foreach ($results as $result){
 
     if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
         echo "Файл $file успешно загружен на сервер\n";
+        echo "<br>";
     } else {
         echo "Не удалось загрузить $file на сервер\n";
+        echo "<br>";
     }
 }
 
