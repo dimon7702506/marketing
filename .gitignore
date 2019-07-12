@@ -1,4 +1,6 @@
 out/names.csv
 out/marketings.csv
+out/*.zip
+out/*.xml
 .idea/
 .idea/workspace.xml
