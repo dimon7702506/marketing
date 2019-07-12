@@ -24,7 +24,10 @@ $ftp_user_name = '1149';
 $ftp_user_pass = 'c93541cb373b';
 
 $conn_id = ftp_connect($ftp_server);
+echo "$conn_id\n";
+
 $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+echo "$login_result\n";
 
 foreach ($results as $result){
     if ((!$result['tabletki_id']) || (!$result['saldo_path'])) {
@@ -94,6 +97,7 @@ foreach ($results as $result){
     $remote_file = $file_out_zip;
 
     if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
+        echo "Файл $file успешно загружен на сервер\n";
     } else {
         echo "Не удалось загрузить $file на сервер\n";
     }
