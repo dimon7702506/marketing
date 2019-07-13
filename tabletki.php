@@ -39,6 +39,10 @@ foreach ($results as $result){
     }
 
     $file_in = $result['saldo_path'];
+    if (!file_exists($file_in)){
+        continue;
+    }
+
     $tabletki_id = $result['tabletki_id'];
     $file_out = 'Rest_'.$tabletki_id.'_'.date("Ymd").date("His");
 
@@ -108,6 +112,8 @@ foreach ($results as $result){
         echo "Не удалось загрузить $file на сервер\n";
         echo "<br>";
     }
+
+    unlink($file_in);
 }
 
 ftp_close($conn_id);
