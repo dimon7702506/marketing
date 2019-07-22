@@ -13,22 +13,20 @@ $find = new GetData($sp_type,$id, $field_search, $query_type);
 $results = $find->result_data;
 
 //var_dump($results);
+
 /*
 $ftp_server = '172.16.1.5';
 $ftp_user_name = 'apteka';
 $ftp_user_pass = '976179';
 */
-
 $ftp_server = 'ftp.tabletki.ua';
 $ftp_user_name = '1149';
 $ftp_user_pass = 'c93541cb373b';
 
 $conn_id = ftp_connect($ftp_server);
-echo "$conn_id\n";
-echo "<br>";
 
 $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
-echo "$login_result\n";
+echo "login: $login_result\n";
 echo "<br>";
 
 ftp_pasv($conn_id, true);
@@ -67,9 +65,11 @@ foreach ($results as $result){
         }
         if ($f[8] !== 'NULL' && $f[9] > 20) {
 
-            $name = mb_convert_encoding($f[5], "utf-8", "windows-1251");
+            //$name = mb_convert_encoding($f[5], "utf-8", "windows-1251");
+            $name = mb_convert_encoding($f[5], "utf-8", "cp866");
             $name = str_replace('?','i', $name);
-            $producer = mb_convert_encoding($f[6], "utf-8", "windows-1251");
+            //$producer = mb_convert_encoding($f[6], "utf-8", "windows-1251");
+            $producer = mb_convert_encoding($f[6], "utf-8", "cp866");
 
             $Offer = $Offers->appendChild($dom->createElement('Offer'));
             $Offer->setAttribute("Code", $f[8]);
