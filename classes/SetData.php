@@ -20,6 +20,9 @@ class SetData
         }elseif ($sp_type == 'people'){
             $table_name = 'people';
             $id_name = 'id';
+        }elseif ($sp_type = 'saldo'){
+            $table_name = 'tek_saldo';
+            $id_name = 'id';
         }
 
         //var_dump($element);
@@ -50,7 +53,7 @@ class SetData
                     $i++;
                     $sql_update .= " $key";
                 }
-                if ($i < count($element) - 1){
+                if ($i < count($element) -1){
                     $sql_update .= ",";
                 }
             }
@@ -77,8 +80,8 @@ class SetData
         $sql = $sql_update . $sql_end;
 
         //var_dump($sql);
-
         //var_dump($args);
+
         $sql_id = "SELECT LAST_INSERT_ID();";
         $stmt = DB::run($sql, $args);
         $stmt1 = DB::run($sql_id, $args);
