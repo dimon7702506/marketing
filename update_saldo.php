@@ -2,6 +2,8 @@
 
 require_once "autoload.php";
 
+array_map('unlink', glob("/var/www/marketing.com/out/saldo*.*"));
+
 $sp_type = 'podr';
 $id = '';
 $query_type = 'elem';
@@ -12,13 +14,17 @@ $results = $find->result_data;
 
 //var_dump($results);
 
+$file_out = 'saldo';
+
+$dom = new DomDocument('1.0', 'UTF-8');
+
 foreach ($results as $result){
+
     if (!$result['saldo_path']) {
         continue;
     }
 
     $file_in = str_replace('ftp', 'saldo', $result['saldo_path']);
-    //var_dump($file_in);
     if (!file_exists($file_in)){
         continue;
     }
@@ -32,29 +38,31 @@ foreach ($results as $result){
         continue;
     }
 
-    $temp = array_unique(array_column($file, '8'));
-    $unique_arr = array_intersect_key($file, $temp);
-    $file = $unique_arr;
-
     foreach ($file as $f){
-        //var_dump($f[4]);
+
         if(!array_key_exists(8, $f)){
             continue;
         }
-        if ($f[8] !== 'NULL' && $f[9] > 0) {
 
-            $element['apteka_id'] = $apteka_id;
-            $element['tov_id'] = $f[8];
-            $element['quan'] = $f[1];
-            $element['price'] = $f[9];
-            $element['date_created'] = $f[10];
-            $element['id'] = 0;
+        if ($f[8] != 'NULL') {
 
-            //var_dump($element);
+            //var_dump($apteka_id);
+            //var_dump($f[8]);
 
-            $save = new SetData('saldo', $element, 'new');
+            $Offers = $dom->appendChild($dom->createElement('row'));
+            $Offer = $Offers->appendChild($dom->createElement('field'));
+            $Offer->setAttribute("apteka_id", $apteka_id);
+            $Offer->setAttribute("tov_id", $f[8]);
+            $Offer->setAttribute("quan", $f[1]);
+            $Offer->setAttribute("price", $f[9]);
+            $Offer->setAttribute("date_created", $f[10]);
         }
     }
-
-    unlink($file_in);
+    //unlink($file_in);
 }
+$dom->formatOutput = true;
+$Offers = $dom->saveXML();
+
+$file_out_xml = $file_out . '.xml';
+
+$dom->save('/var/www/marketing.com/out/'.$file_out_xml);

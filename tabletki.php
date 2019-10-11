@@ -36,6 +36,10 @@ foreach ($results as $result){
         continue;
     }
 
+    if ($result['tabletki_id'] = 0){
+        continue;
+    }
+
     $file_in = $result['saldo_path'];
     if (!file_exists($file_in)){
         continue;
