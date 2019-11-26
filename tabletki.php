@@ -63,7 +63,7 @@ foreach ($results as $result){
     $file = $unique_arr;
 
     foreach ($file as $f){
-        //var_dump($f[4]);
+        var_dump($f);
         if(!array_key_exists(8, $f)){
             continue;
         }
@@ -82,7 +82,7 @@ foreach ($results as $result){
             $Offer->setAttribute("Tax", $f[7]);
             $Offer->setAttribute("Price", $f[9]);
             $Offer->setAttribute("PriceReserve", $f[9]);
-            $Offer->setAttribute("Quantity", $f[1]);
+            $Offer->setAttribute("Quantity", $f[11]);
             $Offer->setAttribute("Code1", $f[4]);
         }
     }

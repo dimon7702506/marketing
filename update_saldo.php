@@ -8,6 +8,7 @@ $sp_type = 'podr';
 $id = '';
 $query_type = 'elem';
 $field_search = '';
+$ap_list = [];
 
 $find = new GetData($sp_type,$id, $field_search, $query_type);
 $results = $find->result_data;
@@ -58,6 +59,7 @@ foreach ($results as $result){
             $Offer->setAttribute("date_created", $f[10]);
         }
     }
+    array_push($ap_list, $apteka_id);
     //unlink($file_in);
 }
 $dom->formatOutput = true;
@@ -66,3 +68,8 @@ $Offers = $dom->saveXML();
 $file_out_xml = $file_out . '.xml';
 
 $dom->save('/var/www/marketing.com/out/'.$file_out_xml);
+
+var_dump($ap_list);
+
+$del = new Delete($ap_list);
+$results = $del->result_data;
