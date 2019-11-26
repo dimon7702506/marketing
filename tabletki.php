@@ -19,6 +19,7 @@ $ftp_server = '172.16.1.5';
 $ftp_user_name = 'apteka';
 $ftp_user_pass = '976179';
 */
+
 $ftp_server = 'ftp.tabletki.ua';
 $ftp_user_name = '1149';
 $ftp_user_pass = 'c93541cb373b';
@@ -35,12 +36,12 @@ foreach ($results as $result){
     if ((!$result['tabletki_id']) || (!$result['saldo_path'])) {
         continue;
     }
-
-    if ($result['tabletki_id'] = 0){
+    if ($result['tabletki_id'] == 0){
         continue;
     }
 
     $file_in = $result['saldo_path'];
+
     if (!file_exists($file_in)){
         continue;
     }
@@ -51,9 +52,6 @@ foreach ($results as $result){
     $read_file = new ReadFile($id, $file_in);
     $file = $read_file ->out;
     //var_dump($file);
-    if (!count($file)) {
-        continue;
-    }
 
     $dom = new DomDocument('1.0', 'UTF-8');
     $Offers = $dom->appendChild($dom->createElement('Offers'));
@@ -63,7 +61,7 @@ foreach ($results as $result){
     $file = $unique_arr;
 
     foreach ($file as $f){
-        var_dump($f);
+        //var_dump($f);
         if(!array_key_exists(8, $f)){
             continue;
         }

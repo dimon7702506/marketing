@@ -230,6 +230,39 @@ if (isset($_GET['id'])) {
                                     'related_table' => '',
                                     'form_type'=>'input'],
                     ];
+    }elseif ($sp_type == 'marketing') {
+        $fields = ['full_name' => ['field_name' => 'ФИО',
+            'type' => 'text',
+            'min' => 0,
+            'max' => 0,
+            'length' => 100,
+            'str_num' => 1,
+            'col' => 6,
+            'required' => 'required',
+            'related_table' => '',
+            'form_type'=>'input'],
+            'tel' => ['field_name' => 'Телефон',
+                'type' => 'text',
+                'min' => 0,
+                'max' => 999999999,
+                'length' => 13,
+                'str_num' => 1,
+                'col' => 2,
+                'required' => '',
+                'related_table' => '',
+                'form_type'=>'input'],
+            'birthday' => ['field_name' => 'Дата рождения',
+                'type' => 'date',
+                'min' => 0,
+                'max' => 0,
+                'length' => 0,
+                'str_num' => 1,
+                'col' => 2,
+                'required' => 'required',
+                'related_table' => '',
+                'form_type'=>'input'],
+        ];
+
     }
 
     if (empty($results)){
