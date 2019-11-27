@@ -20,9 +20,12 @@ class SetData
         }elseif ($sp_type == 'people'){
             $table_name = 'people';
             $id_name = 'id';
-        }elseif ($sp_type = 'saldo'){
+        }elseif ($sp_type == 'saldo'){
             $table_name = 'tek_saldo';
             $id_name = 'id';
+        }elseif ($sp_type == 'marketing') {
+            $table_name = 'marketing';
+            $id_name = 'm_id';
         }
 
         //var_dump($element);

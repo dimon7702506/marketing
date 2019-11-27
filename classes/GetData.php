@@ -51,6 +51,20 @@ class GetData
                 $field_search = 'id';
                 $order_by = '';
             }
+        }elseif ($sp_type == 'marketing'){
+            $table_name = 'marketing';
+            $fields_query_list = 'm_id, m_name as name, persent, summ, top, actual';
+            $fields_query_elem = '*';
+            $fields_query_id = 'm_id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'm_name';
+            if ($field_search == 'Маркетинг'){
+                $field_search = 'm_name';
+            }elseif ($field_search == 'ID'){
+                $field_search = $fields_query_id;
+                $order_by = '';
+            }
         }elseif ($sp_type == 'firm'){
             $table_name = 'firm';
             $fields_query_list = 'name';

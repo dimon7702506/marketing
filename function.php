@@ -75,9 +75,18 @@ function download_names_base()
 
 function export_marketings_base_to_file()
 {
+    /*
     $text_search = '';
     $find = new ShowMarketings($text_search,'');
     $marketings = $find->result_data;
+    */
+    $sp_type = 'marketing';
+    $text_search = '';
+    $field_search = '';
+    $query_type = 'list';
+    $find = new GetData($sp_type, $text_search, $field_search, $query_type);
+    $marketings = $find->result_data;
+    //var_dump($marketings);
     array_walk($marketings, 'encode_marketing_CSV');
 
     $file = fopen("./out/marketings.csv", 'w+');
@@ -106,8 +115,8 @@ function download_marketings_base()
 }
 
 function encode_marketing_CSV(&$value){
-    $temp = $value['m_name'];
-    $value['m_name'] = iconv("UTF-8", "Windows-1251", $temp);
+    $temp = $value['name'];
+    $value['name'] = iconv("UTF-8", "Windows-1251", $temp);
 }
 
 function encode_names_CSV(&$value){

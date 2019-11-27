@@ -21,7 +21,8 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                              'prod'=>'Производитель',
                              'id'=>'Код товара'],
                    'people'=>['full_name'=>'ФИО',
-                              'tel'=>'Телефон']
+                              'tel'=>'Телефон'],
+                   'marketing'=>['m_name'=>'Маркетинг']
                   ];
 //var_dump($select_options);
 $html_select_options = '';
@@ -50,6 +51,10 @@ if (isset($_GET['submit_search'])) {
     }elseif($sp_type == 'people'){
         $cols += ['full_name'=>'ФИО',
                  'tel'=>'Телефон'];
+    }elseif($sp_type == 'marketing'){
+        $cols += ['m_name'=>'Маркетинг',
+            'top'=>'ТОП',
+            'actual'=>'Актуальность'];
     }
     $cols += ['modif'=>'Модификация'];
     //var_dump($cols);
@@ -63,10 +68,11 @@ if (isset($_GET['submit_search'])) {
 
     foreach($res as $r){
         //var_dump(array_keys($r));
+        //var_dump($r);
         $keys = array_keys($r);
         $result_tab .= '<tr>';
             foreach ($keys as $value) {
-                if ($value == 'id'){
+                if ($value == 'id' || $value == 'm_id'){
                     $id = (int) $r[$value];
                 }
                 $result_tab .= '<td>' . $r[$value] . '</td>';
