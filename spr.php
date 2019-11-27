@@ -39,8 +39,16 @@ foreach ($select_options[$sp_type] as $select_option) {
 
 if (isset($_GET['submit_search'])) {
     $field = '';
-    $text_search = $_GET['search'];
-    $field_search = $_GET['field_search'];
+    if (isset($_GET['search'])) {
+        $text_search = $_GET['search'];
+    }else{
+        $text_search = '';
+    }
+    if (isset($_GET['field_search'])) {
+        $field_search = $_GET['field_search'];
+    }else{
+        $field_search = '';
+    }
     $sp_type = $_COOKIE['sp_type'];
     $query_type = 'list';
 
@@ -53,6 +61,8 @@ if (isset($_GET['submit_search'])) {
                  'tel'=>'Телефон'];
     }elseif($sp_type == 'marketing'){
         $cols += ['m_name'=>'Маркетинг',
+            'persent'=>'Процент',
+            'summ'=>'Сумма',
             'top'=>'ТОП',
             'actual'=>'Актуальность'];
     }
@@ -83,9 +93,11 @@ if (isset($_GET['submit_search'])) {
     }
 
     $count = count($res);
-    setcookie("text_search", $text_search);
-    setcookie("field_search", $field_search);
+    setcookie('text_search', $text_search);
+    setcookie('field_search', $field_search);
     setcookie('sp_type', $sp_type);
+
+    //var_dump($_COOKIE['text_search']);
 }
 
 if (isset($_GET['submit_new'])) {
