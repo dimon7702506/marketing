@@ -25,6 +25,7 @@ $checked = '';
 $internet_price = 0;
 $internet_sales = '';
 $internet_sales_checked = '';
+$fix_price = 0;
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -56,6 +57,7 @@ if (isset($_GET['id'])) {
             $checked = 'checked';
         }
         $internet_price = $nom['internet_price'];
+        $fix_price = $nom['fix_price'];
         $internet_sales = (int) $nom['internet_sales'];
         if ($internet_sales == 1) {
             $internet_sales_checked = 'checked';
@@ -151,9 +153,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $internet_price = $check->value;
     $errors .= $check->error;
 
-/*    $check = new CheckField('internet_sales', $_POST['$internet_sales_checked']);
-    $internet_sales = $check->value;
-    $errors .= $check->error;*/
+    $check = new CheckField('fix_price', $_POST['fix_price']);
+    $fix_price = $check->value;
+    $errors .= $check->error;
 
     if ($_POST['internet_sales'] == 'on'){
         $internet_sales = 1;
@@ -182,7 +184,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'amount_in_a_package'=>(int) $amount_in_a_package,
                     'project_dl'=>$project_dl,
                     'internet_sales'=>$internet_sales,
-                    'internet_price'=>(int) $internet_price
+                    'internet_price'=>(int) $internet_price,
+                    'fix_price'=>(int) $fix_price
                     ];
 
         if ($id == 0) {
@@ -190,7 +193,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
             //var_dump($element);
         }else {
             $method = 'update';
-            //var_dump($element);
         }
 
         if (isset($_POST['copy'])){
@@ -198,6 +200,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
             $method = 'new';
         }
 
+        var_dump($element);
         $save = new SaveToDB($element, $method);
 
         if ($method == 'new') {

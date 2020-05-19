@@ -77,12 +77,12 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-2">
-            <label for="inputZip">Ограничение наценки</label>
+        <div class="form-group col-md-1">
+            <label for="inputZip">Наценка</label>
             <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
                    min=0 max=25 name="nac">
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-1">
             <label for="inputZip">НДС</label>
             <input type="number" class="form-control" id="inputZip" value="<?php echo $tax; ?>"
                    min=0 max=20 name="tax">
@@ -96,6 +96,11 @@
             <label for="inputZip">Сумма компенсации</label>
             <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
                    min=0 max=9999.99 name="sum_com">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Фиксированная цена</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $fix_price; ?>"
+                   min=0 max=9999.99 name="fix_price">
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Дозировка</label>
