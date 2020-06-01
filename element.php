@@ -21,10 +21,15 @@ $gran_price = '';
 $sum_com = '';
 $amount_in_a_package = '';
 $project_dl = '';
+$project_dl_checked = '';
+$project_dl_value = '';
 $checked = '';
 $internet_price = 0;
 $internet_sales = '';
 $internet_sales_checked = '';
+$covid = '';
+$covid_checked = '';
+$covid_value = '';
 $fix_price = 0;
 
 if (isset($_GET['id'])) {
@@ -52,15 +57,23 @@ if (isset($_GET['id'])) {
         $form_prod = trim($nom['form_prod']);
         $doza = $nom['doza'];
         $amount_in_a_package = $nom['amount_in_a_package'];
+
         $project_dl = (int) $nom['project_dl'];
         if ($project_dl == 1) {
-            $checked = 'checked';
+            $project_dl_checked = 'checked';
         }
+
         $internet_price = $nom['internet_price'];
         $fix_price = $nom['fix_price'];
+
         $internet_sales = (int) $nom['internet_sales'];
         if ($internet_sales == 1) {
             $internet_sales_checked = 'checked';
+        }
+
+        $covid = (int)$nom['covid'];
+        if ($covid == 1) {
+            $covid_checked = 'checked';
         }
         //var_dump($project_dl);
     }
@@ -137,13 +150,16 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $check = new CheckField('marketing', $_POST['marketing']);
     $marketing = $check->value;
     $errors .= $check->error;
-    //var_dump($mark_id);
 
     $check = new CheckField('mnn', $_POST['mnn']);
     $mnn = $check->value;
     $errors .= $check->error;
 
-    if ($_POST['project_dl'] == 'on'){
+    if (!empty($_POST['project_dl'])) {
+        $project_dl_value = $_POST['project_dl'];
+    }
+
+    if ($project_dl_value == 'on'){
         $project_dl = 1;
     }else{
         $project_dl = 0;
@@ -163,7 +179,14 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $internet_sales = 0;
     }
 
-    //var_dump($project_dl);
+    if (!empty($_POST['covid'])){
+        $covid_value = $_POST['covid'];
+    }
+    if ($covid_value == 'on'){
+        $covid = 1;
+    }else{
+        $covid = 0;
+    }
 
     if (empty($errors)){
         $element = ['id'=>$id,
@@ -185,7 +208,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'project_dl'=>$project_dl,
                     'internet_sales'=>$internet_sales,
                     'internet_price'=>(int) $internet_price,
-                    'fix_price'=>(int) $fix_price
+                    'fix_price'=>(float) $fix_price,
+                    'covid'=>$covid
                     ];
 
         if ($id == 0) {
@@ -200,7 +224,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
             $method = 'new';
         }
 
-        var_dump($element);
+        //var_dump($element);
         $save = new SaveToDB($element, $method);
 
         if ($method == 'new') {
