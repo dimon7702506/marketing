@@ -19,7 +19,8 @@ class GetData
             $fields_query_list = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
             $fields_query_elem = 'apteka.name as name, firm.name as firm_name, apteka.adres as adres,
                 apteka.tel as tel, email, people.full_name as zav_name, db_server, db_name, db_user, db_password,
-                SQL_version, TM_version, google_login, google_password, saldo_path, tabletki_id, last_update, apteka.id as id';
+                SQL_version, TM_version, google_login, google_password, saldo_path, tabletki_id, last_update,
+                apteka.id as id, liki24_id';
             $join_table1 = ' firm';
             $join1 = " LEFT JOIN $join_table1 ON firm_id = firm.id";
             $join_table2 = ' people';
