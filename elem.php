@@ -228,16 +228,27 @@ if (isset($_GET['id'])) {
                                     'required' => '',
                                     'related_table' => '',
                                     'form_type'=>'input'],
-                    'birthday' => ['field_name' => 'Дата рождения',
-                                    'type' => 'date',
+                    'tm_id' => ['field_name' => 'Код в ТМ',
+                                    'type' => 'text',
                                     'min' => 0,
                                     'max' => 0,
-                                    'length' => 0,
+                                    'length' => 100,
                                     'str_num' => 1,
-                                    'col' => 2,
+                                    'col' => 6,
                                     'required' => 'required',
                                     'related_table' => '',
                                     'form_type'=>'input'],
+                    'apteka_name' => ['field_name' => 'Аптека',
+                                    'type' => 'text',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'length' => 100,
+                                    'str_num' => 1,
+                                    'col' => 6,
+                                    'required' => 'required',
+                                    'related_table' => 'apteka',
+                                    'form_type'=>'select',
+                                    'key' => 'apteka_id'],
                     ];
     }elseif ($sp_type == 'marketing') {
         $fields = ['m_name' => ['field_name' => 'Маркетинг',
@@ -301,10 +312,12 @@ if (isset($_GET['id'])) {
             $fio = trim($result['full_name']);
             $tel = $result['tel'];
             $birthday = $result['birthday'];
+            $tm_id = $result['tm_id'];
             if (!array_key_exists('dismissed', $result)) {
                 $result += ['dismissed' => 0];
             }
             $dismissed = $result['dismissed'];
+            $apteka = $result['apteka'];
 
             if($dismissed == 1){
                 $errors = 'Уволен!!!';
@@ -328,6 +341,9 @@ if (isset($_GET['id'])) {
                 }elseif ($key == 'zav_name'){
                     $html_elem .= $zav;
                     $sp_type_list = 'people';
+                }elseif ($key == 'apteka_name'){
+                    $html_elem .= $apteka;
+                    $sp_type_list = 'podr';
                 }
                 $html_elem .= '</option>
                                 <option></option>';
@@ -364,9 +380,12 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $val = (int) $val;
             }elseif ($f['type'] == 'text'){
                 $val = trim($val);
+            }elseif ($f['type'] == 'date'){
             }
 
             $element += [$key=>$val];
+
+            //var_dump($element);
 
             if($f['related_table'] == 'firm'){
                 $find_id = new GetData('firm', $element['firm_name'],'firm.name', 'id');
@@ -380,7 +399,12 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $element += ['zav_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'zav_name');
             }
-
+            if($f['related_table'] == 'apteka'){
+                $find_id = new GetData('podr', $element['apteka_name'],'name', 'id');
+                $related_id = $find_id->result_data;
+                $element += ['apteka_id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'apteka_name');
+            }
             $errors .= $check->error;
         }
     //}
@@ -400,7 +424,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             //var_dump($element);
         }else {
             $method = 'update';
-            //var_dump($element);
+            var_dump($element);
         }
 
         if (isset($_POST['copy'])){

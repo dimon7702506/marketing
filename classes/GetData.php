@@ -14,9 +14,15 @@ class GetData
     public function search($sp_type, $text_search, $field_search, $query_type)
     {
         //var_dump($sp_type);
+
+        $fields_query_list = '';
+        $table_name = '';
+        $join = '';
+        $order_by = '';
+        
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
-            $fields_query_list = 'apteka.id, apteka.name as apteka_name, firm.name as firm_name';
+            $fields_query_list = 'apteka.id, apteka.name as name, firm.name as firm_name';
             $fields_query_elem = 'apteka.name as name, firm.name as firm_name, apteka.adres as adres,
                 apteka.tel as tel, email, people.full_name as zav_name, db_server, db_name, db_user, db_password,
                 SQL_version, TM_version, google_login, google_password, saldo_path, tabletki_id, last_update,
@@ -26,7 +32,7 @@ class GetData
             $join_table2 = ' people';
             $join2 = " LEFT JOIN $join_table2 ON zav_id = people.id";
             $join = $join1 . $join2;
-            $fields_query_id = 'id';
+            $fields_query_id = 'apteka.id';
             $order_by = 'firm.name, apteka.name';
             if ($field_search == 'Наименование'){
                 $field_search = 'apteka.name';
@@ -38,18 +44,18 @@ class GetData
             }
         }elseif ($sp_type == 'people'){
             $table_name = 'people';
-            $fields_query_list = 'id, full_name as name, tel';
-            $fields_query_elem = '*';
+            $fields_query_list = 'people.id, full_name as name, people.tel';
+            $fields_query_elem = 'people.id, full_name, people.tel, birthday, tm_id, apteka.name as apteka';
             $fields_query_id = 'id';
-            $join_table = '';
-            $join = "";
+            $join_table = ' apteka';
+            $join = " LEFT JOIN $join_table ON apteka_id = apteka.id";
             $order_by = 'full_name';
             if ($field_search == 'ФИО'){
                 $field_search = 'full_name';
             }elseif ($field_search == 'Телефон'){
                 $field_search = 'tel';
             }elseif ($field_search == 'ID'){
-                $field_search = 'id';
+                $field_search = 'people.id';
                 $order_by = '';
             }
         }elseif ($sp_type == 'marketing'){
@@ -68,7 +74,7 @@ class GetData
             }
         }elseif ($sp_type == 'firm'){
             $table_name = 'firm';
-            $fields_query_list = 'name';
+            $fields_query_list = 'firm.name';
             $fields_query_elem = '*';
             $fields_query_id = 'id';
             $join_table = '';
@@ -86,13 +92,14 @@ class GetData
         }
 
         //var_dump($field_search);
+        //var_dump($fields_query);
 
         $sql = "SELECT $fields_query FROM $table_name $join ";
         if (strlen($field_search) > 0){
             if (strpos($field_search, 'id') !== false){
                 $sql .= "WHERE $field_search = :str";
             }else {
-                $sql .= "WHERE $field_search LIKE CONCAT('%', :str, '%')";
+                $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
             }
             $arg = ["str" => $text_search];
         }else{
