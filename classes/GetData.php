@@ -100,6 +100,7 @@ class GetData
                 $sql .= "WHERE $field_search = :str";
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
+                $sql = str_replace('apteka.apteka', 'apteka', $sql);
             }
             $arg = ["str" => $text_search];
         }else{

@@ -424,7 +424,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             //var_dump($element);
         }else {
             $method = 'update';
-            var_dump($element);
+            //var_dump($element);
         }
 
         if (isset($_POST['copy'])){

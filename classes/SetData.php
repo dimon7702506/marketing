@@ -13,7 +13,7 @@ class SetData
 
     public function save($sp_type, $element, $method)
     {
-        var_dump($sp_type);
+        //var_dump($sp_type);
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
             $id_name = 'id';
@@ -83,7 +83,7 @@ class SetData
         $sql = $sql_update . $sql_end;
 
         //var_dump($sql);
-        var_dump($args);
+        //var_dump($args);
 
         $sql_id = "SELECT LAST_INSERT_ID();";
         $stmt = DB::run($sql, $args);
