@@ -22,7 +22,8 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                              'id'=>'Код товара'],
                    'people'=>['full_name'=>'ФИО',
                               'tel'=>'Телефон'],
-                   'marketing'=>['m_name'=>'Маркетинг']
+                   'marketing'=>['m_name'=>'Маркетинг'],
+                   'providers'=>['name'=>'Поставщик']
                   ];
 //var_dump($select_options);
 $html_select_options = '';
@@ -65,6 +66,8 @@ if (isset($_GET['submit_search'])) {
             'summ'=>'Сумма',
             'top'=>'ТОП',
             'actual'=>'Актуальность'];
+    }elseif ($sp_type == 'providers'){
+        $cols += ['name'=>'Поставщик'];
     }
     $cols += ['modif'=>'Модификация'];
     //var_dump($cols);

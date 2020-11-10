@@ -20,7 +20,7 @@ class GetData
         $join = '';
         $order_by = '';
         
-        if ($sp_type == 'podr'){
+        if ($sp_type == 'podr') {
             $table_name = 'apteka';
             $fields_query_list = 'apteka.id, apteka.name as name, firm.name as firm_name';
             $fields_query_elem = 'apteka.name as name, firm.name as firm_name, apteka.adres as adres,
@@ -34,11 +34,12 @@ class GetData
             $join = $join1 . $join2;
             $fields_query_id = 'apteka.id';
             $order_by = 'firm.name, apteka.name';
-            if ($field_search == 'Наименование'){
+
+            if ($field_search == 'Наименование') {
                 $field_search = 'apteka.name';
-            }elseif ($field_search == 'Фирма'){
+            } elseif ($field_search == 'Фирма') {
                 $field_search = 'firm.name';
-            }elseif ($field_search == 'ID'){
+            } elseif ($field_search == 'ID') {
                 $field_search = 'apteka.id';
                 $order_by = '';
             }
@@ -80,7 +81,17 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'name';
-            //$field_search = '';
+        }elseif ($sp_type == 'providers') {
+            $table_name = 'providers';
+            $fields_query_list = 'providers.id, providers.name';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'name';
+            if ($field_search == 'Поставщик'){
+                $field_search = 'name';
+            }
         }
 
         if ($query_type == 'list'){

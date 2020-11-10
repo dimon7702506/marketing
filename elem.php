@@ -292,6 +292,28 @@ if (isset($_GET['id'])) {
                                     'related_table' => '',
                                     'form_type'=>'input'],
         ];
+    }elseif ($sp_type == 'providers'){
+        $fields = ['name' => ['field_name' => 'Поставщик',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 6,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type'=>'input'],
+                    'okpo'=> ['field_name' => 'ОКПО',
+                            'type' => 'number',
+                            'min' => 0,
+                            'max' => 999999,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 6,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type'=>'input']
+        ];
     }
 
     if (empty($results)){
@@ -313,15 +335,12 @@ if (isset($_GET['id'])) {
             $tel = $result['tel'];
             $birthday = $result['birthday'];
             $tm_id = $result['tm_id'];
-            if (!array_key_exists('dismissed', $result)) {
-                $result += ['dismissed' => 0];
-            }
+            if (!array_key_exists('dismissed', $result)) {$result += ['dismissed' => 0];}
             $dismissed = $result['dismissed'];
             $apteka = $result['apteka'];
-
-            if($dismissed == 1){
-                $errors = 'Уволен!!!';
-            }
+            if($dismissed == 1){$errors = 'Уволен!!!';}
+        }elseif ($sp_type == 'providers'){
+            $provider = trim($result['name']);
         }
         //var_dump($results);
 

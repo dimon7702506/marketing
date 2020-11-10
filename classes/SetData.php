@@ -26,6 +26,9 @@ class SetData
         }elseif ($sp_type == 'marketing') {
             $table_name = 'marketing';
             $id_name = 'm_id';
+        }elseif ($sp_type == 'providers') {
+            $table_name = 'providers';
+            $id_name = 'id';
         }
 
         //var_dump($element);
