@@ -52,7 +52,7 @@ foreach ($results as $result){
 
     $read_file = new ReadFile($id, $file_in);
     $file = $read_file ->out;
-    //var_dump($file);
+    var_dump($file);
 
     $dom = new DomDocument('1.0', 'UTF-8');
     $Offers = $dom->appendChild($dom->createElement('Offers'));
@@ -62,7 +62,7 @@ foreach ($results as $result){
     $file = $unique_arr;
 
     foreach ($file as $f){
-        var_dump($f);
+        //var_dump($f);
         if(!array_key_exists(8, $f)){
             continue;
         }
