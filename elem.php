@@ -306,7 +306,7 @@ if (isset($_GET['id'])) {
                     'okpo'=> ['field_name' => 'ОКПО',
                             'type' => 'number',
                             'min' => 0,
-                            'max' => 999999,
+                            'max' => 99999999,
                             'length' => 100,
                             'str_num' => 1,
                             'col' => 6,

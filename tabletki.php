@@ -2,6 +2,7 @@
 
 require_once "autoload.php";
 
+//delete old files
 array_map('unlink', glob("/var/www/marketing.com/out/Rest*.*"));
 
 $sp_type = 'podr';
@@ -61,16 +62,14 @@ foreach ($results as $result){
     $file = $unique_arr;
 
     foreach ($file as $f){
-        //var_dump($f);
+        var_dump($f);
         if(!array_key_exists(8, $f)){
             continue;
         }
         if ($f[8] !== 'NULL' && $f[9] > 20) {
 
-            //$name = mb_convert_encoding($f[5], "utf-8", "windows-1251");
             $name = mb_convert_encoding($f[5], "utf-8", "cp866");
             $name = str_replace('?','i', $name);
-            //$producer = mb_convert_encoding($f[6], "utf-8", "windows-1251");
             $producer = mb_convert_encoding($f[6], "utf-8", "cp866");
 
             $Offer = $Offers->appendChild($dom->createElement('Offer'));
@@ -106,7 +105,7 @@ foreach ($results as $result){
 
     $file = '/var/www/marketing.com/out/'.$file_out_zip;
     $remote_file = $file_out_zip;
-
+/*
     if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
         echo "Файл $file успешно загружен на сервер\n";
         echo "<br>";
@@ -114,7 +113,7 @@ foreach ($results as $result){
         echo "Не удалось загрузить $file на сервер\n";
         echo "<br>";
     }
-
+*/
     unlink($file_in);
 }
 
