@@ -72,13 +72,20 @@ foreach ($results as $result){
             $name = str_replace('?','i', $name);
             $producer = mb_convert_encoding($f[6], "utf-8", "cp866");
 
+            $Price_sp = $f[12];
+            if ($Price_sp * 1.03 > $f[9]) {
+                $price_end = $Price_sp;
+            }else{
+                $price_end = $f[9];
+            }
+
             $Offer = $Offers->appendChild($dom->createElement('Offer'));
             $Offer->setAttribute("Code", $f[8]);
             $Offer->setAttribute("Name", $name);
             $Offer->setAttribute("Producer", $producer);
             $Offer->setAttribute("Tax", $f[7]);
-            $Offer->setAttribute("Price", $f[9]);
-            $Offer->setAttribute("PriceReserve", $f[9]);
+            $Offer->setAttribute("Price", $price_end);
+            $Offer->setAttribute("PriceReserve", $price_end);
             $Offer->setAttribute("Quantity", $f[11]);
             $Offer->setAttribute("Code1", $f[4]);
         }
@@ -105,7 +112,7 @@ foreach ($results as $result){
 
     $file = '/var/www/marketing.com/out/'.$file_out_zip;
     $remote_file = $file_out_zip;
-/*
+
     if (ftp_put($conn_id, $remote_file, $file, FTP_BINARY)) {
         echo "Файл $file успешно загружен на сервер\n";
         echo "<br>";
@@ -113,7 +120,7 @@ foreach ($results as $result){
         echo "Не удалось загрузить $file на сервер\n";
         echo "<br>";
     }
-*/
+
     unlink($file_in);
 }
 
