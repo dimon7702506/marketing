@@ -83,7 +83,7 @@ class GetData
             $order_by = 'name';
         }elseif ($sp_type == 'providers') {
             $table_name = 'providers';
-            $fields_query_list = 'providers.id, providers.name';
+            $fields_query_list = 'providers.id, providers.name, providers.okpo';
             $fields_query_elem = '*';
             $fields_query_id = 'id';
             $join_table = '';
