@@ -7,12 +7,9 @@ $sp_type = '';
 if (isset($_GET['sp_type'])){
     $sp_type = $_GET['sp_type'];
     setcookie('sp_type', $sp_type);
-}else{
-    $sp_type = $_COOKIE['sp_type'];
-}
+}else{$sp_type = $_COOKIE['sp_type'];}
 
-//var_dump($sp_type);
-
+//Выбор режима поиска
 $select_options = ['podr'=>['apteka_name'=>'Наименование',
                             'firm_name'=>'Фирма'],
                    'MNN'=>['MNN'=>'MNN',
@@ -24,35 +21,32 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                               'tel'=>'Телефон'],
                    'marketing'=>['m_name'=>'Маркетинг'],
                    'providers'=>['name'=>'Поставщик',
-                                'okpo'=>'ОКПО']
+                                'okpo'=>'ОКПО'],
+                   'invoices'=>['apteka'=>'Аптека',
+                                'provider'=>'Поставщик',
+                                'invoice_number'=>'Номер накладной',
+                                'sum'=>'Сумма']
                   ];
-//var_dump($select_options);
+
 $html_select_options = '';
 
 $i = 0;
 foreach ($select_options[$sp_type] as $select_option) {
     $i++;
-    if ($i == 1) {
-        $html_select_options = "<option selected>$select_option</option>";
-    }else{
-        $html_select_options .= "<option>$select_option</option>";
-    }
+    if ($i == 1) {$html_select_options = "<option selected>$select_option</option>";
+    }else{$html_select_options .= "<option>$select_option</option>";}
 }
 
 if (isset($_GET['submit_search'])) {
     $field = '';
-    if (isset($_GET['search'])) {
-        $text_search = $_GET['search'];
-    }else{
-        $text_search = '';
-    }
-    if (isset($_GET['field_search'])) {
-        $field_search = $_GET['field_search'];
-    }else{
-        $field_search = '';
-    }
+    if (isset($_GET['search'])) {$text_search = $_GET['search'];
+    }else{$text_search = '';}
+    if (isset($_GET['field_search'])) {$field_search = $_GET['field_search'];
+    }else{$field_search = '';}
     $sp_type = $_COOKIE['sp_type'];
     $query_type = 'list';
+
+    //var_dump($text_search);
 
     $cols = ['id'=>'ID'];
     if ($sp_type == 'podr'){
@@ -63,13 +57,17 @@ if (isset($_GET['submit_search'])) {
                  'tel'=>'Телефон'];
     }elseif($sp_type == 'marketing'){
         $cols += ['m_name'=>'Маркетинг',
-            'persent'=>'Процент',
-            'summ'=>'Сумма',
-            'top'=>'ТОП',
-            'actual'=>'Актуальность'];
+                  'persent'=>'Процент',
+                  'summ'=>'Сумма',
+                  'top'=>'ТОП',
+                  'actual'=>'Актуальность'];
     }elseif ($sp_type == 'providers'){
         $cols += ['name'=>'Поставщик',
                   'okpo'=>'ОКПО'];
+    }elseif ($sp_type == 'invoices'){
+        $cols += ['apteka'=>'Аптека',
+                  'provider'=>'Поставщик',
+                  'invoice_number'=>'Номер накладной'];
     }
     $cols += ['modif'=>'Модификация'];
     //var_dump($cols);

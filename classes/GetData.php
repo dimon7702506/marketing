@@ -13,8 +13,6 @@ class GetData
 
     public function search($sp_type, $text_search, $field_search, $query_type)
     {
-        //var_dump($sp_type);
-
         $fields_query_list = '';
         $table_name = '';
         $join = '';
@@ -35,10 +33,8 @@ class GetData
             $fields_query_id = 'apteka.id';
             $order_by = 'firm.name, apteka.name';
 
-            if ($field_search == 'Наименование') {
-                $field_search = 'apteka.name';
-            } elseif ($field_search == 'Фирма') {
-                $field_search = 'firm.name';
+            if ($field_search == 'Наименование') {$field_search = 'apteka.name';
+            } elseif ($field_search == 'Фирма') {$field_search = 'firm.name';
             } elseif ($field_search == 'ID') {
                 $field_search = 'apteka.id';
                 $order_by = '';
@@ -51,10 +47,8 @@ class GetData
             $join_table = ' apteka';
             $join = " LEFT JOIN $join_table ON apteka_id = apteka.id";
             $order_by = 'full_name';
-            if ($field_search == 'ФИО'){
-                $field_search = 'full_name';
-            }elseif ($field_search == 'Телефон'){
-                $field_search = 'tel';
+            if ($field_search == 'ФИО'){$field_search = 'full_name';
+            }elseif ($field_search == 'Телефон'){$field_search = 'tel';
             }elseif ($field_search == 'ID'){
                 $field_search = 'people.id';
                 $order_by = '';
@@ -67,8 +61,7 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'm_name';
-            if ($field_search == 'Маркетинг'){
-                $field_search = 'm_name';
+            if ($field_search == 'Маркетинг'){$field_search = 'm_name';
             }elseif ($field_search == 'ID'){
                 $field_search = $fields_query_id;
                 $order_by = '';
@@ -89,29 +82,42 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'name';
-            if ($field_search == 'Поставщик'){
-                $field_search = 'name';
+            if ($field_search == 'Поставщик'){$field_search = 'name';
             }
+        }elseif ($sp_type == 'invoices'){
+            $table_name = 'invoice';
+            $fields_query_list = 'Invoice_id, apteka.name as apteka, providers.name as provider, invoice_number';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join_table2 = ' providers';
+            $join2 = " LEFT JOIN $join_table2 ON provider_id = $join_table2.id";
+            $join = $join1 . $join2;
+            $order_by = 'invoice_number';
+            if ($field_search == 'Номер накладной'){$field_search = 'invoice_number';}
+            elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
+            elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
+            elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
         }
 
-        if ($query_type == 'list'){
-            $fields_query = $fields_query_list;
-        }elseif ($query_type == 'elem'){
-            $fields_query = $fields_query_elem;
-        }elseif ($query_type == 'id'){
-            $fields_query = $fields_query_id;
-        }
+        if ($query_type == 'list'){$fields_query = $fields_query_list;}
+        elseif ($query_type == 'elem'){$fields_query = $fields_query_elem;}
+        elseif ($query_type == 'id'){$fields_query = $fields_query_id;}
 
         //var_dump($field_search);
         //var_dump($fields_query);
 
         $sql = "SELECT $fields_query FROM $table_name $join ";
         if (strlen($field_search) > 0){
-            if (strpos($field_search, 'id') !== false){
+            if ((strpos($field_search, 'id') !== false) and
+                (strlen($field_search) < 9)){
                 $sql .= "WHERE $field_search = :str";
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
+                $sql = str_replace('invoice.apteka', 'apteka', $sql);
+                $sql = str_replace('invoice.providers', 'providers', $sql);
             }
             $arg = ["str" => $text_search];
         }else{
