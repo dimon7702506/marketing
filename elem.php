@@ -314,6 +314,30 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type'=>'input']
         ];
+    }elseif ($sp_type == 'invoices') {
+        $fields = ['apteka_name' => ['field_name' => 'Аптека',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'apteka',
+                            'form_type' => 'select',
+                            'key' => 'apteka_id'],
+            'provider' => ['field_name' => 'Поставщик',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'providers',
+                            'form_type' => 'select',
+                            'key' => 'provider_id'],
+        ];
     }
 
     if (empty($results)){
@@ -341,6 +365,9 @@ if (isset($_GET['id'])) {
             if($dismissed == 1){$errors = 'Уволен!!!';}
         }elseif ($sp_type == 'providers'){
             $provider = trim($result['name']);
+        }elseif ($sp_type == 'invoices'){
+            $apteka = $result['apteka'];
+            $provider = $result['provider'];
         }
         //var_dump($results);
 
@@ -354,16 +381,21 @@ if (isset($_GET['id'])) {
             }elseif ($f['form_type'] == 'select'){
                 $html_elem .= '<select id="inputState" class="form-control" name="' . $key . '">
                                 <option selected>';
+
                 if($key == 'firm_name') {
                     $html_elem .= $firm;
                     $sp_type_list = 'firm';
                 }elseif ($key == 'zav_name'){
                     $html_elem .= $zav;
                     $sp_type_list = 'people';
-                }elseif ($key == 'apteka_name'){
+                }elseif ($key == 'apteka_name' || $key == 'apteka'){
                     $html_elem .= $apteka;
                     $sp_type_list = 'podr';
+                }elseif ($key == 'provider'){
+                    $html_elem .= $provider;
+                    $sp_type_list = 'providers';
                 }
+
                 $html_elem .= '</option>
                                 <option></option>';
 

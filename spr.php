@@ -67,7 +67,12 @@ if (isset($_GET['submit_search'])) {
     }elseif ($sp_type == 'invoices'){
         $cols += ['apteka'=>'Аптека',
                   'provider'=>'Поставщик',
-                  'invoice_number'=>'Номер накладной'];
+                  'invoice_number'=>'Номер',
+                  'invoice_date'=>'Дата',
+                  'invoice_sum'=>'Сумма',
+                  'invoice_tax'=>'НДС',
+                  'pay_date'=>'Оплата',
+                  'invoice_status'=>'Статус'];
     }
     $cols += ['modif'=>'Модификация'];
     //var_dump($cols);
