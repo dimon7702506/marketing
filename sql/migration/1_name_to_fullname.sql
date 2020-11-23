@@ -1,1 +1,0 @@
-UPDATE users SET full_name = name

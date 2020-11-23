@@ -14,7 +14,11 @@ class SearchFromNames
     public function search($text_search, $field_search, $fields)
     {
         if ($fields == 'all') {
-            $sql = "SELECT * FROM names 
+            $sql = "SELECT id, morion_id, name, producer, barcode, tnved, nac, tax, marketing_id, gran_price,
+                          sum_com,  form_prod, doza, name_torg, amount_in_a_package, internet_price,
+                          internet_sales, fix_price, covid, MNN.MNN_name, sickness.sickness_name, covid_protokol,
+                          marketing.m_name as m_name, project_dl
+                      FROM names 
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
                       LEFT JOIN sickness ON MNN.sickness_id = sickness.sickness_id";

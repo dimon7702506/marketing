@@ -27,10 +27,16 @@ $checked = '';
 $internet_price = 0;
 $internet_sales = '';
 $internet_sales_checked = '';
+
 $covid = '';
 $covid_checked = '';
 $covid_value = '';
+
 $fix_price = 0;
+
+$covid_protokol = '';
+$covid_protokol_checked = '';
+$covid_protokol_value = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -72,9 +78,10 @@ if (isset($_GET['id'])) {
         }
 
         $covid = (int)$nom['covid'];
-        if ($covid == 1) {
-            $covid_checked = 'checked';
-        }
+        if ($covid == 1) {$covid_checked = 'checked';}
+
+        $covid_protokol = (int)$nom['covid_protokol'];
+        if ($covid_protokol == 1) {$covid_protokol_checked = 'checked';}
         //var_dump($project_dl);
     }
 
@@ -155,15 +162,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $mnn = $check->value;
     $errors .= $check->error;
 
-    if (!empty($_POST['project_dl'])) {
-        $project_dl_value = $_POST['project_dl'];
-    }
+    if (!empty($_POST['project_dl'])) {$project_dl_value = $_POST['project_dl'];}
 
-    if ($project_dl_value == 'on'){
-        $project_dl = 1;
-    }else{
-        $project_dl = 0;
-    }
+    if ($project_dl_value == 'on'){$project_dl = 1;}else{$project_dl = 0;}
 
     $check = new CheckField('internet_price', $_POST['internet_price']);
     $internet_price = $check->value;
@@ -179,13 +180,18 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $internet_sales = 0;
     }
 
-    if (!empty($_POST['covid'])){
-        $covid_value = $_POST['covid'];
-    }
+    if (!empty($_POST['covid'])){$covid_value = $_POST['covid'];}
     if ($covid_value == 'on'){
         $covid = 1;
     }else{
         $covid = 0;
+    }
+
+    if (!empty($_POST['covid_protokol'])){$covid_protokol_value = $_POST['covid_protokol'];}
+    if ($covid_protokol_value == 'on'){
+        $covid_protokol = 1;
+    }else{
+        $covid_protokol = 0;
     }
 
     if (empty($errors)){
@@ -209,7 +215,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'internet_sales'=>$internet_sales,
                     'internet_price'=>(int) $internet_price,
                     'fix_price'=>(float) $fix_price,
-                    'covid'=>$covid
+                    'covid'=>$covid,
+                    'covid_protokol'=>$covid_protokol
                     ];
 
         if ($id == 0) {

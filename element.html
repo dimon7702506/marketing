@@ -55,7 +55,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="inputState">МНН</label>
-            <select id="inputState" class="form-control" name="mnn">
+            <select id="inputState" class="form-control" name="mnn" required>
                 <option selected><?php echo $mnn; ?></option>
                 <option></option>
                 <?php foreach ($mnns as $mn): ?>
@@ -67,7 +67,7 @@
             <label for="inputZip">Форма выпуска</label>
             <!--<input type="text" class="form-control" id="inputZip" value="<?php echo $form_prod; ?>"-->
             <!--maxlength="20" name="form_prod">-->
-            <select id="inputState" class="form-control" name="form_prod">
+            <select id="inputState" class="form-control" name="form_prod" required>
                 <option selected><?php echo $form_prod; ?></option>
                 <option></option>
                 <?php foreach ($form_prods as $form_pro): ?>
@@ -114,7 +114,7 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
             <label for="inputZip">Торговое название</label>
             <input type="text" class="form-control" id="inputZip" value="<?php echo $name_torg; ?>"
                    maxlength="100" name="name_torg">
@@ -136,11 +136,17 @@
             <input type="checkbox"  id="inputZip" name="internet_sales" <?php echo $internet_sales_checked; ?>>
             <label for="internet_sales">Инет</label>
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-1">
             <div class="form-group col-md-2"></div>
             <div class="form-group col-md-2"></div>
             <input type="checkbox"  id="inputZip" name="covid" <?php echo $covid_checked; ?>>
             <label for="covid">Covid</label>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="form-group col-md-2"></div>
+            <div class="form-group col-md-2"></div>
+            <input type="checkbox"  id="inputZip" name="covid_protokol" <?php echo $covid_protokol_checked; ?>>
+            <label for="covid">Covid протокол</label>
         </div>
     </div>
     <p class="errors"><?php echo $errors ?></p>

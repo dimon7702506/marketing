@@ -75,11 +75,6 @@ function download_names_base()
 
 function export_marketings_base_to_file()
 {
-    /*
-    $text_search = '';
-    $find = new ShowMarketings($text_search,'');
-    $marketings = $find->result_data;
-    */
     $sp_type = 'marketing';
     $text_search = '';
     $field_search = '';
