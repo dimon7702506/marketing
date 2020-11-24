@@ -9,8 +9,8 @@ if (isset($_GET['submit_search'])) {
     $field = '';
 
     $find = new SearchFromNames($text_search, $field_search, $field);
-    //var_dump($find->result_data);
     $nomens = $find->result_data;
+    //var_dump($nomens);
     $count = count($nomens);
     setcookie("text_search", $text_search);
     setcookie("field_search", $field_search);

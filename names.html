@@ -62,6 +62,7 @@
                     <th scope="col">МНН</th>
                     <th scope="col">Маркетинг</th>
                     <th scope="col">НДС</th>
+                    <th scope="col">Covid протокол</th>
                     <th scope="col">Модификация</th>
                 </tr>
                 </thead>
@@ -74,6 +75,7 @@
                         <td><?php echo $nomen['MNN_name']; ?></td>
                         <td><?php echo $nomen['m_name']; ?></td>
                         <td><?php echo $nomen['tax']; ?></td>
+                        <td><?php echo $nomen['covid_protokol']; ?></td>
                         <?php $id = (int) $nomen['id']; ?>
                         <td><?php echo "<a href=\"./element.php?id=$id&\">изменить</a>"; ?></td>
                     </tr>

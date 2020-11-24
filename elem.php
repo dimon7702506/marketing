@@ -380,6 +380,23 @@ if (isset($_GET['id'])) {
                             'required' => 'required',
                             'related_table' => '',
                             'form_type' => 'input',
+                            'key' => ''],
+            'pay_date' => ['field_name' => 'Дата оплаты',
+                            'type' => 'date',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 2,
+                            'col' => 2,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => ''],
+            'note' => ['field_name' => 'Примечание',
+                            'str_num' => 3,
+                            'col' => 12,
+                            'related_table' => '',
+                            'form_type' => 'textarea',
                             'key' => '']
         ];
     }
@@ -422,6 +439,9 @@ if (isset($_GET['id'])) {
             if ($f['form_type'] == 'input') {
                 $html_elem .= '<input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
                                 name="' . $key . '" ' . $f['required'] . '>';
+            }elseif ($f['form_type'] == 'textarea') {
+                $html_elem .= '<textarea class="form-control" id="text" value="' . $result[$key] . '"
+                                name="' . $key . '" rows = 10>';
             }elseif ($f['form_type'] == 'select'){
                 $html_elem .= '<select id="inputState" class="form-control" name="' . $key . '">
                                 <option selected>';

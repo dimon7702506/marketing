@@ -34,7 +34,7 @@ class SearchFromNames
         }elseif ($fields == 'form_prod') {
             $sql = "SELECT id, name FROM names_form_prod ORDER BY name";
         }else{
-            $sql = "SELECT id, name, producer, m_name, MNN_name, tax FROM names
+            $sql = "SELECT id, name, producer, m_name, MNN_name, tax, covid_protokol FROM names
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
             $sql1 = "SELECT id, name, producer, m_name, MNN_name, tax FROM names";
