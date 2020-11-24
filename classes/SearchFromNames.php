@@ -37,7 +37,7 @@ class SearchFromNames
             $sql = "SELECT id, name, producer, m_name, MNN_name, tax, covid_protokol FROM names
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
-            $sql1 = "SELECT id, name, producer, m_name, MNN_name, tax FROM names";
+            $sql1 = "SELECT id, name, producer, m_name, MNN_name, tax, covid_protokol FROM names";
         }
 
         if ($field_search == 'Наименование') {
