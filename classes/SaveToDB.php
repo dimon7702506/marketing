@@ -28,7 +28,7 @@ class SaveToDB
             $args = [];
         }elseif ($method == 'new') {
             $sql_update = "INSERT INTO names (name,   morion_id,  producer,  barcode,  tnved,  nac,  tax,  sum_com,  form_prod,  doza,  name_torg,  gran_price, marketing_id, MNN_id, modify,  amount_in_a_package,   project_dl, internet_price,  internet_sales,  fix_price,   covid, covid_protokol)
-                                      VALUES (:name, :morion_id, :producer, :barcode, :tnved, :nac, :tax, :sum_com, :form_prod, :doza, :name_torg, :gran_price, ($sql_m),     ($sql_mnn), '1', :amount_in_a_package, :project_dl, :internet_price, :internet_sales, :fix_price, :covid), :covid_protokol";
+                                      VALUES (:name, :morion_id, :producer, :barcode, :tnved, :nac, :tax, :sum_com, :form_prod, :doza, :name_torg, :gran_price, ($sql_m),     ($sql_mnn), '1', :amount_in_a_package, :project_dl, :internet_price, :internet_sales, :fix_price, :covid, :covid_protokol)";
             $sql = $sql_update;
 
             $del_arg=['id'];
