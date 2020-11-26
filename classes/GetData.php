@@ -87,8 +87,9 @@ class GetData
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
             $fields_query_list = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,
-                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as status, note';
-            $fields_query_elem = $fields_query_list;
+                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status';
+            $fields_query_elem = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,
+                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
@@ -102,6 +103,14 @@ class GetData
             elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
             elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
             elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
+        }elseif ($sp_type == 'invoice_status'){
+            $table_name = 'invoice_status';
+            $fields_query_list = 'name';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'name';
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}

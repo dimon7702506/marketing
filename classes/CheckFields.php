@@ -28,9 +28,7 @@ class CheckFields
                 if($val < $min || $val > $max) {
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
-            }elseif ($type == 'date'){
-
-            }
+            }elseif ($type == 'date'){ }
         }
     }
 }

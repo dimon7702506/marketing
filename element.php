@@ -208,7 +208,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'sum_com'=>(float) $sum_com,
                     'mnn'=>$mnn,
                     'form_prod'=>$form_prod,
-                    'doza'=>(float) $doza,
+                    'doza'=>trim($doza),
                     'name_torg'=>$name_torg,
                     'amount_in_a_package'=>(int) $amount_in_a_package,
                     'project_dl'=>$project_dl,

@@ -29,6 +29,12 @@ class SetData
         }elseif ($sp_type == 'providers') {
             $table_name = 'providers';
             $id_name = 'id';
+        }elseif ($sp_type == 'invoices') {
+            $table_name = 'invoice';
+            $id_name = 'id';
+        }elseif ($sp_type == 'invoice_status') {
+            $table_name = 'invoice_status';
+            $id_name = 'id';
         }
 
         //var_dump($element);
@@ -52,7 +58,7 @@ class SetData
             $args = $element;
         }elseif ($method == 'new') {
             $sql_update = "INSERT INTO $table_name (";
-            //$sql_update = "INSERT INTO $table_name (m_name,   persent,  summ) VALUES (:name, :persent, :summ)";
+
             $i = 0;
             foreach ($element as $key => $el){
                 if ($key != 'id') {

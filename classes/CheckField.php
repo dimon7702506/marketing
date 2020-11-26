@@ -18,11 +18,14 @@ class CheckField
         }else{
             $this->value = htmlentities($val);
 
-            if ($field == 'name' || $field == 'producer' || $field == 'order_type' || $field == 'date_doc'){
-                if(strlen($val) < 1 || strlen($val) > 100){
+            if ($field == 'name' || $field == 'producer' || $field == 'order_type' || $field == 'date_doc') {
+                if (strlen($val) < 1 || strlen($val) > 100) {
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
-                //echo strlen($val). "<BR>";
+            }elseif ($field == 'doza') {
+                if (strlen($val) > 10) {
+                    $this->error = 'Incorrect length of field: ' . $field;
+                }
             }elseif ($field == 'barcode' || $field == 'tnved') {
                 if(strlen($val) > 13){
                     $this->error = 'Incorrect length of field: ' . $field;
@@ -35,7 +38,7 @@ class CheckField
                 if($val != 0 && $val != 7 && $val != 20) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
-            }elseif ($field == 'gran_price' || $field == 'sum_com' || $field == 'doza' || $field == 'sum' ||
+            }elseif ($field == 'gran_price' || $field == 'sum_com' || $field == 'sum' ||
                     $field == 'internet_price' || $field == 'fix_price'){
                 if ($val < 0 || $val > 99999.99) {
                     $this->error = 'Incorrect value of field: ' . $field;

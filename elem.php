@@ -8,10 +8,7 @@ $errors = '';
 $fio = '';
 $sp_type = '';
 
-if (isset($_GET['sp_type'])){
-    $sp_type = $_GET['sp_type'];
-}
-//var_dump($sp_type);
+if (isset($_GET['sp_type'])){$sp_type = $_GET['sp_type'];}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -20,8 +17,6 @@ if (isset($_GET['id'])) {
 
     $find = new GetData($sp_type,$id, $field_search, $query_type);
     $results = $find->result_data;
-
-    //var_dump($results);
 
     if ($sp_type == 'podr') {
         $fields = ['name' => ['field_name' => 'Аптека',
@@ -373,8 +368,8 @@ if (isset($_GET['id'])) {
             'invoice_tax' => ['field_name' => 'НДС',
                             'type' => 'number',
                             'min' => 0,
-                            'max' => 0,
-                            'length' => 100,
+                            'max' => 999999,
+                            'length' => 0,
                             'str_num' => 2,
                             'col' => 2,
                             'required' => 'required',
@@ -392,7 +387,23 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => ''],
+            'invoice_status' => ['field_name' => 'Статус',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 2,
+                            'col' => 2,
+                            'required' => 'required',
+                            'related_table' => 'invoice_status',
+                            'form_type' => 'select',
+                            'key' => 'invoice_status_id'],
             'note' => ['field_name' => 'Примечание',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'required' => 'required',
                             'str_num' => 3,
                             'col' => 12,
                             'related_table' => '',
@@ -424,12 +435,12 @@ if (isset($_GET['id'])) {
             $dismissed = $result['dismissed'];
             $apteka = $result['apteka'];
             if($dismissed == 1){$errors = 'Уволен!!!';}
-        }elseif ($sp_type == 'providers'){
-            $provider = trim($result['name']);
-        }elseif ($sp_type == 'invoices'){
-            $apteka = $result['apteka'];
+        }elseif ($sp_type == 'providers'){$provider = trim($result['name']);}
+        elseif ($sp_type == 'invoices'){
+            $apteka = $result['apteka_name'];
             $provider = $result['provider'];
-        }
+            $invoice_status = $result['invoice_status'];
+        }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];}
         //var_dump($results);
 
         foreach ($fields as $key => $f) {
@@ -440,8 +451,8 @@ if (isset($_GET['id'])) {
                 $html_elem .= '<input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
                                 name="' . $key . '" ' . $f['required'] . '>';
             }elseif ($f['form_type'] == 'textarea') {
-                $html_elem .= '<textarea class="form-control" id="text" value="' . $result[$key] . '"
-                                name="' . $key . '" rows = 10>';
+                $html_elem .= '<textarea class="form-control" id="text" name="' . $key . '" rows = 10>'
+                               .$result[$key]. '</textarea>';
             }elseif ($f['form_type'] == 'select'){
                 $html_elem .= '<select id="inputState" class="form-control" name="' . $key . '">
                                 <option selected>';
@@ -458,6 +469,9 @@ if (isset($_GET['id'])) {
                 }elseif ($key == 'provider'){
                     $html_elem .= $provider;
                     $sp_type_list = 'providers';
+                }elseif ($key == 'invoice_status'){
+                    $html_elem .= $invoice_status;
+                    $sp_type_list = 'invoice_status';
                 }
 
                 $html_elem .= '</option>
@@ -482,9 +496,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
     $element = [];
     $del_arg = [];
 
-    //if ($sp_type == 'podr') {
-
-    //} elseif ($sp_type == 'people'){
         //var_dump($fields);
         foreach ($fields as $key => $f) {
             //var_dump($f);
@@ -519,6 +530,19 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $related_id = $find_id->result_data;
                 $element += ['apteka_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'apteka_name');
+            }
+            if($f['related_table'] == 'providers'){
+                $find_id = new GetData('providers', $element['provider'],'name', 'id');
+                $related_id = $find_id->result_data;
+                $element += ['provider_id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'provider');
+            }
+            if($f['related_table'] == 'invoice_status'){
+                $find_id = new GetData('invoice_status', $element['invoice_status'],'name', 'id');
+                $related_id = $find_id->result_data;
+                $element += ['invoice_status_id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'invoice_status');
+
             }
             $errors .= $check->error;
         }
