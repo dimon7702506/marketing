@@ -13,7 +13,6 @@ class SetData
 
     public function save($sp_type, $element, $method)
     {
-        //var_dump($sp_type);
         if ($sp_type == 'podr'){
             $table_name = 'apteka';
             $id_name = 'id';
@@ -35,6 +34,10 @@ class SetData
         }elseif ($sp_type == 'invoice_status') {
             $table_name = 'invoice_status';
             $id_name = 'id';
+        }elseif ($sp_type == 'users'){
+            $table_name = 'users';
+            $id_name = 'id';
+            $element['password_hash'] = md5(md5(trim($_POST['password'])));
         }
 
         //var_dump($element);
@@ -50,9 +53,7 @@ class SetData
                     $i++;
                     $sql_update .= " $key = :$key";
                 }
-                if ($i < count($element) - 1){
-                    $sql_update .= ",";
-                }
+                if ($i < count($element) - 1){$sql_update .= ",";}
             }
             $sql_end = " WHERE $id_name = :id";
             $args = $element;

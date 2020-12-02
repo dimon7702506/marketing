@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
     $results = $find->result_data;
 
     if ($sp_type == 'podr') {
-        $fields = ['name' => ['field_name' => 'Аптека',
+        $fields = ['apteka' => ['field_name' => 'Аптека',
                                     'type' => 'text',
                                     'min' => 0,
                                     'max' => 0,
@@ -233,7 +233,7 @@ if (isset($_GET['id'])) {
                                     'required' => 'required',
                                     'related_table' => '',
                                     'form_type'=>'input'],
-                    'apteka_name' => ['field_name' => 'Аптека',
+                    'apteka' => ['field_name' => 'Аптека',
                                     'type' => 'text',
                                     'min' => 0,
                                     'max' => 0,
@@ -310,7 +310,7 @@ if (isset($_GET['id'])) {
                             'form_type'=>'input']
         ];
     }elseif ($sp_type == 'invoices') {
-        $fields = ['apteka_name' => ['field_name' => 'Аптека',
+        $fields = ['apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
                             'min' => 0,
                             'max' => 0,
@@ -408,6 +408,62 @@ if (isset($_GET['id'])) {
                             'col' => 12,
                             'related_table' => '',
                             'form_type' => 'textarea',
+                            'key' => '']];
+    }elseif ($sp_type == 'users') {
+        $fields = ['full_name' => ['field_name' => 'ФИО',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 5,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => ''],
+                    'email'=> ['field_name' => 'Email',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 5,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => ''],
+                    'role_id'=> ['field_name' => 'Роль',
+                            'type' => 'number',
+                            'min' => 1,
+                            'max' => 2,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 1,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => ''],
+                    'password'=> ['field_name' => 'Password',
+                            'type' => 'text',
+                            'min' => 1,
+                            'max' => 2,
+                            'length' => 100,
+                            'str_num' => 2,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => ''],
+                    'password_hash'=> ['field_name' => 'Password hash',
+                            'type' => 'text',
+                            'min' => 1,
+                            'max' => 2,
+                            'length' => 300,
+                            'str_num' => 2,
+                            'col' => 7,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
                             'key' => '']
         ];
     }
@@ -423,7 +479,7 @@ if (isset($_GET['id'])) {
 
     foreach ($results as $result){
         if ($sp_type == 'podr') {
-            $apteka = trim($result['name']);
+            $apteka = trim($result['apteka']);
             $firm = $result['firm_name'];
             $zav = $result['zav_name'];
         }elseif ($sp_type == 'people'){
@@ -437,7 +493,7 @@ if (isset($_GET['id'])) {
             if($dismissed == 1){$errors = 'Уволен!!!';}
         }elseif ($sp_type == 'providers'){$provider = trim($result['name']);}
         elseif ($sp_type == 'invoices'){
-            $apteka = $result['apteka_name'];
+            $apteka = $result['apteka'];
             $provider = $result['provider'];
             $invoice_status = $result['invoice_status'];
         }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];}
@@ -502,16 +558,12 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             $check = new CheckFields($f['field_name'], $f['type'], $f['min'], $f['max'], $f['length'],
                 $_POST[$key], $f['required']);
             $val = $check->value;
-            if ($f['type'] == 'number'){
-                $val = (int) $val;
-            }elseif ($f['type'] == 'text'){
-                $val = trim($val);
-            }elseif ($f['type'] == 'date'){
-            }
+
+            if ($f['type'] == 'number'){$val = (int) $val;}
+            elseif ($f['type'] == 'text'){$val = trim($val);}
+            elseif ($f['type'] == 'date'){}
 
             $element += [$key=>$val];
-
-            //var_dump($element);
 
             if($f['related_table'] == 'firm'){
                 $find_id = new GetData('firm', $element['firm_name'],'firm.name', 'id');
@@ -526,7 +578,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 array_push($del_arg,'zav_name');
             }
             if($f['related_table'] == 'apteka'){
-                $find_id = new GetData('podr', $element['apteka_name'],'name', 'id');
+                $find_id = new GetData('podr', $element['apteka'],'name', 'id');
                 $related_id = $find_id->result_data;
                 $element += ['apteka_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'apteka_name');
@@ -542,8 +594,11 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $related_id = $find_id->result_data;
                 $element += ['invoice_status_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'invoice_status');
-
             }
+
+            if ($sp_type == 'invoices'){array_push($del_arg,'apteka');}
+            if ($sp_type == 'people'){array_push($del_arg,'apteka');}
+
             $errors .= $check->error;
         }
     //}
@@ -558,13 +613,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
 
     if (empty($errors)){
 
-        if ($id == 0) {
-            $method = 'new';
-            //var_dump($element);
-        }else {
-            $method = 'update';
-            //var_dump($element);
-        }
+        if ($id == 0) {$method = 'new';}
+        else {$method = 'update';}
+
+        //var_dump($element);
 
         if (isset($_POST['copy'])){
             $element['id'] = 0;
@@ -576,7 +628,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         if ($method == 'new') {
             $id = $save->result;
         }
-        header("location: ./elem.php?id=$id&sp_type=$sp_type");
+        //header("location: ./elem.php?id=$id&sp_type=$sp_type");
     }
 }
 

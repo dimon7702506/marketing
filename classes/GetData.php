@@ -21,7 +21,7 @@ class GetData
         if ($sp_type == 'podr') {
             $table_name = 'apteka';
             $fields_query_list = 'apteka.id, apteka.name as name, firm.name as firm_name';
-            $fields_query_elem = 'apteka.name as name, firm.name as firm_name, apteka.adres as adres,
+            $fields_query_elem = 'apteka.name as apteka, firm.name as firm_name, apteka.adres as adres,
                 apteka.tel as tel, email, people.full_name as zav_name, db_server, db_name, db_user, db_password,
                 SQL_version, TM_version, google_login, google_password, saldo_path, tabletki_id, last_update,
                 apteka.id as id, liki24_id';
@@ -111,6 +111,15 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'name';
+        }elseif ($sp_type == 'users'){
+            $table_name = 'users';
+            $fields_query_list = 'id, full_name, email';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'full_name';
+            if ($field_search == 'Пользователь'){$field_search = 'full_name';}
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -130,6 +139,7 @@ class GetData
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
                 $sql = str_replace('invoice.apteka', 'apteka', $sql);
                 $sql = str_replace('invoice.providers', 'providers', $sql);
+                $sql = str_replace('people.people', 'people', $sql);
             }
             $arg = ["str" => $text_search];
         }else{

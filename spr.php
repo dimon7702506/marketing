@@ -25,7 +25,9 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                    'invoices'=>['apteka'=>'Аптека',
                                 'provider'=>'Поставщик',
                                 'invoice_number'=>'Номер накладной',
-                                'sum'=>'Сумма']
+                                'sum'=>'Сумма'],
+                   'users'=>['full_name'=>'Пользователь',
+                            'email'=>'email']
                   ];
 
 $html_select_options = '';
@@ -73,6 +75,9 @@ if (isset($_GET['submit_search'])) {
                   'invoice_tax'=>'НДС',
                   'pay_date'=>'Оплата',
                   'invoice_status'=>'Статус'];
+    }elseif ($sp_type == 'users'){
+        $cols += ['full_name'=> 'Пользователь',
+                  'email'=>'Email'];
     }
     $cols += ['modif'=>'Модификация'];
     //var_dump($cols);
@@ -90,7 +95,7 @@ if (isset($_GET['submit_search'])) {
         $keys = array_keys($r);
         $result_tab .= '<tr>';
             foreach ($keys as $value) {
-                if ($value == 'id' || $value == 'm_id'){
+                if ($value == 'id' || $value == 'm_id' || $value == 'invoice_id'){
                     $id = (int) $r[$value];
                 }
                 $result_tab .= '<td>' . $r[$value] . '</td>';
