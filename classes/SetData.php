@@ -38,6 +38,7 @@ class SetData
             $table_name = 'users';
             $id_name = 'id';
             $element['password_hash'] = md5(md5(trim($_POST['password'])));
+            $element['password'] = '';
         }
 
         //var_dump($element);

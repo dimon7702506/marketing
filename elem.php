@@ -450,7 +450,7 @@ if (isset($_GET['id'])) {
                             'length' => 100,
                             'str_num' => 2,
                             'col' => 4,
-                            'required' => 'required',
+                            'required' => '',
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => ''],
@@ -461,7 +461,7 @@ if (isset($_GET['id'])) {
                             'length' => 300,
                             'str_num' => 2,
                             'col' => 7,
-                            'required' => 'required',
+                            'required' => '',
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => '']
@@ -628,7 +628,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         if ($method == 'new') {
             $id = $save->result;
         }
-        //header("location: ./elem.php?id=$id&sp_type=$sp_type");
+        header("location: ./elem.php?id=$id&sp_type=$sp_type");
     }
 }
 

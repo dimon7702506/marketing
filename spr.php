@@ -83,7 +83,6 @@ if (isset($_GET['submit_search'])) {
     //var_dump($cols);
 
     $find = new GetData($sp_type, $text_search, $field_search, $query_type);
-    //var_dump($find->result_data);
     $res = $find->result_data;
 
     $result_tab = '';

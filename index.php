@@ -10,7 +10,7 @@ if (!is_user_logged_in()) {
 
     if (isset($_POST['submit_login'])) {
         $login = $_POST['inputLogin'] ?? $errors['incorrect'] = 'Incorrect login';
-        $password = $_POST['inputPassword'] ?? $errors['incorrect'] = 'Incorrect password';
+        $password = md5(md5($_POST['inputPassword'])) ?? $errors['incorrect'] = 'Incorrect password';
 
         if (empty($errors)) {
             $valid = new Validation($login, $password);
