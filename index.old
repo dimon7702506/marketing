@@ -11,13 +11,12 @@ if (!is_user_logged_in()) {
     if (isset($_POST['submit_login'])) {
         $login = $_POST['inputLogin'] ?? $errors['incorrect'] = 'Incorrect login';
         $password = md5(md5($_POST['inputPassword'])) ?? $errors['incorrect'] = 'Incorrect password';
-        $hash = md5(generateCode(10));
 
         if (empty($errors)) {
-            $valid = new Validation($login, $password, $hash);
+            $valid = new Validation($login, $password);
 
             if ($valid->user_id > 0) {
-                log_in($valid->user_id, $hash, $valid->user_name, $valid->user_role_id, $valid->apteka_id);
+                log_in($valid->user_id, $login, $valid->user_name, $valid->user_role_id, $valid->apteka_id);
                 header('location: index.php');
             }else{
                 $errors['bad_login'] = 'Wrong password or user name!!!';

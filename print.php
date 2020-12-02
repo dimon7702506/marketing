@@ -3,6 +3,8 @@
 require_once "autoload.php";
 require_once "function.php";
 
+is_user_logged_in();
+
 $order_type = $_GET['order_type'];
 $okpo = $_GET['okpo'];
 $firm = $_GET['firm'];

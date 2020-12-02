@@ -8,15 +8,16 @@ class Validation
     public $user_role_id = 0;
     public $user_name = '';
 
-    public function __construct($login, $password)
+    public function __construct($login, $password, $hash)
     {
-        $this->valid($login, $password);
+        $this->valid($login, $password, $hash);
     }
 
-    private function valid($login, $password)
+    private function valid($login, $password, $hash)
     {
         $sql = "SELECT id, full_name as name, role_id, apteka_id FROM users WHERE email = :login AND password_hash = :password";
-        $arg = ["login" => $login, "password" => $password];
+        $arg = ["login" => $login,
+                "password" => $password];
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -28,14 +29,18 @@ class Validation
         }
 
         if ($this->user_id > 0) {
-            $this->set_last_visit();
+            $this->set_last_visit($hash);
         }
     }
 
-    private function set_last_visit()
+    private function set_last_visit($hash)
     {
-        $sql = "UPDATE users SET last_visit = :dt WHERE id = :user_id";
-        $arg = ["dt" => date("Y-m-d H:i:s"), "user_id" => $this->user_id];
+        $sql = "UPDATE users SET last_visit = :dt, user_hash = :hash WHERE id = :user_id";
+
+        $arg = ["dt" => date("Y-m-d H:i:s"),
+                "hash" => $hash,
+                "user_id" => $this->user_id];
+
         $stmt = DB::run($sql, $arg);
     }
 }

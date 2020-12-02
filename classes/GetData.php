@@ -126,7 +126,7 @@ class GetData
         elseif ($query_type == 'elem'){$fields_query = $fields_query_elem;}
         elseif ($query_type == 'id'){$fields_query = $fields_query_id;}
 
-        var_dump($field_search);
+        //var_dump($field_search);
         //var_dump($fields_query);
 
         $sql = "SELECT $fields_query FROM $table_name $join ";
@@ -146,10 +146,8 @@ class GetData
             $arg = [];
         }
         $arg = ["str" => $text_search];
-        if (strlen($order_by) > 0){
-            $sql .= "ORDER BY $order_by";
-        }
-        var_dump($sql);
+        if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
+        //var_dump($sql);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->result_data = $data;

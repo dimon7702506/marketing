@@ -14,29 +14,21 @@ function generateCode($length=6) {
 
 function is_user_logged_in()
 {
-    $flag_login = 0;
-
-    if (isset($_COOKIE['user_id']) and isset($_COOKIE['hash'])){
-        $valid_hash = new ValidationHash($_COOKIE['user_id'], $_COOKIE['hash']);
-        if ($valid_hash->user_hash == $_COOKIE['hash']) {$flag_login = 1;}
-    }
-
-    if ($flag_login == 1){
-        return $_COOKIE['user_id'];
-    }else{
+    if(empty($_SESSION['user_id'])){
         log_out();
         header('location: ./login.html');
-        return null;
     }
+    return !empty($_SESSION['user_id']);
 }
 
-function log_in(int $id, $hash, string $user_name, int $user_role_id, $apteka_id) :void
+function log_in(int $id, string $login, string $user_name, int $user_role_id, $apteka_id) :void
 {
-    setcookie("user_id", (int) $id, time()+60*60*24*30, "/");
-    setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true); // httponly !!!
-    setcookie("role_id", (int) $user_role_id, time()+60*60*24*30, "/");
-    setcookie("name", $user_name, time()+60*60*24*30, "/");
-    setcookie("apteka_id", (int) $apteka_id, time()+60*60*24*30, "/");
+
+    $_SESSION['user_id'] = (int) $id;
+    $_SESSION['role_id'] = (int) $user_role_id;
+    $_SESSION['login'] = $login;
+    $_SESSION['name'] = $user_name;
+    $_SESSION['apteka_id'] = (int) $apteka_id;
 }
 
 function get_user_name()
@@ -44,17 +36,14 @@ function get_user_name()
     if (!is_user_logged_in()) {
         return ' ';
     }
-
-    return $_COOKIE['name'];
+    return $_SESSION['name'];
 }
 
 function log_out()
 {
-    setcookie("user_id", "", time() - 3600*24*30*12, "/");
-    setcookie("hash", "", time() - 3600*24*30*12, "/", null, null, true); // httponly !!!
-    setcookie("role_id", "", time() - 3600*24*30*12, "/");
-    setcookie("name", "", time() - 3600*24*30*12, "/");
-    setcookie("apteka_id", "", time() - 3600*24*30*12, "/");
+    $_SESSION['user_id'] = null;
+    $_SESSION['role_id'] = null;
+    $_SESSION['apteka_id'] = null;
 }
 
 function export_names_base_to_file($fields)

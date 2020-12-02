@@ -3,6 +3,8 @@
 require_once "autoload.php";
 require_once "num2text.php";
 
+is_user_logged_in();
+
 $end_date = $_GET['end_date'];
 $apteka_id = $_GET['apteka_id'];
 $cash_report_type = $_GET['cash_report_type'];
