@@ -18,7 +18,11 @@ class CheckField
         }else{
             $this->value = htmlentities($val);
 
-            if ($field == 'name' || $field == 'producer' || $field == 'order_type' || $field == 'date_doc') {
+            if ($field == 'name' ||
+                $field == 'producer' ||
+                $field == 'order_type' ||
+                $field == 'date_doc' ||
+                $field == 'name_ukr') {
                 if (strlen($val) < 1 || strlen($val) > 100) {
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
