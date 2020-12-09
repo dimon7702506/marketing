@@ -50,7 +50,7 @@ foreach ($results as $result){
     $tabletki_id = $result['tabletki_id'];
     $file_out = 'Rest_'.$tabletki_id.'_'.date("Ymd").date("His");
 
-    $read_file = new ReadFile($id, $file_in);
+    $read_file = new ReadFile($file_in);
     $file = $read_file ->out;
     var_dump($file);
 

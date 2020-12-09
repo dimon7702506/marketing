@@ -4,7 +4,7 @@ class ReadFile
 {
     public $out;
 
-    public function __construct($id,$in)
+    public function __construct($in)
     {
         $this->csv_in_array($in);
     }

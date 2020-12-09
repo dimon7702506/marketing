@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/signin.css" rel="stylesheet">
+</head>
+<body>
+<form class="container" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Наименование</label>
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?> "
+                   maxlength="100" name="name" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Производитель</label>
+            <input type="text" class="form-control" id="inputPassword4" value="<?php echo $producer; ?>"
+                   maxlength="100" name="producer" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Наименование на украинском</label>
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name_ukr; ?> "
+                   maxlength="100" name="name_ukr" required>
+        </div>
+        <div class="form-group col-md-6">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $nom_id; ?>" name="nom_id"
+                   disabled required>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код мориона</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $morion_id; ?>"
+                   maxlength="11" name="morion_id">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Штрихкод</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $barcode; ?>"
+                   maxlength="13" name="barcode">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">ТНВЭД</label>
+            <input type="text" class="form-control" id="inputZip" value="<?php echo $tnved; ?>"
+                   maxlength="13" name="tnved">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputState">Маркетинг</label>
+            <select id="inputState" class="form-control" name="marketing">
+                <option selected><?php echo $mark; ?></option>
+                <option></option>
+                <?php foreach ($marks as $mar): ?>
+                <?php echo "<option>$mar[m_name]</option>"; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">МНН</label>
+            <select id="inputState" class="form-control" name="mnn">
+                <option selected><?php echo $mnn; ?></option>
+                <option></option>
+                <?php foreach ($mnns as $mn): ?>
+                <?php echo "<option>$mn[MNN_name]".'</option>'; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputZip">Форма выпуска</label>
+            <!--<input type="text" class="form-control" id="inputZip" value="<?php echo $form_prod; ?>"-->
+            <!--maxlength="20" name="form_prod">-->
+            <select id="inputState" class="form-control" name="form_prod">
+                <option selected><?php echo $form_prod; ?></option>
+                <option></option>
+                <?php foreach ($form_prods as $form_pro): ?>
+                <?php echo "<option>$form_pro[name]".'</option>'; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-1">
+            <label for="inputZip">Наценка</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
+                   min=0 max=25 name="nac">
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputZip">НДС</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $tax; ?>"
+                   min=0 max=20 name="tax">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Граничная цена</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $gran_price; ?>"
+                   min=0 max=9999.99 name="gran_price">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Сумма компенсации</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
+                   min=0 max=9999.99 name="sum_com">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Фиксированная цена</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $fix_price; ?>"
+                   min=0 max=99999.99 name="fix_price">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Дозировка</label>
+            <input type="text" step="any" class="form-control" id="inputZip" value="<?php echo $doza; ?>"
+                   maxlength="10" name="doza">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Количество в упаковке</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $amount_in_a_package; ?>"
+                   maxlength="3" name="amount_in_a_package">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label for="inputZip">Торговое название</label>
+            <input type="text" class="form-control" id="inputZip" value="<?php echo $name_torg; ?>"
+                   maxlength="100" name="name_torg">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Интернет цена</label>
+            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $internet_price; ?>"
+                   min=0 max=99999.99 name="internet_price">
+        </div>
+        <div class="form-group col-md-1">
+            <div class="form-group col-md-1"></div>
+            <div class="form-group col-md-1"></div>
+            <input type="checkbox"  id="project_dl" name="project_dl" <?php echo $project_dl_checked; ?>>
+            <label for="project_dl">EHealth</label>
+        </div>
+        <div class="form-group col-md-1">
+            <div class="form-group col-md-1"></div>
+            <div class="form-group col-md-1"></div>
+            <input type="checkbox"  id="inputZip" name="internet_sales" <?php echo $internet_sales_checked; ?>>
+            <label for="internet_sales">Инет</label>
+        </div>
+        <div class="form-group col-md-1">
+            <div class="form-group col-md-2"></div>
+            <div class="form-group col-md-2"></div>
+            <input type="checkbox"  id="inputZip" name="covid" <?php echo $covid_checked; ?>>
+            <label for="covid">Covid</label>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="form-group col-md-2"></div>
+            <div class="form-group col-md-2"></div>
+            <input type="checkbox"  id="inputZip" name="covid_protokol" <?php echo $covid_protokol_checked; ?>>
+            <label for="covid">Covid протокол</label>
+        </div>
+    </div>
+    <p class="errors"><?php echo $errors ?></p>
+    <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+    <button type="submit" class="btn btn-primary" name="copy" style="margin-left: 15px">Копировать</button>
+    <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
+</form>
+
+</body>
+</html>

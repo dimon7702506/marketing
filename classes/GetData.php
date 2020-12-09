@@ -147,7 +147,7 @@ class GetData
         }
         $arg = ["str" => $text_search];
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
-        //var_dump($sql);
+        var_dump($sql);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->result_data = $data;
