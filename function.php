@@ -157,6 +157,9 @@ function encode_names_CSV(&$value){
 
     $temp = $value['sickness_name'];
     $value['sickness_name'] = iconv("UTF-8", "Windows-1251", $temp);
+
+    $temp = $value['name_ukr'];
+    $value['name_ukr'] = iconv("UTF-8", "Windows-1251", $temp);
 }
 
 // ================Сумма прописью
