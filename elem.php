@@ -9,6 +9,8 @@ $html_elem = '';
 $errors = '';
 $fio = '';
 $sp_type = '';
+$apteka = '';
+$invoice_status = '';
 
 if (isset($_GET['sp_type'])){$sp_type = $_GET['sp_type'];}
 
@@ -19,6 +21,8 @@ if (isset($_GET['id'])) {
 
     $find = new GetData($sp_type,$id, $field_search, $query_type);
     $results = $find->result_data;
+
+    //var_dump($results);
 
     if ($sp_type == 'podr') {
         $fields = ['apteka' => ['field_name' => 'Аптека',
@@ -472,11 +476,18 @@ if (isset($_GET['id'])) {
 
     if (empty($results)){
         $res = [];
-        foreach ($fields as $key=>$val){
-            $res += [$key => ''];
-
-        }
+        foreach ($fields as $key=>$val){$res += [$key => ''];}
         array_push($results, $res);
+        if ($sp_type == 'invoices'){
+
+            $new_apteka = new GetData('podr',$_COOKIE['apteka_id'], 'id', "elem");
+            $new_results = $new_apteka->result_data;
+            foreach ($new_results as $new_result) {$apteka = $new_result['apteka'];}
+
+            $new_status = new GetData('invoice_status', 1, 'id', "elem");
+            $new_results_statuses = $new_status->result_data;
+            foreach ($new_results_statuses as $new_results_status) {$invoice_status = $new_results_status['name'];}
+        }
     }
 
     foreach ($results as $result){
@@ -495,9 +506,9 @@ if (isset($_GET['id'])) {
             if($dismissed == 1){$errors = 'Уволен!!!';}
         }elseif ($sp_type == 'providers'){$provider = trim($result['name']);}
         elseif ($sp_type == 'invoices'){
-            $apteka = $result['apteka'];
+            if (!$apteka){$apteka = $result['apteka'];}
             $provider = $result['provider'];
-            $invoice_status = $result['invoice_status'];
+            if (!$invoice_status){$invoice_status = $result['invoice_status'];}
         }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];}
         //var_dump($results);
 

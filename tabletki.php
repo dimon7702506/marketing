@@ -63,10 +63,9 @@ foreach ($results as $result){
 
     foreach ($file as $f){
         //var_dump($f);
-        if(!array_key_exists(8, $f)){
-            continue;
-        }
-        if ($f[8] !== 'NULL' && $f[9] > 20) {
+        if(!array_key_exists(8, $f)){continue;}
+
+        if ($f[8] !== 'NULL' && $f[9] > 20 && $f[11] >= 0.01) {
 
             $name = mb_convert_encoding($f[5], "utf-8", "cp866");
             $name = str_replace('?','i', $name);
