@@ -7,7 +7,6 @@ is_user_logged_in();
 
 $errors = '';
 $name = '';
-$name_ukr = '';
 $producer = '';
 $tnved = '';
 $mark = '';
@@ -51,7 +50,6 @@ if (isset($_GET['id'])) {
     //var_dump($noms);
     foreach ($noms as $nom){
         $name = trim($nom['name']);
-        $name_ukr = trim($nom['name_ukr']);
         $producer = str_replace('"',' ',$nom['producer']);
         $nom_id = $nom['id'];
         $morion_id = $nom['morion_id'];
@@ -102,10 +100,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 
     $check = new CheckField('name', $_POST['name']);
     $name = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('name_ukr', $_POST['name_ukr']);
-    $name_ukr = $check->value;
     $errors .= $check->error;
 
     $check = new CheckField('producer', $_POST['producer']);
@@ -203,7 +197,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $element = ['id'=>$id,
                     'morion_id'=>(int) $morion_id,
                     'name'=>trim($name),
-                    'name_ukr'=>trim($name_ukr),
                     'producer'=>trim($producer),
                     'barcode'=>$barcode,
                     'tnved'=>$tnved,

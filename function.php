@@ -41,11 +41,16 @@ function log_in(int $id, $hash, string $user_name, int $user_role_id, $apteka_id
 
 function get_user_name()
 {
-    if (!is_user_logged_in()) {
-        return ' ';
-    }
+    if (!is_user_logged_in()) {return ' '; }
 
     return $_COOKIE['name'];
+}
+
+function get_role_id()
+{
+    if (!is_user_logged_in()) {return ' ';}
+
+    return $_COOKIE['role_id'];
 }
 
 function log_out()
@@ -158,8 +163,6 @@ function encode_names_CSV(&$value){
     $temp = $value['sickness_name'];
     $value['sickness_name'] = iconv("UTF-8", "Windows-1251", $temp);
 
-    $temp = $value['name_ukr'];
-    $value['name_ukr'] = iconv("UTF-8", "Windows-1251", $temp);
 }
 
 // ================Сумма прописью

@@ -62,7 +62,7 @@
                 </tbody>
             </table>
         </div>
-        <?php echo "<p>Всего выведено $count строк</p>"; ?>
+        <?php if(get_role_id() == 1){echo "<p>Всего выведено $count строк</p>";} ?>
     <?php endif; ?>
 </body>
 </html>

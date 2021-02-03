@@ -48,8 +48,6 @@ if (isset($_GET['submit_search'])) {
     $sp_type = $_COOKIE['sp_type'];
     $query_type = 'list';
 
-    //var_dump($text_search);
-
     $cols = ['id'=>'ID'];
     if ($sp_type == 'podr'){
         $cols += ['apteka.name'=>'Наименование',
@@ -87,10 +85,17 @@ if (isset($_GET['submit_search'])) {
 
     $result_tab = '';
     $id = 0;
+    $role_id = $_COOKIE['role_id'];
+    $apteka_id = $_COOKIE['apteka_id'];
 
     foreach($res as $r){
         //var_dump(array_keys($r));
         //var_dump($r);
+        if($sp_type == 'invoices' && $role_id == 2){
+            if($r['apteka_id'] !== $apteka_id){
+                continue;
+            }
+        }
         $keys = array_keys($r);
         $result_tab .= '<tr>';
             foreach ($keys as $value) {
