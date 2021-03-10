@@ -134,6 +134,7 @@ class GetData
             if ((strpos(strtolower($field_search), 'id') !== false)
                 /*and (strlen($field_search) < 9)*/){
                 $sql .= "WHERE $table_name.$field_search = :str ";
+                $sql = str_replace('apteka.apteka', 'apteka', $sql);
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);

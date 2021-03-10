@@ -29,5 +29,13 @@
             </form>
         </div>
     </nav>
+    <form action="index.php" method="post" enctype="multipart/form-data">
+        <fieldset class="mb-2">
+            <legend>Загрузка файла заказов и отсылка по аптекам</legend>
+            <label for="formFile" class="col-form-label">Заказ: </label>
+            <input class="form-controlSm" type="file" name="uploadedFile" />
+            <input type="submit" name="uploadBtn" value="Загрузить" />
+        </fieldset>
+    </form>
 </body>
 </html>
