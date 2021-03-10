@@ -73,5 +73,12 @@ foreach ($result as $key=>$value){
             'sender'=>get_user_email()];
 
     $emails = $apt;
-    var_dump($emails);
+
+    unset($emails['apteka_id']);
+    unset($emails['apteka_name']);
+    unset($emails['name']);
+    unset($emails['quantity']);
+    unset($emails['sender']);
+    $emails_uniq = array_unique($emails);
+    var_dump($emails_uniq);
 }

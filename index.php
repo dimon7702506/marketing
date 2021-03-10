@@ -20,7 +20,7 @@ if (!is_user_logged_in()) {
             if ($valid->user_id > 0) {
                 log_in($valid->user_id, $hash, $valid->user_name, $valid->user_role_id, $valid->apteka_id,
                     $valid->user_email);
-                header('location: index.php');
+                //header('location: index.php');
             }else{
                 $errors['bad_login'] = 'Wrong password or user name!!!';
             }
