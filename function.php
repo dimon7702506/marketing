@@ -30,13 +30,14 @@ function is_user_logged_in()
     }
 }
 
-function log_in(int $id, $hash, string $user_name, int $user_role_id, $apteka_id) :void
+function log_in(int $id, $hash, string $user_name, int $user_role_id, $apteka_id, string $user_email) :void
 {
     setcookie("user_id", (int) $id, time()+60*60*24*30, "/");
     setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true); // httponly !!!
     setcookie("role_id", (int) $user_role_id, time()+60*60*24*30, "/");
     setcookie("name", $user_name, time()+60*60*24*30, "/");
     setcookie("apteka_id", (int) $apteka_id, time()+60*60*24*30, "/");
+    setcookie("user_email", $user_email, time()+60*60*24*30, "/");
 }
 
 function get_user_name()
@@ -44,6 +45,13 @@ function get_user_name()
     if (!is_user_logged_in()) {return ' '; }
 
     return $_COOKIE['name'];
+}
+
+function get_user_email()
+{
+    if (!is_user_logged_in()) {return ' '; }
+
+    return $_COOKIE['user_email'];
 }
 
 function get_role_id()
@@ -60,6 +68,7 @@ function log_out()
     setcookie("role_id", "", time() - 3600*24*30*12, "/");
     setcookie("name", "", time() - 3600*24*30*12, "/");
     setcookie("apteka_id", "", time() - 3600*24*30*12, "/");
+    setcookie("user_email", "", time() - 3600*24*30*12, "/");
 }
 
 function export_names_base_to_file($fields)

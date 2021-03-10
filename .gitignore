@@ -4,3 +4,4 @@ out/*.zip
 out/*.xml
 .idea/
 .idea/workspace.xml
+out/uploaded_files

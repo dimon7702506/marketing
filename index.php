@@ -15,9 +15,11 @@ if (!is_user_logged_in()) {
 
         if (empty($errors)) {
             $valid = new Validation($login, $password, $hash);
+            var_dump($valid);
 
             if ($valid->user_id > 0) {
-                log_in($valid->user_id, $hash, $valid->user_name, $valid->user_role_id, $valid->apteka_id);
+                log_in($valid->user_id, $hash, $valid->user_name, $valid->user_role_id, $valid->apteka_id,
+                    $valid->user_email);
                 header('location: index.php');
             }else{
                 $errors['bad_login'] = 'Wrong password or user name!!!';

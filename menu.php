@@ -3,6 +3,8 @@
 require_once "./function.php";
 require_once "autoload.php";
 
+$result = [];
+
 is_user_logged_in();
 
 if ($_COOKIE['role_id'] == 1){
@@ -54,6 +56,22 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
 $_SESSION['message'] = $message;
 
 foreach ($result as $key=>$value){
-    if ($key == 1){continue};
-    var_dump($value);
+    if ($key == 0){
+        continue;
+    }
+    //var_dump($value);
+    $find = new GetData('podr', $value[12], 'id', 'elem');
+    $results = $find->result_data;
+    //var_dump($results);
+    $email = $results[0]['email'];
+
+    $apt = ['apteka_id'=> $value[12],
+            'apteka_name'=> $value[5],
+            'name'=> $value[0],
+            'quantity'=>$value[4],
+            'email'=>$email,
+            'sender'=>get_user_email()];
+
+    $emails = $apt;
+    var_dump($emails);
 }

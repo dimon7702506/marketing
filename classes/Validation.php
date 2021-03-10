@@ -15,7 +15,7 @@ class Validation
 
     private function valid($login, $password, $hash)
     {
-        $sql = "SELECT id, full_name as name, role_id, apteka_id FROM users WHERE email = :login AND password_hash = :password";
+        $sql = "SELECT id, full_name as name, role_id, apteka_id, email FROM users WHERE email = :login AND password_hash = :password";
         $arg = ["login" => $login,
                 "password" => $password];
         $stmt = DB::run($sql, $arg);
@@ -26,6 +26,8 @@ class Validation
             $this->user_name = $val['name'];
             $this->user_role_id = $val['role_id'];
             $this->apteka_id = $val['apteka_id'];
+            $this->user_email = $val['email'];
+            var_dump($val);
         }
 
         if ($this->user_id > 0) {
