@@ -9,11 +9,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/cash_report.files/themedata.thmx" afterPath="$PROJECT_DIR$/templates_print/cash_report.files/themedata.thmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.files/themedata.thmx" afterPath="$PROJECT_DIR$/templates_print/p_order.files/themedata.thmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/r_order.files/themedata.thmx" afterPath="$PROJECT_DIR$/templates_print/r_order.files/themedata.thmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/08836062accb49039fd1385e10946286.xls" afterPath="$PROJECT_DIR$/uploaded_files/08836062accb49039fd1385e10946286.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/09e656997ffa9226cf9c7def1812d662.xls" afterPath="$PROJECT_DIR$/uploaded_files/09e656997ffa9226cf9c7def1812d662.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/0dbf76b42c920302326019afb4e733b0.xls" afterPath="$PROJECT_DIR$/uploaded_files/0dbf76b42c920302326019afb4e733b0.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/100648e0c47da344dcd6b0692e327d77.xls" afterPath="$PROJECT_DIR$/uploaded_files/100648e0c47da344dcd6b0692e327d77.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/1788cd158894241af5da8222362e0788.xls" afterPath="$PROJECT_DIR$/uploaded_files/1788cd158894241af5da8222362e0788.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/28e793bf7c6415e2a8e3ee035a12b02c.xls" afterPath="$PROJECT_DIR$/uploaded_files/28e793bf7c6415e2a8e3ee035a12b02c.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/315463ba04acb2d3a11d327763ff9a42.xls" afterPath="$PROJECT_DIR$/uploaded_files/315463ba04acb2d3a11d327763ff9a42.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/434c07e07d4efbb0e203278b97ba736a.xls" afterPath="$PROJECT_DIR$/uploaded_files/434c07e07d4efbb0e203278b97ba736a.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/463f2ac3bd439f29e8dfd777bf3ec913.xls" afterPath="$PROJECT_DIR$/uploaded_files/463f2ac3bd439f29e8dfd777bf3ec913.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/46e9fab1c50c01f65d0cc22ae02a7e17.xls" afterPath="$PROJECT_DIR$/uploaded_files/46e9fab1c50c01f65d0cc22ae02a7e17.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/47861013ae130466217a389fdad0df6e.xls" afterPath="$PROJECT_DIR$/uploaded_files/47861013ae130466217a389fdad0df6e.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/48bfba6dbc2afb447147859fa5b3cdef.xls" afterPath="$PROJECT_DIR$/uploaded_files/48bfba6dbc2afb447147859fa5b3cdef.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/4c407c71aa02aef27de10f397d668933.xls" afterPath="$PROJECT_DIR$/uploaded_files/4c407c71aa02aef27de10f397d668933.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/507a259d6dc02b10c8f3ec22bc7f662a.xls" afterPath="$PROJECT_DIR$/uploaded_files/507a259d6dc02b10c8f3ec22bc7f662a.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/5a4007baf32cf079a1f5aa863add8b4d.xls" afterPath="$PROJECT_DIR$/uploaded_files/5a4007baf32cf079a1f5aa863add8b4d.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/6357898e1e95abe1331569abafd440cd.xls" afterPath="$PROJECT_DIR$/uploaded_files/6357898e1e95abe1331569abafd440cd.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/6575d78a18866af6346fd1da1ea27581.xls" afterPath="$PROJECT_DIR$/uploaded_files/6575d78a18866af6346fd1da1ea27581.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/691a8a0677f94fc3f3fb6d2c6eb6b2bb.xls" afterPath="$PROJECT_DIR$/uploaded_files/691a8a0677f94fc3f3fb6d2c6eb6b2bb.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/728db709b2108eec1687c74d6fd79d3d.xls" afterPath="$PROJECT_DIR$/uploaded_files/728db709b2108eec1687c74d6fd79d3d.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/734cc91e24c5f0f1e99ee071157f2660.xls" afterPath="$PROJECT_DIR$/uploaded_files/734cc91e24c5f0f1e99ee071157f2660.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/7412d9940ec113b3eb2b13a34095dc1f.xls" afterPath="$PROJECT_DIR$/uploaded_files/7412d9940ec113b3eb2b13a34095dc1f.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/77c108a532a2b17feb926f3e48702d7b.xls" afterPath="$PROJECT_DIR$/uploaded_files/77c108a532a2b17feb926f3e48702d7b.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/7df2d5dafa504cb6faba0a824f6dc717.xls" afterPath="$PROJECT_DIR$/uploaded_files/7df2d5dafa504cb6faba0a824f6dc717.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/7f7307e7bd721b6aee002bb45e421e62.xls" afterPath="$PROJECT_DIR$/uploaded_files/7f7307e7bd721b6aee002bb45e421e62.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/88699bc4cdb239567a3daa790b38d531.xls" afterPath="$PROJECT_DIR$/uploaded_files/88699bc4cdb239567a3daa790b38d531.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/8d08249179149db0c50045eda966015a.xls" afterPath="$PROJECT_DIR$/uploaded_files/8d08249179149db0c50045eda966015a.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/9d5cb34ca561d01b7d23215fa169c71c.xls" afterPath="$PROJECT_DIR$/uploaded_files/9d5cb34ca561d01b7d23215fa169c71c.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/a9cbc83324b333a2400d54b218f8d360.xls" afterPath="$PROJECT_DIR$/uploaded_files/a9cbc83324b333a2400d54b218f8d360.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/af63ebaf3b67767e55fc84f31dc353bd.xls" afterPath="$PROJECT_DIR$/uploaded_files/af63ebaf3b67767e55fc84f31dc353bd.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/b3a95522ce7f8c582aec7d3b8156e128.xls" afterPath="$PROJECT_DIR$/uploaded_files/b3a95522ce7f8c582aec7d3b8156e128.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/c031d4bfdbb83a5a3f92f36ca0347566.xls" afterPath="$PROJECT_DIR$/uploaded_files/c031d4bfdbb83a5a3f92f36ca0347566.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/c7050e143bd6da4768752d034c3a0f9b.xls" afterPath="$PROJECT_DIR$/uploaded_files/c7050e143bd6da4768752d034c3a0f9b.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/c7d58bccdb0e1e35b3763e1e78302076.xls" afterPath="$PROJECT_DIR$/uploaded_files/c7d58bccdb0e1e35b3763e1e78302076.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/d87d541c072b52d88f59fa0635f6d23f.xls" afterPath="$PROJECT_DIR$/uploaded_files/d87d541c072b52d88f59fa0635f6d23f.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/e1551c8b98fcc293ae6087687d35781f.xls" afterPath="$PROJECT_DIR$/uploaded_files/e1551c8b98fcc293ae6087687d35781f.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/ebdc80e2adda8d9922f5b77e70ae9918.xls" afterPath="$PROJECT_DIR$/uploaded_files/ebdc80e2adda8d9922f5b77e70ae9918.xls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/f9dec88fe467cdd742ba4b4a3607bd89.xls" afterPath="$PROJECT_DIR$/uploaded_files/f9dec88fe467cdd742ba4b4a3607bd89.xls" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ReadFile.php" afterPath="$PROJECT_DIR$/classes/ReadFile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SimpleXLS.php" afterPath="$PROJECT_DIR$/classes/SimpleXLS.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SimpleXLSX.php" afterPath="$PROJECT_DIR$/classes/SimpleXLSX.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/function.php" afterPath="$PROJECT_DIR$/function.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu.php" afterPath="$PROJECT_DIR$/menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/send.php" afterPath="$PROJECT_DIR$/send.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/add covid_protokol" afterPath="$PROJECT_DIR$/sql/add covid_protokol" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/morion_base_id.csv" afterPath="$PROJECT_DIR$/temp/morion_base_id.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/cash_report.files/colorschememapping.xml" afterPath="$PROJECT_DIR$/templates_print/cash_report.files/colorschememapping.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/cash_report.files/filelist.xml" afterPath="$PROJECT_DIR$/templates_print/cash_report.files/filelist.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/cash_report.htm" afterPath="$PROJECT_DIR$/templates_print/cash_report.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.files/colorschememapping.xml" afterPath="$PROJECT_DIR$/templates_print/p_order.files/colorschememapping.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.files/filelist.xml" afterPath="$PROJECT_DIR$/templates_print/p_order.files/filelist.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.files/sheet001.htm" afterPath="$PROJECT_DIR$/templates_print/p_order.files/sheet001.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.files/stylesheet.css" afterPath="$PROJECT_DIR$/templates_print/p_order.files/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.files/tabstrip.htm" afterPath="$PROJECT_DIR$/templates_print/p_order.files/tabstrip.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/p_order.htm" afterPath="$PROJECT_DIR$/templates_print/p_order.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/r_order.files/colorschememapping.xml" afterPath="$PROJECT_DIR$/templates_print/r_order.files/colorschememapping.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/r_order.files/filelist.xml" afterPath="$PROJECT_DIR$/templates_print/r_order.files/filelist.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_print/r_order.html" afterPath="$PROJECT_DIR$/templates_print/r_order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded_files/0e90ebbbc36ec60709149085beb8a958.txt" afterPath="$PROJECT_DIR$/uploaded_files/0e90ebbbc36ec60709149085beb8a958.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,17 +88,26 @@
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="marketing.com" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GetData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/GetData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="elem.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="35" column="58" lean-forward="false" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+            <state relative-caret-position="1054">
+              <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -50,41 +116,20 @@
       <file leaf-file-name="menu.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="674">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="81" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Validation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Validation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="224">
+              <caret line="98" column="26" lean-forward="false" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
               <folding>
-                <marker date="1615389842771" expanded="true" signature="389:506" ph="SELECT id, f... users" />
-                <marker date="1615389842771" expanded="true" signature="1153:1225" ph="UPDATE users... " />
+                <marker date="1615474279981" expanded="true" signature="3797:3807" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="export_marketings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/export_marketings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,19 +138,21 @@
       <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+            <state relative-caret-position="226">
+              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="160" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.html">
+      <file leaf-file-name="send.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/send.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="37" selection-end-column="1" />
+              <folding>
+                <marker date="1615471900084" expanded="true" signature="957:967" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,11 +180,9 @@
       <file leaf-file-name="SetData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/SetData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
+            <state relative-caret-position="1326">
               <caret line="78" column="10" lean-forward="false" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-              <folding>
-                <marker date="1615389842770" expanded="true" signature="1849:1874" ph="INSERT INTO ${$table_name}... " />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,7 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mar</find>
       <find>inset</find>
       <find>border:inset</find>
       <find>13.5pt</find>
@@ -184,6 +228,7 @@
       <find>php</find>
       <find>html</find>
       <find>16264</find>
+      <find>synh</find>
     </findStrings>
     <replaceStrings>
       <replace>background-color:#eee</replace>
@@ -223,7 +268,6 @@
         <option value="$PROJECT_DIR$/export_mnn.php" />
         <option value="$PROJECT_DIR$/send_names.php" />
         <option value="$PROJECT_DIR$/classes/CheckField.php" />
-        <option value="$PROJECT_DIR$/send.php" />
         <option value="$PROJECT_DIR$/marketings.html" />
         <option value="$PROJECT_DIR$/names.php" />
         <option value="$PROJECT_DIR$/mnn.php" />
@@ -255,6 +299,7 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/function.php" />
+        <option value="$PROJECT_DIR$/send.php" />
         <option value="$PROJECT_DIR$/menu.php" />
       </list>
     </option>
@@ -267,10 +312,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1360" />
+    <option name="height" value="739" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -351,36 +394,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marketing.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marketing.com" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marketing.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marketing.com" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="marketing.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marketing.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="marketing.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marketing.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="classes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="marketing.com" type="cbb8eebc:String" user="marketing.com" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -417,6 +458,14 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
       <PhpTestRunnerSettings />
       <method />
@@ -453,15 +502,6 @@
     </configuration>
     <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
       <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -612,11 +652,12 @@
       <workItem from="1548266328005" duration="3726000" />
       <workItem from="1548420094348" duration="2595000" />
       <workItem from="1615390259058" duration="5915000" />
+      <workItem from="1615466943689" duration="7500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476570000" />
+    <option name="totallyTimeSpent" value="487194000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,17 +669,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1360" height="739" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16197917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16438356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24961948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -670,7 +710,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -687,13 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/export_marketings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -736,13 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-87">
           <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/send.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -949,19 +975,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/elem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="35" column="58" lean-forward="false" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+        <state relative-caret-position="1054">
+          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/SetData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
+        <state relative-caret-position="1326">
           <caret line="78" column="10" lean-forward="false" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-          <folding>
-            <marker date="1615389842770" expanded="true" signature="1849:1874" ph="INSERT INTO ${$table_name}... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -977,7 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,15 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,18 +1015,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/export_marketings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/send.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="37" selection-end-column="1" />
           <folding>
-            <marker date="1615389842771" expanded="true" signature="389:506" ph="SELECT id, f... users" />
-            <marker date="1615389842771" expanded="true" signature="1153:1225" ph="UPDATE users... " />
+            <marker date="1615471900084" expanded="true" signature="957:967" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="160" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="81" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="224">
+          <caret line="98" column="26" lean-forward="false" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+          <folding>
+            <marker date="1615474279981" expanded="true" signature="3797:3807" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
