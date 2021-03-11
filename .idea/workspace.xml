@@ -11,8 +11,6 @@
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SearchFromNames.php" afterPath="$PROJECT_DIR$/classes/SearchFromNames.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/element.html" afterPath="$PROJECT_DIR$/element.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/marketings.csv" afterPath="$PROJECT_DIR$/out/marketings.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/names.csv" afterPath="$PROJECT_DIR$/out/names.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,12 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="names.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/out/names.csv">
+      <file leaf-file-name="SearchFromNames.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="16964" column="13" lean-forward="false" selection-start-line="16964" selection-start-column="9" selection-end-line="16964" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="18" column="120" lean-forward="false" selection-start-line="18" selection-start-column="120" selection-end-line="18" selection-end-column="120" />
+              <folding>
+                <marker date="1615494793615" expanded="true" signature="360:983" ph="SELECT id, m... names" />
+                <marker date="1615494793615" expanded="true" signature="1047:1235" ph="SELECT * FRO... names" />
+                <marker date="1615494793615" expanded="true" signature="1302:1352" ph="SELECT m_id,... marketing" />
+                <marker date="1615494793615" expanded="true" signature="1412:1462" ph="SELECT MNN_i... MNN" />
+                <marker date="1615494793615" expanded="true" signature="1528:1578" ph="SELECT id, n... names_form_prod" />
+                <marker date="1615494793615" expanded="true" signature="1616:1821" ph="SELECT id, n... names" />
+                <marker date="1615494793615" expanded="true" signature="1845:1920" ph="SELECT id, n... names" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,7 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>inset</find>
       <find>border:inset</find>
       <find>13.5pt</find>
       <find>incert</find>
@@ -187,6 +192,7 @@
       <find>html</find>
       <find>16264</find>
       <find>synh</find>
+      <find>120/</find>
     </findStrings>
     <replaceStrings>
       <replace>background-color:#eee</replace>
@@ -236,7 +242,6 @@
         <option value="$PROJECT_DIR$/element_mnn.php" />
         <option value="$PROJECT_DIR$/classes/ShowMNN.php" />
         <option value="$PROJECT_DIR$/names.html" />
-        <option value="$PROJECT_DIR$/out/names.csv" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/marketings.php" />
         <option value="$PROJECT_DIR$/element_marketing.php" />
@@ -258,6 +263,7 @@
         <option value="$PROJECT_DIR$/classes/SaveToDB.php" />
         <option value="$PROJECT_DIR$/menu.php" />
         <option value="$PROJECT_DIR$/element.html" />
+        <option value="$PROJECT_DIR$/out/names.csv" />
         <option value="$PROJECT_DIR$/classes/SearchFromNames.php" />
       </list>
     </option>
@@ -631,12 +637,12 @@
       <workItem from="1615390259058" duration="5915000" />
       <workItem from="1615466943689" duration="7500000" />
       <workItem from="1615487775420" duration="2053000" />
-      <workItem from="1615493436289" duration="564000" />
+      <workItem from="1615493436289" duration="1342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="489811000" />
+    <option name="totallyTimeSpent" value="490589000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -648,7 +654,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1640625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1018,19 +1024,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
+    <entry file="file://$PROJECT_DIR$/out/names.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
-          <folding>
-            <marker date="1615493872335" expanded="true" signature="360:983" ph="SELECT id, m... names" />
-            <marker date="1615493872335" expanded="true" signature="1047:1235" ph="SELECT * FRO... names" />
-            <marker date="1615493872335" expanded="true" signature="1302:1352" ph="SELECT m_id,... marketing" />
-            <marker date="1615493872335" expanded="true" signature="1412:1462" ph="SELECT MNN_i... MNN" />
-            <marker date="1615493872335" expanded="true" signature="1528:1578" ph="SELECT id, n... names_form_prod" />
-            <marker date="1615493872335" expanded="true" signature="1616:1821" ph="SELECT id, n... names" />
-            <marker date="1615493872335" expanded="true" signature="1845:1920" ph="SELECT id, n... names" />
-          </folding>
+        <state relative-caret-position="670">
+          <caret line="17023" column="5" lean-forward="false" selection-start-line="17023" selection-start-column="5" selection-end-line="17023" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,11 +1040,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/names.csv">
+    <entry file="file://$PROJECT_DIR$/classes/SearchFromNames.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="16964" column="13" lean-forward="false" selection-start-line="16964" selection-start-column="9" selection-end-line="16964" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="17">
+          <caret line="18" column="120" lean-forward="false" selection-start-line="18" selection-start-column="120" selection-end-line="18" selection-end-column="120" />
+          <folding>
+            <marker date="1615494793615" expanded="true" signature="360:983" ph="SELECT id, m... names" />
+            <marker date="1615494793615" expanded="true" signature="1047:1235" ph="SELECT * FRO... names" />
+            <marker date="1615494793615" expanded="true" signature="1302:1352" ph="SELECT m_id,... marketing" />
+            <marker date="1615494793615" expanded="true" signature="1412:1462" ph="SELECT MNN_i... MNN" />
+            <marker date="1615494793615" expanded="true" signature="1528:1578" ph="SELECT id, n... names_form_prod" />
+            <marker date="1615494793615" expanded="true" signature="1616:1821" ph="SELECT id, n... names" />
+            <marker date="1615494793615" expanded="true" signature="1845:1920" ph="SELECT id, n... names" />
+          </folding>
         </state>
       </provider>
     </entry>
