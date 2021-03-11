@@ -41,6 +41,21 @@
             <input type="text" class="form-control" id="inputZip" value="<?php echo $tnved; ?>"
                    maxlength="13" name="tnved">
         </div>
+        <div class="form-group col-md-1">
+            <label for="inputZip">Наценка</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
+                   min=0 max=25 name="nac">
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputZip">НДС</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $tax; ?>"
+                   min=0 max=20 name="tax">
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputZip">Бонус (%)</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $bonus; ?>"
+                   min=0 max=20 name="bonus">
+        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-4">
@@ -77,16 +92,6 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-1">
-            <label for="inputZip">Наценка</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
-                   min=0 max=25 name="nac">
-        </div>
-        <div class="form-group col-md-1">
-            <label for="inputZip">НДС</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $tax; ?>"
-                   min=0 max=20 name="tax">
-        </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Граничная цена</label>
             <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $gran_price; ?>"

@@ -19,6 +19,7 @@ $morion_id = '';
 $barcode = '';
 $nac = '';
 $tax = '';
+$bonus = '';
 $gran_price = '';
 $sum_com = '';
 $amount_in_a_package = '';
@@ -59,6 +60,7 @@ if (isset($_GET['id'])) {
         $mnn = $nom['MNN_name'];
         $nac = $nom['nac'];
         $tax = $nom['tax'];
+        $bonus = $nom['bonus'];
         $gran_price = $nom['gran_price'];
         $sum_com = $nom['sum_com'];
         $name_torg = $nom['name_torg'];
@@ -67,17 +69,13 @@ if (isset($_GET['id'])) {
         $amount_in_a_package = $nom['amount_in_a_package'];
 
         $project_dl = (int) $nom['project_dl'];
-        if ($project_dl == 1) {
-            $project_dl_checked = 'checked';
-        }
+        if ($project_dl == 1) {$project_dl_checked = 'checked';}
 
         $internet_price = $nom['internet_price'];
         $fix_price = $nom['fix_price'];
 
         $internet_sales = (int) $nom['internet_sales'];
-        if ($internet_sales == 1) {
-            $internet_sales_checked = 'checked';
-        }
+        if ($internet_sales == 1) {$internet_sales_checked = 'checked';}
 
         $covid = (int)$nom['covid'];
         if ($covid == 1) {$covid_checked = 'checked';}
@@ -123,6 +121,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 
     $check = new CheckField('tax', $_POST['tax']);
     $tax = $check->value;
+    $errors .= $check->error;
+
+    $check = new CheckField('bonus', $_POST['bonus']);
+    $bonus = $check->value;
     $errors .= $check->error;
 
     $check = new CheckField('gran_price', $_POST['gran_price']);
@@ -173,25 +175,16 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $fix_price = $check->value;
     $errors .= $check->error;
 
-    if ($_POST['internet_sales'] == 'on'){
-        $internet_sales = 1;
-    }else{
-        $internet_sales = 0;
-    }
+    if ($_POST['internet_sales'] == 'on'){$internet_sales = 1;
+    }else{$internet_sales = 0;}
 
     if (!empty($_POST['covid'])){$covid_value = $_POST['covid'];}
-    if ($covid_value == 'on'){
-        $covid = 1;
-    }else{
-        $covid = 0;
-    }
+    if ($covid_value == 'on'){$covid = 1;
+    }else{$covid = 0;}
 
     if (!empty($_POST['covid_protokol'])){$covid_protokol_value = $_POST['covid_protokol'];}
-    if ($covid_protokol_value == 'on'){
-        $covid_protokol = 1;
-    }else{
-        $covid_protokol = 0;
-    }
+    if ($covid_protokol_value == 'on'){$covid_protokol = 1;
+    }else{$covid_protokol = 0;}
 
     if (empty($errors)){
         $element = ['id'=>$id,
@@ -202,6 +195,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'tnved'=>$tnved,
                     'nac'=>(int) $nac,
                     'tax'=>(int) $tax,
+                    'bonus'=>(int) $bonus,
                     'marketing'=>$marketing,
                     'gran_price'=>(float) $gran_price,
                     'sum_com'=>(float) $sum_com,
@@ -215,15 +209,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'internet_price'=>(int) $internet_price,
                     'fix_price'=>(float) $fix_price,
                     'covid'=>$covid,
-                    'covid_protokol'=>$covid_protokol
-                    ];
+                    'covid_protokol'=>$covid_protokol];
 
-        if ($id == 0) {
-            $method = 'new';
-            //var_dump($element);
-        }else {
-            $method = 'update';
-        }
+        if ($id == 0) {$method = 'new';
+        }else {$method = 'update';}
 
         if (isset($_POST['copy'])){
             $element['id'] = 0;
@@ -233,15 +222,13 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         //var_dump($element);
         $save = new SaveToDB($element, $method);
 
-        if ($method == 'new') {
-            $id = $save->result;
-        }
+        if ($method == 'new') {$id = $save->result;}
         header("location: ./element.php?id=$id");
     }
 }
 
 if (isset($_POST['close'])) {
-    //var_dump($_COOKIE['text_search']);
+
     if (isset($_COOKIE['text_search']) && (isset($_COOKIE['field_search']))){
         $str_search = './names.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
     }else{
