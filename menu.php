@@ -4,6 +4,7 @@ require_once "./function.php";
 require_once "autoload.php";
 
 $result = [];
+$emails = [];
 
 is_user_logged_in();
 
