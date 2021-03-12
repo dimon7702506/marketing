@@ -16,7 +16,7 @@ class ValidationHash
 
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        //var_dump($data);
         foreach ($data as $key =>$val) {
             $this->user_id = (int) $val['id'];
             $this->user_hash = $val['user_hash'];

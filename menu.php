@@ -32,7 +32,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
         $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
         // check if file has one of the following extensions
-        $allowedfileExtensions = array('xls');
+        $allowedfileExtensions = array('xls', 'dbf');
 
         if (in_array($fileExtension, $allowedfileExtensions))
         {
@@ -49,10 +49,15 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
         $message = 'There is some error in the file upload. Please check the following error.<br>';
         $message .= 'Error:' . $_FILES['uploadedFile']['error'];
     }
+    /*
     $XlsFile = $dest_path;
     if ( $xls = SimpleXLS::parse($XlsFile) ) {
         $result = $xls->rows();
-    } else {echo SimpleXLSX::parseError();    }
+    } else {echo SimpleXLS::parseError();    }
+    */
+    $db = dbase_open($dest_path, 2);
+    var_dump($db);
+
 }
 $_SESSION['message'] = $message;
 
