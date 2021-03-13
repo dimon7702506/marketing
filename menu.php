@@ -32,7 +32,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
         $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
         // check if file has one of the following extensions
-        $allowedfileExtensions = array('xls', 'dbf');
+        $allowedfileExtensions = array('dbf');
 
         if (in_array($fileExtension, $allowedfileExtensions))
         {
@@ -56,18 +56,19 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
     } else {echo SimpleXLS::parseError();    }
     */
     $db = dbase_open($dest_path, 2);
-    var_dump($db);
-
+    if ($db) {
+        $result = dbase_get_record_with_names($db, 1);
+        dbase_close($db);
+    }
+    //var_dump($result);
 }
+
 $_SESSION['message'] = $message;
 
 $k = 0;
 
 foreach ($result as $key=>$value) {
-    if ($key == 0) {
-        continue;
-    }
-    //var_dump($value);
+    var_dump($value);
     $find = new GetData('podr', $value[12], 'id', 'elem');
     $results = $find->result_data;
     //var_dump($results);
