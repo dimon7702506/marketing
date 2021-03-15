@@ -57,7 +57,11 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
     */
     $db = dbase_open($dest_path, 2);
     if ($db) {
-        $result = dbase_get_record_with_names($db, 1);
+        $record_numbers = dbase_numrecords($db);
+        for ($i = 1; $i <= $record_numbers; $i++) {
+            $res = dbase_get_record_with_names($db, $i);
+            array_push($result, $res);
+        }
         dbase_close($db);
     }
     //var_dump($result);
@@ -68,19 +72,25 @@ $_SESSION['message'] = $message;
 $k = 0;
 
 foreach ($result as $key=>$value) {
-    var_dump($value);
-    $find = new GetData('podr', $value[12], 'id', 'elem');
+    //var_dump($value);
+    $find = new GetData('podr', $value['PRIMECH_'], 'id', 'elem');
     $results = $find->result_data;
-    //var_dump($results);
+
+    $find_recipient = new GetData('podr', $value['ID_POINT'], 'id', 'elem');
+    $results_recipient = $find_recipient->result_data;
+
+    $recipient = $results_recipient[0]['apteka'];
+    //var_dump($results_recipient);
     $email = $results[0]['email'];
-    $apt_name = $value[5];
+    $apt_name = $value['IZGOTOV_'];
     $apt_name = str_replace("~", "", $apt_name);
 
-    $apt[$k] = ['apteka_id' => $value[12],
+    $apt[$k] = ['apteka_id' => $value['PRIMECH_'],
         'apteka_name' => $apt_name,
-        'name' => $value[0],
-        'quantity' => $value[4],
-        'email' => $email];
+        'name' => $value['PREPARAT'],
+        'quantity' => $value['ZAKAZ'],
+        'email' => $email,
+        'recipient' => iconv("utf-8", "cp866", $recipient)];
 
     $emails[$k] = ['email' => $email,
                    'apteka_name' => $apt_name];
@@ -97,13 +107,14 @@ foreach ($emails_uniq as $key => $e){
     $text = '<br>' . '<br>' . $e['apteka_name'].":";
     foreach ($apt as $a){
         if ($a['email'] !== $e['email']) {continue;}
-        $text .= '<br>'.$a['name'] . "  - " . $a['quantity'];
+        $text .= '<br>'.$a['name'] . "  - " . $a['quantity'] . " --> " . $a['recipient'];
     }
 
-    $text_1251 = iconv("UTF-8", "Windows-1251", $text);
+    $text_1251 = iconv("cp866", "Windows-1251", $text);
+    $text_utf = iconv("cp866", "utf-8", $text);
 
     $sender = get_user_email();
-    $sender = 'olya@passat.kh.ua';
+    //$sender = 'dimon@falbi.kh.ua';
 
     $mail = new PHPMailer;
     $mail->isSMTP();
@@ -115,7 +126,7 @@ foreach ($emails_uniq as $key => $e){
     $mail->SMTPOptions = array('ssl' => array('verify_peer' => false,'verify_peer_name' => false,'allow_self_signed' => true));
     $mail->Port = 587;
     $mail->setFrom($sender);
-    //$mail->addAddress($e['email']);
+    $mail->addAddress($e['email']);
     $mail->addAddress($sender);
     // Письмо
     $mail->CharSet = 'Windows-1251';
@@ -123,7 +134,7 @@ foreach ($emails_uniq as $key => $e){
     $mail->Subject = 'Order'; // Заголовок письма
     $mail->Body = $text_1251; // Текст письма
 
-    echo $text;
+    echo $text_utf;
     // Результат
     if(!$mail->send()) {
         echo "<h1 style='color: red'>Message could not be sent.</h1>";
