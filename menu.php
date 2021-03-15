@@ -140,4 +140,5 @@ foreach ($emails_uniq as $key => $e){
         echo "<h1 style='color: red'>Message could not be sent.</h1>";
         echo "<h3>Mailer Error: . $mail->ErrorInfo </h3>";
     }
+    array_map('unlink', glob($dest_path));
 }
