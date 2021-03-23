@@ -58,7 +58,6 @@ if (isset($_GET['submit_search'])) {
     }elseif($sp_type == 'marketing'){
         $cols += ['m_name'=>'Маркетинг',
                   'persent'=>'Процент',
-                  'summ'=>'Сумма',
                   'top'=>'ТОП',
                   'actual'=>'Актуальность'];
     }elseif ($sp_type == 'providers'){

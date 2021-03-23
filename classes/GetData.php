@@ -55,7 +55,7 @@ class GetData
             }
         }elseif ($sp_type == 'marketing'){
             $table_name = 'marketing';
-            $fields_query_list = 'm_id, m_name as name, persent, summ, top, actual';
+            $fields_query_list = 'm_id, m_name as name, persent, top, actual';
             $fields_query_elem = '*';
             $fields_query_id = 'm_id';
             $join_table = '';
