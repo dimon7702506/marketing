@@ -209,7 +209,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'internet_price'=>(int) $internet_price,
                     'fix_price'=>(float) $fix_price,
                     'covid'=>$covid,
-                    'covid_protokol'=>$covid_protokol];
+                    'covid_protokol'=>$covid_protokol,
+                    'last_modify_author_id'=>(int) get_user_id()];
 
         if ($id == 0) {$method = 'new';
         }else {$method = 'update';}

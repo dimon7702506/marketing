@@ -59,6 +59,13 @@ function get_user_name()
     return $_COOKIE['name'];
 }
 
+function get_user_id()
+{
+    if (!is_user_logged_in()) {return ' '; }
+
+    return $_COOKIE['user_id'];
+}
+
 function get_user_email()
 {
     if (!is_user_logged_in()) {return ' '; }
