@@ -27,8 +27,9 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                                 'invoice_number'=>'Номер накладной',
                                 'sum'=>'Сумма'],
                    'users'=>['full_name'=>'Пользователь',
-                            'email'=>'email']
-                  ];
+                            'email'=>'email'],
+                   'routes'=>['day'=>'День недели',
+                              'apteka_name'=>'Аптека']];
 
 $html_select_options = '';
 
@@ -75,9 +76,12 @@ if (isset($_GET['submit_search'])) {
     }elseif ($sp_type == 'users'){
         $cols += ['full_name'=> 'Пользователь',
                   'email'=>'Email'];
+    }elseif ($sp_type == 'routes'){
+        $cols += ['day'=> 'День недели',
+            'apteka_name'=>'Аптека',
+            'route_date'=>'Дата подачи заявки'];
     }
     $cols += ['modif'=>'Модификация'];
-    //var_dump($cols);
 
     $find = new GetData($sp_type, $text_search, $field_search, $query_type);
     $res = $find->result_data;
@@ -89,7 +93,7 @@ if (isset($_GET['submit_search'])) {
 
     foreach($res as $r){
         //var_dump(array_keys($r));
-        //var_dump($r);
+        var_dump($r);
         if($sp_type == 'invoices' && $role_id == 2){
             if($r['apteka_id'] !== $apteka_id){
                 continue;

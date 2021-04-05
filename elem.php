@@ -480,8 +480,21 @@ if (isset($_GET['id'])) {
                             'required' => '',
                             'related_table' => '',
                             'form_type' => 'input',
-                            'key' => '']
-        ];
+                            'key' => '']];
+    }elseif ($sp_type == 'routes') {
+        $fields = ['day' => ['field_name' => 'День недели',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'days',
+                            'form_type' => 'select',
+                            'key' => 'day_id']
+
+   ];
     }
 
     if (empty($results)){
@@ -519,8 +532,11 @@ if (isset($_GET['id'])) {
             if (!$apteka){$apteka = $result['apteka'];}
             $provider = $result['provider'];
             if (!$invoice_status){$invoice_status = $result['invoice_status'];}
-        }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];}
-        //var_dump($results);
+        }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];
+        }elseif ($sp_type == 'routes'){
+            $day = $result['day'];
+            $apteka = $result['apteka'];}
+        var_dump($results);
 
         foreach ($fields as $key => $f) {
             //var_dump($key);
@@ -551,6 +567,9 @@ if (isset($_GET['id'])) {
                 }elseif ($key == 'invoice_status'){
                     $html_elem .= $invoice_status;
                     $sp_type_list = 'invoice_status';
+                }elseif ($key == 'day'){
+                    $html_elem .= $day;
+                    $sp_type_list = 'days';
                 }
 
                 $html_elem .= '</option>
