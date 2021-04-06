@@ -39,8 +39,10 @@ class SetData
             $id_name = 'id';
             $element['password_hash'] = md5(md5(trim($_POST['password'])));
             $element['password'] = '';
+        }elseif ($sp_type == 'routes') {
+            $table_name = 'routes';
+            $id_name = 'id';
         }
-
         //var_dump($element);
         $sql_update = '';
         $sql_end = '';
@@ -78,23 +80,19 @@ class SetData
                     $i++;
                     $sql_update .= " :$key";
                 }
-                if ($i < count($element) - 1){
-                    $sql_update .= ",";
-                }
+                if ($i < count($element) - 1){$sql_update .= ",";}
             }
             $sql_update .= ")";
             $del_arg=['id'];
             foreach ($element as $key=>$value){
-                if (!in_array($key, $del_arg)){
-                    $args[$key] = $value;
-                }
+                if (!in_array($key, $del_arg)){$args[$key] = $value;}
             }
         }
 
         $sql = $sql_update . $sql_end;
 
-        //var_dump($sql);
-        //var_dump($args);
+        var_dump($sql);
+        var_dump($args);
 
         $sql_id = "SELECT LAST_INSERT_ID();";
         $stmt = DB::run($sql, $args);

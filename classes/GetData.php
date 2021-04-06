@@ -133,6 +133,14 @@ class GetData
             $order_by = 'day_id';
             if ($field_search == 'День недели'){$field_search = 'days.name';}
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+        }elseif ($sp_type == 'days'){
+            $table_name = 'days';
+            $fields_query_list = 'name';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'id';
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}

@@ -205,9 +205,7 @@ if (isset($_GET['id'])) {
                                     'col' => 2,
                                     'required' => '',
                                     'related_table' => '',
-                                    'form_type'=>'input'],
-        ];
-
+                                    'form_type'=>'input']];
     }elseif ($sp_type == 'people') {
         $fields = ['full_name' => ['field_name' => 'ФИО',
                                     'type' => 'text',
@@ -249,8 +247,7 @@ if (isset($_GET['id'])) {
                                     'required' => 'required',
                                     'related_table' => 'apteka',
                                     'form_type'=>'select',
-                                    'key' => 'apteka_id'],
-                    ];
+                                    'key' => 'apteka_id']];
     }elseif ($sp_type == 'marketing') {
         $fields = ['m_name' => ['field_name' => 'Маркетинг',
                                    'type' => 'text',
@@ -301,8 +298,7 @@ if (isset($_GET['id'])) {
                                     'col' => 1,
                                     'required' => '',
                                     'related_table' => '',
-                                    'form_type'=>'input'],
-        ];
+                                    'form_type'=>'input']];
     }elseif ($sp_type == 'providers'){
         $fields = ['name' => ['field_name' => 'Поставщик',
                             'type' => 'text',
@@ -323,8 +319,7 @@ if (isset($_GET['id'])) {
                             'col' => 6,
                             'required' => 'required',
                             'related_table' => '',
-                            'form_type'=>'input']
-        ];
+                            'form_type'=>'input']];
     }elseif ($sp_type == 'invoices') {
         $fields = ['apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
@@ -492,9 +487,19 @@ if (isset($_GET['id'])) {
                             'required' => 'required',
                             'related_table' => 'days',
                             'form_type' => 'select',
-                            'key' => 'day_id']
-
-   ];
+                            'key' => 'day_id'],
+                    'apteka' => ['field_name' => 'Аптека',
+                        'type' => 'text',
+                        'min' => 0,
+                        'max' => 0,
+                        'length' => 100,
+                        'str_num' => 1,
+                        'col' => 4,
+                        'required' => 'required',
+                        'related_table' => 'apteka',
+                        'form_type' => 'select',
+                        'key' => 'day_id']
+        ];
     }
 
     if (empty($results)){
@@ -536,7 +541,7 @@ if (isset($_GET['id'])) {
         }elseif ($sp_type == 'routes'){
             $day = $result['day'];
             $apteka = $result['apteka'];}
-        var_dump($results);
+        //var_dump($results);
 
         foreach ($fields as $key => $f) {
             //var_dump($key);
@@ -636,6 +641,12 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $related_id = $find_id->result_data;
                 $element += ['invoice_status_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'invoice_status');
+            }
+            if($f['related_table'] == 'days'){
+                $find_id = new GetData('days', $element['day'],'name', 'id');
+                $related_id = $find_id->result_data;
+                $element += ['id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'days');
             }
 
             if ($sp_type == 'invoices'){array_push($del_arg,'apteka');}
