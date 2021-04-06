@@ -6,4 +6,4 @@ out/*.xml
 .idea/workspace.xml
 out/uploaded_files
 uploaded_files/631d9be0dd09c9a5fb82463e6a6293f1.xls
-.idea/workspace.xml
+/.idea/workspace.xml
