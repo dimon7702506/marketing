@@ -10,6 +10,39 @@ if (isset($_GET['sp_type'])){
 }else{$sp_type = $_COOKIE['sp_type'];}
 
 //Выбор режима поиска
+
+if ($sp_type == 'routes'){
+
+    $s = '';
+    if (isset($_GET['search'])){$s = $_GET['search'];}
+
+    $html_s = '<select id="inputState" class="form-control" style="margin-left: 10px" name="search">';
+    $html_s .= '<option disabled>Выберите день недели</option>';
+    $html_s .= '<option selected>' . $s . '</option>';
+    $html_s .= "<option></option>";
+
+    $find_list = new GetData('days','','', 'list');
+    $lists = $find_list->result_data;
+
+    foreach ($lists as $list) {
+        $html_s .= "<option>$list[name]</option>";
+    }
+    $html_s .= '</select>';
+
+
+
+}else{
+    $s = '';
+    if (isset($_GET['search'])){$s = 'value = '.$_GET['search'].';';}
+
+    $html_s = '<div class="form-group mx-sm-3">';
+    $html_s .= '<label for="formGroupExampleInput" class="sr-only">Password</label>';
+    $html_s .= '<input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск"
+                    style="width: 600px;'. $s .'>';
+    $html_s .= '</div>';
+    //var_dump($html_s);
+}
+
 $select_options = ['podr'=>['apteka_name'=>'Наименование',
                             'firm_name'=>'Фирма'],
                    'MNN'=>['MNN'=>'MNN',
@@ -93,7 +126,7 @@ if (isset($_GET['submit_search'])) {
 
     foreach($res as $r){
         //var_dump(array_keys($r));
-        var_dump($r);
+        //var_dump($r);
         if($sp_type == 'invoices' && $role_id == 2){
             if($r['apteka_id'] !== $apteka_id){
                 continue;

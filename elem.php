@@ -489,17 +489,16 @@ if (isset($_GET['id'])) {
                             'form_type' => 'select',
                             'key' => 'day_id'],
                     'apteka' => ['field_name' => 'Аптека',
-                        'type' => 'text',
-                        'min' => 0,
-                        'max' => 0,
-                        'length' => 100,
-                        'str_num' => 1,
-                        'col' => 4,
-                        'required' => 'required',
-                        'related_table' => 'apteka',
-                        'form_type' => 'select',
-                        'key' => 'day_id']
-        ];
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'apteka',
+                            'form_type' => 'select',
+                            'key' => 'day_id']];
     }
 
     if (empty($results)){
@@ -540,8 +539,13 @@ if (isset($_GET['id'])) {
         }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];
         }elseif ($sp_type == 'routes'){
             $day = $result['day'];
-            $apteka = $result['apteka'];}
-        //var_dump($results);
+            $apteka = $result['apteka'];
+            if(!isset($_GET['apteka'])){
+                $find = new GetData('podr', $_COOKIE['apteka_id'], 'id', 'elem');
+                $results = $find->result_data;
+                $apteka = $results[0]['apteka'];
+            }
+        }
 
         foreach ($fields as $key => $f) {
             //var_dump($key);
@@ -629,6 +633,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $related_id = $find_id->result_data;
                 $element += ['apteka_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'apteka_name');
+                array_push($del_arg,'apteka');
             }
             if($f['related_table'] == 'providers'){
                 $find_id = new GetData('providers', $element['provider'],'name', 'id');
@@ -645,8 +650,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             if($f['related_table'] == 'days'){
                 $find_id = new GetData('days', $element['day'],'name', 'id');
                 $related_id = $find_id->result_data;
-                $element += ['id'=> (int) $related_id[0]['id']];
-                array_push($del_arg,'days');
+                $element += ['day_id'=> (int) $related_id[0]['id']];
+                array_push($del_arg,'day');
             }
 
             if ($sp_type == 'invoices'){array_push($del_arg,'apteka');}

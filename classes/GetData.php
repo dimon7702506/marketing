@@ -158,6 +158,7 @@ class GetData
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
+                if ($sp_type == 'routes'){$sql .= " and route_date >= Curdate()";}
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
                 $sql = str_replace('invoice.apteka', 'apteka', $sql);
                 $sql = str_replace('invoice.providers', 'providers', $sql);
