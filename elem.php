@@ -541,8 +541,12 @@ if (isset($_GET['id'])) {
             $day = $result['day'];
             $apteka = $result['apteka'];
             if(!isset($_GET['apteka'])){
-                $find = new GetData('podr', $_COOKIE['apteka_id'], 'id', 'elem');
+                $apt_id = 2;
+                if ($_COOKIE['apteka_id'] > 0){$apt_id = $_COOKIE['apteka_id'];}
+                $find = new GetData('podr', $apt_id, 'id', 'elem');
                 $results = $find->result_data;
+                //var_dump($results);
+                //var_dump($apt_id);
                 $apteka = $results[0]['apteka'];
             }
         }
