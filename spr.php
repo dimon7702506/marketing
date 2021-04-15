@@ -98,14 +98,16 @@ if (isset($_GET['submit_search'])) {
         $cols += ['name'=>'Поставщик',
                   'okpo'=>'ОКПО'];
     }elseif ($sp_type == 'invoices'){
-        $cols += ['apteka'=>'Аптека',
+        $cols += ['apteka_id'=>'Код',
+                  'apteka'=>'Аптека',
                   'provider'=>'Поставщик',
                   'invoice_number'=>'Номер',
                   'invoice_date'=>'Дата',
                   'invoice_sum'=>'Сумма',
                   'invoice_tax'=>'НДС',
                   'pay_date'=>'Оплата',
-                  'invoice_status'=>'Статус'];
+                  'invoice_status'=>'Статус',
+                  'oper'=>'Оператор'];
     }elseif ($sp_type == 'users'){
         $cols += ['full_name'=> 'Пользователь',
                   'email'=>'Email'];

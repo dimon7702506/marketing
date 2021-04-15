@@ -86,10 +86,12 @@ class GetData
             }
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
-            $fields_query_list = 'invoice.id, apteka_id, apteka.name as apteka, providers.name as provider, invoice_number,
-                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status';
+            $fields_query_list = 'invoice.id, invoice.apteka_id ,apteka.name as apteka, providers.name as provider,
+                invoice_number, invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, 
+                users.full_name as oper';
             $fields_query_elem = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,
-                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note';
+                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note, 
+                users.full_name as oper';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
@@ -97,7 +99,9 @@ class GetData
             $join2 = " LEFT JOIN $join_table2 ON provider_id = $join_table2.id";
             $join_table3 = ' invoice_status';
             $join3 = " LEFT JOIN $join_table3 ON invoice_status_id = $join_table3.id";
-            $join = $join1 . $join2 . $join3;
+            $join_table4 = ' users';
+            $join4 = " LEFT JOIN $join_table4 ON user_id = $join_table4.id";
+            $join = $join1 . $join2 . $join3 . $join4;
             $order_by = 'invoice.id DESC';
             if ($field_search == 'Номер накладной'){$field_search = 'invoice_number';}
             elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
@@ -158,9 +162,14 @@ class GetData
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
-                if ($sp_type == 'routes'){$sql .= " and route_date >= Curdate()";}
+                if ($sp_type == 'routes'){
+                    $sql .= " and route_date >= Curdate()";
+                    if(get_role_id() == 2){
+                        $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
+                    }
+                }
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
-                $sql = str_replace('invoice.apteka', 'apteka', $sql);
+                $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
                 $sql = str_replace('invoice.providers', 'providers', $sql);
                 $sql = str_replace('people.people', 'people', $sql);
                 $sql = str_replace('routes.apteka', 'apteka', $sql);

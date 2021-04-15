@@ -80,6 +80,13 @@ function get_role_id()
     return $_COOKIE['role_id'];
 }
 
+function get_apteka_id()
+{
+    if (!is_user_logged_in()) {return ' ';}
+
+    return $_COOKIE['apteka_id'];
+}
+
 function log_out()
 {
     setcookie("user_id", "", time() - 3600*24*30*12, "/");
