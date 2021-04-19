@@ -43,7 +43,7 @@ class GetData
             $table_name = 'people';
             $fields_query_list = 'people.id, full_name as name, people.tel';
             $fields_query_elem = 'people.id, full_name, people.tel, birthday, tm_id, apteka.name as apteka';
-            $fields_query_id = 'id';
+            $fields_query_id = 'people.id';
             $join_table = ' apteka';
             $join = " LEFT JOIN $join_table ON apteka_id = apteka.id";
             $order_by = 'full_name';
@@ -82,8 +82,7 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'name';
-            if ($field_search == 'Поставщик'){$field_search = 'name';
-            }
+            if ($field_search == 'Поставщик'){$field_search = 'name';}
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
             $fields_query_list = 'invoice.id, invoice.apteka_id ,apteka.name as apteka, providers.name as provider,
@@ -126,15 +125,19 @@ class GetData
             if ($field_search == 'Пользователь'){$field_search = 'full_name';}
         }elseif ($sp_type == 'routes'){
             $table_name = 'routes';
-            $fields_query_list = 'routes.id, days.name as day, apteka.name as apteka, route_date';
-            $fields_query_elem = ' days.name as day, apteka.name as apteka';
+            //$fields_query_list = 'routes.id, days.name as day, route_date, apteka.name as apteka, create_date';
+            $fields_query_list = 'routes.id, route_date, apteka.name as apteka, destination.name as destination,
+                                  create_date';
+            $fields_query_elem = ' days.name as day, route_date, apteka.name as apteka, destination.name as destination';
             $fields_query_id = 'id';
             $join_table1 = ' days';
             $join1 = " LEFT JOIN $join_table1 ON day_id = $join_table1.id";
             $join_table2 = ' apteka';
             $join2 = " LEFT JOIN $join_table2 ON apteka_id = $join_table2.id";
-            $join = $join1 . $join2;
-            $order_by = 'day_id';
+            $join_table3 = ' destination';
+            $join3 = " LEFT JOIN $join_table3 ON destination_id = $join_table3.id";
+            $join = $join1 . $join2 . $join3;
+            $order_by = 'route_date';
             if ($field_search == 'День недели'){$field_search = 'days.name';}
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'days'){
@@ -145,6 +148,15 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'id';
+        }elseif ($sp_type == 'destination'){
+            $table_name = 'destination';
+            $fields_query_list = 'id, name';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'id';
+            if ($field_search == 'Наименование'){$field_search = 'name';}
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -160,6 +172,8 @@ class GetData
                 /*and (strlen($field_search) < 9)*/) {
                 $sql .= "WHERE $table_name.$field_search = :str ";
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
+            }elseif ($query_type == 'id'){
+                $sql .= "WHERE $table_name.$field_search = :str ";
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
                 if ($sp_type == 'routes'){
@@ -168,13 +182,16 @@ class GetData
                         $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
                     }
                 }
-                $sql = str_replace('apteka.apteka', 'apteka', $sql);
-                $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
-                $sql = str_replace('invoice.providers', 'providers', $sql);
-                $sql = str_replace('people.people', 'people', $sql);
-                $sql = str_replace('routes.apteka', 'apteka', $sql);
-                $sql = str_replace('routes.days.name', 'days.name', $sql);
             }
+
+            $sql = str_replace('apteka.apteka', 'apteka', $sql);
+            $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
+            $sql = str_replace('invoice.providers', 'providers', $sql);
+            $sql = str_replace('people.people', 'people', $sql);
+            $sql = str_replace('routes.apteka', 'apteka', $sql);
+            $sql = str_replace('routes.days.name', 'days.name', $sql);
+            $sql = str_replace('firm.firm.name', 'firm.name', $sql);
+
             $arg = ["str" => $text_search];
         }else{
             $arg = [];
@@ -182,6 +199,7 @@ class GetData
         $arg = ["str" => $text_search];
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump($sql);
+        //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->result_data = $data;

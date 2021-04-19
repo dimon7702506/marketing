@@ -42,6 +42,9 @@ class SetData
         }elseif ($sp_type == 'routes') {
             $table_name = 'routes';
             $id_name = 'id';
+        }elseif ($sp_type == 'destination') {
+            $table_name = 'destination';
+            $id_name = 'id';
         }
         //var_dump($element);
         $sql_update = '';

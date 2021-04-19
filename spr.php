@@ -29,8 +29,6 @@ if ($sp_type == 'routes'){
     }
     $html_s .= '</select>';
 
-
-
 }else{
     $s = '';
     if (isset($_GET['search'])){$s = 'value = '.$_GET['search'].';';}
@@ -62,7 +60,8 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                    'users'=>['full_name'=>'Пользователь',
                             'email'=>'email'],
                    'routes'=>['day'=>'День недели',
-                              'apteka_name'=>'Аптека']];
+                              'apteka_name'=>'Аптека'],
+                   'destination'=>['name'=>'Наименование']];
 
 $html_select_options = '';
 
@@ -112,9 +111,13 @@ if (isset($_GET['submit_search'])) {
         $cols += ['full_name'=> 'Пользователь',
                   'email'=>'Email'];
     }elseif ($sp_type == 'routes'){
-        $cols += ['day'=> 'День недели',
-            'apteka_name'=>'Аптека',
-            'route_date'=>'Дата подачи заявки'];
+        $cols += [/*'day'=> 'День недели',*/
+                'route_date'=>'Дата',
+                'apteka_name'=>'Аптека',
+                'destination_name'=>'Куда',
+                'create_date'=>'Дата подачи заявки'];
+    }elseif ($sp_type == 'destination'){
+        $cols += ['route'=>'Наименование'];
     }
     $cols += ['modif'=>'Модификация'];
 

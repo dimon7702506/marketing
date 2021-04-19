@@ -18,12 +18,7 @@
             </div>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li></li><a class="navbar-brand" href="./catal.php">Справочники</a></li>
-                <li><a class="navbar-brand" href="./admin.php">Администрирование</a></li>
-                <li><a class="navbar-brand" href="./anal.html">Аналитика</a></li>
-                <li><a class="navbar-brand" href="./spr.php?sp_type=invoices">Накладные</a></li>
-                <li><a class="navbar-brand" href="./menu_route.php">Маршрут водителя</a></li>
-                <!--<li><a class="navbar-brand" href="./spr.php?sp_type=routes">Маршрут водителя</a></li>-->
+                <a class="navbar-brand" href="./menu.html">Главная</a>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
                 <h6 class="mark-text1"><?=get_user_name() ?></h6>
@@ -31,13 +26,11 @@
             </form>
         </div>
     </nav>
-    <form action="index.php" method="post" enctype="multipart/form-data">
-        <fieldset class="mb-2">
-            <legend>Загрузка файла заказов и отсылка по аптекам</legend>
-            <label for="formFile" class="col-form-label">Заказ: </label>
-            <input class="form-controlSm" type="file" name="uploadedFile" />
-            <input type="submit" name="uploadBtn" value="Загрузить" />
-        </fieldset>
-    </form>
+    <div>
+        <ul class="mr-auto mt-2 mt-lg-0">
+            <li class="active"><a class="navbar-brand" href="./spr.php?sp_type=routes">Заявки</a></li>
+            <li class="active"><a class="navbar-brand" href="./spr.php?sp_type=destination">Пункты назначения</a></li>
+        </ul>
+    </div>
 </body>
 </html>
