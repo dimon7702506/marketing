@@ -11,7 +11,7 @@ if (isset($_GET['sp_type'])){
 
 //Выбор режима поиска
 
-if ($sp_type == 'routes'){
+if ($sp_type == 'routes_standart'){
 
     $s = '';
     if (isset($_GET['search'])){$s = $_GET['search'];}
@@ -59,8 +59,9 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                                 'sum'=>'Сумма'],
                    'users'=>['full_name'=>'Пользователь',
                             'email'=>'email'],
-                   'routes'=>['day'=>'День недели',
-                              'apteka_name'=>'Аптека'],
+                   'routes'=>['apteka_name'=>'Аптека'],
+                   'routes_standart'=>['day'=>'День недели',
+                                       'apteka_name'=>'Аптека'],
                    'destination'=>['name'=>'Наименование']];
 
 $html_select_options = '';
@@ -118,6 +119,10 @@ if (isset($_GET['submit_search'])) {
                 'create_date'=>'Дата подачи заявки'];
     }elseif ($sp_type == 'destination'){
         $cols += ['route'=>'Наименование'];
+    }elseif ($sp_type == 'routes_standart'){
+        $cols += ['day'=> 'День недели',
+                  'destination'=>'Аптека',
+                  'numb'=>'Порядок'];
     }
     $cols += ['modif'=>'Модификация'];
 
@@ -154,8 +159,6 @@ if (isset($_GET['submit_search'])) {
     setcookie('text_search', $text_search);
     setcookie('field_search', $field_search);
     setcookie('sp_type', $sp_type);
-
-    //var_dump($_COOKIE['text_search']);
 }
 
 if (isset($_GET['submit_new'])) {

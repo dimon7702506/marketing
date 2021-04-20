@@ -157,6 +157,21 @@ class GetData
             $join = "";
             $order_by = 'id';
             if ($field_search == 'Наименование'){$field_search = 'name';}
+        }elseif ($sp_type == 'routes_standart'){
+            $table_name = 'routes_standart';
+            $fields_query_list = 'routes_standart.id, days.name as day, destination.name as destination, numb';
+            $fields_query_elem = ' days.name as day, destination.name as destination, numb';
+            $fields_query_id = 'id';
+            $join_table1 = ' days';
+            $join1 = " LEFT JOIN $join_table1 ON day_id = $join_table1.id";
+            $join_table2 = ' destination';
+            $join2 = " LEFT JOIN $join_table2 ON destination_id = $join_table2.id";
+            $join = $join1 . $join2;
+            $order_by = 'day, numb';
+
+            if ($field_search == 'День недели'){$field_search = 'days.name';}
+            //if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -191,6 +206,7 @@ class GetData
             $sql = str_replace('routes.apteka', 'apteka', $sql);
             $sql = str_replace('routes.days.name', 'days.name', $sql);
             $sql = str_replace('firm.firm.name', 'firm.name', $sql);
+            $sql = str_replace('routes_standart.days.name', 'days.name', $sql);
 
             $arg = ["str" => $text_search];
         }else{

@@ -553,6 +553,40 @@ if (isset($_GET['id'])) {
                             'required' => 'required',
                             'related_table' => '',
                             'form_type'=>'input']];
+    }elseif ($sp_type == 'routes_standart') {
+        $fields = ['day' => ['field_name' => 'День недели',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 2,
+                            'required' => 'required',
+                            'related_table' => 'days',
+                            'form_type' => 'select',
+                            'key' => 'day_id'],
+                    'destination' => ['field_name' => 'Куда',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'destination',
+                            'form_type' => 'select',
+                            'key' => 'destination_id'],
+                    'numb' => ['field_name' => 'Порядок',
+                            'type' => 'number',
+                            'min' => 10,
+                            'max' => 10000,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 2,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => '']];
     }
 
     if (empty($results)){
@@ -592,7 +626,6 @@ if (isset($_GET['id'])) {
             if (!$invoice_status){$invoice_status = $result['invoice_status'];}
         }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];
         }elseif ($sp_type == 'routes'){
-            //var_dump($results);
             $day = $result['day'];
             $apteka = $result['apteka'];
             if(!isset($_GET['apteka'])){
@@ -606,6 +639,10 @@ if (isset($_GET['id'])) {
         }elseif ($sp_type == 'destination') {
             $destination = trim($result['name']);
             $adress = trim($result['adres']);
+        }elseif ($sp_type == 'routes_standart'){
+            $day = $result['day'];
+            $numb = $result['numb'];
+            $destination = $result['destination'];
         }
 
         foreach ($fields as $key => $f) {
@@ -754,7 +791,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
 
         if ($id == 0) {$method = 'new';}else{$method = 'update';}
 
-        //var_dump($element);
+        var_dump($element);
         //var_dump($element1);
 
         if (isset($_POST['copy'])){
