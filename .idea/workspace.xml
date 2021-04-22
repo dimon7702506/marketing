@@ -11,11 +11,7 @@
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/GetData.php" afterPath="$PROJECT_DIR$/classes/GetData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SetData.php" afterPath="$PROJECT_DIR$/classes/SetData.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elem.php" afterPath="$PROJECT_DIR$/elem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu_route.html" afterPath="$PROJECT_DIR$/menu_route.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spr.php" afterPath="$PROJECT_DIR$/spr.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/update1.sql" afterPath="$PROJECT_DIR$/sql/update1.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,7 +39,7 @@
       <file leaf-file-name="spr.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spr.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="2057">
               <caret line="121" column="41" lean-forward="false" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
               <folding>
                 <marker date="1618910343918" expanded="true" signature="418:435" ph="..." />
@@ -56,10 +52,10 @@
       <file leaf-file-name="GetData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/GetData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="208" column="47" lean-forward="false" selection-start-line="208" selection-start-column="32" selection-end-line="208" selection-end-column="47" />
+            <state relative-caret-position="255">
+              <caret line="135" column="78" lean-forward="false" selection-start-line="135" selection-start-column="78" selection-end-line="135" selection-end-column="78" />
               <folding>
-                <marker date="1618910289973" expanded="true" signature="8674:8712" ph="SELECT ${$fi... ${$table_name}" />
+                <marker date="1619090943710" expanded="true" signature="8537:8575" ph="SELECT ${$fi... ${$table_name}" />
               </folding>
             </state>
           </provider>
@@ -75,21 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update1.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="update1.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql/update1.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="76" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="76" />
+              <caret line="10" column="76" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="elem.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="elem.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/elem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="793" column="8" lean-forward="false" selection-start-line="793" selection-start-column="8" selection-end-line="793" selection-end-column="8" />
+            <state relative-caret-position="376">
+              <caret line="781" column="10" lean-forward="false" selection-start-line="781" selection-start-column="10" selection-end-line="781" selection-end-column="10" />
               <folding>
                 <element signature="e#537#1044#1#PHP" expanded="false" />
               </folding>
@@ -100,8 +96,8 @@
       <file leaf-file-name="menu_route.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/menu_route.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="32" column="94" lean-forward="false" selection-start-line="32" selection-start-column="94" selection-end-line="32" selection-end-column="94" />
+            <state relative-caret-position="277">
+              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -110,8 +106,8 @@
       <file leaf-file-name="SetData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/SetData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+            <state relative-caret-position="70">
+              <caret line="83" column="40" lean-forward="true" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
               <folding>
                 <marker date="1618912695393" expanded="true" signature="2194:2219" ph="INSERT INTO ${$table_name}... " />
               </folding>
@@ -228,11 +224,11 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2f31e4c7-acc9-47b0-a579-40387b92acc9/console.sql" />
         <option value="$PROJECT_DIR$/classes/CheckFields.php" />
         <option value="$PROJECT_DIR$/sql/update1.sql" />
+        <option value="$PROJECT_DIR$/spr.php" />
+        <option value="$PROJECT_DIR$/classes/SetData.php" />
         <option value="$PROJECT_DIR$/menu_route.html" />
         <option value="$PROJECT_DIR$/classes/GetData.php" />
-        <option value="$PROJECT_DIR$/spr.php" />
         <option value="$PROJECT_DIR$/elem.php" />
-        <option value="$PROJECT_DIR$/classes/SetData.php" />
       </list>
     </option>
   </component>
@@ -329,7 +325,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -340,17 +335,13 @@
             <path>
               <item name="marketing.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="marketing.com" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="classes" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="marketing.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marketing.com" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="sql" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -602,12 +593,13 @@
       <workItem from="1618564847230" duration="694000" />
       <workItem from="1618807327353" duration="22202000" />
       <workItem from="1618846202436" duration="671000" />
-      <workItem from="1618904795353" duration="5978000" />
+      <workItem from="1618904795353" duration="6599000" />
+      <workItem from="1619089494274" duration="1378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="557590000" />
+    <option name="totallyTimeSpent" value="559589000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -619,10 +611,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="742" extended-state="7" />
+    <frame x="-8" y="-8" width="1370" height="745" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21978852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22280967" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -955,17 +947,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/menu_route.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="32" column="94" lean-forward="false" selection-start-line="32" selection-start-column="94" selection-end-line="32" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spr.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
+        <state relative-caret-position="2057">
           <caret line="121" column="41" lean-forward="false" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
           <folding>
             <marker date="1618910343918" expanded="true" signature="418:435" ph="..." />
@@ -982,41 +966,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/GetData.php">
+    <entry file="file://$PROJECT_DIR$/sql/update1.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="208" column="47" lean-forward="false" selection-start-line="208" selection-start-column="32" selection-end-line="208" selection-end-column="47" />
-          <folding>
-            <marker date="1618910289973" expanded="true" signature="8674:8712" ph="SELECT ${$fi... ${$table_name}" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="76" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elem.php">
+    <entry file="file://$PROJECT_DIR$/menu_route.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="793" column="8" lean-forward="false" selection-start-line="793" selection-start-column="8" selection-end-line="793" selection-end-column="8" />
+        <state relative-caret-position="277">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/GetData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="135" column="78" lean-forward="false" selection-start-line="135" selection-start-column="78" selection-end-line="135" selection-end-column="78" />
           <folding>
-            <element signature="e#537#1044#1#PHP" expanded="false" />
+            <marker date="1619090943710" expanded="true" signature="8537:8575" ph="SELECT ${$fi... ${$table_name}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/SetData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+        <state relative-caret-position="70">
+          <caret line="83" column="40" lean-forward="true" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
           <folding>
             <marker date="1618912695393" expanded="true" signature="2194:2219" ph="INSERT INTO ${$table_name}... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/update1.sql">
+    <entry file="file://$PROJECT_DIR$/elem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="76" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="376">
+          <caret line="781" column="10" lean-forward="false" selection-start-line="781" selection-start-column="10" selection-end-line="781" selection-end-column="10" />
+          <folding>
+            <element signature="e#537#1044#1#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

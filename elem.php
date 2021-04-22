@@ -488,18 +488,7 @@ if (isset($_GET['id'])) {
                             'form_type' => 'input',
                             'key' => '']];
     }elseif ($sp_type == 'routes') {
-        $fields = ['day' => ['field_name' => 'День недели',
-                            'type' => 'text',
-                            'min' => 0,
-                            'max' => 0,
-                            'length' => 100,
-                            'str_num' => 1,
-                            'col' => 2,
-                            'required' => 'required',
-                            'related_table' => 'days',
-                            'form_type' => 'select',
-                            'key' => 'day_id'],
-                    'route_date' => ['field_name' => 'Дата',
+        $fields = ['route_date' => ['field_name' => 'Дата',
                             'type' => 'date',
                             'min' => 0,
                             'max' => 0,
@@ -626,7 +615,6 @@ if (isset($_GET['id'])) {
             if (!$invoice_status){$invoice_status = $result['invoice_status'];}
         }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];
         }elseif ($sp_type == 'routes'){
-            $day = $result['day'];
             $apteka = $result['apteka'];
             if(!isset($_GET['apteka'])){
                 $apt_id = 2;
@@ -791,7 +779,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
 
         if ($id == 0) {$method = 'new';}else{$method = 'update';}
 
-        var_dump($element);
+        //var_dump($element);
         //var_dump($element1);
 
         if (isset($_POST['copy'])){

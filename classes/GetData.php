@@ -128,15 +128,13 @@ class GetData
             //$fields_query_list = 'routes.id, days.name as day, route_date, apteka.name as apteka, create_date';
             $fields_query_list = 'routes.id, route_date, apteka.name as apteka, destination.name as destination,
                                   create_date';
-            $fields_query_elem = ' days.name as day, route_date, apteka.name as apteka, destination.name as destination';
+            $fields_query_elem = 'route_date, apteka.name as apteka, destination.name as destination';
             $fields_query_id = 'id';
-            $join_table1 = ' days';
-            $join1 = " LEFT JOIN $join_table1 ON day_id = $join_table1.id";
-            $join_table2 = ' apteka';
-            $join2 = " LEFT JOIN $join_table2 ON apteka_id = $join_table2.id";
-            $join_table3 = ' destination';
-            $join3 = " LEFT JOIN $join_table3 ON destination_id = $join_table3.id";
-            $join = $join1 . $join2 . $join3;
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join_table2 = ' destination';
+            $join2 = " LEFT JOIN $join_table2 ON destination_id = $join_table2.id";
+            $join = $join1 . $join2;
             $order_by = 'route_date';
             if ($field_search == 'День недели'){$field_search = 'days.name';}
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
@@ -167,7 +165,7 @@ class GetData
             $join_table2 = ' destination';
             $join2 = " LEFT JOIN $join_table2 ON destination_id = $join_table2.id";
             $join = $join1 . $join2;
-            $order_by = 'day, numb';
+            $order_by = 'day_id, numb';
 
             if ($field_search == 'День недели'){$field_search = 'days.name';}
             //if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
