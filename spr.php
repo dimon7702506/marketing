@@ -55,6 +55,7 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                                 'okpo'=>'ОКПО'],
                    'invoices'=>['apteka'=>'Аптека',
                                 'provider'=>'Поставщик',
+                                'invoice_status'=>'Статус',
                                 'invoice_number'=>'Номер накладной',
                                 'sum'=>'Сумма'],
                    'users'=>['full_name'=>'Пользователь',
@@ -98,8 +99,7 @@ if (isset($_GET['submit_search'])) {
         $cols += ['name'=>'Поставщик',
                   'okpo'=>'ОКПО'];
     }elseif ($sp_type == 'invoices'){
-        $cols += ['apteka_id'=>'Код',
-                  'apteka'=>'Аптека',
+        $cols += ['apteka'=>'Аптека',
                   'provider'=>'Поставщик',
                   'invoice_number'=>'Номер',
                   'invoice_date'=>'Дата',

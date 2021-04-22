@@ -409,17 +409,7 @@ if (isset($_GET['id'])) {
                             'related_table' => 'invoice_status',
                             'form_type' => 'select',
                             'key' => 'invoice_status_id'],
-            'oper' => ['field_name' => 'Оператор',
-                            'type' => 'text',
-                            'min' => 0,
-                            'max' => 0,
-                            'length' => 100,
-                            'str_num' => 2,
-                            'col' => 2,
-                            'required' => 'required',
-                            'related_table' => 'users',
-                            'form_type' => 'select',
-                            'key' => 'user_id'],
+
             'note' => ['field_name' => 'Примечание',
                             'type' => 'text',
                             'min' => 0,
@@ -764,6 +754,16 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         array_push($element, 'name');
         $element['name'] = $element['apteka'];
         array_push($del_arg,'apteka');
+    }
+
+    if($sp_type == 'invoices'){
+
+        $element['user_id'] = 0;
+
+        if(get_role_id() == 1){
+            $element['user_id'] = get_user_id();
+            $element['invoice_status_id'] = 2;
+        }
     }
 
     $element += ['id' => $id];

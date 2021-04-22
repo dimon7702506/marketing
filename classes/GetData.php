@@ -85,12 +85,12 @@ class GetData
             if ($field_search == 'Поставщик'){$field_search = 'name';}
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
-            $fields_query_list = 'invoice.id, invoice.apteka_id ,apteka.name as apteka, providers.name as provider,
+            $fields_query_list = 'invoice.id, apteka.name as apteka, providers.name as provider,
                 invoice_number, invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, 
                 users.full_name as oper';
             $fields_query_elem = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,
                 invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note, 
-                users.full_name as oper';
+                user_id';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
@@ -106,6 +106,7 @@ class GetData
             elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
             elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
             elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
+            elseif ($field_search == 'Статус') {$field_search = 'invoice_status_id';}
         }elseif ($sp_type == 'invoice_status'){
             $table_name = 'invoice_status';
             $fields_query_list = 'name';
@@ -125,7 +126,6 @@ class GetData
             if ($field_search == 'Пользователь'){$field_search = 'full_name';}
         }elseif ($sp_type == 'routes'){
             $table_name = 'routes';
-            //$fields_query_list = 'routes.id, days.name as day, route_date, apteka.name as apteka, create_date';
             $fields_query_list = 'routes.id, route_date, apteka.name as apteka, destination.name as destination,
                                   create_date';
             $fields_query_elem = 'route_date, apteka.name as apteka, destination.name as destination';
