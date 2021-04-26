@@ -107,6 +107,27 @@ class GetData
             elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
             elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
             elseif ($field_search == 'Статус') {$field_search = 'invoice_status_id';}
+        }elseif ($sp_type == 'invoices1'){
+            $table_name = 'invoice';
+            $fields_query_list = 'invoice.id, apteka.firm_id, invoice.apteka_id, apteka.name as apteka,
+                providers.name as provider, providers.okpo, invoice_number, invoice_date, invoice_sum, invoice_tax,
+                pay_date, note';
+            $fields_query_id = 'id';
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join_table2 = ' providers';
+            $join2 = " LEFT JOIN $join_table2 ON provider_id = $join_table2.id";
+            $join_table3 = ' invoice_status';
+            $join3 = " LEFT JOIN $join_table3 ON invoice_status_id = $join_table3.id";
+            $join_table4 = ' users';
+            $join4 = " LEFT JOIN $join_table4 ON user_id = $join_table4.id";
+             $join = $join1 . $join2 . $join3 . $join4;
+            $order_by = 'invoice.id DESC';
+            if ($field_search == 'Номер накладной'){$field_search = 'invoice_number';}
+            elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
+            elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
+            elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
+            elseif ($field_search == 'Статус') {$field_search = 'invoice_status_id';}
         }elseif ($sp_type == 'invoice_status'){
             $table_name = 'invoice_status';
             $fields_query_list = 'name';
@@ -169,7 +190,6 @@ class GetData
 
             if ($field_search == 'День недели'){$field_search = 'days.name';}
             //if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
-
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -181,8 +201,7 @@ class GetData
 
         $sql = "SELECT $fields_query FROM $table_name $join ";
         if (strlen($field_search) > 0){
-            if ((strpos(strtolower($field_search), 'id') !== false)
-                /*and (strlen($field_search) < 9)*/) {
+            if ((strpos(strtolower($field_search), 'id') !== false)) {
                 $sql .= "WHERE $table_name.$field_search = :str ";
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
             }elseif ($query_type == 'id'){
@@ -211,6 +230,11 @@ class GetData
             $arg = [];
         }
         $arg = ["str" => $text_search];
+
+        if ($sp_type == 'invoices1'){
+            $sql .= "where invoice_status_id = 2 ";
+        }
+
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump($sql);
         //var_dump($arg);

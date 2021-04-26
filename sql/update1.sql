@@ -11,3 +11,4 @@ CREATE TABLE `analytics`.`standart_routes` ( `id` INT(7) NOT NULL AUTO_INCREMENT
 RENAME TABLE `analytics`.`standart_routes` TO `analytics`.`routes_standart`;
 
 ALTER TABLE `invoice` CHANGE `user_id` `user_id` INT(3) NULL DEFAULT '0';
+

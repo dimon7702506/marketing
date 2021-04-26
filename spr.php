@@ -41,6 +41,13 @@ if ($sp_type == 'routes_standart'){
     //var_dump($html_s);
 }
 
+$html_button_1C = '';
+if ($sp_type == 'invoices') {
+    $html_button_1C = '<button type="submit" class="btn btn-outline-success my-2 mark-button"
+        style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_1C"
+        value="1С">Передать в 1С</button>';
+}
+
 $select_options = ['podr'=>['apteka_name'=>'Наименование',
                             'firm_name'=>'Фирма'],
                    'MNN'=>['MNN'=>'MNN',
@@ -131,8 +138,8 @@ if (isset($_GET['submit_search'])) {
 
     $result_tab = '';
     $id = 0;
-    $role_id = $_COOKIE['role_id'];
-    $apteka_id = $_COOKIE['apteka_id'];
+    $role_id = get_role_id();
+    $apteka_id = get_apteka_id();
 
     foreach($res as $r){
         //var_dump(array_keys($r));
@@ -161,8 +168,8 @@ if (isset($_GET['submit_search'])) {
     setcookie('sp_type', $sp_type);
 }
 
-if (isset($_GET['submit_new'])) {
-    header("location: ./elem.php?id=0&sp_type=$sp_type");
-}
+if (isset($_GET['submit_new'])) {header("location: ./elem.php?id=0&sp_type=$sp_type");}
+
+if (isset($_GET['submit_1C'])){invoise_to_1C();}
 
 require_once "./spr.html";

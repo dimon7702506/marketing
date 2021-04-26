@@ -39,8 +39,12 @@
                 <?php echo $html_select_options ?>
             </select>
         </div>
+
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
+
+        <?php echo $html_button_1C; ?>
+
     </form>
 
     <?php if(isset($res)): ?>
