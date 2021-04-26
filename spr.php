@@ -36,7 +36,7 @@ if ($sp_type == 'routes_standart'){
     $html_s = '<div class="form-group mx-sm-3">';
     $html_s .= '<label for="formGroupExampleInput" class="sr-only">Password</label>';
     $html_s .= '<input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск"
-                    style="width: 600px;'. $s .'>';
+                    style="width: 500px;'. $s .'>';
     $html_s .= '</div>';
     //var_dump($html_s);
 }
