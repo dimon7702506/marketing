@@ -111,8 +111,6 @@ if (isset($_GET['submit_search'])) {
                   'invoice_number'=>'Номер',
                   'invoice_date'=>'Дата',
                   'invoice_sum'=>'Сумма',
-                  'invoice_tax'=>'НДС',
-                  'pay_date'=>'Оплата',
                   'invoice_status'=>'Статус',
                   'oper'=>'Оператор'];
     }elseif ($sp_type == 'users'){
