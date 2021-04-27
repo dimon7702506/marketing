@@ -368,7 +368,7 @@ if (isset($_GET['id'])) {
             'invoice_sum' => ['field_name' => 'Сумма',
                             'type' => 'number',
                             'min' => 0,
-                            'max' => 999999,
+                            'max' => 999999.99,
                             'length' => 100,
                             'str_num' => 2,
                             'col' => 2,
@@ -379,7 +379,7 @@ if (isset($_GET['id'])) {
             'invoice_tax' => ['field_name' => 'НДС',
                             'type' => 'number',
                             'min' => 0,
-                            'max' => 999999,
+                            'max' => 999999.99,
                             'length' => 0,
                             'str_num' => 2,
                             'col' => 2,
@@ -628,7 +628,11 @@ if (isset($_GET['id'])) {
             $html_elem .= '<div class="form-group col-md-' . $f['col'] . '">
                                 <label for="inputEmail4">' . $f['field_name'] . '</label>';
             if ($f['form_type'] == 'input') {
-                $html_elem .= '<input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
+                $step = '';
+                if ($f['type'] == 'number'){
+                    $step = 'step = "any"';
+                }
+                $html_elem .= '<input type="' . $f['type'] . $step . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
                                 name="' . $key . '" ' . $f['required'] . '>';
             }elseif ($f['form_type'] == 'textarea') {
                 $html_elem .= '<textarea class="form-control" id="text" name="' . $key . '" rows = 10>'
@@ -689,7 +693,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $_POST[$key], $f['required']);
             $val = $check->value;
 
-            if ($f['type'] == 'number'){$val = (int) $val;}
+            if ($f['type'] == 'number'){$val = $val;}
             elseif ($f['type'] == 'text'){$val = trim($val);}
             elseif ($f['type'] == 'date'){}
 

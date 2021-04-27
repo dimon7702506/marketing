@@ -157,7 +157,7 @@ function export_marketings_base_to_file()
     $query_type = 'list';
     $find = new GetData($sp_type, $text_search, $field_search, $query_type);
     $marketings = $find->result_data;
-    var_dump($marketings);
+    //var_dump($marketings);
     array_walk($marketings, 'encode_marketing_CSV');
 
     $file = fopen("./out/marketings.csv", 'w+');
