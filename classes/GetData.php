@@ -111,7 +111,7 @@ class GetData
             $table_name = 'invoice';
             $fields_query_list = 'invoice.id, apteka.firm_id, invoice.apteka_id, apteka.name as apteka,
                 providers.name as provider, providers.okpo, invoice_number, invoice_date, invoice_sum, invoice_tax,
-                pay_date, note';
+                pay_date, note, invoice_status_id';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
@@ -232,7 +232,7 @@ class GetData
         $arg = ["str" => $text_search];
 
         if ($sp_type == 'invoices1'){
-            $sql .= "where invoice_status_id = 2 ";
+            $sql .= "where invoice_status_id = 1 ";
         }
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}

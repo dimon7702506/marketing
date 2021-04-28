@@ -137,6 +137,7 @@ function invoise_to_1C()
 {
     $find = new GetData('invoices1', '', '', 'list');
     $invoices = $find->result_data;
+    //var_dump($invoices);
     array_walk($invoices, 'encode_invoices_CSV');
 
     $file = fopen("./out/invoices.csv", 'w+');
@@ -147,6 +148,13 @@ function invoise_to_1C()
     fclose($file);
 
     copy('./out/invoices.csv', '/samba/public/1C/invoices.csv');
+
+    foreach($invoices as $invoice){
+        //var_dump($invoice);
+        $element['id'] = $invoice['id'];
+        $element['invoice_status_id'] = 3;
+        $save = new SetData('invoices', $element, 'update');
+    }
 }
 
 function export_marketings_base_to_file()

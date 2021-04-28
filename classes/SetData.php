@@ -97,7 +97,9 @@ class SetData
 
         $sql = $sql_update . $sql_end;
 
-        //var_dump($sql);
+        $sql = str_replace('SET,', 'SET', $sql);
+
+        var_dump($sql);
         //var_dump($args);
 
         $sql_id = "SELECT LAST_INSERT_ID();";
