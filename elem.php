@@ -630,9 +630,9 @@ if (isset($_GET['id'])) {
             if ($f['form_type'] == 'input') {
                 $step = '';
                 if ($f['type'] == 'number'){
-                    $step = 'step = "any"';
+                    $step = 'step = "any" pattern="[0-9]+([\.][0-9]+)?"';
                 }
-                $html_elem .= '<input type="' . $f['type'] . $step . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
+                $html_elem .= '<input type="' . $f['type'] . '"' . $step . 'class="form-control" id="inputEmail1" value="' . $result[$key] . '"
                                 name="' . $key . '" ' . $f['required'] . '>';
             }elseif ($f['form_type'] == 'textarea') {
                 $html_elem .= '<textarea class="form-control" id="text" name="' . $key . '" rows = 10>'
