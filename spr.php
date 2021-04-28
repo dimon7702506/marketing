@@ -142,9 +142,11 @@ if (isset($_GET['submit_search'])) {
     foreach($res as $r){
         //var_dump(array_keys($r));
         //var_dump($r);
-        if($sp_type == 'invoices' && $role_id == 2){
-            if($r['apteka_id'] !== $apteka_id){
-                continue;
+        if (isset($r['apteka_id'])) {
+            if ($sp_type == 'invoices' && $role_id == 2) {
+                if ($r['apteka_id'] !== $apteka_id) {
+                    continue;
+                }
             }
         }
         $keys = array_keys($r);
