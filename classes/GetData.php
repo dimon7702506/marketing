@@ -85,7 +85,7 @@ class GetData
             if ($field_search == 'Поставщик'){$field_search = 'name';}
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
-            $fields_query_list = 'invoice.id, apteka.name as apteka, providers.name as provider,
+            $fields_query_list = 'invoice.id, invoice.apteka_id as apteka_id, apteka.name as apteka, providers.name as provider,
                 invoice_number, invoice_date, invoice_sum, invoice_status.name as invoice_status, 
                 users.full_name as oper';
             $fields_query_elem = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,

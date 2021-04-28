@@ -42,7 +42,7 @@ if ($sp_type == 'routes_standart'){
 }
 
 $html_button_1C = '';
-if ($sp_type == 'invoices') {
+if ($sp_type == 'invoices' && get_role_id() == 1) {
     $html_button_1C = '<button type="submit" class="btn btn-outline-success my-2 mark-button"
         style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_1C"
         value="1С">Передать в 1С</button>';
@@ -106,7 +106,8 @@ if (isset($_GET['submit_search'])) {
         $cols += ['name'=>'Поставщик',
                   'okpo'=>'ОКПО'];
     }elseif ($sp_type == 'invoices'){
-        $cols += ['apteka'=>'Аптека',
+        $cols += ['apteka_id'=>'Код',
+                  'apteka'=>'Аптека',
                   'provider'=>'Поставщик',
                   'invoice_number'=>'Номер',
                   'invoice_date'=>'Дата',
@@ -136,25 +137,21 @@ if (isset($_GET['submit_search'])) {
 
     $result_tab = '';
     $id = 0;
-    $role_id = get_role_id();
-    $apteka_id = get_apteka_id();
+    //$role_id = get_role_id();
+    //$apteka_id = get_apteka_id();
 
     foreach($res as $r){
         //var_dump(array_keys($r));
         //var_dump($r);
         if (isset($r['apteka_id'])) {
-            if ($sp_type == 'invoices' && $role_id == 2) {
-                if ($r['apteka_id'] !== $apteka_id) {
-                    continue;
-                }
+            if ($sp_type == 'invoices' && get_role_id() == 2) {
+                if ($r['apteka_id'] !== get_apteka_id()) {continue;}
             }
         }
         $keys = array_keys($r);
         $result_tab .= '<tr>';
             foreach ($keys as $value) {
-                if ($value == 'id' || $value == 'm_id' || $value == 'invoice_id'){
-                    $id = (int) $r[$value];
-                }
+                if ($value == 'id' || $value == 'm_id' || $value == 'invoice_id'){$id = (int) $r[$value];}
                 $result_tab .= '<td>' . $r[$value] . '</td>';
             }
 
