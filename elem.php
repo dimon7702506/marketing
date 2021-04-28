@@ -760,16 +760,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         array_push($del_arg,'apteka');
     }
 
-    if($sp_type == 'invoices'){
-
-        $element['user_id'] = 0;
-
-        if(get_role_id() == 1){
-            $element['user_id'] = get_user_id();
-            $element['invoice_status_id'] = 2;
-        }
-    }
-
     $element += ['id' => $id];
 
     foreach ($element as $key=>$value){

@@ -1,4 +1,5 @@
 out/names.csv
+out/invoices.csv
 out/marketings.csv
 out/*.zip
 out/*.xml
