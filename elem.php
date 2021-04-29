@@ -693,9 +693,13 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $_POST[$key], $f['required']);
             $val = $check->value;
 
-            if ($f['type'] == 'number'){$val = $val;}
+            if ($f['type'] == 'number') {
+                if ($val == '') {$val = 0;}
+            }
             elseif ($f['type'] == 'text'){$val = trim($val);}
-            elseif ($f['type'] == 'date'){}
+            elseif ($f['type'] == 'date'){
+                if ($val == '') {$val = NULL;}
+            }
 
             $element += [$key=>$val];
 

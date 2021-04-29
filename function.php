@@ -149,12 +149,14 @@ function invoise_to_1C()
 
     copy('./out/invoices.csv', '/samba/public/1C/invoices.csv');
 
+    /*
     foreach($invoices as $invoice){
         //var_dump($invoice);
         $element['id'] = $invoice['id'];
         $element['invoice_status_id'] = 3;
         $save = new SetData('invoices', $element, 'update');
     }
+    */
 }
 
 function export_marketings_base_to_file()
