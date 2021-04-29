@@ -10,10 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="453cd2d2-d590-4ed2-87db-e96ea91a9899" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/GetData.php" afterPath="$PROJECT_DIR$/classes/GetData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elem.php" afterPath="$PROJECT_DIR$/elem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/menu.html" afterPath="$PROJECT_DIR$/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spr.php" afterPath="$PROJECT_DIR$/spr.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,17 +36,17 @@
       <file leaf-file-name="spr.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spr.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="1615">
               <caret line="95" column="8" lean-forward="false" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetData.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/GetData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="708">
               <caret line="165" column="10" lean-forward="false" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="10" />
               <folding>
                 <marker date="1617630359038" expanded="true" signature="6662:6700" ph="SELECT ${$fi... ${$table_name}" />
@@ -62,7 +58,7 @@
       <file leaf-file-name="elem.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
+            <state relative-caret-position="6018">
               <caret line="538" column="8" lean-forward="false" selection-start-line="538" selection-start-column="8" selection-end-line="538" selection-end-column="8" />
               <folding>
                 <element signature="e#480#23930#0#PHP" expanded="false" />
@@ -75,7 +71,7 @@
       <file leaf-file-name="SaveToDB.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/SaveToDB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
+            <state relative-caret-position="646">
               <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
               <folding>
                 <marker date="1616659127720" expanded="true" signature="245:297" ph="SELECT m_id marketing" />
@@ -102,7 +98,7 @@
       <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
+            <state relative-caret-position="1972">
               <caret line="116" column="6" lean-forward="false" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
               <folding>
                 <marker date="1616575503157" expanded="true" signature="4470:4480" ph="..." />
@@ -121,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="22" />
+            <state relative-caret-position="493">
+              <caret line="104" column="4" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -260,13 +256,13 @@
         <option value="$PROJECT_DIR$/admin.html" />
         <option value="$PROJECT_DIR$/element.html" />
         <option value="$PROJECT_DIR$/clear_bonus.php" />
-        <option value="$PROJECT_DIR$/function.php" />
         <option value="$PROJECT_DIR$/element.php" />
         <option value="$PROJECT_DIR$/classes/SaveToDB.php" />
         <option value="$PROJECT_DIR$/menu.html" />
         <option value="$PROJECT_DIR$/elem.php" />
         <option value="$PROJECT_DIR$/spr.php" />
         <option value="$PROJECT_DIR$/classes/GetData.php" />
+        <option value="$PROJECT_DIR$/function.php" />
       </list>
     </option>
   </component>
@@ -363,7 +359,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -378,11 +373,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../k-toys.com.ua" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -620,11 +616,13 @@
       <workItem from="1616575566380" duration="893000" />
       <workItem from="1616658285454" duration="999000" />
       <workItem from="1617618079008" duration="5042000" />
+      <workItem from="1618232060833" duration="58000" />
+      <workItem from="1619704380290" duration="269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="510953000" />
+    <option name="totallyTimeSpent" value="511280000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -638,7 +636,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2421875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2421875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -935,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -949,14 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/element.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3774">
@@ -967,7 +956,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/SaveToDB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="646">
           <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
             <marker date="1616659127720" expanded="true" signature="245:297" ph="SELECT m_id marketing" />
@@ -982,7 +971,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
+        <state relative-caret-position="1972">
           <caret line="116" column="6" lean-forward="false" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
           <folding>
             <marker date="1616575503157" expanded="true" signature="4470:4480" ph="..." />
@@ -1000,7 +989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/elem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
+        <state relative-caret-position="6018">
           <caret line="538" column="8" lean-forward="false" selection-start-line="538" selection-start-column="8" selection-end-line="538" selection-end-column="8" />
           <folding>
             <element signature="e#480#23930#0#PHP" expanded="false" />
@@ -1011,7 +1000,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spr.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="1615">
           <caret line="95" column="8" lean-forward="false" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
           <folding />
         </state>
@@ -1019,11 +1008,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/GetData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="708">
           <caret line="165" column="10" lean-forward="false" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="10" />
           <folding>
             <marker date="1617630359038" expanded="true" signature="6662:6700" ph="SELECT ${$fi... ${$table_name}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="104" column="4" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
