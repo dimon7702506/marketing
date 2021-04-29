@@ -231,10 +231,11 @@ class GetData
         }
         $arg = ["str" => $text_search];
 
+        /*
         if ($sp_type == 'invoices1'){
             $sql .= "where invoice_status_id = 1 ";
         }
-
+*/
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump($sql);
         //var_dump($arg);
