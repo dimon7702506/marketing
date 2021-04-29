@@ -208,7 +208,7 @@ function encode_invoices_CSV(&$value){
 
     $temp = $value['note'];
     $temp1 = iconv("UTF-8", "Windows-1251", $temp);
-    $value['note'] = str_replace(array("\r\n", "\r", "\n"), '', $temp1);
+    $value['note'] = str_replace(array("\r\n", "\r", "\n"), ';', $temp1);
 }
 
 function encode_names_CSV(&$value){
