@@ -11,7 +11,6 @@ function super_unique($array,$key)
     }
     $array = array_values($temp_array);
     return $array;
-
 }
 
 function generateCode($length=6) {
@@ -80,6 +79,13 @@ function get_role_id()
     return $_COOKIE['role_id'];
 }
 
+function get_apteka_id()
+{
+    if (!is_user_logged_in()) {return ' ';}
+
+    return $_COOKIE['apteka_id'];
+}
+
 function log_out()
 {
     setcookie("user_id", "", time() - 3600*24*30*12, "/");
@@ -127,6 +133,30 @@ function download_names_base()
     readfile($download_file);
 }
 
+function invoise_to_1C()
+{
+    $find = new GetData('invoices1', '', '', 'list');
+    $invoices = $find->result_data;
+    //var_dump($invoices);
+    array_walk($invoices, 'encode_invoices_CSV');
+
+    $file = fopen("./out/invoices.csv", 'w+');
+    foreach ($invoices as $invoice) {
+        array_push($invoice, "");
+        fputcsv($file, $invoice, "|");
+    }
+    fclose($file);
+
+    copy('./out/invoices.csv', '/samba/public/1C/invoices.csv');
+
+    foreach($invoices as $invoice){
+        //var_dump($invoice);
+        $element['id'] = $invoice['id'];
+        $element['invoice_status_id'] = 3;
+        $save = new SetData('invoices', $element, 'update');
+    }
+}
+
 function export_marketings_base_to_file()
 {
     $sp_type = 'marketing';
@@ -166,6 +196,18 @@ function download_marketings_base()
 function encode_marketing_CSV(&$value){
     $temp = $value['name'];
     $value['name'] = iconv("UTF-8", "Windows-1251", $temp);
+}
+
+function encode_invoices_CSV(&$value){
+
+    $temp = $value['apteka'];
+    $value['apteka'] = iconv("UTF-8", "Windows-1251", $temp);
+
+    $temp = $value['provider'];
+    $value['provider'] = iconv("UTF-8", "Windows-1251", $temp);
+
+    $temp = $value['note'];
+    $value['note'] = iconv("UTF-8", "Windows-1251", $temp);
 }
 
 function encode_names_CSV(&$value){

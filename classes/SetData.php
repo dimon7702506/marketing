@@ -39,8 +39,16 @@ class SetData
             $id_name = 'id';
             $element['password_hash'] = md5(md5(trim($_POST['password'])));
             $element['password'] = '';
+        }elseif ($sp_type == 'routes') {
+            $table_name = 'routes';
+            $id_name = 'id';
+        }elseif ($sp_type == 'destination') {
+            $table_name = 'destination';
+            $id_name = 'id';
+        }elseif ($sp_type == 'routes_standart') {
+            $table_name = 'routes_standart';
+            $id_name = 'id';
         }
-
         //var_dump($element);
         $sql_update = '';
         $sql_end = '';
@@ -78,20 +86,18 @@ class SetData
                     $i++;
                     $sql_update .= " :$key";
                 }
-                if ($i < count($element) - 1){
-                    $sql_update .= ",";
-                }
+                if ($i < count($element) - 1){$sql_update .= ",";}
             }
             $sql_update .= ")";
             $del_arg=['id'];
             foreach ($element as $key=>$value){
-                if (!in_array($key, $del_arg)){
-                    $args[$key] = $value;
-                }
+                if (!in_array($key, $del_arg)){$args[$key] = $value;}
             }
         }
 
         $sql = $sql_update . $sql_end;
+
+        $sql = str_replace('SET,', 'SET', $sql);
 
         //var_dump($sql);
         //var_dump($args);

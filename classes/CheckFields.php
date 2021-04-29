@@ -17,18 +17,18 @@ class CheckFields
     {
         if(!isset($val)){
             $this->error = 'Incorrect ' . $field_name;
-        }else{
+        }else {
             $this->value = htmlentities($val);
 
-            if($type == 'text'){
-                if(strlen($val) < 0 || strlen($val) > $length){
+            if ($type == 'text') {
+                if (strlen($val) < 0 || strlen($val) > $length) {
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
-            }elseif ($type == 'number'){
-                if($val < $min || $val > $max) {
+            } elseif ($type == 'number') {
+                if ($val < $min || $val > $max) {
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
-            }elseif ($type == 'date'){ }
+            } elseif ($type == 'date') {}
         }
     }
 }

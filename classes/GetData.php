@@ -43,7 +43,7 @@ class GetData
             $table_name = 'people';
             $fields_query_list = 'people.id, full_name as name, people.tel';
             $fields_query_elem = 'people.id, full_name, people.tel, birthday, tm_id, apteka.name as apteka';
-            $fields_query_id = 'id';
+            $fields_query_id = 'people.id';
             $join_table = ' apteka';
             $join = " LEFT JOIN $join_table ON apteka_id = apteka.id";
             $order_by = 'full_name';
@@ -82,14 +82,15 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'name';
-            if ($field_search == 'Поставщик'){$field_search = 'name';
-            }
+            if ($field_search == 'Поставщик'){$field_search = 'name';}
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
-            $fields_query_list = 'invoice.id, apteka_id, apteka.name as apteka, providers.name as provider, invoice_number,
-                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status';
+            $fields_query_list = 'invoice.id, invoice.apteka_id as apteka_id, apteka.name as apteka, providers.name as provider,
+                invoice_number, invoice_date, invoice_sum, invoice_status.name as invoice_status, 
+                users.full_name as oper';
             $fields_query_elem = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,
-                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note';
+                invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note, 
+                user_id';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
@@ -97,12 +98,36 @@ class GetData
             $join2 = " LEFT JOIN $join_table2 ON provider_id = $join_table2.id";
             $join_table3 = ' invoice_status';
             $join3 = " LEFT JOIN $join_table3 ON invoice_status_id = $join_table3.id";
-            $join = $join1 . $join2 . $join3;
+            $join_table4 = ' users';
+            $join4 = " LEFT JOIN $join_table4 ON user_id = $join_table4.id";
+            $join = $join1 . $join2 . $join3 . $join4;
             $order_by = 'invoice.id DESC';
             if ($field_search == 'Номер накладной'){$field_search = 'invoice_number';}
             elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
             elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
             elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
+            elseif ($field_search == 'Статус') {$field_search = 'invoice_status_id';}
+        }elseif ($sp_type == 'invoices1'){
+            $table_name = 'invoice';
+            $fields_query_list = 'invoice.id, apteka.firm_id, invoice.apteka_id, apteka.name as apteka,
+                providers.name as provider, providers.okpo, invoice_number, invoice_date, invoice_sum, invoice_tax,
+                pay_date, note, invoice_status_id';
+            $fields_query_id = 'id';
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join_table2 = ' providers';
+            $join2 = " LEFT JOIN $join_table2 ON provider_id = $join_table2.id";
+            $join_table3 = ' invoice_status';
+            $join3 = " LEFT JOIN $join_table3 ON invoice_status_id = $join_table3.id";
+            $join_table4 = ' users';
+            $join4 = " LEFT JOIN $join_table4 ON user_id = $join_table4.id";
+             $join = $join1 . $join2 . $join3 . $join4;
+            $order_by = 'invoice.id DESC';
+            if ($field_search == 'Номер накладной'){$field_search = 'invoice_number';}
+            elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
+            elseif ($field_search == 'Поставщик') {$field_search = 'providers.name';}
+            elseif ($field_search == 'Сумма') {$field_search = 'invoice_sum';}
+            elseif ($field_search == 'Статус') {$field_search = 'invoice_status_id';}
         }elseif ($sp_type == 'invoice_status'){
             $table_name = 'invoice_status';
             $fields_query_list = 'name';
@@ -122,17 +147,49 @@ class GetData
             if ($field_search == 'Пользователь'){$field_search = 'full_name';}
         }elseif ($sp_type == 'routes'){
             $table_name = 'routes';
-            $fields_query_list = 'routes.id, days.name as day, apteka.name as apteka, route_date';
-            $fields_query_elem = ' days.name as day, apteka.name as apteka';
+            $fields_query_list = 'routes.id, route_date, apteka.name as apteka, destination.name as destination,
+                                  create_date';
+            $fields_query_elem = 'route_date, apteka.name as apteka, destination.name as destination';
+            $fields_query_id = 'id';
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join_table2 = ' destination';
+            $join2 = " LEFT JOIN $join_table2 ON destination_id = $join_table2.id";
+            $join = $join1 . $join2;
+            $order_by = 'route_date';
+            if ($field_search == 'День недели'){$field_search = 'days.name';}
+            if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+        }elseif ($sp_type == 'days'){
+            $table_name = 'days';
+            $fields_query_list = 'name';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'id';
+        }elseif ($sp_type == 'destination'){
+            $table_name = 'destination';
+            $fields_query_list = 'id, name';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'id';
+            if ($field_search == 'Наименование'){$field_search = 'name';}
+        }elseif ($sp_type == 'routes_standart'){
+            $table_name = 'routes_standart';
+            $fields_query_list = 'routes_standart.id, days.name as day, destination.name as destination, numb';
+            $fields_query_elem = ' days.name as day, destination.name as destination, numb';
             $fields_query_id = 'id';
             $join_table1 = ' days';
             $join1 = " LEFT JOIN $join_table1 ON day_id = $join_table1.id";
-            $join_table2 = ' apteka';
-            $join2 = " LEFT JOIN $join_table2 ON apteka_id = $join_table2.id";
+            $join_table2 = ' destination';
+            $join2 = " LEFT JOIN $join_table2 ON destination_id = $join_table2.id";
             $join = $join1 . $join2;
-            $order_by = 'day_id';
+            $order_by = 'day_id, numb';
+
             if ($field_search == 'День недели'){$field_search = 'days.name';}
-            if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+            //if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -144,26 +201,43 @@ class GetData
 
         $sql = "SELECT $fields_query FROM $table_name $join ";
         if (strlen($field_search) > 0){
-            if ((strpos(strtolower($field_search), 'id') !== false)
-                /*and (strlen($field_search) < 9)*/) {
+            if ((strpos(strtolower($field_search), 'id') !== false)) {
                 $sql .= "WHERE $table_name.$field_search = :str ";
                 $sql = str_replace('apteka.apteka', 'apteka', $sql);
+            }elseif ($query_type == 'id'){
+                $sql .= "WHERE $table_name.$field_search = :str ";
             }else {
                 $sql .= "WHERE $table_name.$field_search LIKE CONCAT('%', :str, '%')";
-                $sql = str_replace('apteka.apteka', 'apteka', $sql);
-                $sql = str_replace('invoice.apteka', 'apteka', $sql);
-                $sql = str_replace('invoice.providers', 'providers', $sql);
-                $sql = str_replace('people.people', 'people', $sql);
-                $sql = str_replace('routes.apteka', 'apteka', $sql);
-                $sql = str_replace('routes.days.name', 'days.name', $sql);
+                if ($sp_type == 'routes'){
+                    $sql .= " and route_date >= Curdate()";
+                    if(get_role_id() == 2){
+                        $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
+                    }
+                }
             }
+
+            $sql = str_replace('apteka.apteka', 'apteka', $sql);
+            $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
+            $sql = str_replace('invoice.providers', 'providers', $sql);
+            $sql = str_replace('people.people', 'people', $sql);
+            $sql = str_replace('routes.apteka', 'apteka', $sql);
+            $sql = str_replace('routes.days.name', 'days.name', $sql);
+            $sql = str_replace('firm.firm.name', 'firm.name', $sql);
+            $sql = str_replace('routes_standart.days.name', 'days.name', $sql);
+
             $arg = ["str" => $text_search];
         }else{
             $arg = [];
         }
         $arg = ["str" => $text_search];
+
+        if ($sp_type == 'invoices1'){
+            $sql .= "where invoice_status_id = 1 ";
+        }
+
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump($sql);
+        //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->result_data = $data;

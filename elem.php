@@ -205,9 +205,7 @@ if (isset($_GET['id'])) {
                                     'col' => 2,
                                     'required' => '',
                                     'related_table' => '',
-                                    'form_type'=>'input'],
-        ];
-
+                                    'form_type'=>'input']];
     }elseif ($sp_type == 'people') {
         $fields = ['full_name' => ['field_name' => 'ФИО',
                                     'type' => 'text',
@@ -249,8 +247,7 @@ if (isset($_GET['id'])) {
                                     'required' => 'required',
                                     'related_table' => 'apteka',
                                     'form_type'=>'select',
-                                    'key' => 'apteka_id'],
-                    ];
+                                    'key' => 'apteka_id']];
     }elseif ($sp_type == 'marketing') {
         $fields = ['m_name' => ['field_name' => 'Маркетинг',
                                    'type' => 'text',
@@ -301,8 +298,7 @@ if (isset($_GET['id'])) {
                                     'col' => 1,
                                     'required' => '',
                                     'related_table' => '',
-                                    'form_type'=>'input'],
-        ];
+                                    'form_type'=>'input']];
     }elseif ($sp_type == 'providers'){
         $fields = ['name' => ['field_name' => 'Поставщик',
                             'type' => 'text',
@@ -323,8 +319,7 @@ if (isset($_GET['id'])) {
                             'col' => 6,
                             'required' => 'required',
                             'related_table' => '',
-                            'form_type'=>'input']
-        ];
+                            'form_type'=>'input']];
     }elseif ($sp_type == 'invoices') {
         $fields = ['apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
@@ -373,7 +368,7 @@ if (isset($_GET['id'])) {
             'invoice_sum' => ['field_name' => 'Сумма',
                             'type' => 'number',
                             'min' => 0,
-                            'max' => 999999,
+                            'max' => 999999.99,
                             'length' => 100,
                             'str_num' => 2,
                             'col' => 2,
@@ -384,11 +379,11 @@ if (isset($_GET['id'])) {
             'invoice_tax' => ['field_name' => 'НДС',
                             'type' => 'number',
                             'min' => 0,
-                            'max' => 999999,
+                            'max' => 999999.99,
                             'length' => 0,
                             'str_num' => 2,
                             'col' => 2,
-                            'required' => 'required',
+                            'required' => '',
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => ''],
@@ -399,7 +394,7 @@ if (isset($_GET['id'])) {
                             'length' => 100,
                             'str_num' => 2,
                             'col' => 2,
-                            'required' => 'required',
+                            'required' => '',
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => ''],
@@ -414,6 +409,7 @@ if (isset($_GET['id'])) {
                             'related_table' => 'invoice_status',
                             'form_type' => 'select',
                             'key' => 'invoice_status_id'],
+
             'note' => ['field_name' => 'Примечание',
                             'type' => 'text',
                             'min' => 0,
@@ -482,7 +478,18 @@ if (isset($_GET['id'])) {
                             'form_type' => 'input',
                             'key' => '']];
     }elseif ($sp_type == 'routes') {
-        $fields = ['day' => ['field_name' => 'День недели',
+        $fields = ['route_date' => ['field_name' => 'Дата',
+                            'type' => 'date',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 2,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => ''],
+                    'apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
                             'min' => 0,
                             'max' => 0,
@@ -490,11 +497,75 @@ if (isset($_GET['id'])) {
                             'str_num' => 1,
                             'col' => 4,
                             'required' => 'required',
+                            'related_table' => 'apteka',
+                            'form_type' => 'select',
+                            'key' => 'apteka_id'],
+                    'destination' => ['field_name' => 'Куда',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'destination',
+                            'form_type' => 'select',
+                            'key' => 'destination_id']];
+    }elseif ($sp_type == 'destination'){
+        $fields = ['name' => ['field_name' => 'Пункт назначения',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 50,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type'=>'input'],
+                    'adres' => ['field_name' => 'Адрес',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 200,
+                            'str_num' => 1,
+                            'col' => 8,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type'=>'input']];
+    }elseif ($sp_type == 'routes_standart') {
+        $fields = ['day' => ['field_name' => 'День недели',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 2,
+                            'required' => 'required',
                             'related_table' => 'days',
                             'form_type' => 'select',
-                            'key' => 'day_id']
-
-   ];
+                            'key' => 'day_id'],
+                    'destination' => ['field_name' => 'Куда',
+                            'type' => 'text',
+                            'min' => 0,
+                            'max' => 0,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 4,
+                            'required' => 'required',
+                            'related_table' => 'destination',
+                            'form_type' => 'select',
+                            'key' => 'destination_id'],
+                    'numb' => ['field_name' => 'Порядок',
+                            'type' => 'number',
+                            'min' => 10,
+                            'max' => 10000,
+                            'length' => 100,
+                            'str_num' => 1,
+                            'col' => 2,
+                            'required' => 'required',
+                            'related_table' => '',
+                            'form_type' => 'input',
+                            'key' => '']];
     }
 
     if (empty($results)){
@@ -527,23 +598,41 @@ if (isset($_GET['id'])) {
             $dismissed = $result['dismissed'];
             $apteka = $result['apteka'];
             if($dismissed == 1){$errors = 'Уволен!!!';}
-        }elseif ($sp_type == 'providers'){$provider = trim($result['name']);}
-        elseif ($sp_type == 'invoices'){
+        }elseif ($sp_type == 'providers'){$provider = trim($result['name']);
+        }elseif ($sp_type == 'invoices'){
             if (!$apteka){$apteka = $result['apteka'];}
             $provider = $result['provider'];
             if (!$invoice_status){$invoice_status = $result['invoice_status'];}
         }elseif ($sp_type == 'invoice_status'){$invoice_status = $result['invoice_status'];
         }elseif ($sp_type == 'routes'){
+            $apteka = $result['apteka'];
+            if(!isset($_GET['apteka'])){
+                $apt_id = 2;
+                if ($_COOKIE['apteka_id'] > 0){$apt_id = $_COOKIE['apteka_id'];}
+                $find = new GetData('podr', $apt_id, 'id', 'elem');
+                $results = $find->result_data;
+                $apteka = $results[0]['apteka'];
+            }
+            $destination = $result['destination'];
+        }elseif ($sp_type == 'destination') {
+            $destination = trim($result['name']);
+            $adress = trim($result['adres']);
+        }elseif ($sp_type == 'routes_standart'){
             $day = $result['day'];
-            $apteka = $result['apteka'];}
-        var_dump($results);
+            $numb = $result['numb'];
+            $destination = $result['destination'];
+        }
 
         foreach ($fields as $key => $f) {
             //var_dump($key);
             $html_elem .= '<div class="form-group col-md-' . $f['col'] . '">
                                 <label for="inputEmail4">' . $f['field_name'] . '</label>';
             if ($f['form_type'] == 'input') {
-                $html_elem .= '<input type="' . $f['type'] . '" class="form-control" id="inputEmail1" value="' . $result[$key] . '"
+                $step = '';
+                if ($f['type'] == 'number'){
+                    $step = 'step = "any" pattern="[0-9]+([\.][0-9]+)?"';
+                }
+                $html_elem .= '<input type="' . $f['type'] . '"' . $step . 'class="form-control" id="inputEmail1" value="' . $result[$key] . '"
                                 name="' . $key . '" ' . $f['required'] . '>';
             }elseif ($f['form_type'] == 'textarea') {
                 $html_elem .= '<textarea class="form-control" id="text" name="' . $key . '" rows = 10>'
@@ -570,6 +659,9 @@ if (isset($_GET['id'])) {
                 }elseif ($key == 'day'){
                     $html_elem .= $day;
                     $sp_type_list = 'days';
+                }elseif ($key == 'destination'){
+                    $html_elem .= $destination;
+                    $sp_type_list = 'destination';
                 }
 
                 $html_elem .= '</option>
@@ -601,7 +693,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $_POST[$key], $f['required']);
             $val = $check->value;
 
-            if ($f['type'] == 'number'){$val = (int) $val;}
+            if ($f['type'] == 'number'){$val = $val;}
             elseif ($f['type'] == 'text'){$val = trim($val);}
             elseif ($f['type'] == 'date'){}
 
@@ -624,6 +716,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $related_id = $find_id->result_data;
                 $element += ['apteka_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'apteka_name');
+                array_push($del_arg,'apteka');
             }
             if($f['related_table'] == 'providers'){
                 $find_id = new GetData('providers', $element['provider'],'name', 'id');
@@ -637,6 +730,22 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $element += ['invoice_status_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'invoice_status');
             }
+            if($f['related_table'] == 'days'){
+                $find_id = new GetData('days', $element['day'],'name', 'id');
+                $related_id = $find_id->result_data;
+                $d_id = 0;
+                if (!empty($related_id)){$d_id = (int) $related_id[0]['id'];}
+                $element += ['day_id'=> $d_id];
+                array_push($del_arg,'day');
+            }
+            if($f['related_table'] == 'destination'){
+                $find_id = new GetData('destination', $element['destination'],'name', 'id');
+                $related_id = $find_id->result_data;
+                $dst_id = 0;
+                if (!empty($related_id)){$dst_id = (int) $related_id[0]['id'];}
+                $element += ['destination_id'=> $dst_id];
+                array_push($del_arg,'destination');
+            }
 
             if ($sp_type == 'invoices'){array_push($del_arg,'apteka');}
             if ($sp_type == 'people'){array_push($del_arg,'apteka');}
@@ -644,6 +753,13 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             $errors .= $check->error;
         }
     //}
+
+    if ($sp_type == 'podr'){
+        array_push($element, 'name');
+        $element['name'] = $element['apteka'];
+        array_push($del_arg,'apteka');
+    }
+
     $element += ['id' => $id];
 
     foreach ($element as $key=>$value){
@@ -655,10 +771,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
 
     if (empty($errors)){
 
-        if ($id == 0) {$method = 'new';}
-        else {$method = 'update';}
+        if ($id == 0) {$method = 'new';}else{$method = 'update';}
 
         //var_dump($element);
+        //var_dump($element1);
 
         if (isset($_POST['copy'])){
             $element['id'] = 0;
@@ -667,9 +783,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
 
         $save = new SetData($sp_type, $element1, $method);
 
-        if ($method == 'new') {
-            $id = $save->result;
-        }
+        if ($method == 'new') {$id = $save->result;}
+
         header("location: ./elem.php?id=$id&sp_type=$sp_type");
     }
 }

@@ -21,7 +21,6 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <a class="navbar-brand" href="./menu.php">Главная</a>
                 <a class="navbar-brand" href="./catal.php" style="color: #28a745">Справочники</a>
-                <a class="navbar-brand" href="./catal.php" style="color: #28a745; <?=get_user_name()?>">Справочники</a>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
                 <h6 class="mark-text1"><?=get_user_name()?></h6>
@@ -31,20 +30,21 @@
     </nav>
 
     <form class="form-inline" style="padding-top: 10px" action="spr.php" method="get">
-        <div class="form-group mx-sm-3">
-            <label for="formGroupExampleInput" class="sr-only">Password</label>
 
-            <input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск" style="width: 600px;"
-                value="<?=isset($_GET['search']) ? $_GET['search'] : ''?>">
-        </div>
+        <?php echo $html_s; ?>
+
         <div class="form-group mx-sm-3">
-            <label for="inputState" style="padding-right: 10px;">Поле поиска:</label>
+            <label for="inputState" style="padding-right: 10px; padding-left: 10px">Поле поиска:</label>
             <select id="inputState" class="form-control" name="field_search">
                 <?php echo $html_select_options ?>
             </select>
         </div>
+
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
+
+        <?php echo $html_button_1C; ?>
+
     </form>
 
     <?php if(isset($res)): ?>
