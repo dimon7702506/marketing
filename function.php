@@ -113,6 +113,7 @@ function export_names_base_to_file($fields)
         fputcsv($file, $name, "|");
     }
     fclose($file);
+    copy('./out/names.csv', '/samba/public/1C/names.csv');
     $save = new SaveToDB('', 'update_modify');
 }
 
@@ -133,21 +134,49 @@ function download_names_base()
     readfile($download_file);
 }
 
+function var_dump_($v)
+{
+    echo '<pre>';
+    var_dump($v);
+    echo '</pre>';
+}
+
 function invoise_to_1C()
 {
-    $find = new GetData('invoices1', '', '', 'list');
+    $find = new GetData('firm_id', '', '', 'list');
+    $firms = $find->result_data;
+    //var_dump_($firms);
+    foreach ($firms as $firm){
+        invoise_to_1C_csv((int)$firm['id']);
+    }
+}
+
+function invoise_to_1C_csv($firm_id)
+{
+    //$firm_id = 1;
+    $file_name = './out/invoices' . $firm_id . '.csv';
+    $file_name_out = '/samba/public/1C/invoices' . $firm_id . '.csv';
+
+    if(file_exists($file_name_out)){
+        echo '<br> Файл ' . $file_name . ' не был загружен в прошлый раз. Данные по этой фирме не выгружены </br>';
+        return;
+    }
+
+    $find = new GetData('invoices1', $firm_id, 'apteka.firm_id', 'list');
     $invoices = $find->result_data;
-    //var_dump($invoices);
+
+    if (count($invoices) == 0){return;}
+
     array_walk($invoices, 'encode_invoices_CSV');
 
-    $file = fopen("./out/invoices.csv", 'w+');
+    $file = fopen($file_name, 'w+');
     foreach ($invoices as $invoice) {
         array_push($invoice, "");
         fputcsv($file, $invoice, "|");
     }
     fclose($file);
 
-    copy('./out/invoices.csv', '/samba/public/1C/invoices.csv');
+    copy($file_name, $file_name_out);
 
     foreach($invoices as $invoice){
         //var_dump($invoice);
@@ -174,6 +203,7 @@ function export_marketings_base_to_file()
         fputcsv($file, $marketing, "|");
     }
     fclose($file);
+    copy('./out/marketings.csv', '/samba/public/1C/marketings.csv');
 }
 
 function download_marketings_base()

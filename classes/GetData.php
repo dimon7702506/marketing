@@ -74,6 +74,14 @@ class GetData
             $join_table = '';
             $join = "";
             $order_by = 'name';
+        }elseif ($sp_type == 'firm_id'){
+            $table_name = 'firm';
+            $fields_query_list = 'firm.id';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table = '';
+            $join = "";
+            $order_by = 'name';
         }elseif ($sp_type == 'providers') {
             $table_name = 'providers';
             $fields_query_list = 'providers.id, providers.name, providers.okpo';
@@ -86,8 +94,7 @@ class GetData
         }elseif ($sp_type == 'invoices'){
             $table_name = 'invoice';
             $fields_query_list = 'invoice.id, invoice.apteka_id as apteka_id, apteka.name as apteka, providers.name as provider,
-                invoice_number, invoice_date, invoice_sum, invoice_status.name as invoice_status, 
-                users.full_name as oper';
+                invoice_number, invoice_date, invoice_sum, invoice_status.name as invoice_status';
             $fields_query_elem = 'invoice.id, apteka.name as apteka, providers.name as provider, invoice_number,
                 invoice_date, invoice_sum, invoice_tax, pay_date, invoice_status.name as invoice_status, note, 
                 user_id';
@@ -189,7 +196,6 @@ class GetData
             $order_by = 'day_id, numb';
 
             if ($field_search == 'День недели'){$field_search = 'days.name';}
-            //if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -218,6 +224,7 @@ class GetData
 
             $sql = str_replace('apteka.apteka', 'apteka', $sql);
             $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
+            $sql = str_replace('invoice.apteka.firm_id', 'apteka.firm_id', $sql);
             $sql = str_replace('invoice.providers', 'providers', $sql);
             $sql = str_replace('people.people', 'people', $sql);
             $sql = str_replace('routes.apteka', 'apteka', $sql);
@@ -231,13 +238,12 @@ class GetData
         }
         $arg = ["str" => $text_search];
 
-        /*
         if ($sp_type == 'invoices1'){
             $sql .= "where invoice_status_id = 1 ";
         }
-*/
+
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
-        //var_dump($sql);
+        //var_dump_($sql);
         //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

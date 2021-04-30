@@ -321,7 +321,16 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type'=>'input']];
     }elseif ($sp_type == 'invoices') {
-        $fields = ['apteka' => ['field_name' => 'Аптека',
+
+/*        if ($id) {
+            //if (get_role_id() == 2) {
+                $element['id'] = $id;
+                $element['invoice_status_id'] = 2;
+                $save = new SetData('invoices', $element, 'update');
+            //}
+        }
+*/
+         $fields = ['apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
                             'min' => 0,
                             'max' => 0,
@@ -751,7 +760,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 array_push($del_arg,'destination');
             }
 
-            if ($sp_type == 'invoices'){array_push($del_arg,'apteka');}
+            if ($sp_type == 'invoices'){
+                array_push($del_arg,'apteka');
+            }
             if ($sp_type == 'people'){array_push($del_arg,'apteka');}
 
             $errors .= $check->error;
@@ -762,6 +773,12 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         array_push($element, 'name');
         $element['name'] = $element['apteka'];
         array_push($del_arg,'apteka');
+    }
+
+    if($sp_type == 'invoices'){
+        //if (get_role_id() == 2) {
+            $element['invoice_status_id'] = 1;
+        //}
     }
 
     $element += ['id' => $id];

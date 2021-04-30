@@ -112,8 +112,7 @@ if (isset($_GET['submit_search'])) {
                   'invoice_number'=>'Номер',
                   'invoice_date'=>'Дата',
                   'invoice_sum'=>'Сумма',
-                  'invoice_status'=>'Статус',
-                  'oper'=>'Оператор'];
+                  'invoice_status'=>'Статус'];
     }elseif ($sp_type == 'users'){
         $cols += ['full_name'=> 'Пользователь',
                   'email'=>'Email'];
@@ -155,7 +154,7 @@ if (isset($_GET['submit_search'])) {
                 $result_tab .= '<td>' . $r[$value] . '</td>';
             }
 
-            $result_tab .= '<td>' . "<a href=/elem.php?id=$id&sp_type=$sp_type>изменить</a></td>";
+            $result_tab .= '<td>' . "<a href=/elem_pre.php?id=$id&sp_type=$sp_type>изменить</a></td>";
         $result_tab .= '</tr>';
     }
 
