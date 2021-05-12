@@ -690,6 +690,11 @@ if (isset($_GET['id'])) {
     }
 }
 
+$html_btn_copy = '';
+if (get_role_id() == 1){
+    $html_btn_copy = '<button type="submit" class="btn btn-primary" name="copy" style="margin-left: 15px">Копировать</button>';
+}
+
 if (isset($_POST['save']) || isset($_POST['copy'])) {
 
     $element = [];
