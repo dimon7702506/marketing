@@ -423,7 +423,7 @@ if (isset($_GET['id'])) {
                             'type' => 'text',
                             'min' => 0,
                             'max' => 0,
-                            'length' => 100,
+                            'length' => 2000,
                             'required' => 'required',
                             'str_num' => 3,
                             'col' => 12,
