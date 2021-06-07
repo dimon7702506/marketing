@@ -322,14 +322,6 @@ if (isset($_GET['id'])) {
                             'form_type'=>'input']];
     }elseif ($sp_type == 'invoices') {
 
-/*        if ($id) {
-            //if (get_role_id() == 2) {
-                $element['id'] = $id;
-                $element['invoice_status_id'] = 2;
-                $save = new SetData('invoices', $element, 'update');
-            //}
-        }
-*/
          $fields = ['apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
                             'min' => 0,

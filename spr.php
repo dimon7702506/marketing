@@ -4,6 +4,9 @@ require_once "./function.php";
 require_once "autoload.php";
 
 $sp_type = '';
+$date_start = '';
+$date_end = '';
+
 if (isset($_GET['sp_type'])){
     $sp_type = $_GET['sp_type'];
     setcookie('sp_type', $sp_type);
@@ -11,24 +14,25 @@ if (isset($_GET['sp_type'])){
 
 //Выбор режима поиска
 
-if ($sp_type == 'routes_standart'){
+if ($sp_type == 'routes_standart') {
 
     $s = '';
-    if (isset($_GET['search'])){$s = $_GET['search'];}
+    if (isset($_GET['search'])) {
+        $s = $_GET['search'];
+    }
 
     $html_s = '<select id="inputState" class="form-control" style="margin-left: 10px" name="search">';
     $html_s .= '<option disabled>Выберите день недели</option>';
     $html_s .= '<option selected>' . $s . '</option>';
     $html_s .= "<option></option>";
 
-    $find_list = new GetData('days','','', 'list');
+    $find_list = new GetData('days', '', '', 'list');
     $lists = $find_list->result_data;
 
     foreach ($lists as $list) {
         $html_s .= "<option>$list[name]</option>";
     }
     $html_s .= '</select>';
-
 }else{
     $s = '';
     if (isset($_GET['search'])){$s = 'value = '.$_GET['search'].';';}
@@ -39,6 +43,14 @@ if ($sp_type == 'routes_standart'){
                     style="width: 500px;'. $s .'>';
     $html_s .= '</div>';
     //var_dump($html_s);
+    if ($sp_type == 'invoices'){
+        $html_s .= '<div class="form-group mx-sm-3">';
+        $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">Период:</label>';
+        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_start">';
+        $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">-</label>';
+        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_end">';
+        $html_s .= '</div>';
+    }
 }
 
 $html_button_1C = '';

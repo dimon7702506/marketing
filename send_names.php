@@ -6,4 +6,5 @@ require_once "autoload.php";
 export_names_base_to_file('all');
 export_marketings_base_to_file();
 
-require_once "send.php";
+//require_once "send.php";
+header("location: admin.html");
