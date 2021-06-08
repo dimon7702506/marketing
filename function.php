@@ -94,6 +94,8 @@ function log_out()
     setcookie("name", "", time() - 3600*24*30*12, "/");
     setcookie("apteka_id", "", time() - 3600*24*30*12, "/");
     setcookie("user_email", "", time() - 3600*24*30*12, "/");
+    setcookie("date_start", "", time() - 3600*24*30*12, "/");
+    setcookie("date_end", "", time() - 3600*24*30*12, "/");
 }
 
 function export_names_base_to_file($fields)

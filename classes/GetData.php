@@ -6,12 +6,12 @@ class GetData
 {
     public $result_data;
 
-    public function __construct($sp_type, $text_search, $field_search, $query_type)
+    public function __construct($sp_type, $text_search, $field_search, $query_type, $date_start = '', $date_end = '')
     {
-        $this->search($sp_type, $text_search, $field_search, $query_type);
+        $this->search($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end);
     }
 
-    public function search($sp_type, $text_search, $field_search, $query_type)
+    public function search($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end)
     {
         $fields_query_list = '';
         $table_name = '';
@@ -219,9 +219,10 @@ class GetData
                     if(get_role_id() == 2){
                         $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
                     }
-                }elseif ($sp_type = 'invoices'){
-                    if(isset($_GET['date_start']) && isset($_GET['date_end'])){
-                        $sql .= " and invoice_date >= $_GET['date_start'] and invoice_date <= $_GET['date_end']";
+                }elseif ($sp_type == 'invoices'){
+                    if(isset($_COOKIE['date_start']) && isset($_COOKIE['date_end'])){
+                        //$sql .= " and create_date >= '".$_COOKIE['date_start']."' and create_date <= '".$_COOKIE['date_end']."' ";
+                        $sql .= " and create_date >= '".$date_start."' and create_date <= '".$date_end."' ";
                     }
                 }
             }
@@ -247,7 +248,7 @@ class GetData
         }
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
-        var_dump_($sql);
+        //var_dump_($sql);
         //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -44,11 +44,17 @@ if ($sp_type == 'routes_standart') {
     $html_s .= '</div>';
     //var_dump($html_s);
     if ($sp_type == 'invoices'){
+
+        if(isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
+        else{$date_start = date("Y-m-d");}
+        if(isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
+        else{$date_end = date("Y-m-d");}
+
         $html_s .= '<div class="form-group mx-sm-3">';
         $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">Период:</label>';
-        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_start" value='.date("Y-m-d").'>';
+        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_start" value='.$date_start.'>';
         $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">-</label>';
-        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_end" value='.date("Y-m-d").'>';
+        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_end" value='.$date_end.'>';
         $html_s .= '</div>';
     }
 }
@@ -94,6 +100,7 @@ foreach ($select_options[$sp_type] as $select_option) {
 }
 
 if (isset($_GET['submit_search'])) {
+
     $field = '';
     if (isset($_GET['search'])) {$text_search = $_GET['search'];
     }else{$text_search = '';}
@@ -143,7 +150,7 @@ if (isset($_GET['submit_search'])) {
     }
     $cols += ['modif'=>'Модификация'];
 
-    $find = new GetData($sp_type, $text_search, $field_search, $query_type);
+    $find = new GetData($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end);
     $res = $find->result_data;
 
     $result_tab = '';
