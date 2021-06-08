@@ -219,6 +219,10 @@ class GetData
                     if(get_role_id() == 2){
                         $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
                     }
+                }elseif ($sp_type = 'invoices'){
+                    if(isset($_GET['date_start']) && isset($_GET['date_end'])){
+                        $sql .= " and invoice_date >= $_GET['date_start'] and invoice_date <= $_GET['date_end']";
+                    }
                 }
             }
 
@@ -243,7 +247,7 @@ class GetData
         }
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
-        //var_dump_($sql);
+        var_dump_($sql);
         //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

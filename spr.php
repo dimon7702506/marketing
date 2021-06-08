@@ -46,9 +46,9 @@ if ($sp_type == 'routes_standart') {
     if ($sp_type == 'invoices'){
         $html_s .= '<div class="form-group mx-sm-3">';
         $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">Период:</label>';
-        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_start">';
+        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_start" value='.date("Y-m-d").'>';
         $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">-</label>';
-        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_end">';
+        $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_end" value='.date("Y-m-d").'>';
         $html_s .= '</div>';
     }
 }
