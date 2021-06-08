@@ -155,8 +155,6 @@ if (isset($_GET['submit_search'])) {
 
     $result_tab = '';
     $id = 0;
-    //$role_id = get_role_id();
-    //$apteka_id = get_apteka_id();
 
     foreach($res as $r){
         //var_dump(array_keys($r));
