@@ -220,7 +220,7 @@ class GetData
                         $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
                     }
                 }elseif ($sp_type == 'invoices'){
-                    $sql .= " and create_date >= '".$date_start."' and create_date <= '".$date_end."' ";
+                    $sql .= " and create_date >= '".$date_start."' and create_date <= date_add('".$date_end."' interval 1 day)";
                 }
             }
 
@@ -245,7 +245,7 @@ class GetData
         }
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
-        //var_dump_($sql);
+        var_dump_($sql);
         //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
