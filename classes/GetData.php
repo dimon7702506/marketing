@@ -17,7 +17,7 @@ class GetData
         $table_name = '';
         $join = '';
         $order_by = '';
-        
+
         if ($sp_type == 'podr') {
             $table_name = 'apteka';
             $fields_query_list = 'apteka.id, apteka.name as name, firm.name as firm_name';
@@ -128,7 +128,7 @@ class GetData
             $join3 = " LEFT JOIN $join_table3 ON invoice_status_id = $join_table3.id";
             $join_table4 = ' users';
             $join4 = " LEFT JOIN $join_table4 ON user_id = $join_table4.id";
-             $join = $join1 . $join2 . $join3 . $join4;
+            $join = $join1 . $join2 . $join3 . $join4;
             $order_by = 'invoice.id DESC';
             if ($field_search == 'Номер накладной'){$field_search = 'invoice_number';}
             elseif ($field_search == 'Аптека') {$field_search = 'apteka.name';}
@@ -220,7 +220,7 @@ class GetData
                         $sql .= ' and apteka_id = ' . get_apteka_id() . ' ';
                     }
                 }elseif ($sp_type == 'invoices'){
-                    $sql .= " and create_date >= '".$date_start."' and create_date <= date_add('".$date_end."' interval 1 day)";
+                    $sql .= " and create_date >= '".$date_start."' and create_date <= date_add('".$date_end."', interval 1 day) ";
                 }
             }
 
@@ -245,7 +245,7 @@ class GetData
         }
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
-        var_dump_($sql);
+        //var_dump_($sql);
         //var_dump($arg);
         $stmt = DB::run($sql, $arg);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
