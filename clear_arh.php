@@ -1,7 +1,7 @@
 <?php
 
 $folderName = '/samba/public/1C/inv/archive';
-//$folderName = 'd:\archive';
+//$folderName = ' d:\archive';
 
 $now = time();
 
