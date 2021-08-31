@@ -19,45 +19,50 @@
             </div>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <a class="navbar-brand" href="./menu.html">Главная</a>
-                <a class="navbar-brand" href="./catal.html" style="color: #28a745">Справочники</a>
+                <a class="navbar-brand" href="./menu.php">Главная</a>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
+                <h6 class="mark-text1"><?=get_user_name()?></h6>
                 <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
             </form>
         </div>
     </nav>
 
-    <form class="form-inline" style="padding-top: 10px" action="marketings.php" method="get">
-        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
+    <form class="form-inline" style="padding-top: 10px" action="names_remainder.php" method="get">
+        <div class="form-group mx-sm-3">
+            <label for="formGroupExampleInput" class="sr-only">Password</label>
+
+            <input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск" style="width: 600px;"
+                value="<?=isset($_GET['search']) ? $_GET['search'] : ''?>">
+        </div>
+        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
     </form>
 
-    <?php if(isset($marketings)): ?>
+    <?php if(isset($nomens)): ?>
         <div>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Маркетинг</th>
-                    <th scope="col">Процент</th>
-                    <th scope="col">Сумма</th>
-                    <th scope="col">Модификация</th>
+                    <th scope="col">Наименование</th>
+                    <th scope="col">Производитель</th>
+                    <th scope="col">Аптека</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach($marketings as $marketing) : ?>
+                <?php foreach($nomens as $nomen) : ?>
                     <tr>
-                        <td><?php echo $marketing['m_id']; ?></td>
-                        <td><?php echo $marketing['m_name']; ?></td>
-                        <td><?php echo $marketing['persent']; ?></td>
-                        <td><?php echo $marketing['summ']; ?></td>
-                        <?php $id = (int) $marketing['m_id']; ?>
-                        <td><?php echo "<a href=\"./element_marketing.php?id=$id&\">изменить</a>"; ?></td>
+                        <td><?php echo $nomen['id']; ?></td>
+                        <td><?php echo $nomen['name']; ?></td>
+                        <td><?php echo $nomen['producer']; ?></td>
+                        <?php $id = (int) $nomen['id']; ?>
+                        <td><?php echo "<a href=\"./remainder_list.php?id=$id&\">Наличие</a>"; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
+        <?php echo "<p>Всего выведено $count строк</p>"; ?>
     <?php endif; ?>
 </body>
 </html>

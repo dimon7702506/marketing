@@ -52,7 +52,7 @@ foreach ($results as $result){
 
     $read_file = new ReadFile($file_in);
     $file = $read_file ->out;
-    var_dump($file);
+//    var_dump($file);
 
     $dom = new DomDocument('1.0', 'UTF-8');
     $Offers = $dom->appendChild($dom->createElement('Offers'));

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<form class="container" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <p class="h1"><?php echo $name; ?></p>
+        </div>
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Аптека</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Актуальность</th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php echo $tab; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Назад</button>
+</form>
+
+</body>
+</html>

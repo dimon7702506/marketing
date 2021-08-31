@@ -48,6 +48,9 @@ class SetData
         }elseif ($sp_type == 'routes_standart') {
             $table_name = 'routes_standart';
             $id_name = 'id';
+        }elseif ($sp_type == 'remainder'){
+            $table_name = 'remainder';
+            $id_name = 'id';
         }
         //var_dump($element);
         $sql_update = '';
