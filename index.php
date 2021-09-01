@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "./function.php";
+require_once "function.php";
 require_once "autoload.php";
 
 if (!is_user_logged_in()) {
