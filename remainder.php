@@ -3,6 +3,8 @@
 require_once "autoload.php";
 require_once "function.php";
 
+ini_set('max_execution_time', '3600');
+
 $sp_type = 'podr';
 $id = '';
 $query_type = 'elem';
