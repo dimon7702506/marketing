@@ -28,12 +28,14 @@ foreach ($results as $result){
     $unique_arr = array_intersect_key($file, $temp);
     $file = $unique_arr;
 
+    $num = 0;
     foreach ($file as $f){
         //var_dump($f);
         if(!array_key_exists(8, $f)){continue;}
 
         if ($f[8] !== 'NULL' && $f[9] > 20 && $f[11] >= 0.01) {
 
+            $num ++;
             $Price_sp = $f[2];
 
             $element = ['apteka_id'=>(int) $result['id'],
@@ -46,4 +48,5 @@ foreach ($results as $result){
         }
     }
     //var_dump_($element);
+    echo $result['saldo_path'] . ' ' . $num . "<br>";
 }
