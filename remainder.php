@@ -22,18 +22,18 @@ foreach ($results as $result){
 
     $read_file = new ReadFile($file_in);
     $file = $read_file ->out;
-    //var_dump_($file);
+    var_dump_($file_in);
 
-    $temp = array_unique(array_column($file, '8'));
+/*    $temp = array_unique(array_column($file, '8'));
     $unique_arr = array_intersect_key($file, $temp);
     $file = $unique_arr;
-
+*/
     $num = 0;
     foreach ($file as $f){
         //var_dump($f);
         if(!array_key_exists(8, $f)){continue;}
 
-        if ($f[8] !== 'NULL' && $f[9] > 20 && $f[11] >= 0.01) {
+        if ($f[8] !== 'NULL' && $f[11] >= 0.01) {
 
             $num ++;
             $Price_sp = $f[2];
@@ -48,5 +48,5 @@ foreach ($results as $result){
         }
     }
     //var_dump_($element);
-    echo $result['saldo_path'] . ' ' . $num . "<br>";
+    //echo $result['saldo_path'] . ' ' . $num . "<br>";
 }
