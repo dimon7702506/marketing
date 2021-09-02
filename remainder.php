@@ -16,7 +16,7 @@ $results = $find->result_data;
 foreach ($results as $result){
     if (!$result['saldo_path']) {continue;}
 
-    $file_in = $result['saldo_path'];
+    $file_in = str_replace("ftp", "saldo", $result['saldo_path']);
 
     if (!file_exists($file_in)){continue;}
 
