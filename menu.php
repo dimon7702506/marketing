@@ -131,7 +131,7 @@ foreach ($emails_uniq as $key => $e){
     // Письмо
     $mail->CharSet = 'Windows-1251';
     $mail->isHTML(true);
-    $mail->Subject = 'Order'; // Заголовок письма
+    $mail->Subject = 'Запрос на перемещение'; // Заголовок письма
     $mail->Body = $text_1251; // Текст письма
 
     echo $text_utf;
