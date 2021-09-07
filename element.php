@@ -195,7 +195,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'tnved'=>$tnved,
                     'nac'=>(int) $nac,
                     'tax'=>(int) $tax,
-                    'bonus'=>(int) $bonus,
+                    'bonus'=>$bonus,
                     'marketing'=>$marketing,
                     'gran_price'=>(float) $gran_price,
                     'sum_com'=>(float) $sum_com,
