@@ -22,12 +22,8 @@ foreach ($results as $result){
 
     $read_file = new ReadFile($file_in);
     $file = $read_file ->out;
-    var_dump_($file_in);
+//    var_dump_($file_in);
 
-/*    $temp = array_unique(array_column($file, '8'));
-    $unique_arr = array_intersect_key($file, $temp);
-    $file = $unique_arr;
-*/
     $num = 0;
     foreach ($file as $f){
         //var_dump($f);
@@ -47,6 +43,4 @@ foreach ($results as $result){
             $save = new SetData('remainder', $element, 'new');
         }
     }
-    //var_dump_($element);
-    //echo $result['saldo_path'] . ' ' . $num . "<br>";
 }
