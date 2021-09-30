@@ -69,7 +69,7 @@ class CheckField
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
             }elseif ($field == 'amount_in_a_package') {
-                if ($val < 0 || $val > 999) {
+                if ($val < 0 || $val > 99999) {
                     $this->error = 'Incorrect value of field: ' . $field;
                 }
             }
