@@ -23,10 +23,12 @@ $bonus = 0;
 $gran_price = '';
 $sum_com = '';
 $amount_in_a_package = '';
+
 $project_dl = '';
 $project_dl_checked = '';
 $project_dl_value = '';
 $checked = '';
+
 $internet_price = 0;
 $internet_sales = '';
 $internet_sales_checked = '';
@@ -40,6 +42,9 @@ $fix_price = 0;
 $covid_protokol = '';
 $covid_protokol_checked = '';
 $covid_protokol_value = '';
+
+$insulin = '';
+$insulin_checked = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -82,6 +87,9 @@ if (isset($_GET['id'])) {
 
         $covid_protokol = (int)$nom['covid_protokol'];
         if ($covid_protokol == 1) {$covid_protokol_checked = 'checked';}
+
+        $insulin = (int)$nom['insulin'];
+        if ($insulin ==1 ) {$insulin_checked = 'checked';}
     }
 
     $marketings = new SearchFromNames('','', 'marketings');
@@ -182,6 +190,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     if ($covid_value == 'on'){$covid = 1;
     }else{$covid = 0;}
 
+    if (!empty($_POST['insulin'])){$insulin_value = $_POST['insulin'];}
+    if ($insulin_value == 'on'){$insulin = 1;
+    }else{$insulin = 0;}
+
     if (!empty($_POST['covid_protokol'])){$covid_protokol_value = $_POST['covid_protokol'];}
     if ($covid_protokol_value == 'on'){$covid_protokol = 1;
     }else{$covid_protokol = 0;}
@@ -209,6 +221,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'internet_price'=>(int) $internet_price,
                     'fix_price'=>(float) $fix_price,
                     'covid'=>$covid,
+                    'insulin'=>$insulin,
                     'covid_protokol'=>$covid_protokol,
                     'last_modify_author_id'=>(int) get_user_id()];
 

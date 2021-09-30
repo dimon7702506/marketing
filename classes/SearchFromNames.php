@@ -17,7 +17,7 @@ class SearchFromNames
             $sql = "SELECT id, morion_id, name, producer, barcode, tnved, nac, tax, marketing_id, gran_price,
                           sum_com,  form_prod, doza, name_torg, amount_in_a_package, internet_price,
                           internet_sales, fix_price, covid, MNN.MNN_name, sickness.sickness_name, covid_protokol, bonus,
-                          marketing.m_name as m_name, project_dl
+                          marketing.m_name as m_name, project_dl, insulin
                       FROM names 
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id
@@ -58,6 +58,8 @@ class SearchFromNames
                              WHERE MNN_name LIKE CONCAT('%', :str, '%') ORDER BY name";
         }elseif ($field_search == "Доступні Ліки"){
             $sql .= " WHERE project_dl = 1 ORDER BY name";
+        }elseif ($field_search == 'Инсулин'){
+            $sql .= " WHERE insulin = 1 ORDER BY name";
         }
         //$sql = $sql . "ORDER BY name";
 
