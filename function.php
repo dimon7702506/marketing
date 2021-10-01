@@ -115,7 +115,7 @@ function export_names_base_to_file($fields)
         fputcsv($file, $name, "|");
     }
     fclose($file);
-    //copy('./out/names.csv', '/samba/public/1C/names.csv');
+    copy('./out/names.csv', '/samba/public/1C/names.csv');
     $save = new SaveToDB('', 'update_modify');
 }
 
