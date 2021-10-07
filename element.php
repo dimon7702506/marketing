@@ -46,6 +46,7 @@ $covid_protokol_value = '';
 $insulin = '';
 $insulin_checked = '';
 
+//оказалась не нужна
 $baby_box = '';
 $baby_box_checked = '';
 
