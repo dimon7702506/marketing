@@ -23,7 +23,7 @@ class CheckField
                 $field == 'order_type' ||
                 $field == 'date_doc' ||
                 $field == 'name_ukr') {
-                if (strlen($val) < 1 || strlen($val) > 100) {
+                if (strlen($val) < 1 || strlen($val) > 200) {
                     $this->error = 'Incorrect length of field: ' . $field;
                 }
             }elseif ($field == 'doza') {
