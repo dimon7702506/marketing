@@ -78,7 +78,7 @@ foreach ($result as $key=>$value) {
 
     $find_recipient = new GetData('podr', $value['ID_POINT'], 'id', 'elem');
     $results_recipient = $find_recipient->result_data;
-
+    //var_dump_($results_recipient);
     $recipient = $results_recipient[0]['apteka'];
     //var_dump($results_recipient);
     $email = $results[0]['email'];

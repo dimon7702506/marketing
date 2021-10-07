@@ -46,6 +46,9 @@ $covid_protokol_value = '';
 $insulin = '';
 $insulin_checked = '';
 
+$baby_box = '';
+$baby_box_checked = '';
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $field_search = "Код товара";
@@ -90,6 +93,9 @@ if (isset($_GET['id'])) {
 
         $insulin = (int)$nom['insulin'];
         if ($insulin ==1 ) {$insulin_checked = 'checked';}
+
+        $baby_box = (int)$nom['baby_box'];
+        if ($baby_box == 1){$baby_box_checked = 'checked';}
     }
 
     $marketings = new SearchFromNames('','', 'marketings');
@@ -194,6 +200,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     if ($insulin_value == 'on'){$insulin = 1;
     }else{$insulin = 0;}
 
+    if (!empty($_POST['baby_box'])){$baby_box_value = $_POST['baby_box'];}
+    if ($baby_box_value == 'on'){$baby_box = 1;
+    }else{$baby_box = 0;}
+
     if (!empty($_POST['covid_protokol'])){$covid_protokol_value = $_POST['covid_protokol'];}
     if ($covid_protokol_value == 'on'){$covid_protokol = 1;
     }else{$covid_protokol = 0;}
@@ -223,6 +233,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'covid'=>$covid,
                     'insulin'=>$insulin,
                     'covid_protokol'=>$covid_protokol,
+                    'baby_box'=>$baby_box,
                     'last_modify_author_id'=>(int) get_user_id()];
 
         if ($id == 0) {$method = 'new';
