@@ -45,10 +45,12 @@ $covid_protokol_value = '';
 
 $insulin = '';
 $insulin_checked = '';
+$insulin_value = '';
 
 //оказалась не нужна
 $baby_box = '';
 $baby_box_checked = '';
+$baby_box_value = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -218,7 +220,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'tnved'=>$tnved,
                     'nac'=>(int) $nac,
                     'tax'=>(int) $tax,
-                    'bonus'=>$bonus,
+                    'bonus'=>(float)$bonus,
                     'marketing'=>$marketing,
                     'gran_price'=>(float) $gran_price,
                     'sum_com'=>(float) $sum_com,
