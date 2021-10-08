@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
                                     'type' => 'text',
                                     'min' => 0,
                                     'max' => 0,
-                                    'length' => 50,
+                                    'length' => 100,
                                     'str_num' => 1,
                                     'col' => 4,
                                     'required' => 'required',
