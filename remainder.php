@@ -33,11 +33,22 @@ foreach ($results as $result){
 
             $num ++;
             $Price_sp = $f[2];
+            $price_zak = $f[15];
+            $date_sr = $f[17];
+            $date_pr = $f[16];
 
-            $element = ['apteka_id'=>(int) $result['id'],
+            if ($date_sr == 'NULL') {$date_sr = '';}
+            if ($date_pr == 'NULL') {$date_pr = '';}
+            if ($price_zak == 'NULL') {$price_zak = 0;}
+
+            $element = [
+                'apteka_id'=>(int) $result['id'],
                 'name_id'=>(int) $f[8],
                 'price'=>$Price_sp,
-                'quantity'=>$f[11]];
+                'quantity'=>$f[11],
+                'price_zak'=>$price_zak,
+                'date_pr'=>$date_pr,
+                'date_sr'=>$date_sr];
             $element['id'] = 0;
 
             $save = new SetData('remainder', $element, 'new');
