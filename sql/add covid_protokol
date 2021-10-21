@@ -1,1 +1,0 @@
-ALTER TABLE `names` ADD `covid_protokol` INT(1) NOT NULL AFTER `covid`;

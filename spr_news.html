@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Маркетинг</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+<p>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="mark-img-bord">
+                <img class="mark-img" src="./img/passat_ic.png">
+            </div>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <a class="navbar-brand" href="./menu.php">Главная</a>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
+                <h6 class="mark-text1"><?=get_user_name()?></h6>
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
+            </form>
+        </div>
+    </nav>
+
+    <form class="form-inline" style="padding-top: 10px" action="spr.php" method="get">
+
+        <?php echo $html_s; ?>
+
+        <div class="form-group mx-sm-3">
+            <label for="inputState" style="padding-right: 10px; ">Поле поиска:</label>
+            <select id="inputState" class="form-control" name="field_search">
+                <?php echo $html_select_options ?>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
+        <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_new" value="new">Создать новый</button>
+
+    </form>
+
+    <?php if(isset($res)): ?>
+        <div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <?php foreach($cols as $col){ ?>
+                        <th scope="col"><?php echo $col; ?></th>
+                    <?php }?>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php echo $result_tab; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php if(get_role_id() == 1){echo "<p>Всего выведено $count строк</p>";} ?>
+    <?php endif; ?>
+</body>
+</html>

@@ -194,8 +194,16 @@ class GetData
             $join2 = " LEFT JOIN $join_table2 ON destination_id = $join_table2.id";
             $join = $join1 . $join2;
             $order_by = 'day_id, numb';
-
             if ($field_search == 'День недели'){$field_search = 'days.name';}
+        }elseif ($sp_type == 'news'){
+            $table_name = 'news';
+            $fields_query_list = 'news.id, users.full_name as autor, theme, news';
+            $fields_query_elem = ' users.full_name as autor, theme, news';
+            $fields_query_id = 'id';
+            $join_table1 = ' users';
+            $join1 = " LEFT JOIN $join_table1 ON autor_id = $join_table1.id";
+             $join = $join1;
+            $order_by = 'id';
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}

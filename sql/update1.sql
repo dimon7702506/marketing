@@ -1,2 +1,2 @@
-ALTER TABLE `remainder` CHANGE `date_pr` `date_pr` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '';
-ALTER TABLE `remainder` CHANGE `date_sr` `date_sr` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '';
+ALTER TABLE `news` CHANGE `id` `id` INT(10) NOT NULL AUTO_INCREMENT;
+INSERT INTO `news`(`autor_id`, `theme`, `news`) VALUES (1,'blabla','ergwrwgwtgwt trhtr theh')
