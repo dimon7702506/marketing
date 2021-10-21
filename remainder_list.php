@@ -23,10 +23,17 @@ if (isset($_GET['id'])) {
         $price = $nom['price'];
         $quantity = $nom['quantity'];
         $relevance = $nom['relevance'];
+        $price_zak = $nom['price_zak'];
+        $date_pr = $nom['date_pr'];
+        $date_sr = $nom['date_sr'];
+
         $tab .= "<tr>";
         $tab .= "<td>$apteka<br>$adres<br>$tel</td>
+                 <td>$price_zak</td>
                  <td>$price</td>
                  <td>$quantity</td>
+                 <td>$date_pr</td>
+                 <td>$date_sr</td>
                  <td>$relevance</td>";
         $tab .= "</tr>";
     }

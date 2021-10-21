@@ -3,6 +3,7 @@
 /* Работа с БД */
 
 define('DB_HOST', 'localhost');
+//define('DB_HOST', '172.16.2.101');
 define('DB_NAME', 'analytics');
 define('DB_USER', 'db_marketing');
 define('DB_PASS', '7702506');

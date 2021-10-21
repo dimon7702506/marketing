@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Редактирование</title>
@@ -9,7 +9,8 @@
 
 </head>
 <body>
-<form class="container" method="post">
+<form class="container" method="get">
+
     <div class="form-row">
         <div class="form-group col-md-12">
             <p class="h1"><?php echo $name; ?></p>
@@ -20,8 +21,11 @@
             <thead>
             <tr>
                 <th scope="col">Аптека</th>
-                <th scope="col">Цена</th>
+                <th scope="col">Цена закупочная</th>
+                <th scope="col">Цена розничная</th>
                 <th scope="col">Количество</th>
+                <th scope="col">Дата прихода</th>
+                <th scope="col">Срок годности</th>
                 <th scope="col">Актуальность</th>
             </tr>
             </thead>

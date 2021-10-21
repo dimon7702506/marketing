@@ -9,7 +9,7 @@ class SearchFromNamesRemainder
     public function search($id_search)
     {
         $sql = "SELECT apteka.name as apteka, apteka.adres as adres, apteka.tel as tel, price, quantity, relevance,
-                  names.name as name 
+                  names.name as name, price_zak, date_pr, date_sr 
                 FROM remainder
                 LEFT JOIN apteka ON apteka_id = apteka.id
                 LEFT JOIN names ON name_id = names.id
