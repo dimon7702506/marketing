@@ -6,6 +6,7 @@ require_once "autoload.php";
 $field = '';
 $text_search = '';
 $field_search = '';
+$sp_type = 'news';
 
 $cols = ['id'=>'ID'];
 $cols += ['date_news'=>'Дата',
@@ -32,7 +33,7 @@ $res = $find->result_data;
                 $result_tab .= '<td>' . $r[$value] . '</td>';
             }
 
-            $result_tab .= '<td>' . "<a href=/elem_pre.php?id=$id&sp_type=$sp_type>изменить</a></td>";
+            $result_tab .= '<td>' . "<a href=/elem_news.php?id=$id>изменить</a></td>";
         $result_tab .= '</tr>';
     }
 
@@ -41,7 +42,6 @@ $res = $find->result_data;
     setcookie('field_search', $field_search);
     setcookie('sp_type', $sp_type);
 
-
-if (isset($_GET['submit_new'])) {header("location: ./elem.php?id=0&sp_type=$sp_type");}
+if (isset($_GET['submit_new'])) {header("location: ./elem_news.php?id=0");}
 
 require_once "./spr_news.html";

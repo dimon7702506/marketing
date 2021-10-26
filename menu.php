@@ -8,16 +8,12 @@ $emails = [];
 
 is_user_logged_in();
 
-if ($_COOKIE['role_id'] == 1){
-    include "./menu.html";
-}else{
-    include "./menu_apteka.html";
-}
+if ($_COOKIE['role_id'] == 1){include "./menu.html";
+}else{include "./menu_apteka.html";}
 
 $message = '';
 if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
 {
-
     if (isset($_FILES['uploadedFile']) && $_FILES['uploadedFile']['error'] === UPLOAD_ERR_OK)
     {
         // get details of the uploaded file
@@ -49,12 +45,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
         $message = 'There is some error in the file upload. Please check the following error.<br>';
         $message .= 'Error:' . $_FILES['uploadedFile']['error'];
     }
-    /*
-    $XlsFile = $dest_path;
-    if ( $xls = SimpleXLS::parse($XlsFile) ) {
-        $result = $xls->rows();
-    } else {echo SimpleXLS::parseError();    }
-    */
+
     $db = dbase_open($dest_path, 2);
     if ($db) {
         $record_numbers = dbase_numrecords($db);
@@ -64,7 +55,6 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Загрузить')
         }
         dbase_close($db);
     }
-    //var_dump($result);
 }
 
 $_SESSION['message'] = $message;
@@ -96,10 +86,8 @@ foreach ($result as $key=>$value) {
                    'apteka_name' => $apt_name];
     $k += 1;
 }
-    //var_dump($emails);
 
     $emails_uniq = super_unique($emails,'email');
-    //var_dump($emails_uniq);
 
 foreach ($emails_uniq as $key => $e){
     //var_dump($e);
@@ -142,3 +130,15 @@ foreach ($emails_uniq as $key => $e){
     }
     array_map('unlink', glob($dest_path));
 }
+
+$find = new GetData('news', '', '', 'list');
+$res = $find->result_data;
+
+//var_dump_($res);
+$result_tab = '<H1 class="text-center">Новости</H1>';
+
+foreach($res as $r) {
+    $result_tab .= '<h5 class="text-center">'.$r['theme'].'. '.$r['autor']. '  ('. $r['date'] . ')</h5>';
+    $result_tab .= '<pre style="margin-left: 20px">'.$r['news'].'</pre>';
+}
+echo $result_tab;

@@ -22,7 +22,8 @@ class CheckField
                 $field == 'producer' ||
                 $field == 'order_type' ||
                 $field == 'date_doc' ||
-                $field == 'name_ukr') {
+                $field == 'name_ukr' ||
+                $field == 'theme') {
                 if (strlen($val) < 1 || strlen($val) > 200) {
                     $this->error = 'Incorrect length of field: ' . $field;
                 }

@@ -51,6 +51,9 @@ class SetData
         }elseif ($sp_type == 'remainder'){
             $table_name = 'remainder';
             $id_name = 'id';
+        }elseif ($sp_type == 'news'){
+            $table_name = 'news';
+            $id_name = 'id';
         }
         //var_dump($element);
         $sql_update = '';
@@ -101,8 +104,9 @@ class SetData
         $sql = $sql_update . $sql_end;
 
         $sql = str_replace('SET,', 'SET', $sql);
+        $sql = str_replace('(,', '(', $sql);
 
-        //var_dump($sql);
+//        var_dump($sql);
         //var_dump($args);
 
         $sql_id = "SELECT LAST_INSERT_ID();";

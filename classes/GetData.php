@@ -197,13 +197,13 @@ class GetData
             if ($field_search == 'День недели'){$field_search = 'days.name';}
         }elseif ($sp_type == 'news'){
             $table_name = 'news';
-            $fields_query_list = 'news.id, users.full_name as autor, theme, news';
+            $fields_query_list = 'news.id, users.full_name as autor, theme, news, date';
             $fields_query_elem = ' users.full_name as autor, theme, news';
-            $fields_query_id = 'id';
+            $fields_query_id = "$table_name.id";
             $join_table1 = ' users';
             $join1 = " LEFT JOIN $join_table1 ON autor_id = $join_table1.id";
              $join = $join1;
-            $order_by = 'id';
+            $order_by = "$table_name.id DESC";
         }
 
         if ($query_type == 'list'){$fields_query = $fields_query_list;}
@@ -243,14 +243,11 @@ class GetData
             $sql = str_replace('routes_standart.days.name', 'days.name', $sql);
 
             $arg = ["str" => $text_search];
-        }else{
-            $arg = [];
-        }
+        }else{$arg = [];}
+
         $arg = ["str" => $text_search];
 
-        if ($sp_type == 'invoices1'){
-            $sql .= "and invoice_status_id = 1 ";
-        }
+        if ($sp_type == 'invoices1'){$sql .= "and invoice_status_id = 1 ";}
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump_($sql);
