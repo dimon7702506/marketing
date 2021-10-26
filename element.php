@@ -262,6 +262,7 @@ if (isset($_POST['close'])) {
     }else{
         $str_search = './names.php';
     }
+    //var_dump($str_search);
     header("location: $str_search");
 }
 
