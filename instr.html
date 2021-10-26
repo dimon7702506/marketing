@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Маркетинг</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+<p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="mark-img-bord">
+                <img class="mark-img" src="./img/passat_ic.png">
+            </div>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <a class="navbar-brand" href="./menu.php">Главная</a>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="index.php" method="post">
+                <h6 class="mark-text1"><?=get_user_name()?></h6>
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="log_out" value="Выход">
+            </form>
+        </div>
+    </nav>
+
+    <div>
+        <ul class="mr-auto mt-2 mt-lg-0">
+            <li class="active">
+                <a class="navbar-brand" href="./files/blanks/">Бланки</a>
+            </li>
+            <li class="active">
+                <a class="navbar-brand" href="./files/journ">Журналы</a>
+            </li>
+            <li class="active">
+                <a class="navbar-brand" href="./files/instr">Приказы и инструкции</a>
+            </li>
+            <li class="active">
+                <a class="navbar-brand" href="./files/ust">Уставные</a>
+            </li>
+            <li class="active">
+                <a class="navbar-brand" href="./files/Работа%20заведующей.docx">Работа заведующей</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

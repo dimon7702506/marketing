@@ -135,7 +135,7 @@ $find = new GetData('news', '', '', 'list');
 $res = $find->result_data;
 
 //var_dump_($res);
-$result_tab = '<H1 class="text-center">Новости</H1>';
+$result_tab = '<br><H1 class="text-center">Новости</H1>';
 
 foreach($res as $r) {
     $result_tab .= '<h5 class="text-center">'.$r['theme'].'. '.$r['autor']. '  ('. $r['date'] . ')</h5>';
