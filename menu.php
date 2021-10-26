@@ -134,7 +134,6 @@ foreach ($emails_uniq as $key => $e){
 $find = new GetData('news', '', '', 'list');
 $res = $find->result_data;
 
-//var_dump_($res);
 $result_tab = '<br><H1 class="text-center">Новости</H1>';
 
 foreach($res as $r) {
