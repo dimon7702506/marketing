@@ -138,6 +138,6 @@ $result_tab = '<br><H1 class="text-center">Новости</H1>';
 
 foreach($res as $r) {
     $result_tab .= '<h5 class="text-center">'.$r['theme'].'. '.$r['autor']. '  ('. $r['date'] . ')</h5>';
-    $result_tab .= '<pre style="margin-left: 20px">'.$r['news'].'</pre>';
+    $result_tab .= '<pre class = "pre" style="margin-left: 20px">'.$r['news'].'</pre>';
 }
 echo $result_tab;
