@@ -9,9 +9,14 @@
     <link href="./css/signin.css" rel="stylesheet">
 </head>
 <body>
-<form class="container" method="post" action="elem_news.php">
+<form class="container" method="post">
     <div class="form-row">
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-2">
+            <label for="inputZip">Код</label>
+            <input type="number" class="form-control" id="inputZip" value="<?php echo $id; ?>" name="id"
+                   disabled required>
+        </div>
+        <div class="form-group col-md-10">
             <label for="inputEmail4">Тема</label>
             <input type="text" class="form-control" id="inputEmail4" value="<?php echo $theme; ?> "
                    maxlength="200" name="theme" required>

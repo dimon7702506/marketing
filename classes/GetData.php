@@ -198,7 +198,7 @@ class GetData
         }elseif ($sp_type == 'news'){
             $table_name = 'news';
             $fields_query_list = 'news.id, users.full_name as autor, theme, news, date';
-            $fields_query_elem = ' users.full_name as autor, theme, news';
+            $fields_query_elem = 'users.full_name as autor, theme, news';
             $fields_query_id = "$table_name.id";
             $join_table1 = ' users';
             $join1 = " LEFT JOIN $join_table1 ON autor_id = $join_table1.id";
