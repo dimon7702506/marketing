@@ -21,14 +21,14 @@ class CheckFields
             $this->value = htmlentities($val);
 
             if ($type == 'text') {
-                if (strlen($val) < 0 || strlen($val) > $length) {
+                if (strlen($val) <= $min || strlen($val) > $length) {
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
-            } elseif ($type == 'number') {
+            }elseif ($type == 'number') {
                 if ($val < $min || $val > $max) {
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
-            } elseif ($type == 'date') {}
+            }elseif ($type == 'date') {}
         }
     }
 }

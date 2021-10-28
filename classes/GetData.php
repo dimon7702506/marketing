@@ -198,7 +198,7 @@ class GetData
         }elseif ($sp_type == 'news'){
             $table_name = 'news';
             $fields_query_list = 'news.id, users.full_name as autor, theme, news, date';
-            $fields_query_elem = 'users.full_name as autor, theme, news';
+            $fields_query_elem = 'users.full_name as autor, theme, news, visible';
             $fields_query_id = "$table_name.id";
             $join_table1 = ' users';
             $join1 = " LEFT JOIN $join_table1 ON autor_id = $join_table1.id";
@@ -248,6 +248,7 @@ class GetData
         $arg = ["str" => $text_search];
 
         if ($sp_type == 'invoices1'){$sql .= "and invoice_status_id = 1 ";}
+        if ($sp_type == 'news' && $query_type == 'list' && get_role_id() <> 1){$sql .= ' where visible > 0 ';}
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump_($sql);

@@ -11,36 +11,45 @@ $autor_id = get_user_id();
 $theme = null;
 $news = '';
 
+$visible = '';
+$visible_checked = '';
+$visible_value = '';
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $field = 'all';
     $find = new GetData('news', $id, 'ID', 'elem');
     $noms = $find->result_data;
-    //var_dump($noms);
+
     foreach ($noms as $nom){
         $autor = $nom['autor'];
         $theme = $nom['theme'];
         $news = $nom['news'];
+
+        $visible = (int)$nom['visible'];
+        if ($visible == 1) {$visible_checked = 'checked';}
     }
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
 
-    $check = new CheckFields('theme', 'text', '', '', 200, $_POST['theme']);
+    $check = new CheckFields('Тема', 'text', 1, '', 200, $_POST['theme']);
     $theme = $check->value;
     $errors .= $check->error;
 
-    $check = new CheckFields('news', 'text', 0, 200, 2000, $_POST['news']);
+    $check = new CheckFields('news', 'text', 30, 200, 2000, $_POST['news']);
     $news = $check->value;
     $errors .= $check->error;
 
-    //var_dump($errors);
+    if (!empty($_POST['visible'])){$visible_value = $_POST['visible'];}
+    if ($visible_value == 'on'){$visible = 1;}else{$visible = 0;}
 
     if (empty($errors)){
         $element = ['id'=>$id,
                     'autor_id'=>$autor_id,
                     'theme'=>Trim($theme),
-                    'news'=>Trim($news)];
+                    'news'=>Trim($news),
+                    'visible'=>$visible];
 
         if ($id == 0) {
             $method = 'new';

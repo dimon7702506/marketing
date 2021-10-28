@@ -181,7 +181,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $errors .= $check->error;
 
     if (!empty($_POST['project_dl'])) {$project_dl_value = $_POST['project_dl'];}
-
     if ($project_dl_value == 'on'){$project_dl = 1;}else{$project_dl = 0;}
 
     $check = new CheckField('internet_price', $_POST['internet_price']);
