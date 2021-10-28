@@ -8,7 +8,7 @@ is_user_logged_in();
 $errors = '';
 $autor = '';
 $autor_id = get_user_id();
-$theme = '';
+$theme = null;
 $news = '';
 
 if (isset($_GET['id'])) {
@@ -46,7 +46,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
             $method = 'new';
         }else{
             $method = 'update';}
-        
+
         $save = new SetData('news', $element, $method);
 
         if ($method == 'new') {$id = $save->result;}
