@@ -9,9 +9,10 @@ $field_search = '';
 $sp_type = 'news';
 
 $cols = ['id'=>'ID'];
-$cols += ['date_news'=>'Дата',
-          'autor'=>'Автор',
-          'Theme'=>'Тема'];
+$cols += ['autor'=>'Автор',
+          'Theme'=>'Тема',
+          'news'=>'Новость',
+          'date'=>'Дата'];
 $cols += ['modif'=>'Модификация'];
 
 $find = new GetData('news', $text_search, $field_search, 'list');

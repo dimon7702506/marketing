@@ -37,8 +37,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     if (empty($errors)){
         $element = ['id'=>$id,
                     'autor_id'=>$autor_id,
-                    'theme'=>trim($theme),
-                    'news'=>$news];
+                    'theme'=>Trim($theme),
+                    'news'=>Trim($news)];
 
         if ($id == 0) {$method = 'new';
         }else {$method = 'update';}
@@ -48,12 +48,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $save = new SetData('news', $element, $method);
 
         if ($method == 'new') {$id = $save->result;}
-            header("location: ./elem_news.php?id=$id");
+        header("location: ./elem_news.php?id=$id");
     }
 }
 
-if (isset($_POST['close'])) {
-    header("location: ./spr_news.php");
-}
+if (isset($_POST['close'])) {header("location: ./spr_news.php");}
 
 require_once "./elem_news.html";
