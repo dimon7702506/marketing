@@ -21,7 +21,7 @@ class CheckFields
             $this->value = htmlentities($val);
 
             if ($type == 'text') {
-                if (strlen($val) <= $min || strlen($val) > $length) {
+                if (strlen($val) < $min || strlen($val) > $length) {
                     $this->error = 'Не корректная длина поля: ' . $field_name;
                 }
             }elseif ($type == 'number') {
