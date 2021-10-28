@@ -15,7 +15,7 @@ $cols += ['autor'=>'Автор',
           'date'=>'Дата'];
 $cols += ['modif'=>'Модификация'];
 
-$find = new GetData('news', $text_search, $field_search, 'list');
+$find = new GetData('news', $text_search, $field_search, 'list', '', '', 1);
 $res = $find->result_data;
 
     $result_tab = '';

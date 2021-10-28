@@ -131,7 +131,7 @@ foreach ($emails_uniq as $key => $e){
     array_map('unlink', glob($dest_path));
 }
 
-$find = new GetData('news', '', '', 'list');
+$find = new GetData('news', '', '', 'list', '', '', 0);
 $res = $find->result_data;
 
 $result_tab = '<br><H1 class="text-center">Новости</H1>';

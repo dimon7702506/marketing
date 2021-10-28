@@ -6,12 +6,13 @@ class GetData
 {
     public $result_data;
 
-    public function __construct($sp_type, $text_search, $field_search, $query_type, $date_start = '', $date_end = '')
+    public function __construct($sp_type, $text_search, $field_search, $query_type, $date_start = '', $date_end = '',
+                                $admin = 0)
     {
-        $this->search($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end);
+        $this->search($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end, $admin);
     }
 
-    public function search($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end)
+    public function search($sp_type, $text_search, $field_search, $query_type, $date_start, $date_end, $admin)
     {
         $fields_query_list = '';
         $table_name = '';
@@ -248,7 +249,7 @@ class GetData
         $arg = ["str" => $text_search];
 
         if ($sp_type == 'invoices1'){$sql .= "and invoice_status_id = 1 ";}
-        if ($sp_type == 'news' && $query_type == 'list' && get_role_id() <> 1){$sql .= ' where visible > 0 ';}
+        if ($sp_type == 'news' && $query_type == 'list' && $admin == 0){$sql .= ' where visible > 0 ';}
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump_($sql);
