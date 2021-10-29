@@ -37,7 +37,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $theme = $check->value;
     $errors .= $check->error;
 
-    $check = new CheckFields('news', 'text', 30, 200, 2000, $_POST['news']);
+    $check = new CheckFields('news', 'text', 30, 200, 5000, $_POST['news']);
     $news = $check->value;
     $errors .= $check->error;
 
