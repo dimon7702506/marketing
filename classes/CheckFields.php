@@ -18,7 +18,11 @@ class CheckFields
         if(!isset($val)){
             $this->error = 'Incorrect ' . $field_name;
         }else {
-            $this->value = htmlentities($val);
+            if($type == 'textarea') {
+                $this->value = ($val);
+            }else{
+                $this->value = htmlentities($val);
+            }
 
             if ($type == 'text') {
                 if (strlen($val) < $min || strlen($val) > $length) {
