@@ -27,7 +27,7 @@ class Validation
             $this->user_role_id = $val['role_id'];
             $this->apteka_id = $val['apteka_id'];
             $this->user_email = $val['email'];
-            var_dump($val);
+            //var_dump($val);
         }
 
         if ($this->user_id > 0) {
