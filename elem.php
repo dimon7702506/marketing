@@ -170,7 +170,7 @@ if (isset($_GET['id'])) {
                                     'type' => 'text',
                                     'min' => 0,
                                     'max' => 0,
-                                    'length' => 50,
+                                    'length' => 100,
                                     'str_num' => 3,
                                     'col' => 4,
                                     'required' => '',
@@ -187,6 +187,16 @@ if (isset($_GET['id'])) {
                                     'related_table' => '',
                                     'form_type'=>'input'],
                     'liki24_id' => ['field_name' => 'Код liki24',
+                                    'type' => 'number',
+                                    'min' => 0,
+                                    'max' => 99999,
+                                    'length' => 0,
+                                    'str_num' => 3,
+                                    'col' => 2,
+                                    'required' => '',
+                                    'related_table' => '',
+                                    'form_type'=>'input'],
+                    'mypharmacy_id' => ['field_name' => 'Код Моя Аптека',
                                     'type' => 'number',
                                     'min' => 0,
                                     'max' => 99999,
@@ -772,11 +782,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         array_push($del_arg,'apteka');
     }
 
-    if($sp_type == 'invoices'){
-        //if (get_role_id() == 2) {
-            $element['invoice_status_id'] = 1;
-        //}
-    }
+    if($sp_type == 'invoices'){$element['invoice_status_id'] = 1;}
 
     $element += ['id' => $id];
 
@@ -790,9 +796,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
     if (empty($errors)){
 
         if ($id == 0) {$method = 'new';}else{$method = 'update';}
-
-        //var_dump($element);
-        //var_dump($element1);
 
         if (isset($_POST['copy'])){
             $element['id'] = 0;
