@@ -12,6 +12,10 @@ $sp_type = '';
 $apteka = '';
 $invoice_status = '';
 
+$visible = '';
+$visible_checked = '';
+$visible_value = '';
+
 if (isset($_GET['sp_type'])){$sp_type = $_GET['sp_type'];}
 
 if (isset($_GET['id'])) {
@@ -329,7 +333,17 @@ if (isset($_GET['id'])) {
                             'col' => 6,
                             'required' => 'required',
                             'related_table' => '',
-                            'form_type'=>'input']];
+                            'form_type'=>'input'],
+                    'visible'=> ['field_name' => 'Видимость ',
+                            'type' => 'number',
+                            'min' => 0,
+                            'max' => 1,
+                            'length' => 1,
+                            'str_num' => 1,
+                            'col' => 6,
+                            'required' => '',
+                            'related_table' => '',
+                            'form_type'=>'checkbox']];
     }elseif ($sp_type == 'invoices') {
 
          $fields = ['apteka' => ['field_name' => 'Аптека',
@@ -609,7 +623,12 @@ if (isset($_GET['id'])) {
             $dismissed = $result['dismissed'];
             $apteka = $result['apteka'];
             if($dismissed == 1){$errors = 'Уволен!!!';}
-        }elseif ($sp_type == 'providers'){$provider = trim($result['name']);
+        }elseif ($sp_type == 'providers'){
+            $provider = trim($result['name']);
+            $visible = (int) $result['visible'];
+            if ($visible == 1){
+                $visible_value = 'checked';
+            }
         }elseif ($sp_type == 'invoices'){
             if (!$apteka){$apteka = $result['apteka'];}
             $provider = $result['provider'];
@@ -634,10 +653,12 @@ if (isset($_GET['id'])) {
             $destination = $result['destination'];
         }
 
+        //var_dump_($visible_value);
+
         foreach ($fields as $key => $f) {
             //var_dump($key);
             $html_elem .= '<div class="form-group col-md-' . $f['col'] . '">
-                                <label for="inputEmail4">' . $f['field_name'] . '</label>';
+                                <label for="inputEmail4">' . $f['field_name'] . ' </label>';
             if ($f['form_type'] == 'input') {
                 $step = '';
                 if ($f['type'] == 'number'){
@@ -647,7 +668,9 @@ if (isset($_GET['id'])) {
                                 name="' . $key . '" ' . $f['required'] . '>';
             }elseif ($f['form_type'] == 'textarea') {
                 $html_elem .= '<textarea class="form-control" id="text" name="' . $key . '" rows = 10>'
-                               .$result[$key]. '</textarea>';
+                    . $result[$key] . '</textarea>';
+            }elseif ($f['form_type'] == 'checkbox') {
+                $html_elem .= '<input type="checkbox"  id="inputZip" name="visible"' . $visible_value .'>';
             }elseif ($f['form_type'] == 'select'){
                 $html_elem .= '<select id="inputState" class="form-control" name="' . $key . '">
                                 <option selected>';
