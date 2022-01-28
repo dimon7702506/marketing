@@ -250,6 +250,7 @@ class GetData
 
         if ($sp_type == 'invoices1'){$sql .= "and invoice_status_id = 1 ";}
         if ($sp_type == 'news' && $query_type == 'list' && $admin == 0){$sql .= ' where visible > 0 ';}
+        if ($sp_type == 'providers' && $query_type == 'list' && get_role_id() == 2){$sql .= "where visible = 'on' ";}
 
         if (strlen($order_by) > 0){$sql .= "ORDER BY $order_by";}
         //var_dump_($sql);
