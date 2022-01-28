@@ -11,9 +11,7 @@ $fio = '';
 $sp_type = '';
 $apteka = '';
 $invoice_status = '';
-
 $visible = '';
-$visible_checked = '';
 $visible_value = '';
 
 if (isset($_GET['sp_type'])){$sp_type = $_GET['sp_type'];}
@@ -335,10 +333,10 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type'=>'input'],
                     'visible'=> ['field_name' => 'Видимость ',
-                            'type' => 'number',
+                            'type' => 'text',
                             'min' => 0,
-                            'max' => 1,
-                            'length' => 1,
+                            'max' => 0,
+                            'length' => 3,
                             'str_num' => 1,
                             'col' => 6,
                             'required' => '',
@@ -625,10 +623,8 @@ if (isset($_GET['id'])) {
             if($dismissed == 1){$errors = 'Уволен!!!';}
         }elseif ($sp_type == 'providers'){
             $provider = trim($result['name']);
-            $visible = (int) $result['visible'];
-            if ($visible == 1){
-                $visible_value = 'checked';
-            }
+            $visible = trim($result['visible']);
+            //if ($visible == 'on'){$visible_value = 'checked';}
         }elseif ($sp_type == 'invoices'){
             if (!$apteka){$apteka = $result['apteka'];}
             $provider = $result['provider'];
@@ -670,7 +666,7 @@ if (isset($_GET['id'])) {
                 $html_elem .= '<textarea class="form-control" id="text" name="' . $key . '" rows = 10>'
                     . $result[$key] . '</textarea>';
             }elseif ($f['form_type'] == 'checkbox') {
-                $html_elem .= '<input type="checkbox"  id="inputZip" name="visible"' . $visible_value .'>';
+                $html_elem .= '<input type="checkbox"  id="inputZip" name="visible"' . $result[$key] .'>';
             }elseif ($f['form_type'] == 'select'){
                 $html_elem .= '<select id="inputState" class="form-control" name="' . $key . '">
                                 <option selected>';
@@ -725,9 +721,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
     $element = [];
     $del_arg = [];
 
-        //var_dump($fields);
+        //var_dump_($fields);
         foreach ($fields as $key => $f) {
-            //var_dump($f);
+            var_dump_($f);
             $check = new CheckFields($f['field_name'], $f['type'], $f['min'], $f['max'], $f['length'],
                 $_POST[$key], $f['required']);
             $val = $check->value;
@@ -766,6 +762,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $related_id = $find_id->result_data;
                 $element += ['provider_id'=> (int) $related_id[0]['id']];
                 array_push($del_arg,'provider');
+
+                if ($visible_value == 'on'){$visible = 1;}else{$visible = 0;}
+                $element += ['zav_id'=> (int) $related_id[0]['id']];
             }
             if($f['related_table'] == 'invoice_status'){
                 $find_id = new GetData('invoice_status', $element['invoice_status'],'name', 'id');
@@ -815,6 +814,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
         }
     }
     $element1 = $args;
+
+    //var_dump_($element);
 
     if (empty($errors)){
 
