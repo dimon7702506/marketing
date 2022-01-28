@@ -825,6 +825,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
             $method = 'new';
         }
 
+        //var_dump_($element1);
+
         $save = new SetData($sp_type, $element1, $method);
 
         if ($method == 'new') {$id = $save->result;}
