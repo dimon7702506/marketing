@@ -728,6 +728,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])) {
                 $check = new CheckFields($f['field_name'], $f['type'], $f['min'], $f['max'], $f['length'],
                     $_POST[$key], $f['required']);
                 $val = $check->value;
+                //var_dump_($key);
             }
 
             if ($f['type'] == 'number') {
