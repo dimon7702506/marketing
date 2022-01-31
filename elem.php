@@ -342,7 +342,6 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type'=>'checkbox']];
     }elseif ($sp_type == 'invoices') {
-
          $fields = ['apteka' => ['field_name' => 'Аптека',
                             'type' => 'text',
                             'min' => 0,
