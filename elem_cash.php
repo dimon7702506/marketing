@@ -265,4 +265,4 @@ if (isset($_POST['close'])) {
     header("location: $str_search");
 }
 
-require_once "./element.html";
+require_once "./elem_cash.html";

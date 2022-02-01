@@ -185,7 +185,13 @@ if (isset($_GET['submit_search'])) {
     setcookie('sp_type', $sp_type);
 }
 
-if (isset($_GET['submit_new'])) {header("location: ./elem.php?id=0&sp_type=$sp_type");}
+if (isset($_GET['submit_new'])) {
+    if ($sp_type == 'cash_day') {
+        header("location: ./elem_cash.php?id=0");
+    } else {
+        header("location: ./elem.php?id=0&sp_type=$sp_type");
+    }
+}
 
 if (isset($_GET['submit_1C'])){invoise_to_1C();}
 

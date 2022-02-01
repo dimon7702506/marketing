@@ -1,26 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Редактирование</title>
+    <title>Выручка</title>
     <link rel="icon" href="./img/passat_ic.png">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/marketing.css" rel="stylesheet">
-    <link href="./css/signin.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<form class="container" method="post">
+<form class="container-fluid" method="post">
+
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEmail4">Наименование</label>
-            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $name; ?> "
-                   maxlength="100" name="name" required>
+        <label for="inputEmail4" class="col-sm-1 col-form-label">Дата</label>
+        <div class="col-sm-2">
+            <input type="date" class="form-control" id="inputEmail4" value="<?php echo $name; ?> " name="date" required>
         </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4">Производитель</label>
-            <input type="text" class="form-control" id="inputPassword4" value="<?php echo $producer; ?>"
-                   maxlength="100" name="producer" required>
+    </div>
+
+    <div class="form-row">
+        <label for="t1" class="col-sm-1 col-form-label">Выручка</label>
+        <table id="t1" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ЭККА</th>
+                <th>Начальный остаток</th>
+                <th>Наличные</th>
+                <th>Карта</th>
+                <th>Инкасация общая</th>
+                <th>Конечный остаток</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Касса1</td>
+                <td></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k1;?>" min=0 max=9999999.99 name="cash_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $card_k1;?>" min=0 max=9999999.99 name="card_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $collection_k1;?>" min=0 max=9999999.99 name="collection_k1"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Касса2</td>
+                <td></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k2;?>" min=0 max=9999999.99 name="cash_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $card_k2;?>" min=0 max=9999999.99 name="card_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $collection_k2;?>" min=0 max=9999999.99 name="collection_k2"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Касса3</td>
+                <td></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k3;?>" min=0 max=9999999.99 name="cash_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $card_k3;?>" min=0 max=9999999.99 name="card_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $collection_k3;?>" min=0 max=9999999.99 name="collection_k3"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Итого</td>
+             </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                console.log('ready');
+                $('#my_table_1').find('input[type="date"]').change(function() {
+                    console.log('Table 1.Date was changed. Need to check if table is sorted by column C.If so - call the table sort.');
+                });
+                $('#my_table_1').find('select').change(function() {
+                    console.log('Table 1.Selection was changed. Need to check if table is sorted by column B.If so - call the table sort.');
+                });
+            });
+        </script>
+
+    <div class="form-row">
+        <label for="bank" class="col-sm-2 col-form-label">Сдано в банк</label>
+        <div class="col-sm-2">
+            <input type="number" step="any" class="form-control" id="bank" value="<?php echo $bank; ?> " min=0 max=9999999.99 name="bank">
         </div>
+        <label for="office" class="col-sm-2 col-form-label">Офис</label>
+        <div class="col-sm-2">
+
+        </div>
+    </div>
+
+
         <div class="form-group col-md-2">
             <label for="inputZip">Код</label>
             <input type="number" class="form-control" id="inputZip" value="<?php echo $nom_id; ?>" name="nom_id"

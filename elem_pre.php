@@ -17,5 +17,5 @@ if ($sp_type == 'invoices') {
 if ($sp_type == 'cash_day'){
     header("location: ./elem_cash.php?id=$id");
 }else{
-    //header("location: ./elem.php?id=$id&sp_type=$sp_type");
+    header("location: ./elem.php?id=$id&sp_type=$sp_type");
 }
