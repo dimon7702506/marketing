@@ -88,7 +88,8 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                    'routes'=>['apteka_name'=>'Аптека'],
                    'routes_standart'=>['day'=>'День недели',
                                        'apteka_name'=>'Аптека'],
-                   'destination'=>['name'=>'Наименование']];
+                   'destination'=>['name'=>'Наименование'],
+                   'cash_day'=>['apteka'=>'Аптека']];
 
 $html_select_options = '';
 
@@ -143,6 +144,9 @@ if (isset($_GET['submit_search'])) {
                 'create_date'=>'Дата подачи заявки'];
     }elseif ($sp_type == 'destination'){
         $cols += ['route'=>'Наименование'];
+    }elseif ($sp_type == 'cash_day'){
+        $cols += ['date'=>'Дата',
+                  'apteka'=>'Аптека'];
     }elseif ($sp_type == 'routes_standart'){
         $cols += ['day'=> 'День недели',
                   'destination'=>'Аптека',

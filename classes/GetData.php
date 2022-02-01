@@ -167,6 +167,16 @@ class GetData
             $order_by = 'route_date';
             if ($field_search == 'День недели'){$field_search = 'days.name';}
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+        }elseif ($sp_type == 'cash_day'){
+            $table_name = 'cash_day';
+            $fields_query_list = 'date, apteka.name as apteka';
+            $fields_query_elem = '*';
+            $fields_query_id = 'id';
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join = $join1;
+            $order_by = 'date';
+            if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'days'){
             $table_name = 'days';
             $fields_query_list = 'name';
@@ -235,6 +245,7 @@ class GetData
 
             $sql = str_replace('apteka.apteka', 'apteka', $sql);
             $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
+            $sql = str_replace('cash_day.apteka.name', 'apteka.name', $sql);
             $sql = str_replace('invoice.apteka.firm_id', 'apteka.firm_id', $sql);
             $sql = str_replace('invoice.providers', 'providers', $sql);
             $sql = str_replace('people.people', 'people', $sql);

@@ -14,4 +14,8 @@ if ($sp_type == 'invoices') {
     $save = new SetData('invoices', $element, 'update');
 }
 
-header("location: ./elem.php?id=$id&sp_type=$sp_type");
+if ($sp_type == 'cash_day'){
+    header("location: ./elem_cash.php?id=$id");
+}else{
+    //header("location: ./elem.php?id=$id&sp_type=$sp_type");
+}
