@@ -6,99 +6,96 @@ require_once "autoload.php";
 is_user_logged_in();
 
 $errors = '';
-$name = '';
-$producer = '';
-$tnved = '';
-$mark = '';
-$mnn = '';
-$name_torg = '';
-$form_prod = '';
-$doza = '';
-$nom_id = '';
-$morion_id = '';
-$barcode = '';
-$nac = '';
-$tax = '';
-$bonus = 0;
-$gran_price = '';
-$sum_com = '';
-$amount_in_a_package = '';
-
-$project_dl = '';
-$project_dl_checked = '';
-$project_dl_value = '';
-$checked = '';
-
-$internet_price = 0;
-$internet_sales = '';
-$internet_sales_checked = '';
-
-$covid = '';
-$covid_checked = '';
-$covid_value = '';
-
-$fix_price = 0;
-
-$covid_protokol = '';
-$covid_protokol_checked = '';
-$covid_protokol_value = '';
-
-$insulin = '';
-$insulin_checked = '';
-$insulin_value = '';
-
-//оказалась не нужна
-$baby_box = '';
-$baby_box_checked = '';
-$baby_box_value = '';
+$date = '';
+$apteka_id = '';
+$cash_k1 = '';
+$cash_k2 = '';
+$cash_k3 = '';
+$card_k1 = '';
+$card_k2 = '';
+$card_k3 = '';
+$collection_k1 = '';
+$collection_k2 = '';
+$collection_k3 = '';
+$bank = '';
+$number_of_checks = '';
+$discount_k1 = '';
+$discount_k2 = '';
+$discount_k3 = '';
+$increment_k1 = '';
+$increment_k2 = '';
+$increment_k3 = '';
+$round_k1 = '';
+$round_k2 = '';
+$round_k3 = '';
+$turnover_0_k1 = '';
+$turnover_0_k2 = '';
+$turnover_0_k3 = '';
+$turnover_7_k1 = '';
+$turnover_7_k2 = '';
+$turnover_7_k3 = '';
+$turnover_20_k1 = '';
+$turnover_20_k2 = '';
+$turnover_20_k3 = '';
+$return_0_k1 = '';
+$return_0_k2 = '';
+$return_0_k3 = '';
+$return_7_k1 = '';
+$return_7_k2 = '';
+$return_7_k3 = '';
+$return_20_k1 = '';
+$return_20_k2 = '';
+$return_20_k3 = '';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $field_search = "Код товара";
-    $field = 'all';
-    $find = new SearchFromNames($id, $field_search, $field);
-    $noms = $find->result_data;
 
-    //var_dump($noms);
-    foreach ($noms as $nom){
-        $name = trim($nom['name']);
-        $producer = str_replace('"',' ',$nom['producer']);
-        $nom_id = $nom['id'];
-        $morion_id = $nom['morion_id'];
-        $barcode = $nom['barcode'];
-        $tnved = $nom['tnved'];
-        $mark = $nom['m_name'];
-        $mnn = $nom['MNN_name'];
-        $nac = $nom['nac'];
-        $tax = $nom['tax'];
-        $bonus = $nom['bonus'];
-        $gran_price = $nom['gran_price'];
-        $sum_com = $nom['sum_com'];
-        $name_torg = $nom['name_torg'];
-        $form_prod = trim($nom['form_prod']);
-        $doza = $nom['doza'];
-        $amount_in_a_package = $nom['amount_in_a_package'];
+    $find = new GetData('cash_day',$id, 'ID', 'elem');
+    $results = $find->result_data;
 
-        $project_dl = (int) $nom['project_dl'];
-        if ($project_dl == 1) {$project_dl_checked = 'checked';}
+    //var_dump_($results);
 
-        $internet_price = $nom['internet_price'];
-        $fix_price = $nom['fix_price'];
-
-        $internet_sales = (int) $nom['internet_sales'];
-        if ($internet_sales == 1) {$internet_sales_checked = 'checked';}
-
-        $covid = (int)$nom['covid'];
-        if ($covid == 1) {$covid_checked = 'checked';}
-
-        $covid_protokol = (int)$nom['covid_protokol'];
-        if ($covid_protokol == 1) {$covid_protokol_checked = 'checked';}
-
-        $insulin = (int)$nom['insulin'];
-        if ($insulin ==1 ) {$insulin_checked = 'checked';}
-
-        $baby_box = (int)$nom['baby_box'];
-        if ($baby_box == 1){$baby_box_checked = 'checked';}
+    foreach ($results as $result){
+        $date = $result['date'];
+        $apteka_id = $result['apteka_id'];
+        $cash_k1 = $result['cash_k1'];
+        $cash_k2 = $result['cash_k2'];
+        $cash_k3 = $result['cash_k3'];
+        $card_k1 = $result['card_k1'];
+        $card_k2 = $result['card_k2'];
+        $card_k3 = $result['card_k3'];
+        $collection_k1 = $result['collection_k1'];
+        $collection_k2 = $result['collection_k2'];
+        $collection_k3 = $result['collection_k3'];
+        $bank = (int) $result['bank'];
+        $number_of_checks = $result['number_of_checks'];
+        $discount_k1 = $result['discount_k1'];
+        $discount_k2 = $result['discount_k2'];
+        $discount_k3 = $result['discount_k3'];
+        $increment_k1 = $result['increment_k1'];
+        $increment_k2 = $result['increment_k2'];
+        $increment_k3 = $result['increment_k3'];
+        $round_k1 = $result['round_k1'];
+        $round_k2 = $result['round_k2'];
+        $round_k3 = $result['round_k3'];
+        $turnover_0_k1 = $result['turnover_0_k1'];
+        $turnover_0_k2 = $result['turnover_0_k2'];
+        $turnover_0_k3 = $result['turnover_0_k3'];
+        $turnover_7_k1 = $result['turnover_7_k1'];
+        $turnover_7_k2 = $result['turnover_7_k2'];
+        $turnover_7_k3 = $result['turnover_7_k3'];
+        $turnover_20_k1 = $result['turnover_20_k1'];
+        $turnover_20_k2 = $result['turnover_20_k2'];
+        $turnover_20_k3 = $result['turnover_20_k3'];
+        $return_0_k1 = $result['return_0_k1'];
+        $return_0_k2 = $result['return_0_k2'];
+        $return_0_k3 = $result['return_0_k3'];
+        $return_7_k1 = $result['return_7_k1'];
+        $return_7_k2 = $result['return_7_k2'];
+        $return_7_k3 = $result['return_7_k3'];
+        $return_20_k1 = $result['return_20_k1'];
+        $return_20_k2 = $result['return_20_k2'];
+        $return_20_k3 = $result['return_20_k3'];
     }
 
     $marketings = new SearchFromNames('','', 'marketings');

@@ -169,7 +169,7 @@ class GetData
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'cash_day'){
             $table_name = 'cash_day';
-            $fields_query_list = 'date, apteka.name as apteka';
+            $fields_query_list = 'cash_day.id, date, apteka.name as apteka';
             $fields_query_elem = '*';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
