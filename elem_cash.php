@@ -6,7 +6,7 @@ require_once "autoload.php";
 is_user_logged_in();
 
 $errors = '';
-$date = '';
+$date_cash = '';
 $apteka_id = '';
 $cash_k1 = '';
 $cash_k2 = '';
@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
     //var_dump_($results);
 
     foreach ($results as $result){
-        $date = $result['date'];
+        $date_cash = $result['date_cash'];
         $apteka_id = $result['apteka_id'];
         $cash_k1 = $result['cash_k1'];
         $cash_k2 = $result['cash_k2'];
@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
         $collection_k1 = $result['collection_k1'];
         $collection_k2 = $result['collection_k2'];
         $collection_k3 = $result['collection_k3'];
-        $bank = (int) $result['bank'];
+        $bank = $result['bank'];
         $number_of_checks = $result['number_of_checks'];
         $discount_k1 = $result['discount_k1'];
         $discount_k2 = $result['discount_k2'];

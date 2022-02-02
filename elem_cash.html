@@ -13,11 +13,11 @@
     <div class="form-row">
         <label for="inputEmail4" class="col-sm-1 col-form-label">Дата</label>
         <div class="col-sm-2">
-            <input type="date" class="form-control" id="inputEmail4" value="<?php echo $date; ?> " name="date" required>
+            <input type="date" class="form-control" value="<?php echo $date_cash;?> " name="date_cash" required>
         </div>
         <label for="inputEmail4" class="col-sm-1 col-form-label">Аптека</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $date; ?> " name="apteka_id" required>
+            <input type="text" class="form-control" id="inputEmail4" value="<?php echo $apteka_id;?> " name="apteka_id" required>
         </div>
     </div>
 
@@ -86,17 +86,17 @@
         </script>
 -->
     <div class="form-row">
-        <label for="bank" class="col-sm-1 col-form-label">Сдано в банк</label>
-        <div class="col-sm-1">
-            <input type="number" step="any" class="form-control" id="bank" value="<?php echo $bank; ?> " min=0 max=9999999.99 name="bank">
+        <label class="col-sm-1 col-form-label">Сдано в банк</label>
+        <div class="col-sm-2">
+            <input type="number" step="any" class="form-control" value="<?php echo $bank;?>" min=0 max=9999999.99 name="bank">
         </div>
-        <label for="office" class="col-sm-2 col-form-label">Офис</label>
+        <label class="col-sm-2 col-form-label">Офис</label>
         <div class="col-sm-1">
 
         </div>
         <label for="number_of_checks" class="col-sm-1 col-form-label">Количество чеков</label>
         <div class="col-sm-1">
-            <input type="number" step="any" class="form-control" id="number_of_checks" value="<?php echo $number_of_checks; ?> " min=0 max=9999999.99 name="number_of_checks">
+            <input type="number" step="any" class="form-control" value="<?php echo $number_of_checks;?>" min=0 max=9999999.99 name="number_of_checks">
         </div>
         <label for="number_of_checks" class="col-sm-1 col-form-label">Средняя цена</label>
         <div class="col-sm-1">
