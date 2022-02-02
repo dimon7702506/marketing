@@ -19,13 +19,14 @@
 
     <div class="form-row">
         <label for="t1" class="col-sm-1 col-form-label">Выручка</label>
-        <table id="t1" class="table table-bordered table-hover">
+        <table id="t1" class="table table-hover tb">
             <thead>
             <tr>
                 <th>ЭККА</th>
                 <th>Начальный остаток</th>
                 <th>Наличные</th>
                 <th>Карта</th>
+                <th>Общая выручка</th>
                 <th>Инкасация общая</th>
                 <th>Конечный остаток</th>
             </tr>
@@ -36,6 +37,7 @@
                 <td></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k1;?>" min=0 max=9999999.99 name="cash_k1"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $card_k1;?>" min=0 max=9999999.99 name="card_k1"></td>
+                <td></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $collection_k1;?>" min=0 max=9999999.99 name="collection_k1"></td>
                 <td></td>
             </tr>
@@ -44,6 +46,7 @@
                 <td></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k2;?>" min=0 max=9999999.99 name="cash_k2"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $card_k2;?>" min=0 max=9999999.99 name="card_k2"></td>
+                <td></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $collection_k2;?>" min=0 max=9999999.99 name="collection_k2"></td>
                 <td></td>
             </tr>
@@ -52,6 +55,7 @@
                 <td></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k3;?>" min=0 max=9999999.99 name="cash_k3"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $card_k3;?>" min=0 max=9999999.99 name="card_k3"></td>
+                <td></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $collection_k3;?>" min=0 max=9999999.99 name="collection_k3"></td>
                 <td></td>
             </tr>
@@ -61,7 +65,7 @@
             </tbody>
         </table>
     </div>
-
+<!--
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js"></script>
@@ -76,168 +80,137 @@
                 });
             });
         </script>
-
+-->
     <div class="form-row">
-        <label for="bank" class="col-sm-2 col-form-label">Сдано в банк</label>
-        <div class="col-sm-2">
+        <label for="bank" class="col-sm-1 col-form-label">Сдано в банк</label>
+        <div class="col-sm-1">
             <input type="number" step="any" class="form-control" id="bank" value="<?php echo $bank; ?> " min=0 max=9999999.99 name="bank">
         </div>
         <label for="office" class="col-sm-2 col-form-label">Офис</label>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
+
+        </div>
+        <label for="number_of_checks" class="col-sm-1 col-form-label">Количество чеков</label>
+        <div class="col-sm-1">
+            <input type="number" step="any" class="form-control" id="number_of_checks" value="<?php echo $number_of_checks; ?> " min=0 max=9999999.99 name="number_of_checks">
+        </div>
+        <label for="number_of_checks" class="col-sm-1 col-form-label">Средняя цена</label>
+        <div class="col-sm-1">
 
         </div>
     </div>
 
+    <div class="form-row">
+        <label for="t2" class="col-sm-1 col-form-label">Скидки</label>
+        <table id="t2" class="table table-hover tb">
+            <thead>
+            <tr>
+                <th>ЭККА</th>
+                <th>Скидка</th>
+                <th>Надбавка</th>
+                <th>Округление</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Касса1</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $discount_k1;?>" min=0 max=9999999.99 name="discount_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $increment_k1;?>" min=0 max=9999999.99 name="increment_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $round_k1;?>" min=0 max=9999999.99 name="round_k1"></td>
+            </tr>
+            <tr>
+                <td>Касса2</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $discount_k2;?>" min=0 max=9999999.99 name="discount_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $increment_k2;?>" min=0 max=9999999.99 name="increment_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $round_k2;?>" min=0 max=9999999.99 name="round_k2"></td>
+            </tr>
+            <tr>
+                <td>Касса3</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $discount_k3;?>" min=0 max=9999999.99 name="discount_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $increment_k3;?>" min=0 max=9999999.99 name="increment_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $round_k3;?>" min=0 max=9999999.99 name="round_k3"></td>
+            </tr>
+            <tr>
+                <td>Итого</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <div class="form-group col-md-2">
-            <label for="inputZip">Код</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $nom_id; ?>" name="nom_id"
-                   disabled required>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Код мориона</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $morion_id; ?>"
-                   maxlength="11" name="morion_id">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Штрихкод</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $barcode; ?>"
-                   maxlength="13" name="barcode">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">ТНВЭД</label>
-            <input type="text" class="form-control" id="inputZip" value="<?php echo $tnved; ?>"
-                   maxlength="13" name="tnved">
-        </div>
-        <div class="form-group col-md-1">
-            <label for="inputZip">Наценка</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $nac; ?>"
-                   min=0 max=25 name="nac">
-        </div>
-        <div class="form-group col-md-1">
-            <label for="inputZip">НДС</label>
-            <input type="number" class="form-control" id="inputZip" value="<?php echo $tax; ?>"
-                   min=0 max=20 name="tax">
-        </div>
-        <div class="form-group col-md-1">
-            <label for="inputZip">Бонус</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $bonus; ?>"
-                   min=0 max=100 name="bonus">
-        </div>
-    </div>
     <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="inputState">Маркетинг</label>
-            <select id="inputState" class="form-control" name="marketing">
-                <option selected><?php echo $mark; ?></option>
-                <option></option>
-                <?php foreach ($marks as $mar): ?>
-                <?php echo "<option>$mar[m_name]</option>"; ?>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">МНН</label>
-            <select id="inputState" class="form-control" name="mnn">
-                <option selected><?php echo $mnn; ?></option>
-                <option></option>
-                <?php foreach ($mnns as $mn): ?>
-                <?php echo "<option>$mn[MNN_name]".'</option>'; ?>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputZip">Форма выпуска</label>
-            <!--<input type="text" class="form-control" id="inputZip" value="<?php echo $form_prod; ?>"-->
-            <!--maxlength="20" name="form_prod">-->
-            <select id="inputState" class="form-control" name="form_prod">
-                <option selected><?php echo $form_prod; ?></option>
-                <option></option>
-                <?php foreach ($form_prods as $form_pro): ?>
-                <?php echo "<option>$form_pro[name]".'</option>'; ?>
-                <?php endforeach; ?>
-            </select>
-        </div>
+        <label for="t2" class="col-sm-1 col-form-label">Обороты</label>
+        <table id="t2" class="table table-hover tb">
+            <thead>
+            <tr>
+                <th>ЭККА</th>
+                <th>0%</th>
+                <th>7%</th>
+                <th>20%</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Касса1</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_0_k1;?>" min=0 max=9999999.99 name="turnover_0_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_7_k1;?>" min=0 max=9999999.99 name="turnover_7_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_20_k1;?>" min=0 max=9999999.99 name="turnover_20_k1"></td>
+            </tr>
+            <tr>
+                <td>Касса2</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_0_k2;?>" min=0 max=9999999.99 name="turnover_0_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_7_k2;?>" min=0 max=9999999.99 name="turnover_7_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_20_k2;?>" min=0 max=9999999.99 name="turnover_20_k2"></td>
+            </tr>
+            <tr>
+                <td>Касса3</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_0_k3;?>" min=0 max=9999999.99 name="turnover_0_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_7_k3;?>" min=0 max=9999999.99 name="turnover_7_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $turnover_20_k3;?>" min=0 max=9999999.99 name="turnover_20_k3"></td>
+            </tr>
+            <tr>
+                <td>Итого</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
+
     <div class="form-row">
-        <div class="form-group col-md-2">
-            <label for="inputZip">Граничная цена</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $gran_price; ?>"
-                   min=0 max=9999.99 name="gran_price">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Сумма компенсации</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $sum_com; ?>"
-                   min=0 max=9999.99 name="sum_com">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Фиксированная цена</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $fix_price; ?>"
-                   min=0 max=99999.99 name="fix_price">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Дозировка</label>
-            <input type="text" step="any" class="form-control" id="inputZip" value="<?php echo $doza; ?>"
-                   maxlength="10" name="doza">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Количество в упаковке</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $amount_in_a_package; ?>"
-                   maxlength="5" name="amount_in_a_package">
-        </div>
+        <label for="t2" class="col-sm-1 col-form-label">Возвраты</label>
+        <table id="t2" class="table table-hover tb">
+            <thead>
+            <tr>
+                <th>ЭККА</th>
+                <th>0%</th>
+                <th>7%</th>
+                <th>20%</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Касса1</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_0_k1;?>" min=0 max=9999999.99 name="return_0_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_7_k1;?>" min=0 max=9999999.99 name="return_7_k1"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_20_k1;?>" min=0 max=9999999.99 name="return_20_k1"></td>
+            </tr>
+            <tr>
+                <td>Касса2</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_0_k2;?>" min=0 max=9999999.99 name="return_0_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_7_k2;?>" min=0 max=9999999.99 name="return_7_k2"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_20_k2;?>" min=0 max=9999999.99 name="return_20_k2"></td>
+            </tr>
+            <tr>
+                <td>Касса3</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_0_k3;?>" min=0 max=9999999.99 name="return_0_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_7_k3;?>" min=0 max=9999999.99 name="return_7_k3"></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $return_20_k3;?>" min=0 max=9999999.99 name="return_20_k3"></td>
+            </tr>
+            <tr>
+                <td>Итого</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-5">
-            <label for="inputZip">Торговое название</label>
-            <input type="text" class="form-control" id="inputZip" value="<?php echo $name_torg; ?>"
-                   maxlength="100" name="name_torg">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Интернет цена</label>
-            <input type="number" step="any" class="form-control" id="inputZip" value="<?php echo $internet_price; ?>"
-                   min=0 max=99999.99 name="internet_price">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-1">
-            <div class="form-group col-md-1"></div>
-            <div class="form-group col-md-1"></div>
-            <input type="checkbox"  id="inputZip" name="internet_sales" <?php echo $internet_sales_checked; ?>>
-            <label for="internet_sales">Инет</label>
-        </div>
-        <div class="form-group col-md-1">
-            <div class="form-group col-md-1"></div>
-            <div class="form-group col-md-1"></div>
-            <input type="checkbox"  id="project_dl" name="project_dl" <?php echo $project_dl_checked; ?>>
-            <label for="project_dl">EHealth</label>
-        </div>
-        <div class="form-group col-md-1">
-            <div class="form-group col-md-2"></div>
-            <div class="form-group col-md-2"></div>
-            <input type="checkbox"  id="inputZip" name="insulin" <?php echo $insulin_checked; ?>>
-            <label for="insulin">Инсулин</label>
-        </div>
-        <div class="form-group col-md-1">
-            <div class="form-group col-md-2"></div>
-            <div class="form-group col-md-2"></div>
-            <input type="checkbox"  id="inputZip" name="covid" <?php echo $covid_checked; ?>>
-            <label for="covid">Covid</label>
-        </div>
-        <div class="form-group col-md-2">
-            <div class="form-group col-md-2"></div>
-            <div class="form-group col-md-2"></div>
-            <input type="checkbox"  id="inputZip" name="covid_protokol" <?php echo $covid_protokol_checked; ?>>
-            <label for="covid">Covid протокол</label>
-        </div>
-        <!--
-        <div class="form-group col-md-2">
-            <div class="form-group col-md-2"></div>
-            <div class="form-group col-md-2"></div>
-            <input type="checkbox"  id="inputZip" name="baby_box" <?php echo $baby_box_checked; ?>>
-            <label for="insulin">Пакунок малюка</label>
-        </div>
-        -->
-    </div>
+
     <p class="errors"><?php echo $errors ?></p>
     <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
     <button type="submit" class="btn btn-primary" name="copy" style="margin-left: 15px">Копировать</button>

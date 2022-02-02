@@ -49,3 +49,9 @@ body {
     padding-left: 50px;
     padding-right: 50px;
 }
+
+.tb {
+    border: 2px solid #acacac;
+    border-radius: 10px;
+    border-collapse: separate;
+}
