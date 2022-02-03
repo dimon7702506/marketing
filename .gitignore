@@ -4,3 +4,5 @@ idea\*.*
 .out
 .out/*.*
 *.dbf
+out/marketings.csv
+out/names.csv
