@@ -22,6 +22,7 @@ $tax = '';
 $bonus = 0;
 $gran_price = '';
 $sum_com = '';
+$sum_dop = '';
 $amount_in_a_package = '';
 
 $project_dl = '';
@@ -74,6 +75,7 @@ if (isset($_GET['id'])) {
         $bonus = $nom['bonus'];
         $gran_price = $nom['gran_price'];
         $sum_com = $nom['sum_com'];
+        $sum_dop = $nom['sum_dop'];
         $name_torg = $nom['name_torg'];
         $form_prod = trim($nom['form_prod']);
         $doza = $nom['doza'];
@@ -152,6 +154,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $sum_com = $check->value;
     $errors .= $check->error;
 
+    $check = new CheckField('sum_dop', $_POST['sum_dop']);
+    $sum_dop = $check->value;
+    $errors .= $check->error;
+
     $check = new CheckField('name_torg', $_POST['name_torg']);
     $name_torg = $check->value;
     $errors .= $check->error;
@@ -223,6 +229,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'marketing'=>$marketing,
                     'gran_price'=>(float) $gran_price,
                     'sum_com'=>(float) $sum_com,
+                    'sum_dop'=>(float) $sum_dop,
                     'mnn'=>$mnn,
                     'form_prod'=>$form_prod,
                     'doza'=>trim($doza),

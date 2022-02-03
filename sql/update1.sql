@@ -1,1 +1,1 @@
-ALTER TABLE `apteka` CHANGE `mypharmacy` `mypharmacy_id` INT(5) NULL DEFAULT NULL;
+ALTER TABLE `names` ADD `sum_dop` DECIMAL(7,2) NULL AFTER `baby_box`;

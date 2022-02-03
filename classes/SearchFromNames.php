@@ -15,7 +15,7 @@ class SearchFromNames
     {
         if ($fields == 'all') {
             $sql = "SELECT id, morion_id, name, producer, barcode, tnved, nac, tax, marketing_id, gran_price,
-                          sum_com,  form_prod, doza, name_torg, amount_in_a_package, internet_price,
+                          sum_com,  sum_dop, form_prod, doza, name_torg, amount_in_a_package, internet_price,
                           internet_sales, fix_price, covid, MNN.MNN_name, sickness.sickness_name, covid_protokol, bonus,
                           insulin, baby_box,
                           marketing.m_name as m_name, project_dl
