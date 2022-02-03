@@ -55,3 +55,7 @@ body {
     border-radius: 10px;
     border-collapse: separate;
 }
+
+.p-center {
+    margin-top: 5px;
+}

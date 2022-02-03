@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
     //var_dump_($results);
 
     foreach ($results as $result){
-        $date_cash = date($result['date_cash']);
+        $date_cash = $result['date_cash'];
         $apteka_id = $result['apteka_id'];
         $apteka = $result['apteka'];
         $cash_k1 = $result['cash_k1'];
@@ -98,115 +98,27 @@ if (isset($_GET['id'])) {
         $return_20_k2 = $result['return_20_k2'];
         $return_20_k3 = $result['return_20_k3'];
     }
-
-    $marketings = new SearchFromNames('','', 'marketings');
-    $marks = $marketings->result_data;
-
-    $mnn_list = new SearchFromNames('','', 'mnn');
-    $mnns = $mnn_list->result_data;
-
-    $form_prod_list = new SearchFromNames('','','form_prod');
-    $form_prods = $form_prod_list->result_data;
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
 
-    $check = new CheckField('name', $_POST['name']);
-    $name = $check->value;
-    $errors .= $check->error;
+    if (isset($_POST['date_cash'])) {
+        $check = new CheckFields('Дата', 'date', 0,0 , 0, $_POST['date_cash'], 'required');
+        $errors .= $check->value;
+    }
+    if (isset($_POST['apteka_id'])) {
+        $check = new CheckFields('Аптека', 'number', 1,999 , 0, $_POST['apteka_id'], 'required');
+        $errors .= $check->value;
+    }
+    if (isset($_POST['cash_k1'])) {
+        $check = new CheckFields('Выручка касса 1', 'number', 0,9999999.99 , 10, $_POST['cash_k1'], 'required');
+        $errors .= $check->value;
+    }
+    if (isset($_POST['cash_k2'])) {
+        $check = new CheckFields('Выручка касса 2', 'number', 0,9999999.99 , 10, $_POST['cash_k2'], 'required');
+        $errors .= $check->value;
+    }
 
-    $check = new CheckField('producer', $_POST['producer']);
-    $producer = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('barcode', $_POST['barcode']);
-    $barcode = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('tnved', $_POST['tnved']);
-    $tnved = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('id', $id);
-    $errors .= $check->error;
-
-    $check = new CheckField('nac', $_POST['nac']);
-    $nac = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('tax', $_POST['tax']);
-    $tax = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('bonus', $_POST['bonus']);
-    $bonus = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('gran_price', $_POST['gran_price']);
-    $gran_price = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('sum_com', $_POST['sum_com']);
-    $sum_com = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('name_torg', $_POST['name_torg']);
-    $name_torg = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('form_prod', $_POST['form_prod']);
-    $form_prod = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('doza', $_POST['doza']);
-    $doza = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('amount_in_a_package', $_POST['amount_in_a_package']);
-    $amount_in_a_package = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('morion_id', $_POST['morion_id']);
-    $morion_id = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('marketing', $_POST['marketing']);
-    $marketing = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('mnn', $_POST['mnn']);
-    $mnn = $check->value;
-    $errors .= $check->error;
-
-    if (!empty($_POST['project_dl'])) {$project_dl_value = $_POST['project_dl'];}
-    if ($project_dl_value == 'on'){$project_dl = 1;}else{$project_dl = 0;}
-
-    $check = new CheckField('internet_price', $_POST['internet_price']);
-    $internet_price = $check->value;
-    $errors .= $check->error;
-
-    $check = new CheckField('fix_price', $_POST['fix_price']);
-    $fix_price = $check->value;
-    $errors .= $check->error;
-
-    if ($_POST['internet_sales'] == 'on'){$internet_sales = 1;
-    }else{$internet_sales = 0;}
-
-    if (!empty($_POST['covid'])){$covid_value = $_POST['covid'];}
-    if ($covid_value == 'on'){$covid = 1;
-    }else{$covid = 0;}
-
-    if (!empty($_POST['insulin'])){$insulin_value = $_POST['insulin'];}
-    if ($insulin_value == 'on'){$insulin = 1;
-    }else{$insulin = 0;}
-
-    if (!empty($_POST['baby_box'])){$baby_box_value = $_POST['baby_box'];}
-    if ($baby_box_value == 'on'){$baby_box = 1;
-    }else{$baby_box = 0;}
-
-    if (!empty($_POST['covid_protokol'])){$covid_protokol_value = $_POST['covid_protokol'];}
-    if ($covid_protokol_value == 'on'){$covid_protokol = 1;
-    }else{$covid_protokol = 0;}
 
     if (empty($errors)){
         $element = ['id'=>$id,
