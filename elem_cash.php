@@ -56,8 +56,9 @@ if (isset($_GET['id'])) {
     //var_dump_($results);
 
     foreach ($results as $result){
-        $date_cash = $result['date_cash'];
+        $date_cash = date($result['date_cash']);
         $apteka_id = $result['apteka_id'];
+        $apteka = $result['apteka'];
         $cash_k1 = $result['cash_k1'];
         $cash_k2 = $result['cash_k2'];
         $cash_k3 = $result['cash_k3'];

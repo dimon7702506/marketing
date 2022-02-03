@@ -170,7 +170,12 @@ class GetData
         }elseif ($sp_type == 'cash_day'){
             $table_name = 'cash_day';
             $fields_query_list = 'cash_day.id, date_cash, apteka.name as apteka';
-            $fields_query_elem = '*';
+            $fields_query_elem = 'cash_day.id, date_cash, apteka_id, cash_k1, cash_k2, cash_k3, card_k1, card_k2, card_k3,
+                collection_k1, collection_k2, collection_k3, bank, number_of_checks, discount_k1, discount_k2,
+                discount_k3, increment_k1, increment_k2, increment_k3, round_k1, round_k2, round_k3, turnover_0_k1,
+                turnover_0_k2, turnover_0_k3, turnover_7_k1, turnover_7_k2, turnover_7_k3, turnover_20_k1,
+                turnover_20_k2, turnover_20_k3, return_0_k1, return_0_k2, return_0_k3, return_7_k1, return_7_k2,
+                return_7_k3, return_20_k1, return_20_k2, return_20_k3, apteka.name as apteka';
             $fields_query_id = 'id';
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
