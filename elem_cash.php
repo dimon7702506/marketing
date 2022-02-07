@@ -96,6 +96,8 @@ if (isset($_GET['id'])) {
         $return_20_k2 = $result['return_20_k2'];
         $return_20_k3 = $result['return_20_k3'];
     }
+
+    if($date_cash == '') {$date_cash = date("Y-m-d");}
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
@@ -306,8 +308,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     //if (empty($errors)){
         $element[] = '';
         $element = ['id'=>$id,
-                    //'date_cash'=>$date_cash,
-                    'date_cash'=>'20-10-2020',
+                    'date_cash'=>$date_cash,
+                    //'date_cash'=>'20-10-2020',
                     'apteka_id'=>$apteka_id,
                     'cash_k1'=>(float) $cash_k1,
                     'cash_k2'=>(float) $cash_k2,
