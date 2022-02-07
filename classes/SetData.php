@@ -54,6 +54,9 @@ class SetData
         }elseif ($sp_type == 'news'){
             $table_name = 'news';
             $id_name = 'id';
+        }elseif ($sp_type == 'cash_day'){
+            $table_name = 'cash_day';
+            $id_name = 'id';
         }
         //var_dump($element);
         $sql_update = '';

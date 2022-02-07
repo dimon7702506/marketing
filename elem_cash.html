@@ -11,15 +11,14 @@
 <form class="container-fluid" method="post">
 
     <div class="form-row">
-        <label for="inputEmail4" class="col-sm-1 col-form-label">Дата</label>
+        <label class="col-sm-1 col-form-label">Дата</label>
         <div class="col-sm-2">
-            <input type="date" class="form-control" value="<?php echo $date_cash;?> " name="date_cash" required>
+            <input type="date" class="form-control" value="<?php echo $date_cash;?> " name="date_cash">
         </div>
         <div class="col-sm-3">
             <p class="p-center"><?php echo $apteka;?></p>
         </div>
     </div>
-
     <div class="form-row">
         <label for="t1" class="col-sm-1 col-form-label">Выручка</label>
         <table id="t1" class="table table-hover tb">

@@ -1,1 +1,0 @@
-ALTER TABLE `names` ADD `sum_dop` DECIMAL(7,2) NULL AFTER `baby_box`;
