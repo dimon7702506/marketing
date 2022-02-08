@@ -9,23 +9,35 @@ $errors = '';
 $date_cash = '';
 $apteka_id = 0;
 $apteka = '';
+
 $cash_start_k1 = 0;
 $cash_start_k2 = 0;
 $cash_start_k3 = 0;
+
 $cash_k1 = 0;
 $cash_k2 = 0;
 $cash_k3 = 0;
+
 $card_k1 = 0;
 $card_k2 = 0;
 $card_k3 = 0;
+
 $collection_k1 = 0;
 $collection_k2 = 0;
 $collection_k3 = 0;
+
+$cash_end_k1 = 0;
+$cash_end_k2 = 0;
+$cash_end_k3 = 0;
+
 $bank = 0;
+
 $number_of_checks = 0;
+
 $discount_k1 = 0;
 $discount_k2 = 0;
 $discount_k3 = 0;
+
 $increment_k1 = 0;
 $increment_k2 = 0;
 $increment_k3 = 0;
@@ -61,18 +73,27 @@ if (isset($_GET['id'])) {
         $date_cash = $result['date_cash'];
         $apteka_id = $result['apteka_id'];
         $apteka = $result['apteka'];
+
         $cash_start_k1 = $result['cash_start_k1'];
         $cash_start_k2 = $result['cash_start_k2'];
         $cash_start_k3 = $result['cash_start_k3'];
+
         $cash_k1 = $result['cash_k1'];
         $cash_k2 = $result['cash_k2'];
         $cash_k3 = $result['cash_k3'];
+
         $card_k1 = $result['card_k1'];
         $card_k2 = $result['card_k2'];
         $card_k3 = $result['card_k3'];
+
         $collection_k1 = $result['collection_k1'];
         $collection_k2 = $result['collection_k2'];
         $collection_k3 = $result['collection_k3'];
+
+        $cash_end_k1 = $result['cash_end_k1'];
+        $cash_end_k2 = $result['cash_end_k2'];
+        $cash_end_k3 = $result['cash_end_k3'];
+
         $bank = $result['bank'];
         $number_of_checks = $result['number_of_checks'];
         $discount_k1 = $result['discount_k1'];
@@ -108,6 +129,20 @@ if (isset($_GET['id'])) {
     $sum_cash = number_format($cash_k1 + $cash_k2 + $cash_k3,2, ',', ' ');
     $sum_card = number_format($card_k1 + $card_k2 + $card_k3,2, ',', ' ');
 
+    $sum_k1 = number_format($cash_k1 + $card_k1,2, ',', ' ');
+    $sum_k2 = number_format($cash_k2 + $card_k2,2, ',', ' ');
+    $sum_k3 = number_format($cash_k3 + $card_k3,2, ',', ' ');
+    $sum_k = number_format($cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3,2, ',', ' ');
+
+    $sum_collection = number_format($collection_k1 + $collection_k2 + $collection_k3,2, ',', ' ');
+
+    $cash_end_k1 = $cash_start_k1 + $cash_k1 - $collection_k1;
+    $cash_end_k2 = $cash_start_k2 + $cash_k2 - $collection_k2;
+    $cash_end_k3 = $cash_start_k3 + $cash_k3 - $collection_k3;
+    $cash_end_k1_print = number_format($cash_end_k1,2, ',', ' ');
+    $cash_end_k2_print = number_format($cash_end_k2,2, ',', ' ');
+    $cash_end_k3_print = number_format($cash_end_k3,2, ',', ' ');
+    $sum_end = number_format($cash_end_k1 + $cash_end_k2 + $cash_end_k3, 2, ',',' ');
 
     if($date_cash == '') {$date_cash = date("Y-m-d", strtotime('yesterday'));}
 }
@@ -183,6 +218,21 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $check = new CheckFields('Выручка касса 3', 'number', 0,9999999.99 , 10, $_POST['collection_k3'], '');
         $errors .= $check->error;
         $collection_k3 = $check->value;
+    }
+    if (isset($_POST['cash_end_k1'])) {
+        $check = new CheckFields('Остаток', 'number', 0,9999999.99 , 10, $_POST['cash_end_k1'], '');
+        $errors .= $check->error;
+        $cash_end_k1 = $check->value;
+    }
+    if (isset($_POST['cash_end_k2'])) {
+        $check = new CheckFields('Остаток', 'number', 0,9999999.99 , 10, $_POST['cash_end_k2'], '');
+        $errors .= $check->error;
+        $cash_end_k2 = $check->value;
+    }
+    if (isset($_POST['cash_end_k3'])) {
+        $check = new CheckFields('Остаток', 'number', 0,9999999.99 , 10, $_POST['cash_end_k3'], '');
+        $errors .= $check->error;
+        $cash_end_k3 = $check->value;
     }
     if (isset($_POST['bank'])) {
         $check = new CheckFields('Сдано в банк', 'number', 0,9999999.99 , 10, $_POST['bank'], '');
@@ -330,7 +380,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $return_20_k3 = $check->value;
     }
 
-    //var_dump($errors);
+    var_dump($errors);
 
     if (empty($errors)){
         $element[] = '';
@@ -350,6 +400,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'collection_k1'=>(float) $collection_k1,
                     'collection_k2'=>(float) $collection_k2,
                     'collection_k3'=>(float) $collection_k3,
+                    'cash_end_k1'=>(float) $cash_end_k1,
+                    'cash_end_k2'=>(float) $cash_end_k2,
+                    'cash_end_k3'=>(float) $cash_end_k3,           
                     'bank'=>(float) $bank,
                     'number_of_checks'=>(int) $number_of_checks,
                     'discount_k1'=>(float) $discount_k1,
