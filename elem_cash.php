@@ -157,8 +157,22 @@ if (isset($_GET['id'])) {
     $sum_discount = number_format($discount_k1 + $discount_k2 + $discount_k3,2, ',', ' ');
     $sum_increment = number_format($increment_k1 + $increment_k2 + $increment_k3,2, ',', ' ');
     $sum_round = number_format($round_k1 + $round_k2 + $round_k2,2, ',', ' ');
+    $sum_turnover_0 = number_format($turnover_0_k1 + $turnover_0_k2 + $turnover_0_k3,2, ',', ' ');
+    $sum_turnover_7 = number_format($turnover_7_k1 + $turnover_7_k2 + $turnover_7_k3,2, ',', ' ');
+    $sum_turnover_20 = number_format($turnover_20_k1 + $turnover_20_k2 + $turnover_20_k3,2, ',', ' ');
+    $sum_return_0 = number_format($return_0_k1 + $return_0_k2 + $return_0_k3,2, ',', ' ');
+    $sum_return_7 = number_format($return_7_k1 + $return_7_k2 + $return_7_k3,2, ',', ' ');
+    $sum_return_20 = number_format($return_20_k1 + $return_20_k2 + $return_20_k3,2, ',', ' ');
 
     if($date_cash == '') {$date_cash = date("Y-m-d", strtotime('yesterday'));}
+    if($apteka_id == '') {$apteka_id = get_apteka_id();}
+    if ($apteka == '') {
+        $new_apteka = new GetData('podr',  get_apteka_id(), 'id', "elem");
+        $new_results = $new_apteka->result_data;
+        foreach ($new_results as $new_result) {
+            $apteka = $new_result['apteka'];
+        }
+    }
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
