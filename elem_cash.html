@@ -65,8 +65,8 @@
                 <td><?php echo $sum_cash_start;?></td>
                 <td><?php echo $sum_cash;?></td>
                 <td><?php echo $sum_card;?></td>
-                <td><?php echo $sum_k;?></td>
-                <td><?php echo $sum_collection;?></td>
+                <td><?php echo $sum_k_print;?></td>
+                <td><?php echo $sum_collection_print;?></td>
                 <td><?php echo $sum_end;?></td>
              </tr>
             </tbody>
@@ -77,9 +77,9 @@
         <div class="col-sm-2">
             <input type="number" step="any" class="form-control" value="<?php echo $bank;?>" min=0 max=9999999.99 name="bank">
         </div>
-        <label class="col-sm-2 col-form-label">Офис</label>
+        <label class="col-sm-1 col-form-label">Офис</label>
         <div class="col-sm-1">
-
+            <p class="col-form-label"><?php echo $collection_office;?></p>
         </div>
         <label for="number_of_checks" class="col-sm-1 col-form-label">Кол-во чеков</label>
         <div class="col-sm-1">
@@ -87,7 +87,7 @@
         </div>
         <label for="number_of_checks" class="col-sm-1 col-form-label">Средн. цена</label>
         <div class="col-sm-1">
-
+            <p class="col-form-label"><?php echo $cash_avg;?></p>
         </div>
     </div>
 
@@ -123,6 +123,9 @@
             </tr>
             <tr>
                 <td>Итого</td>
+                <td><?php echo $sum_discount;?></td>
+                <td><?php echo $sum_increment;?></td>
+                <td><?php echo $sum_round;?></td>
             </tr>
             </tbody>
         </table>

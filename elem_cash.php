@@ -132,9 +132,11 @@ if (isset($_GET['id'])) {
     $sum_k1 = number_format($cash_k1 + $card_k1,2, ',', ' ');
     $sum_k2 = number_format($cash_k2 + $card_k2,2, ',', ' ');
     $sum_k3 = number_format($cash_k3 + $card_k3,2, ',', ' ');
-    $sum_k = number_format($cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3,2, ',', ' ');
+    $sum_k = $cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3;
+    $sum_k_print = number_format($cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3,2, ',', ' ');
 
-    $sum_collection = number_format($collection_k1 + $collection_k2 + $collection_k3,2, ',', ' ');
+    $sum_collection = $collection_k1 + $collection_k2 + $collection_k3;
+    $sum_collection_print = number_format($sum_collection,2, ',', ' ');
 
     $cash_end_k1 = $cash_start_k1 + $cash_k1 - $collection_k1;
     $cash_end_k2 = $cash_start_k2 + $cash_k2 - $collection_k2;
@@ -143,6 +145,18 @@ if (isset($_GET['id'])) {
     $cash_end_k2_print = number_format($cash_end_k2,2, ',', ' ');
     $cash_end_k3_print = number_format($cash_end_k3,2, ',', ' ');
     $sum_end = number_format($cash_end_k1 + $cash_end_k2 + $cash_end_k3, 2, ',',' ');
+
+    $collection_office = number_format($sum_collection - $bank, 2, ',', ' ');
+
+    if ($number_of_checks > 0) {
+        $cash_avg = number_format($sum_k / $number_of_checks, 2, ',', ' ');
+    }else{
+        $cash_avg = 0;
+    }
+
+    $sum_discount = number_format($discount_k1 + $discount_k2 + $discount_k3,2, ',', ' ');
+    $sum_increment = number_format($increment_k1 + $increment_k2 + $increment_k3,2, ',', ' ');
+    $sum_round = number_format($round_k1 + $round_k2 + $round_k2,2, ',', ' ');
 
     if($date_cash == '') {$date_cash = date("Y-m-d", strtotime('yesterday'));}
 }
@@ -380,7 +394,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $return_20_k3 = $check->value;
     }
 
-    var_dump($errors);
+    //var_dump($errors);
 
     if (empty($errors)){
         $element[] = '';
