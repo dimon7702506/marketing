@@ -8,6 +8,10 @@ is_user_logged_in();
 $errors = '';
 $date_cash = '';
 $apteka_id = 0;
+$apteka = '';
+$cash_start_k1 = 0;
+$cash_start_k2 = 0;
+$cash_start_k3 = 0;
 $cash_k1 = 0;
 $cash_k2 = 0;
 $cash_k3 = 0;
@@ -57,6 +61,9 @@ if (isset($_GET['id'])) {
         $date_cash = $result['date_cash'];
         $apteka_id = $result['apteka_id'];
         $apteka = $result['apteka'];
+        $cash_start_k1 = $result['cash_start_k1'];
+        $cash_start_k2 = $result['cash_start_k2'];
+        $cash_start_k3 = $result['cash_start_k3'];
         $cash_k1 = $result['cash_k1'];
         $cash_k2 = $result['cash_k2'];
         $cash_k3 = $result['cash_k3'];
@@ -97,220 +104,243 @@ if (isset($_GET['id'])) {
         $return_20_k3 = $result['return_20_k3'];
     }
 
-    if($date_cash == '') {$date_cash = date("Y-m-d");}
+    $sum_cash_start = number_format($cash_start_k1 + $cash_start_k2 + $cash_start_k3,2, ',', ' ');
+    $sum_cash = number_format($cash_k1 + $cash_k2 + $cash_k3,2, ',', ' ');
+    $sum_card = number_format($card_k1 + $card_k2 + $card_k3,2, ',', ' ');
+
+
+    if($date_cash == '') {$date_cash = date("Y-m-d", strtotime('yesterday'));}
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
 
     if (isset($_POST['date_cash'])) {
         $check = new CheckFields('Дата', 'date', 0,0 , 0, $_POST['date_cash'], 'required');
-        $errors .= $check->value;
-        $date_cash = $_POST['date_cash'];
+        $errors .= $check->error;
+        $date_cash = $check->value;
     }
     if (isset($_POST['apteka_id'])) {
         $check = new CheckFields('Аптека', 'number', 1,999 , 0, $_POST['apteka_id'], 'required');
-        $errors .= $check->value;
-        $apteka_id = $_POST['apteka_id'];
+        $errors .= $check->error;
+        $apteka_id = $check->value;
+    }
+    if (isset($_POST['cash_start_k1'])) {
+        $check = new CheckFields('Начальный остаток касса 1', 'number', 0,9999999.99 , 10, $_POST['cash_start_k1'], '');
+        $errors .= $check->error;
+        $cash_start_k1 = $check->value;
+    }
+    if (isset($_POST['cash_start_k2'])) {
+        $check = new CheckFields('Начальный остаток касса 2', 'number', 0,9999999.99 , 10, $_POST['cash_start_k2'], '');
+        $errors .= $check->error;
+        $cash_start_k2 = $check->value;
+    }
+    if (isset($_POST['cash_start_k3'])) {
+        $check = new CheckFields('Начальный остаток касса 3', 'number', 0,9999999.99 , 10, $_POST['cash_start_k3'], '');
+        $errors .= $check->error;
+        $cash_start_k3 = $check->value;
     }
     if (isset($_POST['cash_k1'])) {
         $check = new CheckFields('Выручка касса 1', 'number', 0,9999999.99 , 10, $_POST['cash_k1'], '');
-        $errors .= $check->value;
-        $cash_k1 = $_POST['cash_k1'];
+        $errors .= $check->error;
+        $cash_k1 = $check->value;
     }
     if (isset($_POST['cash_k2'])) {
         $check = new CheckFields('Выручка касса 2', 'number', 0,9999999.99 , 10, $_POST['cash_k2'], '');
-        $errors .= $check->value;
-        $cash_k2 = $_POST['cash_k2'];
+        $errors .= $check->error;
+        $cash_k2 = $check->value;
     }
     if (isset($_POST['cash_k3'])) {
         $check = new CheckFields('Выручка касса 3', 'number', 0,9999999.99 , 10, $_POST['cash_k3'], '');
-        $errors .= $check->value;
-        $cash_k3 = $_POST['cash_k3'];
+        $errors .= $check->error;
+        $cash_k3 = $check->value;
     }
     if (isset($_POST['card_k1'])) {
         $check = new CheckFields('Выручка касса 1', 'number', 0,9999999.99 , 10, $_POST['card_k1'], '');
-        $errors .= $check->value;
-        $card_k1 = $_POST['card_k1'];
+        $errors .= $check->error;
+        $card_k1 = $check->value;
     }
     if (isset($_POST['card_k2'])) {
         $check = new CheckFields('Выручка касса 2', 'number', 0,9999999.99 , 10, $_POST['card_k2'], '');
-        $errors .= $check->value;
-        $card_k2 = $_POST['card_k2'];
+        $errors .= $check->error;
+        $card_k2 = $check->value;
     }
     if (isset($_POST['card_k3'])) {
         $check = new CheckFields('Выручка касса 3', 'number', 0,9999999.99 , 10, $_POST['card_k3'], '');
-        $errors .= $check->value;
-        $card_k3 = $_POST['card_k3'];
+        $errors .= $check->error;
+        $card_k3 = $check->value;
     }
     if (isset($_POST['collection_k1'])) {
         $check = new CheckFields('Выручка касса 1', 'number', 0,9999999.99 , 10, $_POST['collection_k1'], '');
-        $errors .= $check->value;
-        $collection_k1 = $_POST['collection_k1'];
+        $errors .= $check->error;
+        $collection_k1 = $check->value;
     }
     if (isset($_POST['collection_k2'])) {
         $check = new CheckFields('Выручка касса 2', 'number', 0,9999999.99 , 10, $_POST['collection_k2'], '');
-        $errors .= $check->value;
-        $collection_k2 = $_POST['collection_k2'];
+        $errors .= $check->error;
+        $collection_k2 = $check->value;
     }
     if (isset($_POST['collection_k3'])) {
         $check = new CheckFields('Выручка касса 3', 'number', 0,9999999.99 , 10, $_POST['collection_k3'], '');
-        $errors .= $check->value;
-        $collection_k3 = $_POST['collection_k3'];
+        $errors .= $check->error;
+        $collection_k3 = $check->value;
     }
     if (isset($_POST['bank'])) {
         $check = new CheckFields('Сдано в банк', 'number', 0,9999999.99 , 10, $_POST['bank'], '');
-        $errors .= $check->value;
-        $bank = $_POST['bank'];
+        $errors .= $check->error;
+        $bank = $check->value;
     }
     if (isset($_POST['number_of_checks'])) {
         $check = new CheckFields('Количество чеков', 'number', 0,9999999.99 , 10, $_POST['number_of_checks'], '');
-        $errors .= $check->value;
-        $number_of_checks = $_POST['number_of_checks'];
+        $errors .= $check->error;
+        $number_of_checks = $check->value;
     }
     if (isset($_POST['discount_k1'])) {
         $check = new CheckFields('Скидка касса 1', 'number', 0,9999999.99 , 10, $_POST['discount_k1'], '');
-        $errors .= $check->value;
-        $discount_k1 = $_POST['discount_k1'];
+        $errors .= $check->error;
+        $discount_k1 = $check->value;
     }
     if (isset($_POST['discount_k2'])) {
         $check = new CheckFields('Скидка касса 2', 'number', 0,9999999.99 , 10, $_POST['discount_k2'], '');
-        $errors .= $check->value;
-        $discount_k2 = $_POST['discount_k2'];
+        $errors .= $check->error;
+        $discount_k2 = $check->value;
     }
     if (isset($_POST['discount_k3'])) {
         $check = new CheckFields('Скидка касса 3', 'number', 0,9999999.99 , 10, $_POST['discount_k3'], '');
-        $errors .= $check->value;
-        $discount_k3 = $_POST['discount_k3'];
+        $errors .= $check->error;
+        $discount_k3 = $check->value;
     }
     if (isset($_POST['increment_k1'])) {
         $check = new CheckFields('Скидка касса 1', 'number', 0,9999999.99 , 10, $_POST['increment_k1'], '');
-        $errors .= $check->value;
-        $increment_k1 = $_POST['increment_k1'];
+        $errors .= $check->error;
+        $increment_k1 = $check->value;
     }
     if (isset($_POST['increment_k2'])) {
         $check = new CheckFields('Скидка касса 2', 'number', 0,9999999.99 , 10, $_POST['increment_k2'], '');
-        $errors .= $check->value;
-        $increment_k2 = $_POST['increment_k2'];
+        $errors .= $check->error;
+        $increment_k2 = $check->value;
     }
     if (isset($_POST['increment_k3'])) {
         $check = new CheckFields('Скидка касса 3', 'number', 0,9999999.99 , 10, $_POST['increment_k3'], '');
-        $errors .= $check->value;
-        $increment_k3 = $_POST['increment_k3'];
+        $errors .= $check->error;
+        $increment_k3 = $check->value;
     }
     if (isset($_POST['round_k1'])) {
         $check = new CheckFields('Скидка касса 1', 'number', 0,9999999.99 , 10, $_POST['round_k1'], '');
-        $errors .= $check->value;
+        $errors .= $check->error;
         $round_k1 = $_POST['round_k1'];
     }
     if (isset($_POST['round_k2'])) {
         $check = new CheckFields('Скидка касса 2', 'number', 0,9999999.99 , 10, $_POST['round_k2'], '');
-        $errors .= $check->value;
-        $round_k2 = $_POST['round_k2'];
+        $errors .= $check->error;
+        $round_k2 = $check->value;
     }
     if (isset($_POST['round_k3'])) {
         $check = new CheckFields('Скидка касса 3', 'number', 0,9999999.99 , 10, $_POST['round_k3'], '');
-        $errors .= $check->value;
-        $round_k3 = $_POST['round_k3'];
+        $errors .= $check->error;
+        $round_k3 = $check->value;
     }
     if (isset($_POST['turnover_0_k1'])) {
         $check = new CheckFields('Оборот касса 1', 'number', 0,9999999.99 , 10, $_POST['turnover_0_k1'], '');
-        $errors .= $check->value;
-        $turnover_0_k1 = $_POST['turnover_0_k1'];
+        $errors .= $check->error;
+        $turnover_0_k1 = $check->value;
     }
     if (isset($_POST['turnover_0_k2'])) {
         $check = new CheckFields('Оборот касса 2', 'number', 0,9999999.99 , 10, $_POST['turnover_0_k2'], '');
-        $errors .= $check->value;
-        $turnover_0_k2 = $_POST['turnover_0_k2'];
+        $errors .= $check->error;
+        $turnover_0_k2 = $check->value;
     }
     if (isset($_POST['turnover_0_k3'])) {
         $check = new CheckFields('Оборот касса 3', 'number', 0,9999999.99 , 10, $_POST['turnover_0_k3'], '');
-        $errors .= $check->value;
-        $turnover_0_k3 = $_POST['turnover_0_k3'];
+        $errors .= $check->error;
+        $turnover_0_k3 = $check->value;
     }
     if (isset($_POST['turnover_7_k1'])) {
         $check = new CheckFields('Оборот касса 1', 'number', 0,9999999.99 , 10, $_POST['turnover_7_k1'], '');
-        $errors .= $check->value;
-        $turnover_7_k1 = $_POST['turnover_7_k1'];
+        $errors .= $check->error;
+        $turnover_7_k1 = $check->value;
     }
     if (isset($_POST['turnover_7_k2'])) {
         $check = new CheckFields('Оборот касса 2', 'number', 0,9999999.99 , 10, $_POST['turnover_7_k2'], '');
-        $errors .= $check->value;
-        $turnover_7_k2 = $_POST['turnover_7_k2'];
+        $errors .= $check->error;
+        $turnover_7_k2 = $check->value;
     }
     if (isset($_POST['turnover_7_k3'])) {
         $check = new CheckFields('Оборот касса 3', 'number', 0,9999999.99 , 10, $_POST['turnover_7_k3'], '');
-        $errors .= $check->value;
-        $turnover_7_k3 = $_POST['turnover_7_k3'];
+        $errors .= $check->error;
+        $turnover_7_k3 = $check->value;
     }
     if (isset($_POST['turnover_20_k1'])) {
         $check = new CheckFields('Оборот касса 1', 'number', 0,9999999.99 , 10, $_POST['turnover_20_k1'], '');
-        $errors .= $check->value;
-        $turnover_20_k1 = $_POST['turnover_20_k1'];
+        $errors .= $check->error;
+        $turnover_20_k1 = $check->value;
     }
     if (isset($_POST['turnover_20_k2'])) {
         $check = new CheckFields('Оборот касса 2', 'number', 0,9999999.99 , 10, $_POST['turnover_20_k2'], '');
-        $errors .= $check->value;
-        $turnover_20_k2 = $_POST['turnover_20_k2'];
+        $errors .= $check->error;
+        $turnover_20_k2 = $check->value;
     }
     if (isset($_POST['turnover_20_k3'])) {
         $check = new CheckFields('Оборот касса 3', 'number', 0,9999999.99 , 10, $_POST['turnover_20_k3'], '');
-        $errors .= $check->value;
-        $turnover_20_k3 = $_POST['turnover_20_k3'];
+        $errors .= $check->error;
+        $turnover_20_k3 = $check->value;
     }
     if (isset($_POST['return_0_k1'])) {
         $check = new CheckFields('Возврат касса 1', 'number', 0,9999999.99 , 10, $_POST['return_0_k1'], '');
-        $errors .= $check->value;
-        $return_0_k1 = $_POST['return_0_k1'];
+        $errors .= $check->error;
+        $return_0_k1 = $check->value;
     }
     if (isset($_POST['return_0_k2'])) {
         $check = new CheckFields('Возврат касса 2', 'number', 0,9999999.99 , 10, $_POST['return_0_k2'], '');
-        $errors .= $check->value;
-        $return_0_k2 = $_POST['return_0_k2'];
+        $errors .= $check->error;
+        $return_0_k2 = $check->value;
     }
     if (isset($_POST['return_0_k3'])) {
         $check = new CheckFields('Возврат касса 3', 'number', 0,9999999.99 , 10, $_POST['return_0_k3'], '');
-        $errors .= $check->value;
-        $return_0_k3 = $_POST['return_0_k3'];
+        $errors .= $check->error;
+        $return_0_k3 = $check->value;
     }
     if (isset($_POST['return_7_k1'])) {
         $check = new CheckFields('Возврат касса 1', 'number', 0,9999999.99 , 10, $_POST['return_7_k1'], '');
-        $errors .= $check->value;
-        $return_7_k1 = $_POST['return_7_k1'];
+        $errors .= $check->error;
+        $return_7_k1 = $check->value;
     }
     if (isset($_POST['return_7_k2'])) {
         $check = new CheckFields('Возврат касса 2', 'number', 0,9999999.99 , 10, $_POST['return_7_k2'], '');
-        $errors .= $check->value;
-        $return_7_k2 = $_POST['return_7_k2'];
+        $errors .= $check->error;
+        $return_7_k2 = $check->value;
     }
     if (isset($_POST['return_7_k3'])) {
         $check = new CheckFields('Возврат касса 3', 'number', 0,9999999.99 , 10, $_POST['return_7_k3'], '');
-        $errors .= $check->value;
-        $return_7_k3 = $_POST['return_7_k3'];
+        $errors .= $check->error;
+        $return_7_k3 = $check->value;
     }
     if (isset($_POST['return_20_k1'])) {
         $check = new CheckFields('Возврат касса 1', 'number', 0,9999999.99 , 10, $_POST['return_20_k1'], '');
-        $errors .= $check->value;
-        $return_20_k1 = $_POST['return_20_k1'];
+        $errors .= $check->error;
+        $return_20_k1 = $check->value;
     }
     if (isset($_POST['return_20_k2'])) {
         $check = new CheckFields('Возврат касса 2', 'number', 0,9999999.99 , 10, $_POST['return_20_k2'], '');
-        $errors .= $check->value;
-        $return_20_k2 = $_POST['return_20_k2'];
+        $errors .= $check->error;
+        $return_20_k2 = $check->value;
     }
     if (isset($_POST['return_20_k3'])) {
         $check = new CheckFields('Возврат касса 3', 'number', 0,9999999.99 , 10, $_POST['return_20_k3'], '');
-        $errors .= $check->value;
-        $return_20_k3 = $_POST['return_20_k3'];
+        $errors .= $check->error;
+        $return_20_k3 = $check->value;
     }
 
     //var_dump($errors);
 
-    //if (empty($errors)){
+    if (empty($errors)){
         $element[] = '';
         $element = ['id'=>$id,
                     'date_cash'=>$date_cash,
                     //'date_cash'=>'20-10-2020',
                     'apteka_id'=>$apteka_id,
+                    'cash_start_k1'=>(float) $cash_start_k1,
+                    'cash_start_k2'=>(float) $cash_start_k2,
+                    'cash_start_k3'=>(float) $cash_start_k3,
                     'cash_k1'=>(float) $cash_k1,
                     'cash_k2'=>(float) $cash_k2,
                     'cash_k3'=>(float) $cash_k3,
@@ -363,7 +393,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 
         if ($method == 'new') {$id = $save->result;}
         header("location: ./elem_cash.php?id=$id");
-    //}
+    }
 }
 
 if (isset($_POST['close'])) {

@@ -35,7 +35,7 @@
             <tbody>
             <tr>
                 <td>Касса1</td>
-                <td></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $cash_start_k1;?>" min=0 max=9999999.99 name="cash_start_k1"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k1;?>" min=0 max=9999999.99 name="cash_k1"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $card_k1;?>" min=0 max=9999999.99 name="card_k1"></td>
                 <td></td>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>Касса2</td>
-                <td></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $cash_start_k2;?>" min=0 max=9999999.99 name="cash_start_k2"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k2;?>" min=0 max=9999999.99 name="cash_k2"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $card_k2;?>" min=0 max=9999999.99 name="card_k2"></td>
                 <td></td>
@@ -53,7 +53,7 @@
             </tr>
             <tr>
                 <td>Касса3</td>
-                <td></td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $cash_start_k3;?>" min=0 max=9999999.99 name="cash_start_k3"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $cash_k3;?>" min=0 max=9999999.99 name="cash_k3"></td>
                 <td><input type="number" step="any" class="form-control" value="<?php echo $card_k3;?>" min=0 max=9999999.99 name="card_k3"></td>
                 <td></td>
@@ -62,26 +62,13 @@
             </tr>
             <tr>
                 <td>Итого</td>
+                <td><?php echo $sum_cash_start;?></td>
+                <td><?php echo $sum_cash;?></td>
+                <td><?php echo $sum_card;?></td>
              </tr>
             </tbody>
         </table>
     </div>
-<!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                console.log('ready');
-                $('#my_table_1').find('input[type="date"]').change(function() {
-                    console.log('Table 1.Date was changed. Need to check if table is sorted by column C.If so - call the table sort.');
-                });
-                $('#my_table_1').find('select').change(function() {
-                    console.log('Table 1.Selection was changed. Need to check if table is sorted by column B.If so - call the table sort.');
-                });
-            });
-        </script>
--->
     <div class="form-row">
         <label class="col-sm-1 col-form-label">Сдано в банк</label>
         <div class="col-sm-2">
