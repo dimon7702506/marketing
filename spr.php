@@ -43,7 +43,7 @@ if ($sp_type == 'routes_standart') {
                     style="width: 500px;'. $s .'>';
     $html_s .= '</div>';
     //var_dump($html_s);
-    if ($sp_type == 'invoices'){
+    if ($sp_type == 'invoices' || $sp_type == 'cash_day'){
 
         if(isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
         else{$date_start = date("Y-m-d");}
@@ -60,10 +60,12 @@ if ($sp_type == 'routes_standart') {
 }
 
 $html_button_1C = '';
-if ($sp_type == 'invoices' && get_role_id() == 1) {
-    $html_button_1C = '<button type="submit" class="btn btn-outline-success my-2 mark-button"
-        style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_1C"
-        value="1С">Передать в 1С</button>';
+if ($sp_type == 'invoices' || $sp_type == 'cash_day') {
+    if (get_role_id() == 1) {
+        $html_button_1C = '<button type="submit" class="btn btn-outline-success my-2 mark-button"
+            style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_1C"
+            value="1С">Передать в 1С</button>';
+    }
 }
 
 $select_options = ['podr'=>['apteka_name'=>'Наименование',
@@ -145,7 +147,8 @@ if (isset($_GET['submit_search'])) {
     }elseif ($sp_type == 'destination'){
         $cols += ['route'=>'Наименование'];
     }elseif ($sp_type == 'cash_day'){
-        $cols += ['date'=>'Дата',
+        $cols += ['apteka_id'=>'Код',
+                  'date'=>'Дата',
                   'apteka'=>'Аптека'];
     }elseif ($sp_type == 'routes_standart'){
         $cols += ['day'=> 'День недели',
@@ -162,10 +165,12 @@ if (isset($_GET['submit_search'])) {
 
     foreach($res as $r){
         //var_dump(array_keys($r));
-        //var_dump($r);
+        //var_dump_($r);
         if (isset($r['apteka_id'])) {
-            if ($sp_type == 'invoices' && get_role_id() == 2) {
-                if ($r['apteka_id'] !== get_apteka_id()) {continue;}
+            if ($sp_type == 'invoices' || $sp_type == 'cash_day'){
+                if (get_role_id() == 2) {
+                    if ($r['apteka_id'] !== get_apteka_id()) {continue;}
+                }
             }
         }
         $keys = array_keys($r);

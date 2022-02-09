@@ -169,7 +169,7 @@ class GetData
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'cash_day'){
             $table_name = 'cash_day';
-            $fields_query_list = 'cash_day.id, date_cash, apteka.name as apteka';
+            $fields_query_list = 'cash_day.id, date_cash, apteka.name as apteka, apteka_id';
             $fields_query_elem = 'cash_day.id, date_cash, apteka_id,
                 cash_start_k1, cash_start_k2, cash_start_k3,
                 cash_k1, cash_k2, cash_k3,
@@ -256,6 +256,8 @@ class GetData
                     }
                 }elseif ($sp_type == 'invoices'){
                     $sql .= " and create_date >= '".$date_start."' and create_date <= date_add('".$date_end."', interval 1 day) ";
+                }elseif ($sp_type == 'cash_day') {
+                    $sql .= " and date_cash >= '" . $date_start . "' and date_cash <= date_add('" . $date_end . "', interval 1 day) ";
                 }
             }
 
