@@ -169,8 +169,8 @@ class GetData
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'cash_day'){
             $table_name = 'cash_day';
-            $fields_query_list = 'cash_day.id, date_cash, apteka.name as apteka, apteka_id';
-            $fields_query_elem = 'cash_day.id, date_cash, apteka_id,
+            $fields_query_list = 'cash_day.id, apteka_id, date_cash, apteka.name as apteka, error_check';
+            $fields_query_elem = 'cash_day.id, date_cash, apteka_id, error_check,
                 cash_start_k1, cash_start_k2, cash_start_k3,
                 cash_k1, cash_k2, cash_k3,
                 card_k1, card_k2, card_k3,
@@ -191,6 +191,11 @@ class GetData
             $join_table1 = ' apteka';
             $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
             $join = $join1;
+            $order_by = 'date_cash';
+            if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+        }elseif ($sp_type == 'cash_day1'){
+            $table_name = 'cash_day';
+            $fields_query_list = '*';
             $order_by = 'date_cash';
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'days'){

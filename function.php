@@ -147,7 +147,6 @@ function invoise_to_1C()
 {
     $find = new GetData('firm_id', '', '', 'list');
     $firms = $find->result_data;
-    //var_dump_($firms);
     foreach ($firms as $firm){
         invoise_to_1C_csv((int)$firm['id']);
     }
@@ -155,7 +154,6 @@ function invoise_to_1C()
 
 function invoise_to_1C_csv($firm_id)
 {
-    //$firm_id = 1;
     $file_name = './out/invoices' . $firm_id . '.csv';
     $file_name_out = '/samba/public/1C/invoices' . $firm_id . '.csv';
 
@@ -186,6 +184,25 @@ function invoise_to_1C_csv($firm_id)
         $element['invoice_status_id'] = 3;
         $save = new SetData('invoices', $element, 'update');
     }
+}
+
+function invoise_to_1C_cash_csv($date_start, $date_end)
+{
+    $file_name = './out/cash.csv';
+    $file_name_out = '/samba/public/1C/cash.csv';
+
+    $find = new GetData('cash_day1', '', '', 'list', $date_start, $date_end);
+    $cashes = $find->result_data;
+
+    if (count($cashes) == 0){return;}
+
+    $file = fopen($file_name, 'w+');
+    foreach ($cashes as $cash) {
+        array_push($cash, "");
+        fputcsv($file, $cash, "|");
+    }
+    fclose($file);
+    copy($file_name, $file_name_out);
 }
 
 function export_marketings_base_to_file()

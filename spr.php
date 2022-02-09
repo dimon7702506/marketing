@@ -149,7 +149,8 @@ if (isset($_GET['submit_search'])) {
     }elseif ($sp_type == 'cash_day'){
         $cols += ['apteka_id'=>'Код',
                   'date'=>'Дата',
-                  'apteka'=>'Аптека'];
+                  'apteka'=>'Аптека',
+                  'error_check'=>'Ошибка'];
     }elseif ($sp_type == 'routes_standart'){
         $cols += ['day'=> 'День недели',
                   'destination'=>'Аптека',
@@ -168,9 +169,7 @@ if (isset($_GET['submit_search'])) {
         //var_dump_($r);
         if (isset($r['apteka_id'])) {
             if ($sp_type == 'invoices' || $sp_type == 'cash_day'){
-                if (get_role_id() == 2) {
-                    if ($r['apteka_id'] !== get_apteka_id()) {continue;}
-                }
+                if (get_role_id() == 2) {if ($r['apteka_id'] !== get_apteka_id()) {continue;}}
             }
         }
         $keys = array_keys($r);
@@ -179,25 +178,29 @@ if (isset($_GET['submit_search'])) {
                 if ($value == 'id' || $value == 'm_id' || $value == 'invoice_id'){$id = (int) $r[$value];}
                 $result_tab .= '<td>' . $r[$value] . '</td>';
             }
-
             $result_tab .= '<td>' . "<a href=/elem_pre.php?id=$id&sp_type=$sp_type>изменить</a></td>";
         $result_tab .= '</tr>';
     }
 
     $count = count($res);
+
     setcookie('text_search', $text_search);
     setcookie('field_search', $field_search);
     setcookie('sp_type', $sp_type);
 }
 
 if (isset($_GET['submit_new'])) {
-    if ($sp_type == 'cash_day') {
-        header("location: ./elem_cash.php?id=0");
-    } else {
-        header("location: ./elem.php?id=0&sp_type=$sp_type");
-    }
+    if ($sp_type == 'cash_day') {header("location: ./elem_cash.php?id=0");}
+    else {header("location: ./elem.php?id=0&sp_type=$sp_type");}
 }
 
-if (isset($_GET['submit_1C'])){invoise_to_1C();}
+if (isset($_GET['submit_1C'])){
+    if ($sp_type == 'invoices'){
+        invoise_to_1C();
+    }elseif ($sp_type == 'cash_day'){
+        $start = date("Y-m-d", strtotime('- month', $date_end));
+        invoise_to_1C_cash_csv($start, $date_end);
+    }
+}
 
 require_once "./spr.html";

@@ -41,9 +41,11 @@ $discount_k3 = 0;
 $increment_k1 = 0;
 $increment_k2 = 0;
 $increment_k3 = 0;
+
 $round_k1 = 0;
 $round_k2 = 0;
 $round_k3 = 0;
+
 $turnover_0_k1 = 0;
 $turnover_0_k2 = 0;
 $turnover_0_k3 = 0;
@@ -53,6 +55,7 @@ $turnover_7_k3 = 0;
 $turnover_20_k1 = 0;
 $turnover_20_k2 = 0;
 $turnover_20_k3 = 0;
+
 $return_0_k1 = 0;
 $return_0_k2 = 0;
 $return_0_k3 = 0;
@@ -62,6 +65,9 @@ $return_7_k3 = 0;
 $return_20_k1 = 0;
 $return_20_k2 = 0;
 $return_20_k3 = 0;
+$return_20_k3 = 0;
+
+$error_check = 0;
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -96,15 +102,19 @@ if (isset($_GET['id'])) {
 
         $bank = $result['bank'];
         $number_of_checks = $result['number_of_checks'];
+
         $discount_k1 = $result['discount_k1'];
         $discount_k2 = $result['discount_k2'];
         $discount_k3 = $result['discount_k3'];
+
         $increment_k1 = $result['increment_k1'];
         $increment_k2 = $result['increment_k2'];
         $increment_k3 = $result['increment_k3'];
+
         $round_k1 = $result['round_k1'];
         $round_k2 = $result['round_k2'];
         $round_k3 = $result['round_k3'];
+
         $turnover_0_k1 = $result['turnover_0_k1'];
         $turnover_0_k2 = $result['turnover_0_k2'];
         $turnover_0_k3 = $result['turnover_0_k3'];
@@ -114,6 +124,7 @@ if (isset($_GET['id'])) {
         $turnover_20_k1 = $result['turnover_20_k1'];
         $turnover_20_k2 = $result['turnover_20_k2'];
         $turnover_20_k3 = $result['turnover_20_k3'];
+
         $return_0_k1 = $result['return_0_k1'];
         $return_0_k2 = $result['return_0_k2'];
         $return_0_k3 = $result['return_0_k3'];
@@ -123,6 +134,8 @@ if (isset($_GET['id'])) {
         $return_20_k1 = $result['return_20_k1'];
         $return_20_k2 = $result['return_20_k2'];
         $return_20_k3 = $result['return_20_k3'];
+
+        $error_check = $result['error_check'];
     }
 
     $sum_cash_start = number_format($cash_start_k1 + $cash_start_k2 + $cash_start_k3,2, ',', ' ');
@@ -133,7 +146,7 @@ if (isset($_GET['id'])) {
     $sum_k2 = number_format($cash_k2 + $card_k2,2, ',', ' ');
     $sum_k3 = number_format($cash_k3 + $card_k3,2, ',', ' ');
     $sum_k = $cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3;
-    $sum_k_print = number_format($cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3,2, ',', ' ');
+    $sum_k_print = number_format($sum_k,2, ',', ' ');
 
     $sum_collection = $collection_k1 + $collection_k2 + $collection_k3;
     $sum_collection_print = number_format($sum_collection,2, ',', ' ');
@@ -163,6 +176,9 @@ if (isset($_GET['id'])) {
     $sum_return_0 = number_format($return_0_k1 + $return_0_k2 + $return_0_k3,2, ',', ' ');
     $sum_return_7 = number_format($return_7_k1 + $return_7_k2 + $return_7_k3,2, ',', ' ');
     $sum_return_20 = number_format($return_20_k1 + $return_20_k2 + $return_20_k3,2, ',', ' ');
+
+    $error_check = $sum_k - $sum_turnover_0 - $sum_turnover_7 - $sum_turnover_20 - $sum_round;
+    $error_check_print = number_format($error_check,2, ',', ' ');
 
     if($date_cash == '') {$date_cash = date("Y-m-d", strtotime('yesterday'));}
     if($apteka_id == '') {$apteka_id = get_apteka_id();}
@@ -459,7 +475,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'return_7_k3'=>(float) $return_7_k3,
                     'return_20_k1'=>(float) $return_20_k1,
                     'return_20_k2'=>(float) $return_20_k2,
-                    'return_20_k3'=>(float) $return_20_k3];
+                    'return_20_k3'=>(float) $return_20_k3,
+                    'error_check'=>(float) $error_check];
 
         if ($id == 0) {$method = 'new';
         }else {$method = 'update';}
