@@ -69,6 +69,8 @@ $return_20_k3 = 0;
 
 $error_check = 0;
 
+$unique_key = '';
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
@@ -136,6 +138,7 @@ if (isset($_GET['id'])) {
         $return_20_k3 = $result['return_20_k3'];
 
         $error_check = $result['error_check'];
+        $unique_key = $result['unique_key'];
     }
 
     $sum_cash_start = number_format($cash_start_k1 + $cash_start_k2 + $cash_start_k3,2, ',', ' ');
@@ -169,10 +172,14 @@ if (isset($_GET['id'])) {
 
     $sum_discount = number_format($discount_k1 + $discount_k2 + $discount_k3,2, ',', ' ');
     $sum_increment = number_format($increment_k1 + $increment_k2 + $increment_k3,2, ',', ' ');
-    $sum_round = number_format($round_k1 + $round_k2 + $round_k2,2, ',', ' ');
-    $sum_turnover_0 = number_format($turnover_0_k1 + $turnover_0_k2 + $turnover_0_k3,2, ',', ' ');
-    $sum_turnover_7 = number_format($turnover_7_k1 + $turnover_7_k2 + $turnover_7_k3,2, ',', ' ');
-    $sum_turnover_20 = number_format($turnover_20_k1 + $turnover_20_k2 + $turnover_20_k3,2, ',', ' ');
+    $sum_round = $round_k1 + $round_k2 + $round_k2;
+    $sum_round_print = number_format($round_k1 + $round_k2 + $round_k2,2, ',', ' ');
+    $sum_turnover_0 = $turnover_0_k1 + $turnover_0_k2 + $turnover_0_k3;
+    $sum_turnover_0_print = number_format($turnover_0_k1 + $turnover_0_k2 + $turnover_0_k3,2, ',', ' ');
+    $sum_turnover_7 = $turnover_7_k1 + $turnover_7_k2 + $turnover_7_k3;
+    $sum_turnover_7_print = number_format($turnover_7_k1 + $turnover_7_k2 + $turnover_7_k3,2, ',', ' ');
+    $sum_turnover_20 = $turnover_20_k1 + $turnover_20_k2 + $turnover_20_k3;
+    $sum_turnover_20_print = number_format($turnover_20_k1 + $turnover_20_k2 + $turnover_20_k3,2, ',', ' ');
     $sum_return_0 = number_format($return_0_k1 + $return_0_k2 + $return_0_k3,2, ',', ' ');
     $sum_return_7 = number_format($return_7_k1 + $return_7_k2 + $return_7_k3,2, ',', ' ');
     $sum_return_20 = number_format($return_20_k1 + $return_20_k2 + $return_20_k3,2, ',', ' ');
@@ -188,6 +195,9 @@ if (isset($_GET['id'])) {
         foreach ($new_results as $new_result) {
             $apteka = $new_result['apteka'];
         }
+    }
+    if ($unique_key == ''){
+        $unique_key = $date_cash . '_' . $apteka_id;
     }
 }
 
@@ -424,10 +434,20 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $return_20_k3 = $check->value;
     }
 
+    $unique_key = $date_cash . '_' . $apteka_id;
+    $unique = new GetData('cash_day', $unique_key, 'unique_key', "list", $date_cash, $date_cash);
+    $new_results = $unique->result_data;
+    //var_dump_($new_results);
+    foreach ($new_results as $new_result) {
+        $errors .= 'Такая запись уже есть';
+    }
+
     //var_dump($errors);
 
     if (empty($errors)){
+
         $element[] = '';
+
         $element = ['id'=>$id,
                     'date_cash'=>$date_cash,
                     //'date_cash'=>'20-10-2020',
@@ -476,7 +496,8 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'return_20_k1'=>(float) $return_20_k1,
                     'return_20_k2'=>(float) $return_20_k2,
                     'return_20_k3'=>(float) $return_20_k3,
-                    'error_check'=>(float) $error_check];
+                    'error_check'=>(float) $error_check,
+                    'unique_key'=>trim($unique_key)];
 
         if ($id == 0) {$method = 'new';
         }else {$method = 'update';}
