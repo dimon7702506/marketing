@@ -196,8 +196,8 @@ if (isset($_GET['id'])) {
     }
     if ($unique_key == ''){$unique_key = $date_cash . '_' . $apteka_id;}
 
-    //$find_list = new GetData('podr','','', 'list');
-    //$lists = $find_list->result_data;
+    $find_list = new GetData('podr','','', 'list');
+    $lists = $find_list->result_data;
     //var_dump_($lists);
 }
 
@@ -207,11 +207,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $check = new CheckFields('Дата', 'date', 0,0 , 0, $_POST['date_cash'], 'required');
         $errors .= $check->error;
         $date_cash = $check->value;
-    }
-    if (isset($_POST['apteka_id'])) {
-        $check = new CheckFields('Аптека', 'number', 1,999 , 0, $_POST['apteka_id'], 'required');
-        $errors .= $check->error;
-        $apteka_id = $check->value;
     }
     if (isset($_POST['cash_start_k1'])) {
         $check = new CheckFields('Начальный остаток касса 1', 'number', 0,9999999.99 , 10, $_POST['cash_start_k1'], '');
@@ -433,6 +428,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $errors .= $check->error;
         $return_20_k3 = $check->value;
     }
+
+    $find_id = new GetData('podr', $_POST['apteka'],'name', 'id');
+    $related_id = $find_id->result_data;
+    $apteka_id = (int) $related_id[0]['id'];
 
     $unique_key = $date_cash . '_' . $apteka_id;
     $unique = new GetData('cash_day', $unique_key, 'unique_key', "list", $date_cash, $date_cash);
