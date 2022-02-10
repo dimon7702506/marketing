@@ -192,13 +192,13 @@ if (isset($_GET['id'])) {
     if ($apteka == '') {
         $new_apteka = new GetData('podr',  get_apteka_id(), 'id', "elem");
         $new_results = $new_apteka->result_data;
-        foreach ($new_results as $new_result) {
-            $apteka = $new_result['apteka'];
-        }
+        foreach ($new_results as $new_result) {$apteka = $new_result['apteka'];}
     }
-    if ($unique_key == ''){
-        $unique_key = $date_cash . '_' . $apteka_id;
-    }
+    if ($unique_key == ''){$unique_key = $date_cash . '_' . $apteka_id;}
+
+    //$find_list = new GetData('podr','','', 'list');
+    //$lists = $find_list->result_data;
+    //var_dump_($lists);
 }
 
 if (isset($_POST['save']) || isset($_POST['copy'])){
