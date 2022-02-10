@@ -198,8 +198,8 @@ if (isset($_GET['submit_1C'])){
     if ($sp_type == 'invoices'){
         invoise_to_1C();
     }elseif ($sp_type == 'cash_day'){
-        $start = date("Y-m-d", strtotime('- month', $date_end));
-        invoise_to_1C_cash_csv($start, $date_end);
+        //$start = date("Y-m-d", strtotime('- month', $date_end));
+        invoise_to_1C_cash_csv($date_start, $date_end);
     }
 }
 
