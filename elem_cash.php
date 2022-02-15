@@ -438,7 +438,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $new_results = $unique->result_data;
     //var_dump_($new_results);
     foreach ($new_results as $new_result) {
-        $errors .= 'Такая запись уже есть';
+        if ((int) $new_result['id'] != $id) {
+            $errors .= 'Такая запись уже есть';
+        }
     }
 
     //var_dump($errors);
