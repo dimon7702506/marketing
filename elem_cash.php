@@ -172,8 +172,8 @@ if (isset($_GET['id'])) {
 
     $sum_discount = number_format($discount_k1 + $discount_k2 + $discount_k3,2, ',', ' ');
     $sum_increment = number_format($increment_k1 + $increment_k2 + $increment_k3,2, ',', ' ');
-    $sum_round = $round_k1 + $round_k2 + $round_k2;
-    $sum_round_print = number_format($round_k1 + $round_k2 + $round_k2,2, ',', ' ');
+    $sum_round = $round_k1 + $round_k2 + $round_k3;
+    $sum_round_print = number_format($round_k1 + $round_k2 + $round_k3,2, ',', ' ');
     $sum_turnover_0 = $turnover_0_k1 + $turnover_0_k2 + $turnover_0_k3;
     $sum_turnover_0_print = number_format($turnover_0_k1 + $turnover_0_k2 + $turnover_0_k3,2, ',', ' ');
     $sum_turnover_7 = $turnover_7_k1 + $turnover_7_k2 + $turnover_7_k3;
