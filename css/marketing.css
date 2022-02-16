@@ -71,3 +71,15 @@ body {
 .p-center {
     margin-top: 5px;
 }
+
+.buttons1 {
+    padding-left: 15px;
+}
+.error {
+    color: red;
+    font-size: 3rem;
+    position: fixed;
+    top: 45%;
+    left: 20%;
+    padding: 20px;
+}
