@@ -23,6 +23,18 @@ body {
     margin-bottom: 0px;
 }
 
+.mark-text2 {
+    color: #000000;
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 2rem;
+    line-height: inherit;
+    white-space: nowrap;
+    margin-bottom: 0px;
+}
+
 .table tbody tr:hover {
     background: #f3bd48; /* Цвет фона при наведении */
     color: #fff; /* Цвет текста при наведении */
