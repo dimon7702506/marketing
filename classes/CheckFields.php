@@ -26,11 +26,11 @@ class CheckFields
 
             if ($type == 'text') {
                 if (strlen($val) < $min || strlen($val) > $length) {
-                    $this->error = 'Не корректная длина поля: ' . $field_name;
+                    $this->error = 'Не корректное поле: ' . $field_name . '<br>';
                 }
             }elseif ($type == 'number') {
                 if ($val < $min || $val > $max) {
-                    $this->error = 'Не корректная длина поля: ' . $field_name;
+                    $this->error = 'Не корректное поле: ' . $field_name . '<br>';
                 }
             }elseif ($type == 'date') {}
         }

@@ -170,13 +170,13 @@ class GetData
         }elseif ($sp_type == 'cash_day'){
             $table_name = 'cash_day';
             $fields_query_list = 'cash_day.id, apteka_id, date_cash, apteka.name as apteka, error_check';
-            $fields_query_elem = 'cash_day.id, date_cash, apteka_id, error_check, unique_key,
+            $fields_query_elem = 'cash_day.id, date_cash, apteka_id, error_check, unique_key, bank,
                 cash_start_k1, cash_start_k2, cash_start_k3,
                 cash_k1, cash_k2, cash_k3,
                 card_k1, card_k2, card_k3,
+                count_k1, count_k2, count_k3,
                 collection_k1, collection_k2, collection_k3,
-                cash_end_k1, cash_end_k2, cash_end_k3,
-                bank, number_of_checks,
+                cash_end_k1, cash_end_k2, cash_end_k3, 
                 discount_k1, discount_k2, discount_k3,
                 increment_k1, increment_k2, increment_k3,
                 round_k1, round_k2, round_k3,

@@ -32,7 +32,9 @@ $cash_end_k3 = 0;
 
 $bank = 0;
 
-$number_of_checks = 0;
+$count_k1 = 0;
+$count_k2 = 0;
+$count_k3 = 0;
 
 $discount_k1 = 0;
 $discount_k2 = 0;
@@ -94,6 +96,10 @@ if (isset($_GET['id'])) {
         $card_k2 = $result['card_k2'];
         $card_k3 = $result['card_k3'];
 
+        $count_k1 = $result['count_k1'];
+        $count_k2 = $result['count_k2'];
+        $count_k3 = $result['count_k3'];
+
         $collection_k1 = $result['collection_k1'];
         $collection_k2 = $result['collection_k2'];
         $collection_k3 = $result['collection_k3'];
@@ -151,6 +157,8 @@ if (isset($_GET['id'])) {
     $sum_k = $cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3;
     $sum_k_print = number_format($sum_k,2, ',', ' ');
 
+    $count = $count_k1 + $count_k2 + $count_k3;
+    
     $sum_collection = $collection_k1 + $collection_k2 + $collection_k3;
     $sum_collection_print = number_format($sum_collection,2, ',', ' ');
 
@@ -164,8 +172,8 @@ if (isset($_GET['id'])) {
 
     $collection_office = number_format($sum_collection - $bank, 2, ',', ' ');
 
-    if ($number_of_checks > 0) {
-        $cash_avg = number_format($sum_k / $number_of_checks, 2, ',', ' ');
+    if ($count > 0) {
+        $cash_avg = number_format($sum_k / $count, 2, ',', ' ');
     }else{
         $cash_avg = 0;
     }
@@ -253,6 +261,21 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $errors .= $check->error;
         $card_k3 = $check->value;
     }
+    if (isset($_POST['count_k1'])) {
+        $check = new CheckFields('Количество чеков касса 1', 'number', 0,999 , 10, $_POST['count_k1'], '');
+        $errors .= $check->error;
+        $count_k1 = $check->value;
+    }
+    if (isset($_POST['count_k2'])) {
+        $check = new CheckFields('Количество чеков касса 2', 'number', 0,999 , 10, $_POST['count_k2'], '');
+        $errors .= $check->error;
+        $count_k2 = $check->value;
+    }
+    if (isset($_POST['count_k3'])) {
+        $check = new CheckFields('Количество чеков касса 3', 'number', 0,999 , 10, $_POST['count_k3'], '');
+        $errors .= $check->error;
+        $count_k3 = $check->value;
+    }
     if (isset($_POST['collection_k1'])) {
         $check = new CheckFields('Выручка касса 1', 'number', 0,9999999.99 , 10, $_POST['collection_k1'], '');
         $errors .= $check->error;
@@ -287,11 +310,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $check = new CheckFields('Сдано в банк', 'number', 0,9999999.99 , 10, $_POST['bank'], '');
         $errors .= $check->error;
         $bank = $check->value;
-    }
-    if (isset($_POST['number_of_checks'])) {
-        $check = new CheckFields('Количество чеков', 'number', 0,9999999.99 , 10, $_POST['number_of_checks'], '');
-        $errors .= $check->error;
-        $number_of_checks = $check->value;
     }
     if (isset($_POST['discount_k1'])) {
         $check = new CheckFields('Скидка касса 1', 'number', 0,9999999.99 , 10, $_POST['discount_k1'], '');
@@ -463,6 +481,9 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'card_k1'=>(float) $card_k1,
                     'card_k2'=>(float) $card_k2,
                     'card_k3'=>(float) $card_k3,
+                    'count_k1'=>(int) $count_k1,
+                    'count_k2'=>(int) $count_k2,
+                    'count_k3'=>(int) $count_k3,
                     'collection_k1'=>(float) $collection_k1,
                     'collection_k2'=>(float) $collection_k2,
                     'collection_k3'=>(float) $collection_k3,
@@ -470,7 +491,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'cash_end_k2'=>(float) $cash_end_k2,
                     'cash_end_k3'=>(float) $cash_end_k3,           
                     'bank'=>(float) $bank,
-                    'number_of_checks'=>(int) $number_of_checks,
                     'discount_k1'=>(float) $discount_k1,
                     'discount_k2'=>(float) $discount_k2,
                     'discount_k3'=>(float) $discount_k3,
