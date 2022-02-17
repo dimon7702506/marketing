@@ -70,6 +70,7 @@ $return_20_k3 = 0;
 $return_20_k3 = 0;
 
 $error_check = 0;
+$errors_print = '';
 
 $unique_key = '';
 
@@ -109,7 +110,6 @@ if (isset($_GET['id'])) {
         $cash_end_k3 = $result['cash_end_k3'];
 
         $bank = $result['bank'];
-        $number_of_checks = $result['number_of_checks'];
 
         $discount_k1 = $result['discount_k1'];
         $discount_k2 = $result['discount_k2'];
@@ -192,8 +192,12 @@ if (isset($_GET['id'])) {
     $sum_return_7 = number_format($return_7_k1 + $return_7_k2 + $return_7_k3,2, ',', ' ');
     $sum_return_20 = number_format($return_20_k1 + $return_20_k2 + $return_20_k3,2, ',', ' ');
 
-    $error_check = $sum_k - $sum_turnover_0 - $sum_turnover_7 - $sum_turnover_20 - $sum_round;
-    $error_check_print = number_format($error_check,2, ',', ' ');
+    $error_check = round($sum_k - $sum_turnover_0 - $sum_turnover_7 - $sum_turnover_20 - $sum_round, 2);
+    if ($error_check != 0) {
+        $errors_check_print = 'Расхождение в данных: ' . number_format($error_check, 2, ',', ' ');
+    }else{
+        $errors_check_print = '';
+    }
 
     if($date_cash == '') {$date_cash = date("Y-m-d", strtotime('yesterday'));}
     if($apteka_id == '') {$apteka_id = get_apteka_id();}
@@ -462,8 +466,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         }
     }
 
-    //var_dump($errors);
-
+    $errors_print = $errors . $errors_check_print;
     if (empty($errors)){
 
         $element[] = '';
