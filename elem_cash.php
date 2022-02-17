@@ -437,6 +437,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $unique = new GetData('cash_day', $unique_key, 'unique_key', "list", $date_cash, $date_cash);
     $new_results = $unique->result_data;
     //var_dump_($new_results);
+
     foreach ($new_results as $new_result) {
         if ((int) $new_result['id'] != $id) {
             $errors .= 'Такая запись уже есть';
