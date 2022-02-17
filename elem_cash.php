@@ -157,7 +157,7 @@ if (isset($_GET['id'])) {
     $sum_k = $cash_k1 + $cash_k2 + $cash_k3 + $card_k1 + $card_k2 + $card_k3;
     $sum_k_print = number_format($sum_k,2, ',', ' ');
 
-    $count = $count_k1 + $count_k2 + $count_k3;
+    $count_k= $count_k1 + $count_k2 + $count_k3;
     
     $sum_collection = $collection_k1 + $collection_k2 + $collection_k3;
     $sum_collection_print = number_format($sum_collection,2, ',', ' ');
@@ -172,8 +172,8 @@ if (isset($_GET['id'])) {
 
     $collection_office = number_format($sum_collection - $bank, 2, ',', ' ');
 
-    if ($count > 0) {
-        $cash_avg = number_format($sum_k / $count, 2, ',', ' ');
+    if ($count_k> 0) {
+        $cash_avg = number_format($sum_k / $count_k, 2, ',', ' ');
     }else{
         $cash_avg = 0;
     }

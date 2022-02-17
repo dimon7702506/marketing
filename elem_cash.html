@@ -77,7 +77,7 @@
                 <td><?php echo $sum_cash_start;?></td>
                 <td><?php echo $sum_cash;?></td>
                 <td><?php echo $sum_card;?></td>
-                <td><?php echo $count;?></td>
+                <td><?php echo $count_k;?></td>
                 <td><?php echo $sum_collection_print;?></td>
                 <td><?php echo $sum_end;?></td>
              </tr>
@@ -90,14 +90,14 @@
             <p class="col-form-label"><?php echo $sum_k_print;?></p>
         </div>
         <label class="col-sm-1 col-form-label">Сдано в банк</label>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <input type="number" step="any" class="form-control" value="<?php echo $bank;?>" min=0 max=9999999.99 name="bank">
         </div>
         <label class="col-sm-1 col-form-label">Офис</label>
         <div class="col-sm-1">
             <p class="col-form-label"><?php echo $collection_office;?></p>
         </div>
-        <label class="col-sm-1 col-form-label">Средн. цена</label>
+        <label class="col-sm-1 col-form-label">Средняя покупка</label>
         <div class="col-sm-1">
             <p class="col-form-label"><?php echo $cash_avg;?></p>
         </div>
