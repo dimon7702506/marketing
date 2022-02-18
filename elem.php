@@ -408,6 +408,7 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => ''],
+             /*
             'pay_date' => ['field_name' => 'Дата оплаты',
                             'type' => 'date',
                             'min' => 0,
@@ -419,6 +420,7 @@ if (isset($_GET['id'])) {
                             'related_table' => '',
                             'form_type' => 'input',
                             'key' => ''],
+             */
             'invoice_status' => ['field_name' => 'Статус',
                             'type' => 'text',
                             'min' => 0,
