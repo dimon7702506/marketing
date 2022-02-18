@@ -346,17 +346,17 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $increment_k3 = $check->value;
     }
     if (isset($_POST['round_k1'])) {
-        $check = new CheckFields('Скидка касса 1', 'number', 0,9999999.99 , 10, $_POST['round_k1'], '');
+        $check = new CheckFields('Округление касса 1', 'number', -9999999.99,9999999.99 , 10, $_POST['round_k1'], '');
         $errors .= $check->error;
         $round_k1 = $_POST['round_k1'];
     }
     if (isset($_POST['round_k2'])) {
-        $check = new CheckFields('Скидка касса 2', 'number', 0,9999999.99 , 10, $_POST['round_k2'], '');
+        $check = new CheckFields('Округление касса 2', 'number', -9999999.99,9999999.99 , 10, $_POST['round_k2'], '');
         $errors .= $check->error;
         $round_k2 = $check->value;
     }
     if (isset($_POST['round_k3'])) {
-        $check = new CheckFields('Скидка касса 3', 'number', 0,9999999.99 , 10, $_POST['round_k3'], '');
+        $check = new CheckFields('Округление касса 3', 'number', -9999999.99,9999999.99 , 10, $_POST['round_k3'], '');
         $errors .= $check->error;
         $round_k3 = $check->value;
     }
