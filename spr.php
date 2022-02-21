@@ -46,7 +46,7 @@ if ($sp_type == 'routes_standart') {
         $lists = $find_list->result_data;
 
         foreach ($lists as $list) {$html_s .= "<option>$list[name]</option>";}
-        
+
         $html_s .= '</select>';
     }
 
