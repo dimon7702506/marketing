@@ -172,11 +172,8 @@ if (isset($_GET['id'])) {
 
     $collection_office = number_format($sum_collection - $bank, 2, ',', ' ');
 
-    if ($count_k> 0) {
-        $cash_avg = number_format($sum_k / $count_k, 2, ',', ' ');
-    }else{
-        $cash_avg = 0;
-    }
+    if ($count_k> 0) {$cash_avg = number_format($sum_k / $count_k, 2, ',', ' ');
+    }else{$cash_avg = 0;}
 
     $sum_discount = number_format($discount_k1 + $discount_k2 + $discount_k3,2, ',', ' ');
     $sum_increment = number_format($increment_k1 + $increment_k2 + $increment_k3,2, ',', ' ');

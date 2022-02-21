@@ -17,9 +17,7 @@ if (isset($_GET['sp_type'])){
 if ($sp_type == 'routes_standart') {
 
     $s = '';
-    if (isset($_GET['search'])) {
-        $s = $_GET['search'];
-    }
+    if (isset($_GET['search'])) {$s = $_GET['search'];}
 
     $html_s = '<select id="inputState" class="form-control" style="margin-left: 10px" name="search">';
     $html_s .= '<option disabled>Выберите день недели</option>';
@@ -29,22 +27,53 @@ if ($sp_type == 'routes_standart') {
     $find_list = new GetData('days', '', '', 'list');
     $lists = $find_list->result_data;
 
-    foreach ($lists as $list) {
-        $html_s .= "<option>$list[name]</option>";
-    }
+    foreach ($lists as $list) {$html_s .= "<option>$list[name]</option>";}
     $html_s .= '</select>';
-}else{
+
+}elseif ($sp_type == 'cash_day'){
+
     $s = '';
-    if (isset($_GET['search'])){$s = 'value = '.$_GET['search'].';';}
+    if (isset($_GET['search'])) {$s = $_GET['search'];}
+
+    if (get_role_id() == 1) {
+        $html_s = '<label for="inputState" style="padding-right: 10px; padding-left: 10px">Аптека:</label>';
+        $html_s .= '<select id="inputState" class="form-control" style="margin-left: 10px" name="search">';
+        //$html_s .= '<option disabled>Аптека</option>';
+        $html_s .= '<option selected>' . $s . '</option>';
+        $html_s .= "<option></option>";
+
+        $find_list = new GetData('podr', '', '', 'list');
+        $lists = $find_list->result_data;
+
+        foreach ($lists as $list) {$html_s .= "<option>$list[name]</option>";}
+        
+        $html_s .= '</select>';
+    }
+
+    if(isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
+    else{$date_start = date("Y-m-d", strtotime('first day of this month'));}
+    if(isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
+    else{$date_end = date("Y-m-d");}
+
+    $html_s .= '<div class="form-group mx-sm-3">';
+    $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">Период:</label>';
+    $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_start" value='.$date_start.'>';
+    $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">-</label>';
+    $html_s .= '<input type="date" class="form-control" id="formGroupExampleInput" name="date_end" value='.$date_end.'>';
+    $html_s .= '</div>';
+
+}else{
+
+    $s = '';
+    if (isset($_GET['search'])) {$s = 'value = ' . $_GET['search'] . ';';}
 
     $html_s = '<div class="form-group mx-sm-3">';
     $html_s .= '<label for="formGroupExampleInput" class="sr-only">Password</label>';
     $html_s .= '<input type="text" class="form-control" id="formGroupExampleInput" name="search" placeholder="Поиск"
-                    style="width: 500px;'. $s .'>';
+                    style="width: 500px;' . $s . '>';
     $html_s .= '</div>';
-    //var_dump($html_s);
-    if ($sp_type == 'invoices' || $sp_type == 'cash_day'){
 
+    if ($sp_type == 'invoices'){
         if(isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
         else{$date_start = date("Y-m-d");}
         if(isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
@@ -109,6 +138,7 @@ if (isset($_GET['submit_search'])) {
     }else{$text_search = '';}
     if (isset($_GET['field_search'])) {$field_search = $_GET['field_search'];
     }else{$field_search = '';}
+
     $sp_type = $_COOKIE['sp_type'];
     $query_type = 'list';
 
