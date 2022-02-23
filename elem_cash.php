@@ -484,6 +484,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'count_k1'=>(int) $count_k1,
                     'count_k2'=>(int) $count_k2,
                     'count_k3'=>(int) $count_k3,
+                    'count_k'=> $count_k1 + $count_k2 + $count_k3,
                     'collection_k1'=>(float) $collection_k1,
                     'collection_k2'=>(float) $collection_k2,
                     'collection_k3'=>(float) $collection_k3,
