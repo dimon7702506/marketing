@@ -6,6 +6,7 @@ require_once "autoload.php";
 $sp_type = '';
 $date_start = '';
 $date_end = '';
+$html_s = '';
 
 if (isset($_GET['sp_type'])){
     $sp_type = $_GET['sp_type'];
