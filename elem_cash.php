@@ -452,10 +452,13 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     $related_id = $find_id->result_data;
     $apteka_id = (int) $related_id[0]['id'];
 
-    $unique_key = $date_cash . '_' . $apteka_id;
+    $apteka_id_txt = $apteka_id;
+    if (strlen($apteka_id) == 1) {$apteka_id_txt = '0' . $apteka_id;}
+    $unique_key = $date_cash . '_' . $apteka_id_txt;
     $unique = new GetData('cash_day', $unique_key, 'unique_key', "list", $date_cash, $date_cash);
     $new_results = $unique->result_data;
     //var_dump_($new_results);
+    //var_dump_($unique_key);
 
     foreach ($new_results as $new_result) {
         if ((int) $new_result['id'] != $id) {
