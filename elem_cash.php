@@ -30,7 +30,7 @@ $cash_end_k1 = 0;
 $cash_end_k2 = 0;
 $cash_end_k3 = 0;
 
-$bank = 0;
+$costs = 0;
 
 $count_k1 = 0;
 $count_k2 = 0;
@@ -109,7 +109,7 @@ if (isset($_GET['id'])) {
         $cash_end_k2 = $result['cash_end_k2'];
         $cash_end_k3 = $result['cash_end_k3'];
 
-        $bank = $result['bank'];
+        $costs = $result['costs'];
 
         $discount_k1 = $result['discount_k1'];
         $discount_k2 = $result['discount_k2'];
@@ -170,7 +170,7 @@ if (isset($_GET['id'])) {
     $cash_end_k3_print = number_format($cash_end_k3,2, ',', ' ');
     $sum_end = number_format($cash_end_k1 + $cash_end_k2 + $cash_end_k3, 2, ',',' ');
 
-    $collection_office = number_format($sum_collection - $bank, 2, ',', ' ');
+    $collection_office = number_format($sum_collection - $costs, 2, ',', ' ');
 
     if ($count_k> 0) {$cash_avg = number_format($sum_k / $count_k, 2, ',', ' ');
     }else{$cash_avg = 0;}
@@ -307,10 +307,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $errors .= $check->error;
         $cash_end_k3 = $check->value;
     }
-    if (isset($_POST['bank'])) {
-        $check = new CheckFields('Сдано в банк', 'number', 0,9999999.99 , 10, $_POST['bank'], '');
+    if (isset($_POST['costs'])) {
+        $check = new CheckFields('Сдано в банк', 'number', 0,9999999.99 , 10, $_POST['costs'], '');
         $errors .= $check->error;
-        $bank = $check->value;
+        $costs = $check->value;
     }
     if (isset($_POST['discount_k1'])) {
         $check = new CheckFields('Скидка касса 1', 'number', 0,9999999.99 , 10, $_POST['discount_k1'], '');
@@ -494,7 +494,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'cash_end_k1'=>(float) $cash_end_k1,
                     'cash_end_k2'=>(float) $cash_end_k2,
                     'cash_end_k3'=>(float) $cash_end_k3,           
-                    'bank'=>(float) $bank,
+                    'costs'=>(float) $costs,
                     'discount_k1'=>(float) $discount_k1,
                     'discount_k2'=>(float) $discount_k2,
                     'discount_k3'=>(float) $discount_k3,
