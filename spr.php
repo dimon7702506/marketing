@@ -52,15 +52,17 @@ if ($sp_type == 'routes_standart') {
     }
 
     if(isset($_COOKIE['date_start'])) {$date_start = $_COOKIE['date_start'];}
-    if(isset($_COOKIE['date_end'])) {$date_start = $_COOKIE['date_end'];}
     if (isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
-    if (isset($_GET['date_end'])) {$date_start = $_GET['date_end'];
-    }else{$date_end = date("Y-m-d");}
+    if (!$date_start){$date_start = date("Y-m-d", strtotime('first day of this month'));}
+
+    if(isset($_COOKIE['date_end'])) {$date_end = $_COOKIE['date_end'];}
+    if (isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
+    if (!$date_end){$date_end = date("Y-m-d");}
 
     //if(isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
     //else{$date_start = date("Y-m-d", strtotime('first day of this month'));}
-    var_dump($date_start);
-    var_dump($date_end);
+
+
     //if(isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
     //else{$date_end = date("Y-m-d");}
 
