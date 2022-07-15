@@ -31,7 +31,7 @@ if ($sp_type == 'routes_standart') {
     foreach ($lists as $list) {$html_s .= "<option>$list[name]</option>";}
     $html_s .= '</select>';
 
-}elseif ($sp_type == 'cash_day'){
+}elseif (($sp_type == 'cash_day') || ($sp_type == 'bill')){
 
     $s = '';
     if (isset($_GET['search'])) {$s = $_GET['search'];}
@@ -58,13 +58,6 @@ if ($sp_type == 'routes_standart') {
     if(isset($_COOKIE['date_end'])) {$date_end = $_COOKIE['date_end'];}
     if (isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
     if (!$date_end){$date_end = date("Y-m-d");}
-
-    //if(isset($_GET['date_start'])) {$date_start = $_GET['date_start'];}
-    //else{$date_start = date("Y-m-d", strtotime('first day of this month'));}
-
-
-    //if(isset($_GET['date_end'])) {$date_end = $_GET['date_end'];}
-    //else{$date_end = date("Y-m-d");}
 
     $html_s .= '<div class="form-group mx-sm-3">';
     $html_s .= '<label for="inputState" style="padding-right: 10px; padding-left: 10px">Период:</label>';
@@ -104,7 +97,7 @@ if ($sp_type == 'invoices' || $sp_type == 'cash_day') {
     if (get_role_id() == 1) {
         $html_button_1C = '<button type="submit" class="btn btn-outline-success my-2 mark-button"
             style="background-color: #3d713d; color: #ffffff; margin-left: 15px" name="submit_1C"
-            value="1С">Передать в 1С</button>';
+            value="1С">1С</button>';
     }
 }
 
@@ -131,7 +124,8 @@ $select_options = ['podr'=>['apteka_name'=>'Наименование',
                    'routes_standart'=>['day'=>'День недели',
                                        'apteka_name'=>'Аптека'],
                    'destination'=>['name'=>'Наименование'],
-                   'cash_day'=>['apteka'=>'Аптека']];
+                   'cash_day'=>['apteka'=>'Аптека'],
+                   'bill'=>['apteka'=>'Аптека']];
 
 $html_select_options = '';
 
@@ -192,6 +186,12 @@ if (isset($_GET['submit_search'])) {
                   'date'=>'Дата',
                   'apteka'=>'Аптека',
                   'error_check'=>'Ошибка'];
+    }elseif ($sp_type == 'bill'){
+        $cols += ['apteka_id'=>'Код',
+            'date_bill'=>'Дата',
+            'date_get'=>'Дата получения',
+            'apteka'=>'Аптека',
+            'sum'=>'Сумма'];
     }elseif ($sp_type == 'routes_standart'){
         $cols += ['day'=> 'День недели',
                   'destination'=>'Аптека',
@@ -233,8 +233,9 @@ if (isset($_GET['submit_search'])) {
 }
 
 if (isset($_GET['submit_new'])) {
-    if ($sp_type == 'cash_day') {header("location: ./elem_cash.php?id=0");}
-    else {header("location: ./elem.php?id=0&sp_type=$sp_type");}
+    if ($sp_type == 'cash_day') {header("location: ./elem_cash.php?id=0");
+    }elseif($sp_type == 'cash_day'){header("location: ./elem_bill.php?id=0");
+    }else {header("location: ./elem.php?id=0&sp_type=$sp_type");}
 }
 
 if (isset($_GET['submit_1C'])){

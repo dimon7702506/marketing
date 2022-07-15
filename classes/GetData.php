@@ -198,6 +198,18 @@ class GetData
             $fields_query_list = '*';
             $order_by = 'date_cash';
             if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
+        }elseif ($sp_type == 'bill'){
+            $table_name = 'bill';
+            $fields_query_list = 'bill.id, apteka_id, date_bill, date_get, apteka.name as apteka, sum';
+            $fields_query_elem = 'bill.id, date_bill, apteka_id, date_get,
+                bill_1000, bill_500, bill_200, bill_100, bill_50, bill_20, bill_10, bill_5, bill_2, bill_1,
+                apteka.name as apteka';
+            $fields_query_id = 'id';
+            $join_table1 = ' apteka';
+            $join1 = " LEFT JOIN $join_table1 ON apteka_id = $join_table1.id";
+            $join = $join1;
+            $order_by = 'date_bill';
+            if ($field_search == 'Аптека'){$field_search = 'apteka.name';}
         }elseif ($sp_type == 'days'){
             $table_name = 'days';
             $fields_query_list = 'name';
@@ -269,6 +281,7 @@ class GetData
             $sql = str_replace('apteka.apteka', 'apteka', $sql);
             $sql = str_replace('invoice.apteka.name', 'apteka.name', $sql);
             $sql = str_replace('cash_day.apteka.name', 'apteka.name', $sql);
+            $sql = str_replace('bill.apteka.name', 'apteka.name', $sql);
             $sql = str_replace('invoice.apteka.firm_id', 'apteka.firm_id', $sql);
             $sql = str_replace('invoice.providers', 'providers', $sql);
             $sql = str_replace('people.people', 'people', $sql);

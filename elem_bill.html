@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Покупюрка</title>
+    <link rel="icon" href="./img/passat_ic.png">
+    <link href="./css/marketing.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form class="container-fluid" method="post">
+    <h1 class="text-center">Покупюрка</h1>
+    <div class="form-row" style="padding-top: 10px">
+        <label class="col-sm-1 col-form-label cenetr">Создана</label>
+        <div class="col-sm-2">
+            <input type="date" class="form-control" value="<?php echo $date_bill;?>" name="date_bill">
+        </div>
+        <label class="col-sm-1 col-form-label cenetr">Получена</label>
+        <div class="col-sm-2">
+            <input type="date" class="form-control" value="<?php echo $date_get;?>" name="date_get">
+        </div>
+        <div class="col-sm-3">
+            <select id="inputState" class="form-control" name="apteka">
+                <option selected><?php echo $apteka; ?></option>
+                <option></option>
+                <?php foreach ($lists as $list): ?>
+                <?php echo "<option>$list[name]</option>"; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="buttons1">
+            <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+            <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label for="t2" class="col-sm-1 col-form-label mark-text2">Купюры</label>
+        <table id="t2" class="table table-hover tb">
+            <thead>
+            <tr>
+                <th>Номинал</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1000</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_1000;?>" min=0 max=9999999 name="bill_1000"></td>
+                <td><?php echo $sum_1000;?></td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_500;?>" min=0 max=9999999 name="bill_500"></td>
+                <td><?php echo $sum_500;?></td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_200;?>" min=0 max=9999999 name="bill_200"></td>
+                <td><?php echo $sum_200;?></td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_100;?>" min=0 max=9999999 name="bill_100"></td>
+                <td><?php echo $sum_100;?></td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_50;?>" min=0 max=9999999 name="bill_50"></td>
+                <td><?php echo $sum_50;?></td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_20;?>" min=0 max=9999999 name="bill_20"></td>
+                <td><?php echo $sum_20;?></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_10;?>" min=0 max=9999999 name="bill_10"></td>
+                <td><?php echo $sum_10;?></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_5;?>" min=0 max=9999999 name="bill_5"></td>
+                <td><?php echo $sum_5;?></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_2;?>" min=0 max=9999999 name="bill_2"></td>
+                <td><?php echo $sum_2;?></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="number" step="any" class="form-control" value="<?php echo $bill_1;?>" min=0 max=9999999 name="bill_1"></td>
+                <td><?php echo $sum_1;?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-row">
+        <p class="col-form-label error"><?php echo $errors;?></p>
+    </div>
+    <div class="buttons">
+        <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
+        <button type="submit" class="btn btn-primary" name="close" style="margin-left: 15px">Закрыть</button>
+    </div>
+</form>
+
+</body>
+</html>

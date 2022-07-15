@@ -75,6 +75,7 @@ body {
 .buttons1 {
     padding-left: 15px;
 }
+
 .error {
     color: red;
     font-size: 3rem;
@@ -82,4 +83,8 @@ body {
     top: 45%;
     left: 25%;
     padding: 20px;
+}
+
+.cenetr {
+    text-align: center
 }
