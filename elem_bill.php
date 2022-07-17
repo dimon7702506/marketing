@@ -6,8 +6,7 @@ require_once "autoload.php";
 is_user_logged_in();
 
 $date_bill = '';
-$date_get = '';
-$apteka_id = 0;
+$date_get = 'NULL';
 $apteka = '';
 
 $bill_1000 = 0;
@@ -40,6 +39,8 @@ if (isset($_GET['id'])) {
         $bill_500 = $result['bill_500'];
         $bill_200 = $result['bill_200'];
         $bill_100 = $result['bill_100'];
+        $bill_50 = $result['bill_50'];
+        $bill_20 = $result['bill_20'];
         $bill_10 = $result['bill_10'];
         $bill_5 = $result['bill_5'];
         $bill_2 = $result['bill_2'];
@@ -142,7 +143,7 @@ if (isset($_POST['save'])){
         $element[] = '';
         $element = ['id'=>$id,
                     'date_bill'=>$date_bill,
-                    'date_get'=>$date_get,
+                    //'date_get'=>$date_get,
                     'apteka_id'=>$apteka_id,
                     'bill_1000'=>(int) $bill_1000,
                     'bill_500'=>(int) $bill_500,
@@ -155,6 +156,7 @@ if (isset($_POST['save'])){
                     'bill_2'=>(int) $bill_2,
                     'bill_1'=>(int) $bill_1,
                     'sum'=>(int) $sum];
+        if ($date_get){$element += ['date_get' => $date_get];}
 
         if ($id == 0) {$method = 'new';
         }else {$method = 'update';}

@@ -234,7 +234,7 @@ if (isset($_GET['submit_search'])) {
 
 if (isset($_GET['submit_new'])) {
     if ($sp_type == 'cash_day') {header("location: ./elem_cash.php?id=0");
-    }elseif($sp_type == 'cash_day'){header("location: ./elem_bill.php?id=0");
+    }elseif($sp_type == 'bill'){header("location: ./elem_bill.php?id=0");
     }else {header("location: ./elem.php?id=0&sp_type=$sp_type");}
 }
 
