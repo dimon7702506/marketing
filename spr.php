@@ -209,7 +209,7 @@ if (isset($_GET['submit_search'])) {
         //var_dump(array_keys($r));
         //var_dump_($r);
         if (isset($r['apteka_id'])) {
-            if ($sp_type == 'invoices' || $sp_type == 'cash_day'){
+            if ($sp_type == 'invoices' || $sp_type == 'cash_day' || $sp_type == 'bill'){
                 if (get_role_id() == 2) {if ($r['apteka_id'] !== get_apteka_id()) {continue;}}
             }
         }

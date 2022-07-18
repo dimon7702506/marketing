@@ -88,3 +88,8 @@ body {
 .cenetr {
     text-align: center
 }
+
+.bill_table {
+    padding-left: 1px;
+    padding-right: 1px;
+}
