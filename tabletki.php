@@ -34,18 +34,12 @@ echo "<br>";
 ftp_pasv($conn_id, true);
 
 foreach ($results as $result){
-    if ((!$result['tabletki_id']) || (!$result['saldo_path'])) {
-        continue;
-    }
-    if ($result['tabletki_id'] == 0){
-        continue;
-    }
+    if ((!$result['tabletki_id']) || (!$result['saldo_path'])) {continue;}
+    if ($result['tabletki_id'] == 0){continue;}
 
     $file_in = $result['saldo_path'];
 
-    if (!file_exists($file_in)){
-        continue;
-    }
+    if (!file_exists($file_in)){continue;}
 
     $tabletki_id = $result['tabletki_id'];
     $file_out = 'Rest_'.$tabletki_id.'_'.date("Ymd").date("His");
@@ -71,12 +65,11 @@ foreach ($results as $result){
             $name = str_replace('?','i', $name);
             $producer = mb_convert_encoding($f[6], "utf-8", "cp866");
 
-            $Price_sp = $f[12];
-            if ($Price_sp * 1.03 > $f[9]) {
-                $price_end = $Price_sp;
-            }else{
-                $price_end = $f[9];
-            }
+            $Price_roz = $f[2];
+            $Price_inet = $f[9];
+
+            if ($Price_roz > $Price_inet) {$price_end = $Price_inet;}
+            else{$price_end = $Price_roz;}
 
             $Offer = $Offers->appendChild($dom->createElement('Offer'));
             $Offer->setAttribute("Code", $f[8]);
