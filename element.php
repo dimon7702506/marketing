@@ -48,6 +48,10 @@ $insulin = '';
 $insulin_checked = '';
 $insulin_value = '';
 
+$antibiotics = '';
+$antibiotics_checked = '';
+$antibiotics_value = '';
+
 //оказалась не нужна
 $baby_box = '';
 $baby_box_checked = '';
@@ -98,6 +102,9 @@ if (isset($_GET['id'])) {
 
         $insulin = (int)$nom['insulin'];
         if ($insulin ==1 ) {$insulin_checked = 'checked';}
+
+        $antibiotics = (int)$nom['antibiotics'];
+        if ($antibiotics ==1 ) {$antibiotics_checked = 'checked';}
 
         $baby_box = (int)$nom['baby_box'];
         if ($baby_box == 1){$baby_box_checked = 'checked';}
@@ -208,6 +215,10 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     if ($insulin_value == 'on'){$insulin = 1;
     }else{$insulin = 0;}
 
+    if (!empty($_POST['antibiotics'])){$antibiotics_value = $_POST['antibiotics'];}
+    if ($antibiotics_value == 'on'){$antibiotics = 1;
+    }else{$antibiotics = 0;}
+
     if (!empty($_POST['baby_box'])){$baby_box_value = $_POST['baby_box'];}
     if ($baby_box_value == 'on'){$baby_box = 1;
     }else{$baby_box = 0;}
@@ -241,6 +252,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
                     'fix_price'=>(float) $fix_price,
                     'covid'=>$covid,
                     'insulin'=>$insulin,
+                    'antibiotics'=>$antibiotics,
                     'covid_protokol'=>$covid_protokol,
                     'baby_box'=>$baby_box,
                     'last_modify_author_id'=>(int) get_user_id()];

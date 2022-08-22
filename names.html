@@ -47,6 +47,7 @@
                 <option>МНН</option>
                 <option>Доступні Ліки</option>
                 <option>Инсулин</option>
+                <option>Антибиотики</option>
             </select>
         </div>
         <button type="submit" class="btn btn-outline-success my-2 mark-button" style="background-color: #3d713d; color: #ffffff" name="submit_search" value="search">Поиск</button>
@@ -63,6 +64,7 @@
                     <th scope="col">Производитель</th>
                     <th scope="col">МНН</th>
                     <th scope="col">Маркетинг</th>
+                    <th scope="col">Антибиотики</th>
                     <th scope="col">НДС</th>
                     <th scope="col">Модификация</th>
                 </tr>
@@ -75,6 +77,7 @@
                         <td><?php echo $nomen['producer']; ?></td>
                         <td><?php echo $nomen['MNN_name']; ?></td>
                         <td><?php echo $nomen['m_name']; ?></td>
+                        <td><?php echo $nomen['antibiotics']; ?></td>
                         <td><?php echo $nomen['tax']; ?></td>
                         <?php $id = (int) $nomen['id']; ?>
                         <td><?php echo "<a href=\"./element.php?id=$id&\">изменить</a>"; ?></td>

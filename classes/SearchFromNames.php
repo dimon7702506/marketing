@@ -17,7 +17,7 @@ class SearchFromNames
             $sql = "SELECT id, morion_id, name, producer, barcode, tnved, nac, tax, marketing_id, gran_price,
                           sum_com,  sum_dop, form_prod, doza, name_torg, amount_in_a_package, internet_price,
                           internet_sales, fix_price, covid, MNN.MNN_name, sickness.sickness_name, covid_protokol, bonus,
-                          insulin, baby_box,
+                          insulin, antibiotics, baby_box,
                           marketing.m_name as m_name, project_dl
                       FROM names 
                       LEFT JOIN marketing ON marketing_id = m_id
@@ -35,7 +35,7 @@ class SearchFromNames
         }elseif ($fields == 'form_prod') {
             $sql = "SELECT id, name FROM names_form_prod ORDER BY name";
         }else{
-            $sql = "SELECT id, name, producer, m_name, MNN_name, tax, covid_protokol FROM names
+            $sql = "SELECT id, name, producer, m_name, MNN_name, tax, covid_protokol, antibiotics FROM names
                       LEFT JOIN marketing ON marketing_id = m_id
                       LEFT JOIN MNN ON names.MNN_id = MNN.MNN_id";
             $sql1 = "SELECT id, name, producer, m_name, MNN_name, tax, covid_protokol FROM names";
@@ -61,6 +61,8 @@ class SearchFromNames
             $sql .= " WHERE project_dl = 1 ORDER BY name";
         }elseif ($field_search == 'Инсулин'){
             $sql .= " WHERE insulin = 1 ORDER BY name";
+        }elseif ($field_search == 'Антибиотики'){
+            $sql .= " WHERE antibiotics = 1 ORDER BY name";
         }
         //$sql = $sql . "ORDER BY name";
 

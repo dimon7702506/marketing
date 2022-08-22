@@ -20,7 +20,7 @@ class SaveToDB
                     gran_price =:gran_price, marketing_id = ($sql_m), MNN_id = ($sql_mnn), modify = 1,
                     amount_in_a_package = :amount_in_a_package, project_dl = :project_dl, internet_price = :internet_price, internet_sales = :internet_sales,
                     fix_price = :fix_price, covid = :covid, covid_protokol = :covid_protokol, bonus = :bonus, last_modify_author_id = :last_modify_author_id,
-                    insulin = :insulin, baby_box = :baby_box";
+                    insulin = :insulin, baby_box = :baby_box, antibiotics = :antibiotics";
             $sql_end = " WHERE id = :id";
             $sql = $sql_update . $sql_end;
             $args = $element;
@@ -30,10 +30,10 @@ class SaveToDB
         }elseif ($method == 'new') {
             $sql_update = "INSERT INTO names (name, morion_id, producer, barcode, tnved, nac, tax, sum_com, sum_dop, form_prod, doza, name_torg,
                               gran_price, marketing_id, MNN_id, modify, amount_in_a_package, project_dl, internet_price, internet_sales, fix_price, covid, covid_protokol, bonus,
-                              last_modify_author_id, author_id, insulin, baby_box)
+                              last_modify_author_id, author_id, insulin, baby_box, antibiotics)
                            VALUES (:name, :morion_id, :producer, :barcode, :tnved, :nac, :tax, :sum_com, :sum_dop, :form_prod, :doza, :name_torg,
                               :gran_price, ($sql_m), ($sql_mnn), '1', :amount_in_a_package, :project_dl, :internet_price, :internet_sales, :fix_price, :covid, :covid_protokol, :bonus,
-                              :last_modify_author_id, :last_modify_author_id, :insulin, :baby_box)";
+                              :last_modify_author_id, :last_modify_author_id, :insulin, :baby_box, :antibiotics)";
             $sql = $sql_update;
 
             $del_arg=['id'];
