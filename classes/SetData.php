@@ -19,6 +19,9 @@ class SetData
         }elseif ($sp_type == 'people'){
             $table_name = 'people';
             $id_name = 'id';
+        }elseif ($sp_type == 'cash_saldo'){
+            $table_name = 'cash_saldo';
+            $id_name = 'id';
         }elseif ($sp_type == 'saldo'){
             $table_name = 'tek_saldo';
             $id_name = 'id';
