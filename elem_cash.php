@@ -553,11 +553,8 @@ if (isset($_POST['close'])) {
     if (isset($_COOKIE['text_search']) && (isset($_COOKIE['field_search']))){
         $str_search = './spr.php?search='. $_COOKIE['text_search'] . '&field_search=' . $_COOKIE['field_search'] . '&submit_search=search';
     }else{
-        if ($sp_type == 'marketing') {
-            $str_search = './spr.php?submit_search';
-        }else {
-            $str_search = './spr.php';
-        }
+        if ($sp_type == 'marketing') {$str_search = './spr.php?submit_search';
+        }else {$str_search = './spr.php';}
     }
     header("location: $str_search");
 }
