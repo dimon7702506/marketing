@@ -472,7 +472,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
         $element[] = '';
         $element_saldo[] = '';
 
-        $element_saldo = ['id' => $id,
+        $element_saldo = ['id'=>$id,
                           'apteka_id'=>$apteka_id,
                           'date_saldo'=>$date_cash,
                           'saldo_k1'=>(float) $cash_end_k1,
@@ -542,7 +542,7 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 
         //var_dump_($element);
         $save = new SetData('cash_day', $element, $method);
-        $save_saldo = new SetData('cash_saldo', $element_saldo, $method);
+        $save_saldo = new SetData('cash_saldo', $element_saldo, 'new');
 
         if ($method == 'new') {$id = $save->result;}
         header("location: ./elem_cash.php?id=$id");
