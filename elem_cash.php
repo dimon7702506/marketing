@@ -7,71 +7,25 @@ is_user_logged_in();
 
 $errors = '';
 $date_cash = '';
-$apteka_id = 0;
-$apteka = '';
-
-$cash_start_k1 = 0;
-$cash_start_k2 = 0;
-$cash_start_k3 = 0;
-
-$cash_k1 = 0;
-$cash_k2 = 0;
-$cash_k3 = 0;
-
-$card_k1 = 0;
-$card_k2 = 0;
-$card_k3 = 0;
-
-$collection_k1 = 0;
-$collection_k2 = 0;
-$collection_k3 = 0;
-
-$cash_end_k1 = 0;
-$cash_end_k2 = 0;
-$cash_end_k3 = 0;
-
+$apteka_id = 0; $apteka = '';
+$cash_start_k1 = 0; $cash_start_k2 = 0; $cash_start_k3 = 0;
+$cash_k1 = 0; $cash_k2 = 0; $cash_k3 = 0;
+$card_k1 = 0; $card_k2 = 0; $card_k3 = 0;
+$collection_k1 = 0; $collection_k2 = 0; $collection_k3 = 0;
+$cash_end_k1 = 0; $cash_end_k2 = 0; $cash_end_k3 = 0;
 $costs = 0;
-
-$count_k1 = 0;
-$count_k2 = 0;
-$count_k3 = 0;
-
-$discount_k1 = 0;
-$discount_k2 = 0;
-$discount_k3 = 0;
-
-$increment_k1 = 0;
-$increment_k2 = 0;
-$increment_k3 = 0;
-
-$round_k1 = 0;
-$round_k2 = 0;
-$round_k3 = 0;
-
-$turnover_0_k1 = 0;
-$turnover_0_k2 = 0;
-$turnover_0_k3 = 0;
-$turnover_7_k1 = 0;
-$turnover_7_k2 = 0;
-$turnover_7_k3 = 0;
-$turnover_20_k1 = 0;
-$turnover_20_k2 = 0;
-$turnover_20_k3 = 0;
-
-$return_0_k1 = 0;
-$return_0_k2 = 0;
-$return_0_k3 = 0;
-$return_7_k1 = 0;
-$return_7_k2 = 0;
-$return_7_k3 = 0;
-$return_20_k1 = 0;
-$return_20_k2 = 0;
-$return_20_k3 = 0;
-$return_20_k3 = 0;
-
+$count_k1 = 0; $count_k2 = 0; $count_k3 = 0;
+$discount_k1 = 0; $discount_k2 = 0; $discount_k3 = 0;
+$increment_k1 = 0; $increment_k2 = 0; $increment_k3 = 0;
+$round_k1 = 0; $round_k2 = 0; $round_k3 = 0;
+$turnover_0_k1 = 0; $turnover_0_k2 = 0; $turnover_0_k3 = 0;
+$turnover_7_k1 = 0; $turnover_7_k2 = 0; $turnover_7_k3 = 0;
+$turnover_20_k1 = 0; $turnover_20_k2 = 0; $turnover_20_k3 = 0;
+$return_0_k1 = 0; $return_0_k2 = 0; $return_0_k3 = 0;
+$return_7_k1 = 0; $return_7_k2 = 0; $return_7_k3 = 0;
+$return_20_k1 = 0; $return_20_k2 = 0; $return_20_k3 = 0;
 $error_check = 0;
 $errors_print = '';
-
 $unique_key = '';
 
 if (isset($_GET['id'])) {
@@ -82,67 +36,23 @@ if (isset($_GET['id'])) {
 
     foreach ($results as $result){
         $date_cash = $result['date_cash'];
-        $apteka_id = $result['apteka_id'];
-        $apteka = $result['apteka'];
-
-        $cash_start_k1 = $result['cash_start_k1'];
-        $cash_start_k2 = $result['cash_start_k2'];
-        $cash_start_k3 = $result['cash_start_k3'];
-
-        $cash_k1 = $result['cash_k1'];
-        $cash_k2 = $result['cash_k2'];
-        $cash_k3 = $result['cash_k3'];
-
-        $card_k1 = $result['card_k1'];
-        $card_k2 = $result['card_k2'];
-        $card_k3 = $result['card_k3'];
-
-        $count_k1 = $result['count_k1'];
-        $count_k2 = $result['count_k2'];
-        $count_k3 = $result['count_k3'];
-
-        $collection_k1 = $result['collection_k1'];
-        $collection_k2 = $result['collection_k2'];
-        $collection_k3 = $result['collection_k3'];
-
-        $cash_end_k1 = $result['cash_end_k1'];
-        $cash_end_k2 = $result['cash_end_k2'];
-        $cash_end_k3 = $result['cash_end_k3'];
-
+        $apteka_id = $result['apteka_id']; $apteka = $result['apteka'];
+        $cash_start_k1 = $result['cash_start_k1']; $cash_start_k2 = $result['cash_start_k2']; $cash_start_k3 = $result['cash_start_k3'];
+        $cash_k1 = $result['cash_k1']; $cash_k2 = $result['cash_k2']; $cash_k3 = $result['cash_k3'];
+        $card_k1 = $result['card_k1']; $card_k2 = $result['card_k2']; $card_k3 = $result['card_k3'];
+        $count_k1 = $result['count_k1']; $count_k2 = $result['count_k2']; $count_k3 = $result['count_k3'];
+        $collection_k1 = $result['collection_k1']; $collection_k2 = $result['collection_k2']; $collection_k3 = $result['collection_k3'];
+        $cash_end_k1 = $result['cash_end_k1']; $cash_end_k2 = $result['cash_end_k2']; $cash_end_k3 = $result['cash_end_k3'];
         $costs = $result['costs'];
-
-        $discount_k1 = $result['discount_k1'];
-        $discount_k2 = $result['discount_k2'];
-        $discount_k3 = $result['discount_k3'];
-
-        $increment_k1 = $result['increment_k1'];
-        $increment_k2 = $result['increment_k2'];
-        $increment_k3 = $result['increment_k3'];
-
-        $round_k1 = $result['round_k1'];
-        $round_k2 = $result['round_k2'];
-        $round_k3 = $result['round_k3'];
-
-        $turnover_0_k1 = $result['turnover_0_k1'];
-        $turnover_0_k2 = $result['turnover_0_k2'];
-        $turnover_0_k3 = $result['turnover_0_k3'];
-        $turnover_7_k1 = $result['turnover_7_k1'];
-        $turnover_7_k2 = $result['turnover_7_k2'];
-        $turnover_7_k3 = $result['turnover_7_k3'];
-        $turnover_20_k1 = $result['turnover_20_k1'];
-        $turnover_20_k2 = $result['turnover_20_k2'];
-        $turnover_20_k3 = $result['turnover_20_k3'];
-
-        $return_0_k1 = $result['return_0_k1'];
-        $return_0_k2 = $result['return_0_k2'];
-        $return_0_k3 = $result['return_0_k3'];
-        $return_7_k1 = $result['return_7_k1'];
-        $return_7_k2 = $result['return_7_k2'];
-        $return_7_k3 = $result['return_7_k3'];
-        $return_20_k1 = $result['return_20_k1'];
-        $return_20_k2 = $result['return_20_k2'];
-        $return_20_k3 = $result['return_20_k3'];
-
+        $discount_k1 = $result['discount_k1']; $discount_k2 = $result['discount_k2']; $discount_k3 = $result['discount_k3'];
+        $increment_k1 = $result['increment_k1']; $increment_k2 = $result['increment_k2']; $increment_k3 = $result['increment_k3'];
+        $round_k1 = $result['round_k1']; $round_k2 = $result['round_k2']; $round_k3 = $result['round_k3'];
+        $turnover_0_k1 = $result['turnover_0_k1']; $turnover_0_k2 = $result['turnover_0_k2']; $turnover_0_k3 = $result['turnover_0_k3'];
+        $turnover_7_k1 = $result['turnover_7_k1']; $turnover_7_k2 = $result['turnover_7_k2']; $turnover_7_k3 = $result['turnover_7_k3'];
+        $turnover_20_k1 = $result['turnover_20_k1']; $turnover_20_k2 = $result['turnover_20_k2']; $turnover_20_k3 = $result['turnover_20_k3'];
+        $return_0_k1 = $result['return_0_k1']; $return_0_k2 = $result['return_0_k2']; $return_0_k3 = $result['return_0_k3'];
+        $return_7_k1 = $result['return_7_k1']; $return_7_k2 = $result['return_7_k2']; $return_7_k3 = $result['return_7_k3'];
+        $return_20_k1 = $result['return_20_k1']; $return_20_k2 = $result['return_20_k2']; $return_20_k3 = $result['return_20_k3'];
         $error_check = $result['error_check'];
         $unique_key = $result['unique_key'];
     }
@@ -203,6 +113,13 @@ if (isset($_GET['id'])) {
         $new_results = $new_apteka->result_data;
         foreach ($new_results as $new_result) {$apteka = $new_result['apteka'];}
     }
+
+    $saldo_start = new CashDay();
+    $cash_start = $saldo_start->getSaldo($apteka_id, $date_cash);
+    if($cash_start_k1 == 0) {$cash_start_k1 = $cash_start[0]['cash_end_k1'];}
+    if($cash_start_k2 == 0) {$cash_start_k2 = $cash_start[0]['cash_end_k2'];}
+    if($cash_start_k3 == 0) {$cash_start_k3 = $cash_start[0]['cash_end_k3'];}
+
     if ($unique_key == ''){$unique_key = $date_cash . '_' . $apteka_id;}
 
     $find_list = new GetData('podr','','', 'list');
@@ -470,15 +387,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
     if (empty($errors)){
 
         $element[] = '';
-        $element_saldo[] = '';
-
-        $element_saldo = ['id'=>$id,
-                          'apteka_id'=>$apteka_id,
-                          'date_saldo'=>$date_cash,
-                          'saldo_k1'=>(float) $cash_end_k1,
-                          'saldo_k2'=>(float) $cash_end_k2,
-                          'saldo_k3'=>(float) $cash_end_k3];
-
         $element = ['id'=>$id,
                     'date_cash'=>$date_cash,
                     'apteka_id'=>$apteka_id,
@@ -542,7 +450,6 @@ if (isset($_POST['save']) || isset($_POST['copy'])){
 
         //var_dump_($element);
         $save = new SetData('cash_day', $element, $method);
-        $save_saldo = new SetData('cash_saldo', $element_saldo, 'new');
 
         if ($method == 'new') {$id = $save->result;}
         header("location: ./elem_cash.php?id=$id");

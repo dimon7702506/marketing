@@ -1,0 +1,2 @@
+SELECT * FROM `cash_saldo` WHERE apteka_id = 2 and date_saldo = CURRENT_DATE - 2 ORDER BY id DESC LIMIT 1
+SELECT `date_cash`,`apteka_id`, `cash_end_k1`, `cash_end_k2`, `cash_end_k3` FROM `cash_day` WHERE apteka_id = 2 ORDER BY date_cash
